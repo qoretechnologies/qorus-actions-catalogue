@@ -12,7 +12,6 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"dbaeumer.vscode-eslint",
-				"Angular.ng-template",
 				"cipchk.cssrem",
 				"huizhou.githd",
 				"GitHub.copilot",
