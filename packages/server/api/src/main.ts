@@ -34,23 +34,6 @@ const main = async (): Promise<void> => {
     const sendDirectAction = slackPiece.actions['send_direct_message']
 
     // await sendDirectAction.run()
-
-
-
-    // setupTimeZone()
-    // await databaseConnection.initialize()
-    // await databaseConnection.runMigrations()
-    // await seedDevData()
-    // const app = await setupApp()
-    // process.on('SIGINT', () => {
-    //     stop(app).catch((e) => logger.error(e, '[Main#stop]'))
-    // })
-
-    // process.on('SIGTERM', () => {
-    //     stop(app).catch((e) => logger.error(e, '[Main#stop]'))
-    // })
-
-    // await start(app)
 }
 
 main().catch((e) => {
