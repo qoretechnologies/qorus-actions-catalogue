@@ -17,10 +17,10 @@ type BaseContext<PieceAuth extends PieceAuthProperty, Props extends InputPropert
   auth: PiecePropValueSchema<PieceAuth>;
   propsValue: StaticPropsValue<Props>;
   store: Store;
-  project: {
-    id: ProjectId;
-    externalId: () => Promise<string | undefined>;
-  };
+  // project: {
+  //   id: ProjectId;
+  //   externalId: () => Promise<string | undefined>;
+  // };
 };
 
 type AppWebhookTriggerHookContext<
@@ -103,11 +103,11 @@ export type BaseActionContext<
   ActionProps extends InputPropertyMap,
 > = BaseContext<PieceAuth, ActionProps> & {
   executionType: ET;
-  connections: ConnectionsManager;
-  tags: TagsManager;
-  server: ServerContext;
-  files: FilesService;
-  serverUrl: string;
+  // connections: ConnectionsManager;
+  // tags: TagsManager;
+  // server: ServerContext;
+  // files: FilesService;
+  // serverUrl: string;
   run: {
     id: FlowRunId;
     stop: StopHook;

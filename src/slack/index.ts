@@ -21,10 +21,10 @@ import { PieceCategory } from '../core/shared/pieces';
 // import { PieceCategory } from '@activepieces/shared';
 
 import { createCustomApiCallAction } from '../core/common/helpers';
-// import { createCustomApiCallAction } from '@activepieces/pieces-common';
+// import { createCustomApiCallAction } from '../../../core/common/http';
 
 import { createPiece, OAuth2PropertyValue, PieceAuth } from '../core/framework';
-// import { OAuth2PropertyValue, PieceAuth, createPiece } from '@activepieces/pieces-framework';
+// import { OAuth2PropertyValue, PieceAuth, createPiece } from '../../../core/framework';
 
 export const slackAuth = PieceAuth.OAuth2({
   description: '',
