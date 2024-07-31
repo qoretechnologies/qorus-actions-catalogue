@@ -27,11 +27,11 @@ export interface ITicketInterface {
     is_public: boolean,
     due_at: null | string,
     tags: string[],
-    custom_fields: [][],
+    custom_fields: any[][],
     satisfaction_rating: null | string,
     sharing_agreement_ids: string[],
     custom_status_id: number,
-    fields: [][],
+    fields: any[][],
     followup_ids: number[],
     ticket_form_id: number,
     brand_id: number,
@@ -46,7 +46,7 @@ export interface IAuditInterface {
     created_at: string,
     author_id: number,
     metadata: Record<string, any>[],
-    events: [][],
+    events: any[][],
     via: Record<string, any>[],
 }
 
