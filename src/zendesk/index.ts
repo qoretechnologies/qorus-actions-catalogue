@@ -3,6 +3,7 @@ import { ZENDESK_AUTH, ZENDESK_DOMAIN } from "./configs";
 
 export const zendeskRequest = async (endpoint: string, method: string, body?: object) => {
     const uri = `https://${ZENDESK_DOMAIN}/api/v2${endpoint}`;
+    // to be updated by Qorus!
     let response;
     switch (method) {
         case 'GET':
