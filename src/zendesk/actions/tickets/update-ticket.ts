@@ -1,8 +1,8 @@
-import { IResponseTicketInterface, IUpdateCreateTicketInterface } from "src/zendesk/models/tickets";
-import { zendeskRequest } from "../..";
+import { IResponseTicketInterface } from "zendesk/models/tickets";
+import { zendeskRequest } from "../../client";
 
 // Defining a function to update a ticket
-export const updateTicket = async (ticketId: number, ticketUpdate: IUpdateCreateTicketInterface) => {
+export const updateTicket = async ({ ticketId, ticketUpdate }) => {
     try {
         const data: IResponseTicketInterface = await zendeskRequest(`/tickets/${ticketId}.json`, 'POST', {
             ticket: ticketUpdate

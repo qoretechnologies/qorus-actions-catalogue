@@ -64,21 +64,26 @@ export interface IAuditInterface {
 }
 
 export interface IResponseTicketInterface {
-    data: {
-        ticket: ITicketInterface,
-        audit: IAuditInterface
-    }
+    ticket: ITicketInterface,
+    audit: IAuditInterface
 }
 
 export interface ITicketsInterface {
-    data: {
-        tickets: ITicketInterface[],
-        next_page: null | number,
-        previous_page: null | number,
-        count: number
+    tickets: ITicketInterface[],
+    next_page: null | number,
+    previous_page: null | number,
+    count: number
+}
+
+export interface ITicketsCountInterface {
+    count: {
+        refreshed_at: string,
+        value: number
     }
 }
 
 export interface IUpdateCreateTicketInterface extends Partial<ITicketInterface> { }
 
 export type ITicketType = 'requested' | 'ccd' | 'followed' | 'assigned' | 'recent'
+
+export type ITicketsVariantType = 'followers' | 'collaborators' | 'email_ccs' | 'incidents'

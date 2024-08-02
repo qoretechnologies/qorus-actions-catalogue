@@ -1,8 +1,8 @@
-import { zendeskRequest } from "../..";
-import { IResponseGroupInterface, IUpdateCreateGroupInterface } from "src/zendesk/models/groups";
+import { zendeskRequest } from "../../client";
+import { IResponseGroupInterface } from "zendesk/models/groups";
 
 // Defining a function to update a group
-export const updateGroup = async (groupId: number, groupUpdate: IUpdateCreateGroupInterface) => {
+export const updateGroup = async ({ groupId, groupUpdate }) => {
     try {
         const data: IResponseGroupInterface = await zendeskRequest(`/groups/${groupId}.json`, 'POST', {
             group: groupUpdate

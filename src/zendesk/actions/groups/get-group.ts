@@ -1,8 +1,8 @@
-import { zendeskRequest } from "../..";
-import { IGroupInterface } from "src/zendesk/models/groups";
+import { zendeskRequest } from "../../client";
+import { IGroupInterface } from "zendesk/models/groups";
 
 // Defining a function to fetch group by id
-export const getGroup = async (groupId: number) => {
+export const getGroup = async ({ groupId }) => {
     try {
         const data: IGroupInterface = await zendeskRequest(`/groups/${groupId}.json`, 'GET');
         return data;

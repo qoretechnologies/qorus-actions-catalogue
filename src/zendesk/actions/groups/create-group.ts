@@ -1,5 +1,5 @@
-import { IResponseGroupInterface, IUpdateCreateGroupInterface } from "src/zendesk/models/groups";
-import { zendeskRequest } from "../..";
+import { IResponseGroupInterface, IUpdateCreateGroupInterface } from "zendesk/models/groups";
+import { zendeskRequest } from "../../client";
 
 // Defining a function to create a group
 export const createGroup = async (groupCreate: IUpdateCreateGroupInterface) => {

@@ -16,18 +16,14 @@ export interface IOrganizationInterface {
 }
 
 export interface IResponseOrganizationInterface {
-    data: {
-        organization: IOrganizationInterface,
-    }
+    organization: IOrganizationInterface,
 }
 
 export interface IOrganizationsInterface {
-    data: {
-        organizations: IOrganizationInterface[],
-        next_page: null | number,
-        previous_page: null | number,
-        count: number
-    }
+    organizations: IOrganizationInterface[],
+    next_page: null | number,
+    previous_page: null | number,
+    count: number
 }
 
 export interface IUpdateCreateOrganizationInterface extends Partial<IOrganizationInterface> { }

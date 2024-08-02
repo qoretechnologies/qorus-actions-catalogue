@@ -1,8 +1,8 @@
-import { IResponseOrganizationInterface, IUpdateCreateOrganizationInterface } from "src/zendesk/models/organizations";
-import { zendeskRequest } from "../..";
+import { IResponseOrganizationInterface } from "zendesk/models/organizations";
+import { zendeskRequest } from "../../client";
 
 // Defining a function to create a Organization
-export const createOrganization = async (organizationCreate: IUpdateCreateOrganizationInterface) => {
+export const createOrganization = async ({ organizationCreate }) => {
     try {
         const data: IResponseOrganizationInterface = await zendeskRequest('/organizations', 'POST', {
             organization: organizationCreate

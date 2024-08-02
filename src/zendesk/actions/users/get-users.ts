@@ -1,5 +1,5 @@
-import { zendeskRequest } from "../..";
-import { IUsersInterface } from "src/zendesk/models/users";
+import { zendeskRequest } from "../../client";
+import { IUsersInterface } from "zendesk/models/users";
 
 // Defining a function to fetch users
 export const getUsers = async () => {

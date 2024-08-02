@@ -1,7 +1,7 @@
-import { zendeskRequest } from "../..";
+import { zendeskRequest } from "../../client";
 
 // Defining a function to delete group
-export const deleteGroup = async (groupId: number) => {
+export const deleteGroup = async ({ groupId }) => {
     try {
         const data = await zendeskRequest(`/groups/${groupId}.json`, 'DELETE');
         return data;

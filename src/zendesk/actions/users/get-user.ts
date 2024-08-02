@@ -1,8 +1,8 @@
-import { zendeskRequest } from "../..";
-import { IUserInterface } from "src/zendesk/models/users";
+import { zendeskRequest } from "../../client";
+import { IUserInterface } from "zendesk/models/users";
 
 // Defining a function to fetch user by id
-export const getUser = async (userId: number) => {
+export const getUser = async ({ userId }) => {
     try {
         const data: IUserInterface = await zendeskRequest(`/users/${userId}.json`, 'GET');
         return data;

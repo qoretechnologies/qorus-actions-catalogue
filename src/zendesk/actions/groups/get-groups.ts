@@ -1,5 +1,5 @@
-import { zendeskRequest } from "../..";
-import { IGroupsInterface } from "src/zendesk/models/groups";
+import { zendeskRequest } from "../../client";
+import { IGroupsInterface } from "zendesk/models/groups";
 
 // Defining a function to fetch groups
 export const getGroups = async () => {

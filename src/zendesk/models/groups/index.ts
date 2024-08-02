@@ -11,18 +11,14 @@ export interface IGroupInterface {
 }
 
 export interface IResponseGroupInterface {
-    data: {
-        group: IGroupInterface,
-    }
+    group: IGroupInterface,
 }
 
 export interface IGroupsInterface {
-    data: {
-        groups: IGroupInterface[],
-        next_page: null | number,
-        previous_page: null | number,
-        count: number
-    }
+    groups: IGroupInterface[],
+    next_page: null | number,
+    previous_page: null | number,
+    count: number
 }
 
 export interface IUpdateCreateGroupInterface extends Partial<IGroupInterface> { }

@@ -41,18 +41,14 @@ export interface IUserInterface {
 }
 
 export interface IResponseUserInterface {
-    data: {
-        user: IUserInterface,
-    }
+    user: IUserInterface,
 }
 
 export interface IUsersInterface {
-    data: {
-        users: IUserInterface[],
-        next_page: null | number,
-        previous_page: null | number,
-        count: number
-    }
+    users: IUserInterface[],
+    next_page: null | number,
+    previous_page: null | number,
+    count: number
 }
 
-export interface IUpdateCreateUserInterface extends Partial<IUserInterface> {}
+export interface IUpdateCreateUserInterface extends Partial<IUserInterface> { }

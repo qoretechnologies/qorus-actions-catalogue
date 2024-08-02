@@ -1,10 +1,15 @@
-import { ITicketType } from "src/zendesk/models/tickets";
-import { zendeskRequest } from "../..";
+import { zendeskRequest } from "../../client";
 
 // Defining a function to fetch user tickets by id
-export const getUserTickets = async (userId: number, type?: ITicketType) => {
+export const getUserTickets = async ({
+    userId,
+    type,
+    count,
+    showManyIds,
+}) => {
     try {
-        const data = await zendeskRequest(`/users/${userId}/tickets${type ? `/${type}` : ''}.json`, 'GET');
+        const uriEnd = showManyIds ? `/show_many?ids=${showManyIds}` : `${type ? `/${type}` : ''}${count ? '/count' : ''}`;
+        const data = await zendeskRequest(`/users/${userId}/tickets${uriEnd}.json`, 'GET');
         return data;
     } catch (error) {
         console.error('Error fetching user tickets:', error);
