@@ -1,4 +1,4 @@
-import { IPrepareAllQore, IQoreAppAction } from "global/models/qore"
+import { IPrepareAllQore, IQoreAppActionWithFunction } from "global/models/qore";
 
 export const getConvertedAcionsForQorus = (actions: IPrepareAllQore) => {
     const allActions = actions.actions || {};
@@ -13,7 +13,7 @@ export const getConvertedAcionsForQorus = (actions: IPrepareAllQore) => {
                 lowerThirdItem = splittedItem[2]?.toLowerCase() || '',
                 fn = allActions[item][it];
 
-            const prepareObj: IQoreAppAction = {
+            const prepareObj: IQoreAppActionWithFunction = {
                 display_name: `${upperFirstItem} a ${lowerSecondItem}${lowerThirdItem ? ` ${lowerThirdItem}` : ''}`,
                 name: `${splittedItem[0]}_${lowerSecondItem}${lowerThirdItem ? `_${lowerThirdItem}` : ''}`,
                 short_desc: `${upperFirstItem} a ${lowerSecondItem}${lowerThirdItem ? ` ${lowerThirdItem}` : ''} in ${upperItem}`,
