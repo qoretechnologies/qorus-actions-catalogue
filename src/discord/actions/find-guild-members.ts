@@ -19,7 +19,7 @@ export const discordFindGuildMembers = async (
     });
 
     return {
-      members: response.data.map((member) => ({ id: member.user.id, username: member.user.username })),
+      members: response.data.map((member: Partial<Member> & Record<string, any>) => ({ id: member.user.id, username: member.user.username })),
       success: response.status === 200,
     };
   } catch (error) {
