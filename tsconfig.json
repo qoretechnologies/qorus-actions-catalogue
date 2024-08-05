@@ -16,7 +16,10 @@
 		"incremental": true,
 		"skipLibCheck": true,
 		"strictNullChecks": false,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": false,
 		"strictBindCallApply": false,
 		"forceConsistentCasingInFileNames": false,
 		"noFallthroughCasesInSwitch": false

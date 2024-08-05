@@ -1,6 +1,6 @@
 {
-  "name": "qore-pieces",
-  "version": "1.0.0",
+  "name": "qoru-action-catalogue",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "scripts": {
