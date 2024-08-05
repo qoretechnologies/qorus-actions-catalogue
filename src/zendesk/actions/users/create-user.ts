@@ -1,8 +1,12 @@
-import { IResponseUserInterface } from "zendesk/models/users";
+import { IResponseUserInterface, IUpdateCreateUserInterface } from "zendesk/models/users";
 import { zendeskRequest } from "../../client";
 
+interface ICreateUser {
+    userCreate: IUpdateCreateUserInterface
+}
+
 // Defining a function to create a user
-export const createUser = async ({ userCreate }) => {
+export const createUser = async ({ userCreate }: ICreateUser) => {
     try {
         const data: IResponseUserInterface = await zendeskRequest('/users', 'POST', {
             user: userCreate
