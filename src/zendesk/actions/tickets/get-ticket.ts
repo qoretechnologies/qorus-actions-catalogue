@@ -1,5 +1,6 @@
 import { ITicketInterface, ITicketsVariantType } from "zendesk/models/tickets";
 import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction } from "global/models/qore";
 
 interface IGetTicket {
     ticketId: number,
@@ -16,3 +17,12 @@ export const getTicket = async ({ ticketId, variant }: IGetTicket) => {
         throw error;
     }
 };
+
+export default {
+  app_function: getTicket,
+  response_type: {
+    created_at: "*string",
+    id: "*number",
+    name: "*string"
+  },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

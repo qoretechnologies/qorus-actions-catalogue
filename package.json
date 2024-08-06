@@ -55,6 +55,8 @@
   },
   "dependencies": {
     "@qoretechnologies/ts-toolkit": "^0.4.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "axios": "^1.7.2",
+    "i18n": "^0.15.1"
   }
 }

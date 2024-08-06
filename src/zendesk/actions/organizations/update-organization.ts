@@ -1,5 +1,6 @@
 import { IResponseOrganizationInterface, IUpdateCreateOrganizationInterface } from "zendesk/models/organizations";
 import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction } from "global/models/qore";
 
 interface IUpdateOrganization {
     organizationId: number,
@@ -18,3 +19,12 @@ export const updateOrganization = async ({ organizationId, organizationUpdate }:
         throw error;
     }
 };
+
+export default {
+    app_function: updateOrganization,
+    response_type: {
+        created_at: "*string",
+        id: "*number",
+        name: "*string"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

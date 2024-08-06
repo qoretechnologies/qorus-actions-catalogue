@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction, IQoreTypeObject } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 import { IGroupsInterface } from "zendesk/models/groups";
 
@@ -11,3 +12,20 @@ export const getGroups = async () => {
         throw error;
     }
 };
+
+
+
+
+
+export default {
+    app_function: getGroups,
+    response_type: {
+        groups: {
+            name: 'groups',
+            type: '*list',
+        } as IQoreTypeObject,
+        next_page: "*number",
+        previous_page: "*number",
+        count: "*number"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 import { IUserInterface } from "zendesk/models/users";
 
@@ -15,3 +16,13 @@ export const getUser = async ({ userId }: IGetUser) => {
         throw error;
     }
 };
+
+export default {
+    app_function: getUser,
+    response_type: {
+      created_at: "*string",
+      id: "*number",
+      name: "*string"
+    },
+  } as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>
+  

@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 import { IResponseGroupInterface, IUpdateCreateGroupInterface } from "zendesk/models/groups";
 
@@ -18,3 +19,13 @@ export const updateGroup = async ({ groupId, groupUpdate }: IGetGroupUsers) => {
         throw error;
     }
 };
+
+
+export default {
+    app_function: updateGroup,
+    response_type: {
+        created_at: "*string",
+        id: "*number",
+        name: "*string"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

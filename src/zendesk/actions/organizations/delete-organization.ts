@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 
 interface IDeleteOrganization {
@@ -14,3 +15,9 @@ export const deleteOrganization = async ({ organizationId }: IDeleteOrganization
         throw error;
     }
 };
+
+
+export default {
+    app_function: deleteOrganization,
+    response_type: null
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 
 interface IDeleteUser {
@@ -14,3 +15,8 @@ export const deleteUser = async ({ userId }: IDeleteUser) => {
         throw error;
     }
 };
+
+export default {
+    app_function: deleteUser,
+    response_type: null
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

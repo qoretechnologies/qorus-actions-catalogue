@@ -1,5 +1,6 @@
 import { ITicketsCountInterface } from "zendesk/models/tickets";
 import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction } from "global/models/qore";
 
 // Defining a function to fetch tickets
 export const getTicketsCount = async () => {
@@ -11,3 +12,11 @@ export const getTicketsCount = async () => {
         throw error;
     }
 };
+
+
+export default {
+    app_function: getTicketsCount,
+    response_type: {
+        count: "*number"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

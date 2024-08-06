@@ -1,5 +1,6 @@
 import { ITicketsInterface, ITicketType } from "zendesk/models/tickets";
 import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction, IQoreTypeObject } from "global/models/qore";
 
 interface IGetTickets {
     variant?: ITicketType,
@@ -15,4 +16,18 @@ export const getTickets = async ({ variant, onlyDeleted }: IGetTickets) => {
         console.error('Error fetching tickets:', error);
         throw error;
     }
-};
+}
+
+
+export default {
+    app_function: getTickets,
+    response_type: {
+        tickets: {
+            name: "tickets",
+            type: '*list',
+        } as IQoreTypeObject,
+        next_page: "*number",
+        previous_page: "*number",
+        count: "*number"
+    },
+  } as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 
 interface IDeleteAttachment {
@@ -14,3 +15,8 @@ export const deleteAttachment = async ({ token }: IDeleteAttachment) => {
         throw error;
     }
 };
+
+export default {
+    app_function: deleteAttachment,
+    response_type: null,
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

@@ -88,7 +88,7 @@ interface IQoreAllowedValue {
   desc: string; // a description of the value (if unknown just use the value again)
 }
 
-interface IQoreTypeObject extends IQoreAppShared {
+export interface IQoreTypeObject extends IQoreAppShared {
   name: string; // the technical name of the field
   type: IQoreType | IQoreTypeObject; // either a string or a data object again
   example_value?: any; // (values must use the field's type) any example value to use when generating example data etc
@@ -119,5 +119,5 @@ export interface IQoreAppActionWithFunction extends IQoreAppAction {
 }
 
 export interface IPrepareAllQore {
-    actions: Record<string, Record<string, IQoreAppActionWithFunction>>
+  actions: Record<string, Record<string, IQoreAppActionWithFunction>>
 }

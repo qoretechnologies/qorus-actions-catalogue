@@ -1,5 +1,6 @@
 import { IResponseUserInterface, IUpdateCreateUserInterface } from "zendesk/models/users";
 import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction } from "global/models/qore";
 
 interface ICreateUser {
     userCreate: IUpdateCreateUserInterface
@@ -17,3 +18,12 @@ export const createUser = async ({ userCreate }: ICreateUser) => {
         throw error;
     }
 };
+
+export default {
+    app_function: createUser,
+    response_type: {
+      created_at: "*string",
+      id: "*number",
+      name: "*string"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

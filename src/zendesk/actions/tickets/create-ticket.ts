@@ -1,5 +1,6 @@
 import { IResponseTicketInterface, IUpdateCreateTicketInterface } from "zendesk/models/tickets";
 import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction } from "global/models/qore";
 
 interface ICreateTicket {
     ticketCreate: IUpdateCreateTicketInterface,
@@ -17,3 +18,13 @@ export const createTicket = async ({ ticketCreate }: ICreateTicket) => {
         throw error;
     }
 };
+
+
+export default {
+    app_function: createTicket,
+    response_type: {
+      created_at: "*string",
+      id: "*number",
+      name: "*string"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>

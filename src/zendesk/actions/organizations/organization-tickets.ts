@@ -1,3 +1,4 @@
+import { IQoreAppActionWithFunction, IQoreTypeObject } from "global/models/qore";
 import { zendeskRequest } from "../../client";
 
 interface IGetOrganizationTickets {
@@ -15,3 +16,16 @@ export const getOrganizationTickets = async ({ organizationId, count }: IGetOrga
         throw error;
     }
 };
+
+export default {
+    app_function: getOrganizationTickets,
+    response_type: {
+        tickets: {
+            name: 'tickets',
+            type: '*list',
+        } as IQoreTypeObject,
+        next_page: "*number",
+        previous_page: "*number",
+        count: "*number"
+    },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>
