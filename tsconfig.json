@@ -22,6 +22,7 @@
     "noImplicitReturns": false,
 		"strictBindCallApply": false,
 		"forceConsistentCasingInFileNames": false,
+    "jsx": "react-jsx",
 		"noFallthroughCasesInSwitch": false
 	}
 }
