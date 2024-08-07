@@ -1,3 +1,5 @@
+import { Locales } from 'i18n/i18n-types';
+
 export interface IQoreAppShared {
   display_name: string;
   short_desc: string;
@@ -5,14 +7,16 @@ export interface IQoreAppShared {
 }
 export interface IQoreApp extends IQoreAppShared {
   name: string;
-  logo: string;
-  logo_file_name: string;
-  logo_mime_type: string;
+  logo?: string;
+  logo_file_name?: string;
+  logo_mime_type?: string;
 }
 
-export interface IQoreAppWithActions extends IQoreApp {
-  actions: IQoreAppAction[];
+export interface IQoreAppWithActions<T = IQoreAppActionWithFunction> extends IQoreApp {
+  actions: T[];
 }
+
+export type TQoreApps = Record<string, IQoreAppWithActions>;
 
 export interface IQoreAppAction extends IQoreAppShared {
   app: string;
@@ -118,6 +122,11 @@ export interface IQoreAppActionWithFunction extends IQoreAppAction {
   response_type: Record<string, IQoreType | IQoreTypeObject>;
 }
 
-export interface IPrepareAllQore {
-  actions: Record<string, Record<string, IQoreAppActionWithFunction>>
+export type TQorePartialActionWithFunction = Pick<
+  IQoreAppActionWithFunction,
+  'app_function' | 'response_type' | 'options' | 'action'
+>;
+
+export interface IActionInitializationProps {
+  locale: Locales;
 }

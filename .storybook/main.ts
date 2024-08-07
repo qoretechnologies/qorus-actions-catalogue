@@ -1,4 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { readdir } from 'fs/promises';
+import { resolve } from 'path';
+import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -12,6 +15,22 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+  async viteFinal(config, { configType }) {
+    const sourceRoot = resolve(__dirname, '../src');
+    const dirs = (
+      await readdir(resolve(sourceRoot), {
+        withFileTypes: true,
+      })
+    ).filter((dirent) => dirent.isDirectory());
+    const sourceRootAliases = dirs.reduce((acc, dir) => {
+      const dirPath = resolve(sourceRoot, dir.name);
+      return { ...acc, [dir.name]: dirPath };
+    }, {});
+    return mergeConfig(config, {
+      define: { 'process.env': {} },
+      resolve: { alias: { ...config.resolve.alias, ...sourceRootAliases } },
+    });
   },
 };
 export default config;

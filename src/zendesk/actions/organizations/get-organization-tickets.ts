@@ -1,28 +1,27 @@
 import { IQoreAppActionWithFunction, IQoreTypeObject } from 'global/models/qore';
-import { ITicketsInterface, ITicketType } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
 
-interface IGetTickets {
-  variant?: ITicketType;
-  onlyDeleted?: boolean;
+interface IGetOrganizationTickets {
+  organizationId: number;
+  count?: boolean;
 }
 
-// Defining a function to fetch tickets
-const getTickets = async ({ variant, onlyDeleted }: IGetTickets) => {
+// Defining a function to fetch organization tickets by id
+const getOrganizationTickets = async ({ organizationId, count }: IGetOrganizationTickets) => {
   try {
-    const data: ITicketsInterface = await zendeskRequest(
-      `/tickets${onlyDeleted ? '/deleted_tickets' : variant ? `/${variant}` : ''}.json`,
+    const data = await zendeskRequest(
+      `/organizations/${organizationId}/tickets${count ? '/count' : ''}.json`,
       'GET'
     );
     return data;
   } catch (error) {
-    console.error('Error fetching tickets:', error);
+    console.error('Error fetching organization tickets:', error);
     throw error;
   }
 };
 
 export default {
-  app_function: getTickets,
+  app_function: getOrganizationTickets,
   response_type: {
     tickets: {
       name: 'tickets',

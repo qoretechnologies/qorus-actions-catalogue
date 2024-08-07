@@ -1,6 +1,6 @@
-export * from './create-ticket'
-export * from './delete-ticket'
-export * from './get-ticket'
-export * from './get-tickets'
-export * from './get-tickets-count'
-export * from './update-ticket'
+export { default as createTicket } from './create-ticket';
+export { default as deleteTicket } from './delete-ticket';
+export { default as getTicket } from './get-ticket';
+export { default as getTickets } from './get-tickets';
+export { default as getTicketsCount } from './get-tickets-count';
+export { default as updateTicket } from './update-ticket';

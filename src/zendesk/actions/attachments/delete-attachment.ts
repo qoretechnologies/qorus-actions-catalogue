@@ -1,22 +1,22 @@
-import { IQoreAppActionWithFunction } from "global/models/qore";
-import { zendeskRequest } from "../../client";
+import { IQoreAppActionWithFunction } from 'global/models/qore';
+import { zendeskRequest } from '../../client';
 
 interface IDeleteAttachment {
-    token: string
+  token: string;
 }
 
 // Defining a function to delete attachment
-export const deleteAttachment = async ({ token }: IDeleteAttachment) => {
-    try {
-        const data = await zendeskRequest(`/uploads/${token}`, 'DELETE');
-        return data;
-    } catch (error) {
-        console.error('Error delete attachment:', error);
-        throw error;
-    }
+const deleteAttachment = async ({ token }: IDeleteAttachment) => {
+  try {
+    const data = await zendeskRequest(`/uploads/${token}`, 'DELETE');
+    return data;
+  } catch (error) {
+    console.error('Error delete attachment:', error);
+    throw error;
+  }
 };
 
 export default {
-    app_function: deleteAttachment,
-    response_type: null,
-} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>
+  app_function: deleteAttachment,
+  response_type: null,
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;

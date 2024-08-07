@@ -1,47 +1,28 @@
-import {
-  IPrepareAllQore,
-  IQoreAppActionOption,
-  IQoreAppActionWithFunction,
-  TQoreAppActionFunction,
-} from 'global/models/qore';
+import { IQoreAppActionWithFunction, TQorePartialActionWithFunction } from 'global/models/qore';
+import L from 'i18n/i18n-node';
+import { Locales, Translation } from 'i18n/i18n-types';
 
-export const getConvertedAcionsForQorus = (
-  actions: IPrepareAllQore
-): Record<string, TQoreAppActionFunction[]> => {
-  const allActions = actions.actions || {};
-  return Object.keys(allActions).reduce(
-    (acc: Record<string, TQoreAppActionFunction[]>, item: string) => {
-      acc[item] = [];
-      Object.keys(allActions[item]).map((it) => {
-        // variables to use in prepare object
-        const splittedItem = it.replace(/([a-z])([A-Z])/g, '$1 $2').split(' '),
-          upperItem = item.charAt(0).toUpperCase() + item.slice(1),
-          upperFirstItem = splittedItem[0].charAt(0).toUpperCase() + splittedItem[0].slice(1),
-          lowerSecondItem = splittedItem[1].toLowerCase(),
-          lowerThirdItem = splittedItem[2]?.toLowerCase() || '',
-          fnItem = allActions[item][it],
-          fn = (obj: Record<string, IQoreAppActionOption>) => fnItem.app_function(obj);
-
-        const prepareObj: TQoreAppActionFunction = (
-          obj: Record<string, IQoreAppActionOption>
-        ): IQoreAppActionWithFunction => {
-          return {
-            display_name: `${upperFirstItem} a ${lowerSecondItem}${lowerThirdItem ? ` ${lowerThirdItem}` : ''}`,
-            short_desc: `${upperFirstItem} a ${lowerSecondItem}${lowerThirdItem ? ` ${lowerThirdItem}` : ''} in ${upperItem}`,
-            desc: `This action ${splittedItem[0]}s a ${lowerSecondItem}${lowerThirdItem ? ` ${lowerThirdItem}` : ''} in ${upperItem}`,
-            app: item,
-            action: `${splittedItem[0]}_${lowerSecondItem}${lowerThirdItem ? `_${lowerThirdItem}` : ''}`,
-            action_code: 2,
-            app_function: () => fn(obj),
-            options: obj,
-            response_type: fnItem.response_type,
-          };
-        };
-
-        return acc[item].push(prepareObj);
-      });
-      return acc;
-    },
-    {}
-  ) as Record<string, TQoreAppActionFunction[]>;
+/*
+ * This function maps the actions to the app and adds missing metadata using translations
+ * @param app - the name of the app
+ * @param actions - the actions to map
+ * @param locale - the locale
+ * @returns IQoreAppActionWithFunction[]
+ */
+export const mapActionsToApp = (
+  app: keyof Translation['apps'],
+  actions: Record<string, TQorePartialActionWithFunction>,
+  locale: Locales
+): IQoreAppActionWithFunction[] => {
+  return Object.entries(actions).map(([actionName, action]) => ({
+    ...action,
+    // @ts-expect-error no idea whats going on here, will fix later
+    display_name: L[locale].apps[app].actions[actionName as unknown].displayName(),
+    // @ts-expect-error no idea whats going on here, will fix later
+    short_desc: L[locale].apps[app].actions[actionName as unknown].shortDesc(),
+    // @ts-expect-error no idea whats going on here, will fix later
+    long_desc: L[locale].apps[app].actions[actionName as unknown].longDesc(),
+    app,
+    action_code: 2,
+  }));
 };

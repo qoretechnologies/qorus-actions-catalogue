@@ -1,28 +1,28 @@
-import { IResponseGroupInterface, IUpdateCreateGroupInterface } from "zendesk/models/groups";
-import { zendeskRequest } from "../../client";
-import { IQoreAppActionWithFunction } from "global/models/qore";
+import { IQoreAppActionWithFunction } from 'global/models/qore';
+import { IResponseGroupInterface, IUpdateCreateGroupInterface } from 'zendesk/models/groups';
+import { zendeskRequest } from '../../client';
 
 interface ICreateGroup {
-    groupCreate: IUpdateCreateGroupInterface
+  groupCreate: IUpdateCreateGroupInterface;
 }
 
 // Defining a function to create a group
-export const createGroup = async ({ groupCreate }: ICreateGroup) => {
-    try {
-        const data: IResponseGroupInterface = await zendeskRequest('/groups', 'POST', {
-            group: groupCreate
-        });
-        return data;
-    } catch (error) {
-        console.error('Error creating group:', error);
-        throw error;
-    }
+const createGroup = async ({ groupCreate }: ICreateGroup) => {
+  try {
+    const data: IResponseGroupInterface = await zendeskRequest('/groups', 'POST', {
+      group: groupCreate,
+    });
+    return data;
+  } catch (error) {
+    console.error('Error creating group:', error);
+    throw error;
+  }
 };
 export default {
-    app_function: createGroup,
-    response_type: {
-      created_at: "*string",
-      id: "*number",
-      name: "*string"
-    },
-} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>
+  app_function: createGroup,
+  response_type: {
+    created_at: '*string',
+    id: '*number',
+    name: '*string',
+  },
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;

@@ -1,20 +1,23 @@
 import { IQoreAppActionWithFunction, IQoreTypeObject } from 'global/models/qore';
-import { IOrganizationInterface } from 'zendesk/models/organizations';
 import { zendeskRequest } from '../../client';
 
-// Defining a function to fetch organization
-const getOrganizations = async () => {
+interface IGetUserOrganizations {
+  userId: number;
+}
+
+// Defining a function to fetch user organizations by id
+const getUserOrganizations = async ({ userId }: IGetUserOrganizations) => {
   try {
-    const data: IOrganizationInterface = await zendeskRequest(`/organizations.json`, 'GET');
+    const data = await zendeskRequest(`/users/${userId}/organizations.json`, 'GET');
     return data;
   } catch (error) {
-    console.error('Error fetching organization:', error);
+    console.error('Error fetching user organizations:', error);
     throw error;
   }
 };
 
 export default {
-  app_function: getOrganizations,
+  app_function: getUserOrganizations,
   response_type: {
     organizations: {
       name: 'organizations',

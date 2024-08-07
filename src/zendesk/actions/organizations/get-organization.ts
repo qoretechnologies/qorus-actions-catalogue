@@ -1,15 +1,18 @@
-import { IOrganizationInterface } from "zendesk/models/organizations";
-import { zendeskRequest } from "../../client";
-import { IQoreAppActionWithFunction } from "global/models/qore";
+import { IQoreAppActionWithFunction } from 'global/models/qore';
+import { IOrganizationInterface } from 'zendesk/models/organizations';
+import { zendeskRequest } from '../../client';
 
 interface IDeleteOrganization {
-  organizationId: number
+  organizationId: number;
 }
 
 // Defining a function to fetch organization by id
-export const getOrganization = async ({ organizationId }: IDeleteOrganization) => {
+const getOrganization = async ({ organizationId }: IDeleteOrganization) => {
   try {
-    const data: IOrganizationInterface = await zendeskRequest(`/organizations/${organizationId}.json`, 'GET');
+    const data: IOrganizationInterface = await zendeskRequest(
+      `/organizations/${organizationId}.json`,
+      'GET'
+    );
     return data;
   } catch (error) {
     console.error('Error fetching organization:', error);
@@ -20,8 +23,8 @@ export const getOrganization = async ({ organizationId }: IDeleteOrganization) =
 export default {
   app_function: getOrganization,
   response_type: {
-    created_at: "*string",
-    id: "*number",
-    name: "*string"
+    created_at: '*string',
+    id: '*number',
+    name: '*string',
   },
-} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>
+} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;

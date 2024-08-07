@@ -1,3 +1,2 @@
-
-export * from './delete-attachment'
-export * from './get-attachments'
+export { default as deleteAttachment } from './delete-attachment';
+export { default as getAttachments } from './get-attachments';
