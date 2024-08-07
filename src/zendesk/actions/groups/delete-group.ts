@@ -1,4 +1,4 @@
-import { IQoreAppActionWithFunction } from 'global/models/qore';
+import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 
 interface IDeleteGroup {
@@ -17,6 +17,8 @@ const deleteGroup = async ({ groupId }: IDeleteGroup) => {
 };
 
 export default {
+  action: 'delete_group',
   app_function: deleteGroup,
+  options: null,
   response_type: null,
-} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;
+} satisfies TQorePartialActionWithFunction;

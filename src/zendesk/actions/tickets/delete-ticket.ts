@@ -1,4 +1,4 @@
-import { IQoreAppActionWithFunction } from 'global/models/qore';
+import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 
 interface IDeleteTicket {
@@ -17,6 +17,8 @@ const deleteTicket = async ({ ticketId }: IDeleteTicket) => {
 };
 
 export default {
+  action: 'delete_ticket',
   app_function: deleteTicket,
+  options: null,
   response_type: null,
-} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;
+} satisfies TQorePartialActionWithFunction;

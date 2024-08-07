@@ -1,11 +1,26 @@
 import { QorusRequest } from '@qoretechnologies/ts-toolkit';
 import { ZENDESK_AUTH, ZENDESK_DOMAIN } from './configs';
 
+export const getAccessToken = async () => {
+  // const uri = '/oauth/tokens';
+
+  // try {
+  //   const response = QorusRequest.post({
+  //     path: uri,
+  //     headers: {
+  //       grant_type: 'authorization_code',
+  //       code: 
+  //     }
+
+  //   })
+  // } catch (error) {
+    
+  // }
+}
+
 export const zendeskRequest = async (endpoint: string, method: string, body?: object) => {
   const uri = `/api/v2${endpoint}`;
   let response: Record<string, any> | undefined;
-
-  console.log(ZENDESK_DOMAIN);
 
   try {
     switch (method) {

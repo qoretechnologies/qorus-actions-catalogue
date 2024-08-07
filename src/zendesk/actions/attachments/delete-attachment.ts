@@ -1,5 +1,6 @@
 import { IQoreAppActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
+import { ZendeskOptions } from '../options';
 
 interface IDeleteAttachment {
   token: string;
@@ -18,5 +19,6 @@ const deleteAttachment = async ({ token }: IDeleteAttachment) => {
 
 export default {
   app_function: deleteAttachment,
+  options: ZendeskOptions.attachments.token,
   response_type: null,
 } as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;

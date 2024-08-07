@@ -22,7 +22,7 @@ export default {
   action: 'get_user',
   app_function: getUser,
   options: {
-    userId: ZendeskOptions.userId,
+    userId: ZendeskOptions.users.userId,
   },
   response_type: {
     created_at: {

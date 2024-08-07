@@ -1,9 +1,10 @@
-import { IQoreAppActionWithFunction } from 'global/models/qore';
 import {
   IResponseOrganizationInterface,
   IUpdateCreateOrganizationInterface,
 } from 'zendesk/models/organizations';
 import { zendeskRequest } from '../../client';
+import { ZendeskOptions } from '../options';
+import { TQorePartialActionWithFunction } from 'global/models/qore';
 
 interface IUpdateOrganization {
   organizationId: number;
@@ -28,10 +29,36 @@ const updateOrganization = async ({ organizationId, organizationUpdate }: IUpdat
 };
 
 export default {
+  action: 'update_organization',
   app_function: updateOrganization,
-  response_type: {
-    created_at: '*string',
-    id: '*number',
-    name: '*string',
+  options: {
+    organizationId: ZendeskOptions.organization.organizationId,
+    organizationCreate: ZendeskOptions.organization.organizationCreateUpdate,
   },
-} as Pick<IQoreAppActionWithFunction, 'app_function' | 'response_type'>;
+  response_type: {
+    created_at: {
+      display_name: 'Created At',
+      short_desc: 'The date and time the organization was created',
+      desc: 'The date and time the organization was created',
+      name: 'created_at',
+      example_value: '2021-08-25T09:00:00Z',
+      type: '*date',
+    },
+    id: {
+      type: '*number',
+      name: 'id',
+      display_name: 'organization ID',
+      short_desc: 'The unique identifier for the organization',
+      desc: 'The unique identifier for the organization',
+      example_value: 123,
+    },
+    name: {
+      type: '*string',
+      name: 'name',
+      display_name: 'Name',
+      short_desc: 'The organization’s name',
+      desc: 'The organization’s name',
+      example_value: 'Organization #1',
+    },
+  },
+} satisfies TQorePartialActionWithFunction;
