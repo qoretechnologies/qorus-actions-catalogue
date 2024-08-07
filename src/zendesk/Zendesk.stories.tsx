@@ -9,7 +9,11 @@ const meta = {
   component: () => <></>,
   title: 'Apps/Zendesk',
   render: () => {
-    console.log(process, QorusAppsCatalogue.apps);
+    const action = QorusAppsCatalogue.apps['zendesk'].actions.find(
+      (action) => action.action === 'get_user'
+    );
+
+    action?.app_function({ userId: 1 });
 
     return <ReqorePanel title='Zendesk'>Test</ReqorePanel>;
   },

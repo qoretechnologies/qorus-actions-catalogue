@@ -28,7 +28,13 @@ const config: StorybookConfig = {
       return { ...acc, [dir.name]: dirPath };
     }, {});
     return mergeConfig(config, {
-      define: { 'process.env': {} },
+      define: {
+        'process.env': {
+          ZENDESK_DOMAIN: 'https://qorehelp.zendesk.com',
+          ZENDESK_EMAIL: 'mkrtchyanastghik86@gmail.com',
+          ZENDESK_API_TOKEN: 'YYQxVbSJ4hc9rIgMjlt1Bil7NtnL1siLx4AaxFdR',
+        },
+      },
       resolve: { alias: { ...config.resolve.alias, ...sourceRootAliases } },
     });
   },
