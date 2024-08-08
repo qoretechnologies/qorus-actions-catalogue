@@ -26,3 +26,19 @@ export const mapActionsToApp = (
     action_code: 2,
   }));
 };
+
+/*
+ * This function normalizes the given app name by
+ * converting it to lowercase,
+ * replacing spaces with underscores,
+ * and removing any non-alphanumeric characters.
+ *
+ * @param appName - The app name to be normalized.
+ * @returns The normalized app name.
+ */
+export const normalizeAppName = (appName: string): string => {
+  return appName
+    .toLowerCase()
+    .replace(/\s+/g, '_')
+    .replace(/[^a-z0-9_]/g, '');
+};
