@@ -3,6 +3,7 @@ import {
   ActionRunner,
   InputPropertyMap,
   Piece,
+  PropertyType,
   StaticPropsValue,
 } from 'core/framework';
 import { InputProperty } from 'core/framework/property/input';
@@ -11,13 +12,15 @@ import {
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
   IQoreAppWithActions,
+  IQoreType,
+  IQoreTypeObject,
   TQoreAppActionFunction,
   TQoreAppActionFunctionOptions,
   TQoreApps,
 } from 'global/models/qore';
 import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './common/constants';
-import * as pieces from './index';
 import { TMapPieceActionToAppActionOptions } from './common/models/pieces-catalogue';
+import * as pieces from './index';
 pieces satisfies Record<string, Piece>;
 
 class _PiecesAppCatalogue {
@@ -87,22 +90,43 @@ class _PiecesAppCatalogue {
     for (const key in props) {
       if (props.hasOwnProperty(key)) {
         const value = props[key];
-        options[key] = this.mapActionPropToAppActionOption(value);
+        options[key] = this.mapActionPropToAppActionOption(key, value);
       }
     }
 
     return options;
   }
 
-  private mapActionPropToAppActionOption(prop: InputProperty): IQoreAppActionOption {
+  private mapActionPropToAppActionOption(key: string, prop: InputProperty): IQoreAppActionOption {
     return {
       display_name: prop.displayName,
       short_desc: prop.description,
       desc: prop.description,
-      type: piecePropTypeToQoreOptionTypeIndex[prop.type],
+      type: this.mapActionTypeToQoreType(prop, key, prop.type),
       required: prop.required,
       default_value: prop.defaultValue,
     };
+  }
+
+  private mapActionTypeToQoreType(
+    prop: InputProperty,
+    propName: string,
+    type: PropertyType
+  ): IQoreTypeObject | IQoreType {
+    if ('options' in prop && 'options' in prop.options) {
+      return {
+        display_name: prop.displayName,
+        short_desc: prop.description,
+        name: propName,
+        type: piecePropTypeToQoreOptionTypeIndex[type],
+        allowed_values: prop.options.options.map((option) => ({
+          value: option.value,
+          desc: option.label,
+        })),
+      };
+    } else {
+      return piecePropTypeToQoreOptionTypeIndex[type];
+    }
   }
 }
 

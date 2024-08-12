@@ -11,9 +11,10 @@ describe('PiecesAppCatalogue', () => {
   });
 
   it('should register apps', () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
-    expect(slackApp).toBeDefined();
-    expect(slackApp.actions.length).toBeGreaterThan(0);
+    Object.entries(PiecesAppCatalogue.apps).forEach(([_key, value]) => {
+      expect(value).toBeDefined();
+      expect(value.actions.length).toBeGreaterThan(0);
+    });
   });
 
   it('should send a Slack message and receive a positive response', async () => {
