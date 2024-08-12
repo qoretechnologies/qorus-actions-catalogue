@@ -36,9 +36,10 @@ export const mapActionsToApp = (
  * @param appName - The app name to be normalized.
  * @returns The normalized app name.
  */
-export const normalizeAppName = (appName: string): string => {
+export const normalizeName = (appName: string): string => {
   return appName
+    .replace(/([a-z])([A-Z])/g, '$1_$2')
     .toLowerCase()
-    .replace(/\s+/g, '_')
+    .replace(/[-\s]+/g, '_')
     .replace(/[^a-z0-9_]/g, '');
 };

@@ -24,7 +24,17 @@ export interface IQoreAppAction extends IQoreAppShared {
   action_code: 1 | 2; // What are other possible values?
 }
 
-export type TQoreAppActionFunction = (obj?: string | Record<string, any>) => any;
+export type TQoreAppActionFunctionAuth = {
+  access_token: string;
+  data?: Record<string, any>;
+};
+
+export type TQoreAppActionFunctionOptions = {
+  auth: TQoreAppActionFunctionAuth;
+  props?: Record<string, any>;
+};
+
+export type TQoreAppActionFunction = (obj: TQoreAppActionFunctionOptions) => any;
 
 export type IQoreType =
   | 'int'
