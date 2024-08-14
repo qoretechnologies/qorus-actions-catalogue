@@ -1,4 +1,5 @@
 import { Locales } from 'i18n/i18n-types';
+import { StrictRecord } from './utils';
 
 export interface IQoreAppShared {
   display_name: string;
@@ -114,8 +115,8 @@ export interface IQoreApp extends IQoreAppShared {
   rest?: TQoreRestConnectionConfig;
 }
 
-export interface IQoreAppWithActions<T = IQoreAppActionWithFunction> extends IQoreApp {
-  actions: T[];
+export interface IQoreAppWithActions extends IQoreApp {
+  actions: IQoreAppActionWithFunction[];
 }
 
 export type TQoreApps = Record<string, IQoreAppWithActions>;
@@ -137,13 +138,13 @@ export type TQoreAppActionFunction = (
   auth?: TQoreAppActionFunctionAuth
 ) => any;
 
-export type TQoreGetAllowedValuesFunction = (
+export type TQoreGetAllowedValuesFunction<T extends TQoreType> = (
   obj?: string | Record<string, any>,
   options?: Record<string, any>,
   auth?: TQoreAppActionFunctionAuth
-) => IQoreAllowedValue[];
+) => IQoreAllowedValue<T>[];
 
-export type IQoreType =
+export type TQoreSimpleType =
   | 'int'
   | 'integer'
   | 'string'
@@ -202,43 +203,49 @@ export type IQoreType =
   | 'softubyte'
   | '*softubyte';
 
-export interface IQoreAllowedValue extends IQoreAppShared {
-  value: any; // (must be present and must use the field's type); one of the allowed values
-}
+  export type TQoreType = TQoreSimpleType | Record<string, IQoreTypeObject>;
+  export type TQoreStringCompatibleType = 'string' | 'softstring' | '*string' | 'binary';
+  export type GetTypeFromQoreType<T> = T extends TQoreStringCompatibleType ? string : T;
 
-export interface IQoreTypeObject extends IQoreAppShared {
+  export interface IQoreAllowedValue<T extends TQoreType> extends IQoreAppShared {
+    value: GetTypeFromQoreType<T>;
+  }
+
+export interface IQoreTypeObject<T extends TQoreType = TQoreType> extends IQoreAppShared {
   name: string; // the technical name of the field
-  type: IQoreType | Record<string, IQoreTypeObject>; // either a string or a data object again
+  type: T; // either a string or a data object again
   example_value?: any; // (values must use the field's type) any example value to use when generating example data etc
   default_value?: any; // (values must use the field's type) the default value if none is provided by the user
-  allowed_values?: IQoreAllowedValue[]; // an array of objects providing the only values allowed for the field
-  get_allowed_values?: TQoreGetAllowedValuesFunction; // a function that returns the allowed values for the field
+  allowed_values?: IQoreAllowedValue<T>[]; // an array of objects providing the only values allowed for the field
+  get_allowed_values?: TQoreGetAllowedValuesFunction<T>; // a function that returns the allowed values for the field
   attr?: Record<string, any>; // an optional data object with any properties
 }
 
-export interface IQoreAppActionOption extends IQoreAppShared {
-  default_value?: any;
-  example_value?: any;
+export interface IQoreAppActionOption<T extends TQoreType = TQoreType> {
+  default_value?: GetTypeFromQoreType<T>;
+  example_value?: GetTypeFromQoreType<T>;
   loc?: string;
   ref_data?: string;
   required?: boolean;
   sensitive?: boolean;
-  type: IQoreType | IQoreTypeObject;
+  type: T;
+  allowed_values?: IQoreAllowedValue<T>[];
+  get_allowed_values?: TQoreGetAllowedValuesFunction<T>;
 }
 
 export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
   action_code: 1;
 }
 
-export interface IQoreAppActionWithFunction extends IQoreAppAction {
+export interface IQoreAppActionWithFunction<Options = Record<string, IQoreAppActionOption>, Response = Record<string, TQoreType>> extends IQoreAppAction {
   action_code: 2;
   app_function: TQoreAppActionFunction;
-  options: Record<string, IQoreAppActionOption>;
-  response_type: Record<string, IQoreType | IQoreTypeObject>;
+  options: StrictRecord<keyof Options, Options[keyof Options]>;
+  response_type: StrictRecord<keyof Response, Response[keyof Response]>;
 }
 
-export type TQorePartialActionWithFunction = Pick<
-  IQoreAppActionWithFunction,
+export type TQorePartialActionWithFunction<Options, Response> = Pick<
+  IQoreAppActionWithFunction<Options, Response>,
   'app_function' | 'response_type' | 'options' | 'action'
 >;
 
