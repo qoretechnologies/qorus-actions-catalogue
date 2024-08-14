@@ -10,7 +10,16 @@ export const addRectionToMessageAction = createAction({
   name: 'slack-add-reaction-to-message',
   displayName: 'Add Reaction to Message',
   description: 'Add an emoji reaction to a message.',
-
+  responseType: {
+    ok: {
+      type: '*boolean',
+      name: 'ok',
+      display_name: 'Success',
+      short_desc: 'Indicates if the reaction was successfully added',
+      desc: 'Indicates if the reaction was successfully added',
+      example_value: true,
+    },
+  },
   props: {
     info: slackInfo,
     channel: slackChannel(true),
