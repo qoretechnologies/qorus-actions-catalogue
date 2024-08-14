@@ -94,7 +94,7 @@ interface IQoreAllowedValue {
 
 export interface IQoreTypeObject extends IQoreAppShared {
   name: string; // the technical name of the field
-  type: IQoreType | IQoreTypeObject; // either a string or a data object again
+  type: IQoreType | Record<string, | IQoreTypeObject>; // either a string or a data object again
   example_value?: any; // (values must use the field's type) any example value to use when generating example data etc
   default_value?: any; // (values must use the field's type) the default value if none is provided by the user
   allowed_values?: IQoreAllowedValue[]; // an array of objects providing the only values allowed for the field

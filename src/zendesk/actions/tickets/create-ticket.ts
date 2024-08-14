@@ -1,17 +1,13 @@
-import { IResponseTicketInterface, IUpdateCreateTicketInterface } from 'zendesk/models/tickets';
+import { IResponseTicketInterface, TTicketsOptions } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
-import { ZendeskOptions } from '../options';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-
-interface ICreateTicket {
-  ticketCreate: IUpdateCreateTicketInterface;
-}
+import { ZendeskOptions } from '../options';
 
 // Defining a function to create a ticket
-const createTicket = async ({ ticketCreate }: ICreateTicket) => {
+const createTicket = async (ticket: TTicketsOptions) => {
   try {
     const data: IResponseTicketInterface = await zendeskRequest('/tickets', 'POST', {
-      ticket: ticketCreate,
+      ticket,
     });
     return data;
   } catch (error) {
@@ -23,9 +19,7 @@ const createTicket = async ({ ticketCreate }: ICreateTicket) => {
 export default {
   action: 'create_ticket',
   app_function: createTicket,
-  options: {
-    ticketCreate: ZendeskOptions.tickets.ticketCreateUpdate,
-  },
+  options: ZendeskOptions.tickets.ticketCreateUpdate,
   response_type: {
     created_at: {
       display_name: 'Created At',
