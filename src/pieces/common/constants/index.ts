@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable require-await */
 import { ActionContext, PropertyType } from 'core/framework';
-import { IQoreType, IQoreTypeObject } from '../../../global/models/qore';
-import { ExecutionType } from '../../../core/shared';
+import { ExecutionType } from 'core/shared';
+import { IQoreType } from 'global/models/qore';
 
 export const piecePropTypeToQoreOptionTypeIndex: {
-  [key in PropertyType]: IQoreType | IQoreTypeObject;
+  [key in PropertyType]: IQoreType;
 } = {
   [PropertyType.SHORT_TEXT]: '*string',
   [PropertyType.LONG_TEXT]: '*string',
@@ -28,7 +28,7 @@ export const piecePropTypeToQoreOptionTypeIndex: {
   [PropertyType.FILE]: '*hash',
 };
 
-//TODO: you can see the most context data is currently mocked, need to figure out what to leave and what to remove
+//TODO: you can see that most context data is currently mocked, need to figure out what to leave and what to remove
 export const commonActionContext = {
   executionType: ExecutionType.BEGIN,
   run: {

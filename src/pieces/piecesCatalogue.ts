@@ -15,7 +15,7 @@ import {
   IQoreType,
   IQoreTypeObject,
   TQoreAppActionFunction,
-  TQoreAppActionFunctionOptions,
+  TQoreAppActionFunctionAuth,
   TQoreApps,
 } from 'global/models/qore';
 import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './common/constants';
@@ -64,17 +64,21 @@ class _PiecesAppCatalogue {
       action: formattedActionName,
       app_function: this.mapPieceActionToAppActionFunction(action.run),
       options: this.mapActionPropsToAppActionOptions(action.props),
-      response_type: {},
+      response_type: action.responseType,
     };
   }
 
   private mapPieceActionToAppActionFunction(
     runFunction: ActionRunner<any, any>
   ): TQoreAppActionFunction {
-    return (options: TQoreAppActionFunctionOptions): Promise<any> => {
+    return (
+      obj: Record<string, any>,
+      _options: Record<string, any>,
+      auth: TQoreAppActionFunctionAuth
+    ): Promise<any> => {
       const context = {
-        propsValue: options.props satisfies StaticPropsValue<InputPropertyMap>,
-        auth: options.auth,
+        propsValue: obj satisfies StaticPropsValue<InputPropertyMap>,
+        auth,
         ...commonActionContext,
       } satisfies ActionContext;
 
@@ -88,6 +92,10 @@ class _PiecesAppCatalogue {
     const options: Record<string, IQoreAppActionOption> = {};
 
     for (const key in props) {
+      if (key === 'info') {
+        // Add info prop to a different field in action
+        continue;
+      }
       if (props.hasOwnProperty(key)) {
         const value = props[key];
         options[key] = this.mapActionPropToAppActionOption(key, value);
@@ -122,6 +130,8 @@ class _PiecesAppCatalogue {
         allowed_values: prop.options.options.map((option) => ({
           value: option.value,
           desc: option.label,
+          short_desc: option.label,
+          display_name: option.label,
         })),
       };
     } else {
