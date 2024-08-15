@@ -1,27 +1,10 @@
 import { QorusRequest } from '@qoretechnologies/ts-toolkit';
-import { ZENDESK_AUTH, ZENDESK_DOMAIN } from './configs';
-
-export const getAccessToken = async () => {
-  // const uri = '/oauth/tokens';
-
-  // try {
-  //   const response = QorusRequest.post({
-  //     path: uri,
-  //     headers: {
-  //       grant_type: 'authorization_code',
-  //       code: 
-  //     }
-
-  //   })
-  // } catch (error) {
-    
-  // }
-}
+import { ZENDESK_AUTH } from './configs';
 
 export const zendeskRequest = async (endpoint: string, method: string, body?: object) => {
   const uri = `/api/v2${endpoint}`;
   let response: Record<string, any> | undefined;
-
+  console.log(endpoint, method, body)
   try {
     switch (method) {
       case 'GET':
@@ -29,13 +12,33 @@ export const zendeskRequest = async (endpoint: string, method: string, body?: ob
           {
             path: uri,
             ...(body && { data: body }),
+            headers: {
+              Authorization: `Basic ${ZENDESK_AUTH}`,
+            },
           },
           {
-            url: ZENDESK_DOMAIN,
+            url: 'https://qorehelp.zendesk.com',
             endpointId: '5',
           }
         );
         break;
+
+      case 'DELETE':
+        response = await QorusRequest.deleteReq(
+          {
+            path: uri,
+            ...(body && { data: body }),
+            headers: {
+              Authorization: `Basic ${ZENDESK_AUTH}`,
+            },
+          },
+          {
+            url: 'https://qorehelp.zendesk.com',
+            endpointId: '5',
+          }
+        );
+        break;
+      case 'POST':
       default:
         response = await QorusRequest.post(
           {
@@ -46,7 +49,7 @@ export const zendeskRequest = async (endpoint: string, method: string, body?: ob
             },
           },
           {
-            url: ZENDESK_DOMAIN,
+            url: 'https://qorehelp.zendesk.com',
             endpointId: '5',
           }
         );

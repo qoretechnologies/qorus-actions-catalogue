@@ -203,13 +203,13 @@ export type TQoreSimpleType =
   | 'softubyte'
   | '*softubyte';
 
-  export type TQoreType = TQoreSimpleType | Record<string, IQoreTypeObject>;
-  export type TQoreStringCompatibleType = 'string' | 'softstring' | '*string' | 'binary';
-  export type GetTypeFromQoreType<T> = T extends TQoreStringCompatibleType ? string : T;
+export type TQoreType = TQoreSimpleType | Record<string, IQoreTypeObject>;
+export type TQoreStringCompatibleType = 'string' | 'softstring' | '*string' | 'binary';
+export type GetTypeFromQoreType<T> = T extends TQoreStringCompatibleType ? string : T;
 
-  export interface IQoreAllowedValue<T extends TQoreType> extends IQoreAppShared {
-    value: GetTypeFromQoreType<T>;
-  }
+export interface IQoreAllowedValue<T extends TQoreType> extends IQoreAppShared {
+  value: GetTypeFromQoreType<T>;
+}
 
 export interface IQoreTypeObject<T extends TQoreType = TQoreType> extends IQoreAppShared {
   name: string; // the technical name of the field
@@ -237,7 +237,10 @@ export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
   action_code: 1;
 }
 
-export interface IQoreAppActionWithFunction<Options = Record<string, IQoreAppActionOption>, Response = Record<string, TQoreType>> extends IQoreAppAction {
+export interface IQoreAppActionWithFunction<
+  Options = Record<string, IQoreAppActionOption>,
+  Response = Record<string, TQoreType>,
+> extends IQoreAppAction {
   action_code: 2;
   app_function: TQoreAppActionFunction;
   options: StrictRecord<keyof Options, Options[keyof Options]>;
