@@ -10,8 +10,8 @@ describe('PiecesAppCatalogue', () => {
   });
 
   it('should register apps', () => {
-    Object.entries(PiecesAppCatalogue.apps).forEach(([_key, value]) => {
-      value.actions.forEach((action) => console.log(action.action, action.options));
+    Object.entries(PiecesAppCatalogue.apps).forEach(([key, value]) => {
+      console.log(key, value.actions);
       expect(value).toBeDefined();
       expect(value.actions.length).toBeGreaterThan(0);
     });
