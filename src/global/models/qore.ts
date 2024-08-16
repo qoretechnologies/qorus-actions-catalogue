@@ -127,70 +127,37 @@ export interface IQoreAppAction extends IQoreAppShared {
   action_code: 1 | 2; // What are other possible values?
 }
 
-export type TQoreAppActionFunctionAuth = {
-  access_token: string;
-  data?: Record<string, any>;
+export type TQoreAppActionFunctionContext = {
+  conn_name: string;
+  conn_options?: Record<string, any>;
+  opts?: Record<string, any>;
 };
 
 export type TQoreAppActionFunction = (
   obj: string | Record<string, any>,
   options?: Record<string, any>,
-  auth?: TQoreAppActionFunctionAuth
+  context?: TQoreAppActionFunctionContext
 ) => any;
 
-export type TQoreGetAllowedValuesFunction<T extends TQoreType> = (
-  obj?: string | Record<string, any>,
-  options?: Record<string, any>,
-  auth?: TQoreAppActionFunctionAuth
-) => IQoreAllowedValue<T>[];
+export type TQoreGetAllowedValuesFunction<TypeValue = unknown> = (
+  context?: TQoreAppActionFunctionContext
+) => IQoreAllowedValue<TypeValue>[];
 
-export type TQoreSimpleType =
-  | 'int'
-  | 'integer'
+export type TQoreStringCompatibleType =
   | 'string'
-  | 'boolean'
-  | 'bool'
-  | 'double'
-  | 'float'
-  | 'number'
+  | '*string'
+  | 'softstring'
+  | '*string'
   | 'binary'
-  | 'list'
-  | 'hash'
   | 'date'
-  | 'NULL'
-  | 'nothing'
   | 'base64binary'
   | 'base64urlbinary'
   | 'hexbinary'
-  | 'data'
-  | 'softint'
-  | 'softstring'
-  | 'softbool'
-  | 'softfloat'
-  | 'softnumber'
   | 'softdate'
-  | '*softint'
   | '*softstring'
-  | '*softbool'
-  | '*softfloat'
-  | '*softnumber'
   | '*softdate'
-  | 'all'
-  | 'any'
-  | 'auto'
-  | '*int'
-  | '*integer'
-  | '*string'
-  | '*boolean'
-  | '*bool'
-  | '*double'
-  | '*float'
-  | '*number'
   | '*binary'
-  | '*list'
-  | '*hash'
   | '*date'
-  | '*data'
   | '*base64binary'
   | '*base64urlbinary'
   | '*hexbinary'
@@ -203,34 +170,108 @@ export type TQoreSimpleType =
   | 'softubyte'
   | '*softubyte';
 
-export type TQoreType = TQoreSimpleType | Record<string, IQoreTypeObject>;
-export type TQoreStringCompatibleType = 'string' | 'softstring' | '*string' | 'binary';
-export type GetTypeFromQoreType<T> = T extends TQoreStringCompatibleType ? string : T;
+export type TQoreNumberCompatibleType =
+  | 'int'
+  | '*number'
+  | '*float'
+  | '*double'
+  | '*integer'
+  | 'float'
+  | 'number'
+  | 'integer'
+  | 'double'
+  | 'softint'
+  | 'softfloat'
+  | 'softnumber'
+  | '*softint'
+  | '*softfloat'
+  | '*softnumber'
+  | '*int';
+export type TQoreHashCompatibleType = 'hash' | '*hash' | '*data' | 'data';
+export type TQoreListCompatibleType = 'list' | '*list';
+export type TQoreBooleanCompatibleType =
+  | 'boolean'
+  | '*boolean'
+  | 'softbool'
+  | '*bool'
+  | '*bool'
+  | 'bool'
+  | '*softbool';
+export type TQoreNullableType = 'NULL' | 'nothing';
+export type TQoreAnyType = 'all' | 'any' | 'auto';
 
-export interface IQoreAllowedValue<T extends TQoreType> extends IQoreAppShared {
-  value: GetTypeFromQoreType<T>;
+export type TQoreSimpleType =
+  | TQoreStringCompatibleType
+  | TQoreNumberCompatibleType
+  | TQoreHashCompatibleType
+  | TQoreListCompatibleType
+  | TQoreBooleanCompatibleType
+  | TQoreNullableType
+  | TQoreAnyType;
+
+export type TQoreType = TQoreSimpleType | Record<string, IQoreTypeObject>;
+
+export type GetOptionDefinitionFromQoreType<T extends TQoreType> =
+  T extends TQoreStringCompatibleType
+    ? IQoreAppActionOption<T, string>
+    : T extends TQoreNumberCompatibleType
+      ? IQoreAppActionOption<T, number>
+      : T extends TQoreHashCompatibleType
+        ? IQoreAppActionOption<T, Record<string, any>>
+        : T extends TQoreBooleanCompatibleType
+          ? IQoreAppActionOption<T, boolean>
+          : T extends TQoreListCompatibleType
+            ? IQoreAppActionOption<T, unknown[]>
+            : T extends TQoreNullableType
+              ? IQoreAppActionOption<T, null>
+              : T extends Record<string, IQoreTypeObject>
+                ? IQoreAppActionOption<T, Record<string, any>>
+                : never;
+
+export type GetResponseDefinitionFromQoreType<T extends TQoreType> =
+  T extends TQoreStringCompatibleType
+    ? IQoreTypeObject<T, string>
+    : T extends TQoreNumberCompatibleType
+      ? IQoreTypeObject<T, number>
+      : T extends TQoreHashCompatibleType
+        ? IQoreTypeObject<T, Record<string, any>>
+        : T extends TQoreBooleanCompatibleType
+          ? IQoreTypeObject<T, boolean>
+          : T extends TQoreListCompatibleType
+            ? IQoreTypeObject<T, unknown[]>
+            : T extends TQoreNullableType
+              ? IQoreTypeObject<T, null>
+              : T extends Record<string, IQoreTypeObject>
+                ? IQoreAppActionOption<T, Record<string, any>>
+                : never;
+
+export interface IQoreAllowedValue<TypeValue = unknown> extends IQoreAppShared {
+  value: TypeValue;
 }
 
-export interface IQoreTypeObject<T extends TQoreType = TQoreType> extends IQoreAppShared {
+export interface IQoreTypeObject<TypeName extends TQoreType = TQoreType, TypeValue = unknown>
+  extends IQoreAppShared {
   name: string; // the technical name of the field
-  type: T; // either a string or a data object again
-  example_value?: any; // (values must use the field's type) any example value to use when generating example data etc
-  default_value?: any; // (values must use the field's type) the default value if none is provided by the user
-  allowed_values?: IQoreAllowedValue<T>[]; // an array of objects providing the only values allowed for the field
-  get_allowed_values?: TQoreGetAllowedValuesFunction<T>; // a function that returns the allowed values for the field
+  type: TypeName; // either a string or a data object again
+  example_value?: TypeValue; // (values must use the field's type) any example value to use when generating example data etc
+  default_value?: TypeValue; // (values must use the field's type) the default value if none is provided by the user
+  allowed_values?: IQoreAllowedValue<TypeValue>[]; // an array of objects providing the only values allowed for the field
+  get_allowed_values?: TQoreGetAllowedValuesFunction<TypeValue>; // a function that returns the allowed values for the field
   attr?: Record<string, any>; // an optional data object with any properties
 }
 
-export interface IQoreAppActionOption<T extends TQoreType = TQoreType> {
-  default_value?: GetTypeFromQoreType<T>;
-  example_value?: GetTypeFromQoreType<T>;
+export interface IQoreAppActionOption<TypeName extends TQoreType = TQoreType, TypeValue = unknown>
+  extends IQoreAppShared {
+  default_value?: TypeValue;
+  example_value?: TypeValue;
   loc?: string;
   ref_data?: string;
   required?: boolean;
   sensitive?: boolean;
-  type: T;
-  allowed_values?: IQoreAllowedValue<T>[];
-  get_allowed_values?: TQoreGetAllowedValuesFunction<T>;
+  type: TypeName;
+
+  allowed_values?: IQoreAllowedValue<TypeValue>[];
+  get_allowed_values?: TQoreGetAllowedValuesFunction<TypeValue>;
 }
 
 export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
@@ -239,7 +280,7 @@ export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
 
 export interface IQoreAppActionWithFunction<
   Options = Record<string, IQoreAppActionOption>,
-  Response = Record<string, TQoreType>,
+  Response = Record<string, IQoreTypeObject>,
 > extends IQoreAppAction {
   action_code: 2;
   app_function: TQoreAppActionFunction;
@@ -247,7 +288,10 @@ export interface IQoreAppActionWithFunction<
   response_type: StrictRecord<keyof Response, Response[keyof Response]>;
 }
 
-export type TQorePartialActionWithFunction<Options, Response> = Pick<
+export type TQorePartialActionWithFunction<
+  Options = Record<string, IQoreAppActionOption>,
+  Response = Record<string, IQoreTypeObject>,
+> = Pick<
   IQoreAppActionWithFunction<Options, Response>,
   'app_function' | 'response_type' | 'options' | 'action'
 >;

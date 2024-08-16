@@ -1,5 +1,19 @@
-import { GetTypeFromQoreType, IQoreAppActionOption, TQoreType } from './qore';
+import {
+  GetOptionDefinitionFromQoreType,
+  GetResponseDefinitionFromQoreType,
+  TQoreType,
+} from './qore';
 import { StrictRecord } from './utils';
 
-export type GetActionsOptions<Structure extends Record<string, TQoreType>> = StrictRecord<keyof Structure, IQoreAppActionOption<Structure[keyof Structure]>>;
-export type GetActionsData<Structure extends Record<string, TQoreType>> = StrictRecord<keyof Structure, GetTypeFromQoreType<Structure[keyof Structure]>>;
+export interface IActionOptions {
+  [key: string]: GetOptionDefinitionFromQoreType<TQoreType>;
+}
+
+export interface IActionResponse {
+  [key: string]: GetResponseDefinitionFromQoreType<TQoreType>;
+}
+
+export type TActionData<Options extends IActionOptions> = StrictRecord<
+  keyof Options,
+  Options[keyof Options]['default_value']
+>;
