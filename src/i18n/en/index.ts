@@ -21,6 +21,66 @@ const en = {
           },
         },
         attachments: {
+          content_type: {
+            displayName: 'Content Type',
+            shortDesc: 'Content Type',
+            longDesc: 'Content Type',
+          },
+          content_url: {
+            displayName: 'Content URL',
+            shortDesc: 'Content URL',
+            longDesc: 'Content URL',
+          },
+          deleted: {
+            displayName: 'Deleted',
+            shortDesc: 'Deleted',
+            longDesc: 'Deleted',
+          },
+          file_name: {
+            displayName: 'File Name',
+            shortDesc: 'File Name',
+            longDesc: 'File Name',
+          },
+          height: {
+            displayName: 'Height',
+            shortDesc: 'Height',
+            longDesc: 'Height',
+          },
+          id: {
+            displayName: 'ID',
+            shortDesc: 'ID',
+            longDesc: 'ID',
+          },
+          inline: {
+            displayName: 'Inline',
+            shortDesc: 'Inline',
+            longDesc: 'Inline',
+          },
+          size: {
+            displayName: 'Size',
+            shortDesc: 'Size',
+            longDesc: 'Size',
+          },
+          thumbnails: {
+            displayName: 'Thumbnails',
+            shortDesc: 'Thumbnails',
+            longDesc: 'Thumbnails',
+          },
+          url: {
+            displayName: 'URL',
+            shortDesc: 'URL',
+            longDesc: 'URL',
+          },
+          width: {
+            displayName: 'Width',
+            shortDesc: 'Width',
+            longDesc: 'Width',
+          },
+          mapped_content_url: {
+            displayName: 'Mapped Content URL',
+            shortDesc: 'Mapped Content URL',
+            longDesc: 'Mapped Content URL',
+          },
           upload: {
             displayName: 'Upload',
             shortDesc: 'Upload an attachment',
@@ -30,7 +90,7 @@ const en = {
             displayName: 'Zendesk Token',
             shortDesc: 'Zendesk API token',
             longDesc: 'Zendesk API token',
-          }
+          },
         },
         tickets: {
           comment: {
@@ -243,10 +303,182 @@ const en = {
               longDesc: 'Channel of the ticket',
             },
           },
+          count: {
+            displayName: 'Count',
+            shortDesc: 'Count of tickets',
+            longDesc: 'Count of tickets',
+          },
+          audit: {
+            displayName: 'Audit',
+            shortDesc: 'Audit of tickets',
+            longDesc: 'Audit of tickets',
+          },
+          events: {
+            displayName: 'Events',
+            shortDesc: 'Events of tickets',
+            longDesc: 'Events of tickets',
+          }
         },
+        groups: {
+          created_at: {
+            displayName: 'Created At',
+            shortDesc: 'The date and time the group was created',
+            longDesc: 'The date and time the group was created',
+          },
+          default: {
+            displayName: 'Default',
+            shortDesc: 'Whether the group is default',
+            longDesc: 'Whether the group is default',
+          },
+          description: {
+            displayName: 'Description',
+            shortDesc: 'The group’s description',
+            longDesc: 'The group’s description',
+          },
+          id: {
+            displayName: 'ID',
+            shortDesc: 'The group’s ID',
+            longDesc: 'The group’s ID',
+          },
+          name: {
+            displayName: 'Name',
+            shortDesc: 'The group’s name',
+            longDesc: 'The group’s name',
+          },
+          updated_at: {
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the group was last updated',
+            longDesc: 'The date and time the group was last updated',
+          },
+          count: {
+            displayName: 'Count',
+            shortDesc: 'Count of groups',
+            longDesc: 'Count of groups',
+          },
+          deleted: {
+            displayName: 'Deleted',
+            shortDesc: 'Whether the group is deleted',
+            longDesc: 'Whether the group is deleted',
+          },
+          is_public: {
+            displayName: 'Is Public',
+            shortDesc: 'Whether the group is public',
+            longDesc: 'Whether the group is public',
+          },
+          url: {
+            displayName: 'URL',
+            shortDesc: 'The group’s URL',
+            longDesc: 'The group’s URL',
+          },
+          groups: {
+            displayName: 'Groups',
+            shortDesc: 'Groups',
+            longDesc: 'Groups',
+          },
+        },
+        organizations: {
+          displayName: 'Organizations',
+          shortDesc: 'Organizations',
+          longDesc: 'Organizations',
+          count: {
+            displayName: 'Count',
+            shortDesc: 'Count of organizations',
+            longDesc: 'Count of organizations',
+          },
+          next_page: {
+            displayName: 'Next Page',
+            shortDesc: 'Next page of organizations',
+            longDesc: 'Next page of organizations',
+          },
+          created_at: {
+            displayName: 'Created At',
+            shortDesc: 'The date and time the organization was created',
+            longDesc: 'The date and time the organization was created',
+          },
+          details: {
+            displayName: 'Details',
+            shortDesc: 'Details of the organization',
+            longDesc: 'Details of the organization',
+          },
+          domain_names: {
+            displayName: 'Domain Names',
+            shortDesc: 'Domain names of the organization',
+            longDesc: 'Domain names of the organization',
+          },
+          external_id: {
+            displayName: 'External ID',
+            shortDesc: 'The organization’s external ID',
+            longDesc: 'The organization’s external ID',
+          },
+          group_id: {
+            displayName: 'Group ID',
+            shortDesc: 'The ID of the organization’s group',
+            longDesc: 'The ID of the organization’s group',
+          },
+          id: {
+            displayName: 'ID',
+            shortDesc: 'The organization’s ID',
+            longDesc: 'The organization’s ID',
+          },
+          name: {
+            displayName: 'Name',
+            shortDesc: 'The organization’s name',
+            longDesc: 'The organization’s name',
+          },
+          notes: {
+            displayName: 'Notes',
+            shortDesc: 'Notes of the organization',
+            longDesc: 'Notes of the organization',
+          },
+          organization_fields: {
+            displayName: 'Organization Fields',
+            shortDesc: 'Organization fields',
+            longDesc: 'Organization fields',
+            datepudding: {
+              displayName: 'DatePudding',
+              shortDesc: 'DatePudding of the organization',
+              longDesc: 'DatePudding of the organization',
+            },
+            org_field_1: {
+              displayName: 'Org Field 1',
+              shortDesc: 'Organization field 1',
+              longDesc: 'Organization field 1',
+            },
+            org_field_2: {
+              displayName: 'Org Field 2',
+              shortDesc: 'Organization field 2',
+              longDesc: 'Organization field 2',
+            }
+          },
+          shared_comments: {
+            displayName: 'Shared Comments',
+            shortDesc: 'Whether the organization has shared comments',
+            longDesc: 'Whether the organization has shared comments',
+          },
+          shared_tickets: {
+            displayName: 'Shared Tickets',
+            shortDesc: 'Whether the organization has shared tickets',
+            longDesc: 'Whether the organization has shared tickets',
+          },
+          tags: {
+            displayName: 'Tags',
+            shortDesc: 'The organization’s tags',
+            longDesc: 'The organization’s tags',
+          },
+          updated_at: {
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the organization was last updated',
+            longDesc: 'The date and time the organization was last updated',
+          },
+          url: {
+            displayName: 'URL',
+            shortDesc: 'The organization’s URL',
+            longDesc: 'The organization’s URL',
+          },
+        }
       },
     },
-  },
+  }
 } satisfies BaseTranslation;
 
 export default en;

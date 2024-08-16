@@ -1,14 +1,12 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
+import { TOrganizationOptions } from 'zendesk/models/organizations';
 
-interface IDeleteOrganization {
-  organizationId: number;
-}
 
 // Defining a function to delete organization
-const deleteOrganization = async ({ organizationId }: IDeleteOrganization) => {
+const deleteOrganization = async ({ id }: TOrganizationOptions) => {
   try {
-    const data = await zendeskRequest(`/organizations/${organizationId}.json`, 'DELETE');
+    const data = await zendeskRequest(`/organizations/${id}.json`, 'DELETE');
     return data;
   } catch (error) {
     console.error('Error delete organization:', error);

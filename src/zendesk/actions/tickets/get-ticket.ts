@@ -2,7 +2,7 @@ import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { ITicketInterface, TTicketsOptions } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
-import L from '../../../i18n/i18n-node';
+import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch ticket by id
 const getTicket = async ({ ticket_id }: TTicketsOptions) => {
@@ -274,9 +274,9 @@ export default {
     },
     via: {
       name: 'via',
-      display_name: L.en.apps.zendesk.actions.tickets.sharing_agreement_ids.displayName(),
-      short_desc: L.en.apps.zendesk.actions.tickets.sharing_agreement_ids.shortDesc(),
-      desc: L.en.apps.zendesk.actions.tickets.sharing_agreement_ids.longDesc(),
+      display_name: L.en.apps.zendesk.actions.tickets.via.displayName(),
+      short_desc: L.en.apps.zendesk.actions.tickets.via.shortDesc(),
+      desc: L.en.apps.zendesk.actions.tickets.via.longDesc(),
       example_value: {
         channel: 'web',
       },

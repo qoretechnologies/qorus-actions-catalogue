@@ -1,19 +1,19 @@
-import { ITicketsInterface, ITicketType } from 'zendesk/models/tickets';
+import { ITicketsInterface, TTicketsOptions } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
-import { ZendeskOptions } from '../options';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 
-interface IGetTickets {
-  variant?: ITicketType;
-  onlyDeleted?: boolean;
-}
+
 
 // Defining a function to fetch tickets
-const getTickets = async ({ variant, onlyDeleted }: IGetTickets) => {
+const getTickets = async ({ ids }: TTicketsOptions) => {
   try {
     const data: ITicketsInterface = await zendeskRequest(
-      `/tickets${onlyDeleted ? '/deleted_tickets' : variant ? `/${variant}` : ''}.json`,
-      'GET'
+      `/tickets/show_many.json`,
+      'GET',
+      null,
+      {
+        ids,
+      },
     );
     return data;
   } catch (error) {
@@ -25,10 +25,7 @@ const getTickets = async ({ variant, onlyDeleted }: IGetTickets) => {
 export default {
   action: 'get_tickets',
   app_function: getTickets,
-  options: {
-    variant: ZendeskOptions.tickets.variant,
-    onlyDeleted: ZendeskOptions.tickets.onlyDeleted
-  },
+  options:null,
   response_type: {
     tickets: {
       display_name: 'tickets',

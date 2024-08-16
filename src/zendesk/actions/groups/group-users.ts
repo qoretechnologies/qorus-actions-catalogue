@@ -21,7 +21,7 @@ export default {
   action: 'get_group_users',
   app_function: getGroupUsers,
   options: {
-    groupId: ZendeskOptions.groups.groupId,
+    groupId: ZendeskOptions.groups.id,
   },
   response_type: {
     users: {

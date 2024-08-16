@@ -1,14 +1,11 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
-
-interface IDeleteGroup {
-  groupId: number;
-}
+import { TGroupsOptions } from 'zendesk/models/groups';
 
 // Defining a function to delete group
-const deleteGroup = async ({ groupId }: IDeleteGroup) => {
+const deleteGroup = async ({ id }: TGroupsOptions) => {
   try {
-    const data = await zendeskRequest(`/groups/${groupId}.json`, 'DELETE');
+    const data = await zendeskRequest(`/groups/${id}.json`, 'DELETE');
     return data;
   } catch (error) {
     console.error('Error delete group:', error);

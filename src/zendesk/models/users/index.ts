@@ -1,3 +1,5 @@
+import { IQoreAppActionOption } from "global/models/qore"
+
 export interface IUserInterface {
     active: boolean,
     alias: string,
@@ -52,3 +54,4 @@ export interface IUsersInterface {
 }
 
 export interface IUpdateCreateUserInterface extends Partial<IUserInterface> { }
+export type TUserOptions = Partial<Record<keyof IUserInterface, IQoreAppActionOption>>

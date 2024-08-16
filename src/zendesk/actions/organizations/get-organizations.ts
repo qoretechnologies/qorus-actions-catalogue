@@ -1,6 +1,7 @@
 import { IOrganizationInterface } from 'zendesk/models/organizations';
 import { zendeskRequest } from '../../client';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch organization
 const getOrganizations = async () => {
@@ -18,37 +19,37 @@ export default {
   app_function: getOrganizations,
   options: null,
   response_type: {
+    count: {
+      type: 'number',
+      name: 'count',
+      display_name: L.en.apps.zendesk.actions.organizations.count.displayName(),
+      short_desc: L.en.apps.zendesk.actions.organizations.count.shortDesc(),
+      desc: L.en.apps.zendesk.actions.organizations.count.longDesc(),
+      example_value: 123,
+    },
     organizations: {
-      display_name: 'organizations',
-      short_desc: 'All organizations',
-      desc: 'Got the all available organizations',
-      name: 'organizations',
-      example_value: [],
       type: '*list',
+      name: 'groups',
+      display_name: L.en.apps.zendesk.actions.organizations.displayName(),
+      short_desc: L.en.apps.zendesk.actions.organizations.shortDesc(),
+      desc: L.en.apps.zendesk.actions.organizations.longDesc(),
+      example_value: [
+        {
+          created_at: "2009-05-13T00:07:08Z",
+          id: 211,
+          is_public: true,
+          name: "DJs",
+          updated_at: "2011-07-22T00:11:12Z"
+        },
+      ],
     },
     next_page: {
-      type: '*number',
+      type: 'string',
       name: 'next_page',
-      display_name: 'Next Page',
-      short_desc: 'Next page number',
-      desc: 'Next page number',
-      example_value: 2,
-    },
-    previous_page: {
-      type: '*number',
-      name: 'previous_page',
-      display_name: 'Previous Page',
-      short_desc: 'Previous page number',
-      desc: 'Previous page number',
-      example_value: 1,
-    },
-    count: {
-      type: '*number',
-      name: 'count',
-      display_name: 'Count',
-      short_desc: 'The organizations count',
-      desc: 'The organizations count',
-      example_value: 10,
-    },
+      display_name: L.en.apps.zendesk.actions.organizations.next_page.displayName(),
+      short_desc: L.en.apps.zendesk.actions.organizations.next_page.shortDesc(),
+      desc: L.en.apps.zendesk.actions.organizations.next_page.longDesc(),
+      example_value: "https://example.com/api/v2/groups.json?page=2",
+    }
   },
 } satisfies TQorePartialActionWithFunction;

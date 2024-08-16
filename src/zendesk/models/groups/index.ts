@@ -1,13 +1,15 @@
+import { IQoreAppActionOption } from "global/models/qore"
+
 export interface IGroupInterface {
-    created_at: string,
-    default: boolean,
-    deleted: boolean,
-    description: string,
-    id: number,
-    is_public: boolean,
-    name: string,
-    updated_at: string,
-    url: string,
+    created_at?: string,
+    default?: boolean,
+    deleted?: boolean,
+    description?: string,
+    id?: number,
+    is_public?: boolean,
+    name?: string,
+    updated_at?: string,
+    url?: string,
 }
 
 export interface IResponseGroupInterface {
@@ -22,3 +24,5 @@ export interface IGroupsInterface {
 }
 
 export interface IUpdateCreateGroupInterface extends Partial<IGroupInterface> { }
+
+export type TGroupsOptions = Partial<Record<keyof IGroupInterface, IQoreAppActionOption>>

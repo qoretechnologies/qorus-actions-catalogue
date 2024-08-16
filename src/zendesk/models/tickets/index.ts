@@ -26,6 +26,7 @@ export interface ITicketInterface {
     group_id?: number,
     has_incidents?: boolean,
     ticket_id?: number,
+    ids?: string,
     is_public?: boolean,
     macro_id?: number,
     macro_ids?: any[],
