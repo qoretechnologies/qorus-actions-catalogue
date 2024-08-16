@@ -3,6 +3,18 @@ import { slackSendMessage } from '../common/utils';
 import { slackAuth } from '../..';
 import { assertNotNullOrUndefined, ExecutionType, PauseType } from 'core/shared';
 import { profilePicture, slackChannel, slackInfo, text, username } from '../common/props';
+import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+
+const requestApprovalChannelMessageResponseType = {
+  approved: {
+    type: '*boolean',
+    name: 'approved',
+    display_name: 'Approved',
+    short_desc: 'Indicates if the message was approved',
+    desc: 'Indicates if the message was approved',
+    example_value: true,
+  },
+} satisfies Record<string, IQoreType | IQoreTypeObject>;
 
 export const requestSendApprovalMessageAction = createAction({
   auth: slackAuth,
@@ -17,6 +29,7 @@ export const requestSendApprovalMessageAction = createAction({
     username,
     profilePicture,
   },
+  responseType: requestApprovalChannelMessageResponseType,
   async run(context) {
     if (context.executionType === ExecutionType.BEGIN) {
       context.run.pause({

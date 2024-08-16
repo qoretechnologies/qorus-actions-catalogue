@@ -3,6 +3,42 @@ import { slackAuth } from '../..';
 import { blocks, slackChannel, slackInfo } from '../common/props';
 import { processMessageTimestamp } from '../common/utils';
 import { Block, WebClient } from '@slack/web-api';
+import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+
+const updateMessageResponseType = {
+  ok: {
+    type: '*boolean',
+    name: 'ok',
+    display_name: 'Success',
+    short_desc: 'Indicates if the message was updated successfully',
+    desc: 'Indicates if the message was updated successfully',
+    example_value: true,
+  },
+  channel: {
+    type: '*string',
+    name: 'channel',
+    display_name: 'Channel',
+    short_desc: 'The channel where the message was updated',
+    desc: 'The channel where the message was updated',
+    example_value: 'C1234567890',
+  },
+  ts: {
+    type: '*string',
+    name: 'ts',
+    display_name: 'Timestamp',
+    short_desc: 'The timestamp of the message',
+    desc: 'The timestamp of the message',
+    example_value: '1234567890.123456',
+  },
+  text: {
+    type: '*string',
+    name: 'text',
+    display_name: 'Text',
+    short_desc: 'The updated text of the message',
+    desc: 'The updated text of the message',
+    example_value: 'Hello, world!',
+  },
+} satisfies Record<string, IQoreType | IQoreTypeObject>;
 
 export const updateMessage = createAction({
   // auth: check https://www.activepieces.com/docs/developers/piece-reference/authentication,
@@ -26,6 +62,7 @@ export const updateMessage = createAction({
     }),
     blocks,
   },
+  responseType: updateMessageResponseType,
   async run({ auth, propsValue }) {
     const messageTimestamp = processMessageTimestamp(propsValue.ts);
     if (!messageTimestamp) {
