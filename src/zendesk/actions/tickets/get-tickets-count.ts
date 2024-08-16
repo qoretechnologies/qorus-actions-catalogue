@@ -18,13 +18,19 @@ export default {
   app_function: getTicketsCount,
   options: null,
   response_type: {
-    count: {
-      display_name: 'Count',
-      short_desc: 'Tickets count',
-      desc: 'Count of the all tickets',
-      name: 'count',
-      example_value: 55,
-      type: 'number',
-    },
+   refreshed_at: {
+     display_name: 'Refreshed At',
+     short_desc: 'The last time the ticket count was refreshed',
+     desc: 'The last time the ticket count was refreshed',
+     name:'refreshed_at',
+     type: '*string'
+   },
+   value: {
+     display_name: 'Ticket Count',
+     short_desc: 'The total number of tickets',
+     desc: 'The total number of tickets',
+     name:'value',
+     type: '*number'
+   }
   },
 } satisfies TQorePartialActionWithFunction;

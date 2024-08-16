@@ -1,4 +1,33 @@
 import { IQoreAppActionOption } from 'global/models/qore';
+import L from '../../i18n/i18n-node';
+import { TTicketsOptions } from 'zendesk/models/tickets';
+
+export const ticketCreateUpdate: TTicketsOptions = {
+  comment: {
+    display_name: L.en.apps.zendesk.actions.tickets.comment.displayName(),
+    short_desc: L.en.apps.zendesk.actions.tickets.comment.shortDesc(),
+    desc: L.en.apps.zendesk.actions.tickets.comment.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'Comment'
+  },
+  priority: {
+    display_name: L.en.apps.zendesk.actions.tickets.priority.displayName(),
+    short_desc: L.en.apps.zendesk.actions.tickets.priority.shortDesc(),
+    desc: L.en.apps.zendesk.actions.tickets.priority.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'High'
+  },
+  subject: {
+    display_name: L.en.apps.zendesk.actions.tickets.subject.displayName(),
+    short_desc: L.en.apps.zendesk.actions.tickets.subject.shortDesc(),
+    desc: L.en.apps.zendesk.actions.tickets.subject.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'New Ticket',
+  },
+}
 
 export const ZendeskOptions = {
   users: {
@@ -20,9 +49,9 @@ export const ZendeskOptions = {
       },
     },
     userId: {
-      display_name: 'User ID',
-      short_desc: 'User ID',
-      desc: 'User ID',
+      display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
+      short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
+      desc: L.en.apps.zendesk.actions.users.user_id.longDesc(),
       type: 'number',
       required: true,
       example_value: 123,
@@ -54,9 +83,9 @@ export const ZendeskOptions = {
   },
   attachments: {
     token: {
-      display_name: 'Token',
-      short_desc: 'Token',
-      desc: 'Token',
+      display_name: L.en.apps.zendesk.actions.attachments.token.displayName(),
+      short_desc: L.en.apps.zendesk.actions.attachments.token.shortDesc(),
+      desc: L.en.apps.zendesk.actions.attachments.token.longDesc(),
       type: 'string',
       required: true,
       example_value: '44adee',
@@ -125,30 +154,38 @@ export const ZendeskOptions = {
     }
   },
   tickets: {
-    ticketCreateUpdate: {
-      display_name: 'Ticket Create/Update',
-      short_desc: 'Payload of ticketCreate/ticketUpdate',
-      desc: 'The payload of ticketCreate/ticketUpdate',
-      type: 'data',
-      required: true,
-      example_value: {
-        name: {
-          display_name: 'Name',
-          short_desc: 'Name of ticket',
-          desc: 'Name of ticket',
-          type: 'string',
-          required: true,
-          example_value: 'Ticket #1',
-        }
-      },
-    },
-    ticketId: {
-      display_name: 'Ticket ID',
-      short_desc: 'Ticket ID',
-      desc: 'Ticket ID',
+    ticketCreateUpdate,
+    ticket_id: {
+      display_name: L.en.apps.zendesk.actions.tickets.ticket_id.displayName(),
+      short_desc: L.en.apps.zendesk.actions.tickets.ticket_id.shortDesc(),
+      desc: L.en.apps.zendesk.actions.tickets.ticket_id.longDesc(),
       type: 'number',
       required: true,
       example_value: 123,
+    },
+    count: {
+      display_name: 'Count',
+      short_desc: 'Count',
+      desc: 'Count',
+      type: 'boolean',
+      required: false,
+      example_value: true,
+    },
+    showMandyIds: {
+      display_name: 'Show Many Tickets',
+      short_desc: 'Show Many Tickets',
+      desc: 'Show Many Tickets',
+      type: 'string',
+      required: false,
+      example_value: '10,5,22',
+    },
+    type: {
+      display_name: 'Ticket Type',
+      short_desc: 'Ticket Type',
+      desc: 'Ticket Type',
+      type: 'string',
+      required: false,
+      example_value: 'followers',
     },
     variant: {
       display_name: 'Ticket Variant',
@@ -167,4 +204,5 @@ export const ZendeskOptions = {
       example_value: true,
     }
   },
-} satisfies Record<string, Record<string, IQoreAppActionOption>>;
+} satisfies Record<string, Record<string, IQoreAppActionOption | Record<string, IQoreAppActionOption>>>;
+
