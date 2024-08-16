@@ -141,7 +141,7 @@ export type TQoreGetAllowedValuesFunction = (
   obj?: string | Record<string, any>,
   options?: Record<string, any>,
   auth?: TQoreAppActionFunctionAuth
-) => IQoreAllowedValue[];
+) => IQoreAllowedValue[] | Promise<IQoreAllowedValue[]>;
 
 export type IQoreType =
   | 'int'

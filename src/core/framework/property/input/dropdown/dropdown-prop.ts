@@ -5,9 +5,9 @@ import { Type } from '@sinclair/typebox';
 import { ValidationInputType } from '../../../validators/types';
 import { PropertyType } from '../property-type';
 
-type DynamicDropdownOptions<T> = (
+export type DynamicDropdownOptions<T> = (
   propsValue: Record<string, unknown>,
-  ctx: PropertyContext
+  ctx?: PropertyContext
 ) => Promise<DropdownState<T>>;
 
 export const DropdownProperty = Type.Composite([

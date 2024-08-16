@@ -17,7 +17,7 @@ import { findUserByEmailAction } from './lib/actions/find-user-by-email';
 import { updateProfileAction } from './lib/actions/update-profile';
 import { createChannelAction } from './lib/actions/create-channel';
 import { channelCreated } from './lib/triggers/new-channel';
-import { addRectionToMessageAction } from './lib/actions/add-reaction-to-message';
+import { addReactionToMessageAction } from './lib/actions/add-reaction-to-message';
 import { getChannelHistory } from './lib/actions/get-channel-history';
 
 export const slackAuth = PieceAuth.OAuth2({
@@ -92,7 +92,7 @@ export const slack = createPiece({
     'abuaboud',
   ],
   actions: [
-    addRectionToMessageAction,
+    addReactionToMessageAction,
     slackSendDirectMessageAction,
     slackSendMessageAction,
     requestApprovalDirectMessageAction,

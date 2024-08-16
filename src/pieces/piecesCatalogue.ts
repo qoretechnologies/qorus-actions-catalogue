@@ -1,6 +1,7 @@
 import {
   ActionContext,
   ActionRunner,
+  DropdownState,
   InputPropertyMap,
   Piece,
   PropertyType,
@@ -9,6 +10,7 @@ import {
 import { InputProperty } from 'core/framework/property/input';
 import { normalizeName } from 'global/helpers';
 import {
+  IQoreAllowedValue,
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
   IQoreAppWithActions,
@@ -17,7 +19,9 @@ import {
   TQoreAppActionFunction,
   TQoreAppActionFunctionAuth,
   TQoreApps,
+  TQoreGetAllowedValuesFunction,
 } from 'global/models/qore';
+import { DynamicDropdownOptions } from '../core/framework/property/input/dropdown/dropdown-prop';
 import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './common/constants';
 import { TMapPieceActionToAppActionOptions } from './common/models/pieces-catalogue';
 import * as pieces from './index';
@@ -121,22 +125,54 @@ class _PiecesAppCatalogue {
     propName: string,
     type: PropertyType
   ): IQoreTypeObject | IQoreType {
-    if ('options' in prop && 'options' in prop.options) {
+    if ('options' in prop) {
       return {
         display_name: prop.displayName,
         short_desc: prop.description,
         name: propName,
         type: piecePropTypeToQoreOptionTypeIndex[type],
-        allowed_values: prop.options.options.map((option) => ({
-          value: option.value,
-          desc: option.label,
-          short_desc: option.label,
-          display_name: option.label,
-        })),
+        get_allowed_values: this.mapPieceGetOptionsToQoreGetAllowedValues(
+          prop.options as DynamicDropdownOptions<any>
+        ),
+        allowed_values: this.mapPieceAllowedValuesToQoreAllowedValues(
+          prop.options as DropdownState<any>
+        ),
       };
     } else {
       return piecePropTypeToQoreOptionTypeIndex[type];
     }
+  }
+
+  private mapPieceAllowedValuesToQoreAllowedValues(
+    options: DropdownState<any>
+  ): IQoreAllowedValue[] {
+    if ('options' in options) {
+      return options.options.map((option) => ({
+        value: option.value,
+        desc: option.label,
+        short_desc: option.label,
+        display_name: option.label,
+      }));
+    }
+  }
+
+  private mapPieceGetOptionsToQoreGetAllowedValues(
+    getOptions: DynamicDropdownOptions<any>
+  ): TQoreGetAllowedValuesFunction {
+    return async (
+      _obj: Record<string, any>,
+      _options: Record<string, any>,
+      auth: TQoreAppActionFunctionAuth
+    ): Promise<IQoreAllowedValue[]> => {
+      const options = await getOptions({ auth });
+
+      return options.options.map((option) => ({
+        value: option.value,
+        desc: option.label,
+        short_desc: option.label,
+        display_name: option.label,
+      }));
+    };
   }
 }
 
