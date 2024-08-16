@@ -2,9 +2,10 @@ import { slackAuth } from '../../';
 import { slackChannel, slackInfo } from '../common/props';
 
 import { WebClient } from '@slack/web-api';
-import { processMessageTimestamp } from '../common/utils';
 import { createAction, Property } from 'core/framework';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { StrictRecord } from 'global/models/utils';
+import { processMessageTimestamp } from '../common/utils';
 
 const addReactionToMessageResponseType = {
   ok: {
@@ -15,7 +16,7 @@ const addReactionToMessageResponseType = {
     desc: 'Indicates if the reaction was successfully added',
     example_value: true,
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const addReactionToMessageAction = createAction({
   auth: slackAuth,

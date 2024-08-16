@@ -1,7 +1,8 @@
 import { WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
 import { slackAuth } from '../../';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+import { TQoreType, IQoreTypeObject } from 'global/models/qore';
+import { StrictRecord } from 'global/models/utils';
 
 const createChannelResponseType = {
   ok: {
@@ -185,7 +186,7 @@ const createChannelResponseType = {
       },
     },
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const createChannelAction = createAction({
   auth: slackAuth,

@@ -1,5 +1,6 @@
 import { config } from 'dotenv';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
+import { TQoreAppActionFunctionContext } from '../global/models/qore';
 
 config({ path: '.env.test' });
 PiecesAppCatalogue.registerApps();
@@ -18,7 +19,13 @@ describe('slackPieceTest', () => {
 
   it('should send a Slack message and receive a positive response', async () => {
     const props = { text: 'test message from Jest', channel: process.env.SLACK_CHANNEL_ID };
-    const auth = { access_token: process.env.SLACK_ACCESS_TOKEN };
+    const actionContext = {
+      conn_name: 'slack',
+      conn_options: {
+        token: process.env.SLACK_ACCESS_TOKEN,
+      },
+      opts: {},
+    } satisfies TQoreAppActionFunctionContext;
 
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const actionFunction = slackApp.actions.find(
@@ -27,7 +34,7 @@ describe('slackPieceTest', () => {
 
     if (actionFunction) {
       try {
-        const result = await actionFunction(props, {}, auth);
+        const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
       } catch (error) {
@@ -41,7 +48,13 @@ describe('slackPieceTest', () => {
 
   it('should get channel history', async () => {
     const props = { channel: process.env.SLACK_CHANNEL_ID };
-    const auth = { access_token: process.env.SLACK_ACCESS_TOKEN };
+    const actionContext = {
+      conn_name: 'slack',
+      conn_options: {
+        token: process.env.SLACK_ACCESS_TOKEN,
+      },
+      opts: {},
+    } satisfies TQoreAppActionFunctionContext;
 
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'get_channel_history');
@@ -49,7 +62,7 @@ describe('slackPieceTest', () => {
 
     if (actionFunction) {
       try {
-        const result = await actionFunction(props, {}, auth);
+        const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.messages).toBeDefined();
       } catch (error) {

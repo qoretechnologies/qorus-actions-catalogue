@@ -2,10 +2,10 @@
 /* eslint-disable require-await */
 import { ActionContext, PropertyType } from 'core/framework';
 import { ExecutionType } from 'core/shared';
-import { IQoreType } from 'global/models/qore';
+import { TQoreType } from 'global/models/qore';
 
 export const piecePropTypeToQoreOptionTypeIndex: {
-  [key in PropertyType]: IQoreType;
+  [key in PropertyType]: TQoreType;
 } = {
   [PropertyType.SHORT_TEXT]: '*string',
   [PropertyType.LONG_TEXT]: '*string',

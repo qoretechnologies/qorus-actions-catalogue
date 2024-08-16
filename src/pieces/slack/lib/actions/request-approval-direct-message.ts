@@ -3,7 +3,8 @@ import { slackSendMessage } from '../common/utils';
 import { slackAuth } from '../..';
 import { assertNotNullOrUndefined, ExecutionType, PauseType } from 'core/shared';
 import { profilePicture, text, userId, username } from '../common/props';
-import { IQoreTypeObject, IQoreType } from '../../../../global/models/qore';
+import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { StrictRecord } from 'global/models/utils';
 
 const requestApprovalDirectMessageResponseType = {
   approved: {
@@ -14,7 +15,7 @@ const requestApprovalDirectMessageResponseType = {
     desc: 'Indicates if the message was approved',
     example_value: true,
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const requestApprovalDirectMessageAction = createAction({
   auth: slackAuth,

@@ -1,9 +1,10 @@
 import { createAction } from 'core/framework';
-import { slackAuth } from '../..';
 import { assertNotNullOrUndefined } from 'core/shared';
-import { profilePicture, text, slackChannel, username, actions, slackInfo } from '../common/props';
+import { slackAuth } from '../..';
+import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { StrictRecord } from 'global/models/utils';
+import { actions, profilePicture, slackChannel, slackInfo, text, username } from '../common/props';
 import { requestAction } from '../common/request-action';
-import { IQoreType, IQoreTypeObject } from '../../../../global/models/qore';
 
 const requestMessageActionResponseType = {
   ok: {
@@ -150,7 +151,7 @@ const requestMessageActionResponseType = {
       },
     },
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const requestActionMessageAction = createAction({
   auth: slackAuth,

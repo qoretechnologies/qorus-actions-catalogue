@@ -1,7 +1,8 @@
-import { createAction, Property } from 'core/framework';
-import { slackAuth } from '../..';
 import { WebClient } from '@slack/web-api';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+import { createAction, Property } from 'core/framework';
+import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { slackAuth } from '../..';
+import { StrictRecord } from 'global/models/utils';
 
 const searchMessagesResponseType = {
   matches: {
@@ -54,7 +55,7 @@ const searchMessagesResponseType = {
       },
     ],
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const searchMessages = createAction({
   name: 'searchMessages',

@@ -141,7 +141,7 @@ export type TQoreAppActionFunction = (
 
 export type TQoreGetAllowedValuesFunction<TypeValue = unknown> = (
   context?: TQoreAppActionFunctionContext
-) => IQoreAllowedValue<TypeValue>[];
+) => IQoreAllowedValue<TypeValue>[] | Promise<IQoreAllowedValue<TypeValue>[]>;
 
 export type TQoreStringCompatibleType =
   | 'string'
@@ -251,13 +251,26 @@ export interface IQoreAllowedValue<TypeValue = unknown> extends IQoreAppShared {
 
 export interface IQoreTypeObject<TypeName extends TQoreType = TQoreType, TypeValue = unknown>
   extends IQoreAppShared {
-  name: string; // the technical name of the field
-  type: TypeName; // either a string or a data object again
-  example_value?: TypeValue; // (values must use the field's type) any example value to use when generating example data etc
-  default_value?: TypeValue; // (values must use the field's type) the default value if none is provided by the user
-  allowed_values?: IQoreAllowedValue<TypeValue>[]; // an array of objects providing the only values allowed for the field
-  get_allowed_values?: TQoreGetAllowedValuesFunction<TypeValue>; // a function that returns the allowed values for the field
-  attr?: Record<string, any>; // an optional data object with any properties
+  // the technical name of the field
+  name: string;
+
+  // either a string or a data object again
+  type: TypeName;
+
+  // (values must use the field's type) any example value to use when generating example data etc
+  example_value?: TypeValue;
+
+  // (values must use the field's type) the default value if none is provided by the user
+  default_value?: TypeValue;
+
+  // an array of objects providing the only values allowed for the field
+  allowed_values?: IQoreAllowedValue<TypeValue>[];
+
+  // a function that returns the allowed values for the field
+  get_allowed_values?: TQoreGetAllowedValuesFunction<TypeValue>;
+
+  // an optional data object with any properties
+  attr?: Record<string, any>;
 }
 
 export interface IQoreAppActionOption<TypeName extends TQoreType = TQoreType, TypeValue = unknown>

@@ -4,7 +4,6 @@ import {
   DropdownState,
   InputPropertyMap,
   Piece,
-  PropertyType,
   StaticPropsValue,
 } from 'core/framework';
 import { InputProperty } from 'core/framework/property/input';
@@ -14,10 +13,8 @@ import {
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
   IQoreAppWithActions,
-  IQoreType,
-  IQoreTypeObject,
   TQoreAppActionFunction,
-  TQoreAppActionFunctionAuth,
+  TQoreAppActionFunctionContext,
   TQoreApps,
   TQoreGetAllowedValuesFunction,
 } from 'global/models/qore';
@@ -78,15 +75,15 @@ class _PiecesAppCatalogue {
     return (
       obj: Record<string, any>,
       _options: Record<string, any>,
-      auth: TQoreAppActionFunctionAuth
+      context: TQoreAppActionFunctionContext
     ): Promise<any> => {
-      const context = {
+      const actionContext = {
         propsValue: obj satisfies StaticPropsValue<InputPropertyMap>,
-        auth,
+        auth: { access_token: context.conn_options.token },
         ...commonActionContext,
       } satisfies ActionContext;
 
-      return runFunction(context);
+      return runFunction(actionContext);
     };
   }
 
@@ -102,45 +99,36 @@ class _PiecesAppCatalogue {
       }
       if (props.hasOwnProperty(key)) {
         const value = props[key];
-        options[key] = this.mapActionPropToAppActionOption(key, value);
+        options[key] = this.mapActionPropToAppActionOption(value);
       }
     }
 
     return options;
   }
 
-  private mapActionPropToAppActionOption(key: string, prop: InputProperty): IQoreAppActionOption {
+  private mapActionPropToAppActionOption(prop: InputProperty): IQoreAppActionOption {
+    let allowed_values: IQoreAllowedValue[] | undefined = undefined;
+    let get_allowed_values: TQoreGetAllowedValuesFunction | undefined = undefined;
+
+    if ('options' in prop) {
+      allowed_values = this.mapPieceAllowedValuesToQoreAllowedValues(
+        prop.options as DropdownState<any>
+      );
+      get_allowed_values = this.mapPieceGetOptionsToQoreGetAllowedValues(
+        prop.options as DynamicDropdownOptions<any>
+      );
+    }
+
     return {
       display_name: prop.displayName,
       short_desc: prop.description,
       desc: prop.description,
-      type: this.mapActionTypeToQoreType(prop, key, prop.type),
+      type: piecePropTypeToQoreOptionTypeIndex[prop.type],
+      get_allowed_values,
+      allowed_values,
       required: prop.required,
       default_value: prop.defaultValue,
     };
-  }
-
-  private mapActionTypeToQoreType(
-    prop: InputProperty,
-    propName: string,
-    type: PropertyType
-  ): IQoreTypeObject | IQoreType {
-    if ('options' in prop) {
-      return {
-        display_name: prop.displayName,
-        short_desc: prop.description,
-        name: propName,
-        type: piecePropTypeToQoreOptionTypeIndex[type],
-        get_allowed_values: this.mapPieceGetOptionsToQoreGetAllowedValues(
-          prop.options as DynamicDropdownOptions<any>
-        ),
-        allowed_values: this.mapPieceAllowedValuesToQoreAllowedValues(
-          prop.options as DropdownState<any>
-        ),
-      };
-    } else {
-      return piecePropTypeToQoreOptionTypeIndex[type];
-    }
   }
 
   private mapPieceAllowedValuesToQoreAllowedValues(
@@ -159,11 +147,8 @@ class _PiecesAppCatalogue {
   private mapPieceGetOptionsToQoreGetAllowedValues(
     getOptions: DynamicDropdownOptions<any>
   ): TQoreGetAllowedValuesFunction {
-    return async (
-      _obj: Record<string, any>,
-      _options: Record<string, any>,
-      auth: TQoreAppActionFunctionAuth
-    ): Promise<IQoreAllowedValue[]> => {
+    return async (context: TQoreAppActionFunctionContext): Promise<IQoreAllowedValue[]> => {
+      const auth = { access_token: context.conn_options.token };
       const options = await getOptions({ auth });
 
       return options.options.map((option) => ({

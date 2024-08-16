@@ -1,9 +1,10 @@
 import { createAction } from 'core/framework';
-import { slackSendMessage } from '../common/utils';
-import { slackAuth } from '../../';
 import { assertNotNullOrUndefined } from 'core/shared';
-import { profilePicture, text, userId, username, blocks } from '../common/props';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { slackAuth } from '../../';
+import { StrictRecord } from 'global/models/utils';
+import { blocks, profilePicture, text, userId, username } from '../common/props';
+import { slackSendMessage } from '../common/utils';
 
 const slackSendDirectMessageResponseType = {
   ok: {
@@ -62,7 +63,7 @@ const slackSendDirectMessageResponseType = {
       },
     },
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const slackSendDirectMessageAction = createAction({
   auth: slackAuth,

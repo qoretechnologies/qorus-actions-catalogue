@@ -1,9 +1,10 @@
 import { Static, Type } from '@sinclair/typebox';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+import { TQoreType, IQoreTypeObject } from 'global/models/qore';
 import { ActionContext } from '../context';
 import { ActionBase } from '../piece-metadata';
 import { InputPropertyMap } from '../property';
 import { PieceAuthProperty } from '../property/authentication';
+import { StrictRecord } from '../../../global/models/utils';
 
 export type ActionRunner<
   PieceAuth extends PieceAuthProperty,
@@ -38,7 +39,7 @@ type CreateActionParams<
   test?: ActionRunner<PieceAuth, ActionProps>;
   requireAuth?: boolean;
   errorHandlingOptions?: ErrorHandlingOptionsParam;
-  responseType?: Record<string, IQoreType | IQoreTypeObject>;
+  responseType?: StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 };
 
 export class IAction<PieceAuth extends PieceAuthProperty, ActionProps extends InputPropertyMap>
@@ -53,7 +54,7 @@ export class IAction<PieceAuth extends PieceAuthProperty, ActionProps extends In
     public readonly test: ActionRunner<PieceAuth, ActionProps>,
     public readonly requireAuth: boolean,
     public readonly errorHandlingOptions: ErrorHandlingOptionsParam,
-    public readonly responseType: Record<string, IQoreType | IQoreTypeObject>
+    public readonly responseType: StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>
   ) {}
 }
 

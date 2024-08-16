@@ -3,7 +3,8 @@ import { slackAuth } from '../..';
 import { blocks, slackChannel, slackInfo } from '../common/props';
 import { processMessageTimestamp } from '../common/utils';
 import { Block, WebClient } from '@slack/web-api';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
+import { TQoreType, IQoreTypeObject } from 'global/models/qore';
+import { StrictRecord } from 'global/models/utils';
 
 const updateMessageResponseType = {
   ok: {
@@ -38,7 +39,7 @@ const updateMessageResponseType = {
     desc: 'The updated text of the message',
     example_value: 'Hello, world!',
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const updateMessage = createAction({
   // auth: check https://www.activepieces.com/docs/developers/piece-reference/authentication,

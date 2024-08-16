@@ -1,8 +1,9 @@
 import { ConversationsHistoryResponse, WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
+import { IQoreTypeObject, TQoreType } from 'global/models/qore';
 import { slackAuth } from '../..';
+import { StrictRecord } from 'global/models/utils';
 import { slackChannel, slackInfo } from '../common/props';
-import { IQoreType, IQoreTypeObject } from 'global/models/qore';
 
 const getChannelHistoryResponseType = {
   messages: {
@@ -55,7 +56,7 @@ const getChannelHistoryResponseType = {
       },
     ],
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const getChannelHistory = createAction({
   // auth: check https://www.activepieces.com/docs/developers/piece-reference/authentication,

@@ -1,7 +1,8 @@
 import { createAction, Property } from 'core/framework';
 import { slackAuth } from '../../index';
 import { WebClient } from '@slack/web-api';
-import { IQoreType, IQoreTypeObject } from '../../../../global/models/qore';
+import { TQoreType, IQoreTypeObject } from 'global/models/qore';
+import { StrictRecord } from 'global/models/utils';
 
 const uploadFileResponseType = {
   ok: {
@@ -204,7 +205,7 @@ const uploadFileResponseType = {
       },
     },
   },
-} satisfies Record<string, IQoreType | IQoreTypeObject>;
+} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
 
 export const uploadFile = createAction({
   auth: slackAuth,
