@@ -4,6 +4,8 @@ import {
   DropdownState,
   InputPropertyMap,
   Piece,
+  PieceAuthProperty,
+  PropertyType,
   StaticPropsValue,
 } from 'core/framework';
 import { InputProperty } from 'core/framework/property/input';
@@ -17,6 +19,7 @@ import {
   TQoreAppActionFunctionContext,
   TQoreApps,
   TQoreGetAllowedValuesFunction,
+  TQoreRestConnectionConfig,
 } from 'global/models/qore';
 import { DynamicDropdownOptions } from '../core/framework/property/input/dropdown/dropdown-prop';
 import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './common/constants';
@@ -42,11 +45,23 @@ class _PiecesAppCatalogue {
       actions: Object.entries(piece.actions()).map(([actionName, action]) =>
         this.mapPieceActionToAppAction({ appName, actionName, action })
       ),
+      rest: this.mapPieceAuthToAppRest(piece.auth),
       display_name: piece.displayName,
       short_desc: piece.description,
       desc: piece.description,
       logo: piece.logoUrl,
     };
+  }
+
+  private mapPieceAuthToAppRest(auth: PieceAuthProperty): TQoreRestConnectionConfig {
+    if (auth.type === PropertyType.OAUTH2) {
+      return {
+        url: auth.authUrl,
+        oauth2_auth_url: auth.authUrl,
+        oauth2_token_url: auth.tokenUrl,
+        oauth2_scopes: auth.scope,
+      };
+    }
   }
 
   private mapPieceActionToAppAction({
