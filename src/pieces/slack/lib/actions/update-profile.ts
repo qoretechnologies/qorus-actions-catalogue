@@ -1,6 +1,127 @@
-import { slackAuth } from '../../';
-import { createAction, Property } from 'core/framework';
 import { WebClient } from '@slack/web-api';
+import { createAction, Property } from 'core/framework';
+import { slackAuth } from '../../';
+import { IActionResponse } from 'global/models/actions';
+
+const updateProfileResponseType: IActionResponse = {
+  ok: {
+    type: '*boolean',
+    name: 'ok',
+    display_name: 'Success',
+    short_desc: 'Indicates if the profile was successfully updated',
+    example_value: true,
+  },
+  username: {
+    type: '*string',
+    display_name: 'Username',
+    short_desc: 'The user’s username',
+    example_value: 'spengler',
+  },
+  profile: {
+    display_name: 'Profile',
+    short_desc: "The user's profile",
+    type: {
+      title: {
+        type: '*string',
+        name: 'title',
+        display_name: 'Title',
+        short_desc: 'The user’s title',
+        example_value: 'Software Engineer',
+      },
+      phone: {
+        type: '*string',
+        name: 'phone',
+        display_name: 'Phone',
+        short_desc: 'The user’s phone number',
+        example_value: '+1 123 456 7890',
+      },
+      skype: {
+        type: '*string',
+        name: 'skype',
+        display_name: 'Skype',
+        short_desc: 'The user’s Skype ID',
+        example_value: 'my_skype_id',
+      },
+      real_name: {
+        type: '*string',
+        name: 'real_name',
+        display_name: 'Real Name',
+        short_desc: 'The user’s real name',
+        example_value: 'Egon Spengler',
+      },
+      display_name: {
+        type: '*string',
+        name: 'display_name',
+        display_name: 'Display Name',
+        short_desc: 'The user’s display name',
+        example_value: 'spengler',
+      },
+      email: {
+        type: '*string',
+        name: 'email',
+        display_name: 'Email',
+        short_desc: 'The user’s email address',
+        example_value: 'example@email.com',
+      },
+      first_name: {
+        type: '*string',
+        name: 'first_name',
+        display_name: 'First Name',
+        short_desc: 'The user’s first name',
+        example_value: 'Egon',
+      },
+      last_name: {
+        type: '*string',
+        name: 'last_name',
+        display_name: 'Last Name',
+        short_desc: 'The user’s last name',
+        example_value: 'Spengler',
+      },
+      image_24: {
+        type: '*string',
+        name: 'image_24',
+        display_name: 'Image 24',
+        short_desc: 'The 24x24 image of the user',
+        example_value: 'https://example.com/image_24.jpg',
+      },
+      image_32: {
+        type: '*string',
+        name: 'image_32',
+        display_name: 'Image 32',
+        short_desc: 'The 32x32 image of the user',
+        example_value: 'https://example.com/image_32.jpg',
+      },
+      image_48: {
+        type: '*string',
+        name: 'image_48',
+        display_name: 'Image 48',
+        short_desc: 'The 48x48 image of the user',
+        example_value: 'https://example.com/image_48.jpg',
+      },
+      image_72: {
+        type: '*string',
+        name: 'image_72',
+        display_name: 'Image 72',
+        short_desc: 'The 72x72 image of the user',
+        example_value: 'https://example.com/image_72.jpg',
+      },
+      image_192: {
+        type: '*string',
+        name: 'image_192',
+        display_name: 'Image 192',
+        short_desc: 'The 192x192 image of the user',
+        example_value: 'https://example.com/image_192.jpg',
+      },
+      image_512: {
+        type: '*string',
+        name: 'image_512',
+        display_name: 'Image 512',
+        short_desc: 'The 512x512 image of the user',
+        example_value: 'https://example.com/image_512.jpg',
+      },
+    },
+  },
+};
 
 export const updateProfileAction = createAction({
   auth: slackAuth,
@@ -28,6 +149,7 @@ export const updateProfileAction = createAction({
       required: false,
     }),
   },
+  responseType: updateProfileResponseType,
   async run({ auth, propsValue }) {
     const client = new WebClient(auth.data['authed_user']?.access_token);
 

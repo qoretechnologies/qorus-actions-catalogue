@@ -1,11 +1,10 @@
 import { ConversationsHistoryResponse, WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
-import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { IActionResponse } from 'global/models/actions';
 import { slackAuth } from '../..';
-import { StrictRecord } from 'global/models/utils';
 import { slackChannel, slackInfo } from '../common/props';
 
-const getChannelHistoryResponseType = {
+const getChannelHistoryResponseType: IActionResponse = {
   messages: {
     type: 'list',
     name: 'messages',
@@ -56,7 +55,7 @@ const getChannelHistoryResponseType = {
       },
     ],
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const getChannelHistory = createAction({
   // auth: check https://www.activepieces.com/docs/developers/piece-reference/authentication,

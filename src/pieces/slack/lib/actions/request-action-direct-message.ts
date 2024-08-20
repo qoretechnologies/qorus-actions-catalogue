@@ -1,12 +1,11 @@
 import { createAction } from 'core/framework';
-import { slackAuth } from '../..';
-import { profilePicture, text, userId, username, actions } from '../common/props';
-import { requestAction } from '../common/request-action';
 import { assertNotNullOrUndefined } from 'core/shared';
-import { TQoreType, IQoreTypeObject } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { IActionResponse } from 'global/models/actions';
+import { slackAuth } from '../..';
+import { actions, profilePicture, text, userId, username } from '../common/props';
+import { requestAction } from '../common/request-action';
 
-const requestActionDirectMessageResponseType = {
+const requestActionDirectMessageResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -32,7 +31,6 @@ const requestActionDirectMessageResponseType = {
     example_value: '1234567890.123456',
   },
   message: {
-    name: 'message',
     display_name: 'Message',
     short_desc: 'The message that was sent',
     desc: 'The message that was sent',
@@ -151,7 +149,7 @@ const requestActionDirectMessageResponseType = {
       },
     },
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const requestActionDirectMessageAction = createAction({
   auth: slackAuth,

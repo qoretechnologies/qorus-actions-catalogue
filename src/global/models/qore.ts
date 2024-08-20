@@ -252,7 +252,7 @@ export interface IQoreAllowedValue<TypeValue = unknown> extends IQoreAppShared {
 export interface IQoreTypeObject<TypeName extends TQoreType = TQoreType, TypeValue = unknown>
   extends IQoreAppShared {
   // the technical name of the field
-  name: string;
+  name?: string;
 
   // either a string or a data object again
   type: TypeName;

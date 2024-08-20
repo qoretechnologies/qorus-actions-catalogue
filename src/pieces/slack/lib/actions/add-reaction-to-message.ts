@@ -3,11 +3,10 @@ import { slackChannel, slackInfo } from '../common/props';
 
 import { WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
-import { IQoreTypeObject, TQoreType } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { IActionResponse } from 'global/models/actions';
 import { processMessageTimestamp } from '../common/utils';
 
-const addReactionToMessageResponseType = {
+const addReactionToMessageResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -16,7 +15,7 @@ const addReactionToMessageResponseType = {
     desc: 'Indicates if the reaction was successfully added',
     example_value: true,
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const addReactionToMessageAction = createAction({
   auth: slackAuth,

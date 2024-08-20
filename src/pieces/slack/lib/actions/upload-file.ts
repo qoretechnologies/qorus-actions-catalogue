@@ -1,10 +1,9 @@
-import { createAction, Property } from 'core/framework';
-import { slackAuth } from '../../index';
 import { WebClient } from '@slack/web-api';
-import { TQoreType, IQoreTypeObject } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { createAction, Property } from 'core/framework';
+import { IActionResponse } from 'global/models/actions';
+import { slackAuth } from '../../index';
 
-const uploadFileResponseType = {
+const uploadFileResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -14,7 +13,6 @@ const uploadFileResponseType = {
     example_value: true,
   },
   file: {
-    name: 'file',
     display_name: 'File',
     short_desc: 'The uploaded file',
     desc: 'The uploaded file',
@@ -205,7 +203,7 @@ const uploadFileResponseType = {
       },
     },
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const uploadFile = createAction({
   auth: slackAuth,

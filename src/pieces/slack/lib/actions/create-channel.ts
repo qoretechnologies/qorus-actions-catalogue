@@ -1,10 +1,9 @@
 import { WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
 import { slackAuth } from '../../';
-import { TQoreType, IQoreTypeObject } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { IActionResponse } from 'global/models/actions';
 
-const createChannelResponseType = {
+const createChannelResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -14,7 +13,6 @@ const createChannelResponseType = {
     example_value: true,
   },
   channel: {
-    name: 'channel',
     display_name: 'Channel',
     short_desc: 'The newly created channel',
     desc: 'The newly created channel',
@@ -186,7 +184,7 @@ const createChannelResponseType = {
       },
     },
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const createChannelAction = createAction({
   auth: slackAuth,

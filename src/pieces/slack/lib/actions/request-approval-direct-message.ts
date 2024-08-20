@@ -1,12 +1,11 @@
 import { createAction } from 'core/framework';
-import { slackSendMessage } from '../common/utils';
-import { slackAuth } from '../..';
 import { assertNotNullOrUndefined, ExecutionType, PauseType } from 'core/shared';
+import { IActionResponse } from 'global/models/actions';
+import { slackAuth } from '../..';
 import { profilePicture, text, userId, username } from '../common/props';
-import { IQoreTypeObject, TQoreType } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { slackSendMessage } from '../common/utils';
 
-const requestApprovalDirectMessageResponseType = {
+const requestApprovalDirectMessageResponseType: IActionResponse = {
   approved: {
     type: '*boolean',
     name: 'approved',
@@ -15,7 +14,7 @@ const requestApprovalDirectMessageResponseType = {
     desc: 'Indicates if the message was approved',
     example_value: true,
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const requestApprovalDirectMessageAction = createAction({
   auth: slackAuth,

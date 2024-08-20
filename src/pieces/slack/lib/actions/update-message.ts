@@ -1,12 +1,11 @@
+import { Block, WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
 import { slackAuth } from '../..';
 import { blocks, slackChannel, slackInfo } from '../common/props';
 import { processMessageTimestamp } from '../common/utils';
-import { Block, WebClient } from '@slack/web-api';
-import { TQoreType, IQoreTypeObject } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { IActionResponse } from 'global/models/actions';
 
-const updateMessageResponseType = {
+const updateMessageResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -39,7 +38,7 @@ const updateMessageResponseType = {
     desc: 'The updated text of the message',
     example_value: 'Hello, world!',
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const updateMessage = createAction({
   // auth: check https://www.activepieces.com/docs/developers/piece-reference/authentication,

@@ -1,10 +1,9 @@
 import { WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
-import { IQoreTypeObject, TQoreType } from 'global/models/qore';
+import { IActionResponse } from 'global/models/actions';
 import { slackAuth } from '../../';
-import { StrictRecord } from 'global/models/utils';
 
-const findUserByEmailResponseType = {
+const findUserByEmailResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -14,7 +13,6 @@ const findUserByEmailResponseType = {
     example_value: true,
   },
   user: {
-    name: 'user',
     display_name: 'User',
     short_desc: 'The user found by email',
     desc: 'The user found by email',
@@ -341,7 +339,7 @@ const findUserByEmailResponseType = {
       },
     },
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const findUserByEmailAction = createAction({
   auth: slackAuth,

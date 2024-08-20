@@ -1,11 +1,10 @@
 import { createAction, Property } from 'core/framework';
-import { profilePicture, slackChannel, username, blocks, slackInfo } from '../common/props';
-import { processMessageTimestamp, slackSendMessage } from '../common/utils';
+import { IActionResponse } from 'global/models/actions';
 import { slackAuth } from '../../';
-import { TQoreType, IQoreTypeObject } from 'global/models/qore';
-import { StrictRecord } from 'global/models/utils';
+import { blocks, profilePicture, slackChannel, slackInfo, username } from '../common/props';
+import { processMessageTimestamp, slackSendMessage } from '../common/utils';
 
-const slackSendChannelMessageResponseType = {
+const slackSendChannelMessageResponseType: IActionResponse = {
   ok: {
     type: '*boolean',
     name: 'ok',
@@ -31,7 +30,6 @@ const slackSendChannelMessageResponseType = {
     example_value: '1234567890.123456',
   },
   message: {
-    name: 'message',
     display_name: 'Message',
     short_desc: 'The message that was sent',
     desc: 'The message that was sent',
@@ -62,7 +60,7 @@ const slackSendChannelMessageResponseType = {
       },
     },
   },
-} satisfies StrictRecord<string, IQoreTypeObject<TQoreType, unknown>>;
+};
 
 export const slackSendMessageAction = createAction({
   auth: slackAuth,
