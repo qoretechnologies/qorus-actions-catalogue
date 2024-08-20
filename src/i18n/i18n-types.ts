@@ -1143,6 +1143,48 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					users: {
+						/**
+						 * U​s​e​r​s
+						 */
+						displayName: string
+						/**
+						 * U​s​e​r​s
+						 */
+						shortDesc: string
+						/**
+						 * U​s​e​r​s
+						 */
+						longDesc: string
+					}
+					next_page: {
+						/**
+						 * N​e​x​t​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						longDesc: string
+					}
+					previoud_page: {
+						/**
+						 * P​r​e​v​i​o​u​s​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * P​r​e​v​i​o​u​s​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * P​r​e​v​i​o​u​s​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						longDesc: string
+					}
 				}
 				organizations: {
 					/**
@@ -2557,6 +2599,48 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * Groups
+						 */
+						longDesc: () => LocalizedString
+					}
+					users: {
+						/**
+						 * Users
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Users
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Users
+						 */
+						longDesc: () => LocalizedString
+					}
+					next_page: {
+						/**
+						 * Next Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Next page of groups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Next page of groups
+						 */
+						longDesc: () => LocalizedString
+					}
+					previoud_page: {
+						/**
+						 * Previous Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Previous page of groups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Previous page of groups
 						 */
 						longDesc: () => LocalizedString
 					}

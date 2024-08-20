@@ -1,11 +1,12 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
-import { TOrganizationOptions } from 'zendesk/models/organizations';
-import { IActionOptions, IActionResponse } from 'global/models/actions';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
 
 // Defining a function to delete organization
-const deleteOrganization = async ({ id }: TOrganizationOptions) => {
+const options: IActionOptions = null;
+const response_type: IActionResponse = null;
+const deleteOrganization = async ({ id }:TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/organizations/${id}.json`, 'DELETE');
     return data;
@@ -18,8 +19,8 @@ const deleteOrganization = async ({ id }: TOrganizationOptions) => {
 export default {
   action: 'delete_organization',
   app_function: deleteOrganization,
-  options: null,
-  response_type: null,
-}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+  options,
+  response_type,
+}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
 
 

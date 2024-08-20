@@ -1,13 +1,16 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
-import { TAttachmentOptions } from 'zendesk/models/attachments';
-import { IActionOptions, IActionResponse } from 'global/models/actions';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
 
 
 // Defining a function to delete attachment
-const deleteAttachment = async ({ token }: TAttachmentOptions) => {
+const options: IActionOptions = {
+  token: ZendeskOptions.attachments.token
+};
+const response_type: IActionResponse = null;
+const deleteAttachment = async ({ token }:  TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/uploads/${token}`, 'DELETE');
     return data;
@@ -20,9 +23,7 @@ const deleteAttachment = async ({ token }: TAttachmentOptions) => {
 export default {
   action: 'delete_attachment',
   app_function: deleteAttachment,
-  options: {
-    token: ZendeskOptions.attachments.token
-  },
-  response_type: null,
-}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+  options,
+  response_type,
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;
 

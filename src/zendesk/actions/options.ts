@@ -1,13 +1,9 @@
 import { IQoreAppActionOption } from 'global/models/qore';
-import { TTicketsOptions } from 'zendesk/models/tickets';
-import { TGroupsOptions } from 'zendesk/models/groups';
 // import { TOrganizationOptions } from 'zendesk/models/organizations';
 import { L } from '../../i18n/i18n-node';
-// import { TAttachmentOptions } from 'zendesk/models/attachments';
-import { TOrganizationOptions } from 'zendesk/models/organizations';
-import { TUserOptions } from 'zendesk/models/users';
+import { IActionOptions } from 'global/models/actions';
 
-export const ticketCreateUpdate: TTicketsOptions = {
+export const ticketCreateUpdate: IActionOptions = {
   comment: {
     display_name: L.en.apps.zendesk.actions.tickets.comment.displayName(),
     short_desc: L.en.apps.zendesk.actions.tickets.comment.shortDesc(),
@@ -42,7 +38,7 @@ export const ticketCreateUpdate: TTicketsOptions = {
   },
 }
 
-export const groupCreateUpdate: TGroupsOptions = {
+export const groupCreateUpdate: IActionOptions = {
   created_at: {
     display_name: L.en.apps.zendesk.actions.groups.created_at.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.created_at.shortDesc(),
@@ -117,7 +113,7 @@ export const groupCreateUpdate: TGroupsOptions = {
   }
 }
 
-export const organizationCreateUpdate: TOrganizationOptions = {
+export const organizationCreateUpdate: IActionOptions = {
   name: {
     display_name: L.en.apps.zendesk.actions.organizations.name.displayName(),
     short_desc: L.en.apps.zendesk.actions.organizations.name.shortDesc(),
@@ -128,7 +124,7 @@ export const organizationCreateUpdate: TOrganizationOptions = {
   }
 }
 
-// export const attachmentCreateUpdate: TAttachmentOptions = {
+// export const attachmentCreateUpdate: IActionOptions = {
 
 //   content_url: {
 //     display_name: L.en.apps.zendesk.actions.attachments.content_url.displayName(),
@@ -184,7 +180,7 @@ export const organizationCreateUpdate: TOrganizationOptions = {
 
 // }
 
-export const userCreateUpdate: TUserOptions = {
+export const userCreateUpdate:IActionOptions = {
   custom_role_id: {
     display_name: L.en.apps.zendesk.actions.users.custom_role_id.displayName(),
     short_desc: L.en.apps.zendesk.actions.users.custom_role_id.shortDesc(),
@@ -242,8 +238,6 @@ export const userCreateUpdate: TUserOptions = {
 export const ZendeskOptions = {
   users: {
     userCreateUpdate,
-
-  
     userId: {
       display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
       short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),

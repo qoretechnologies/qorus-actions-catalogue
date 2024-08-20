@@ -413,6 +413,21 @@ const en = {
             shortDesc: 'Groups',
             longDesc: 'Groups',
           },
+          users:{
+            displayName: 'Users',
+            shortDesc: 'Users',
+            longDesc: 'Users',
+          },
+          next_page:{
+            displayName: 'Next Page',
+            shortDesc: 'Next page of groups',
+            longDesc: 'Next page of groups',
+          },
+          previoud_page:{
+            displayName: 'Previous Page',
+            shortDesc: 'Previous page of groups',
+            longDesc: 'Previous page of groups',
+          }
         },
         organizations: {
           displayName: 'Organizations',
