@@ -1,9 +1,11 @@
 import { TQoreApps } from 'global/models/qore';
 import { Locales } from 'i18n/i18n-types';
 import zendesk from './zendesk';
+import { PiecesAppCatalogue } from './pieces/piecesCatalogue';
+PiecesAppCatalogue.registerApps();
 
 class _QorusAppsCatalogue {
-  public readonly apps: TQoreApps = {};
+  public readonly apps: TQoreApps = PiecesAppCatalogue.apps;
 
   constructor(public locale: Locales = 'en') {}
 
