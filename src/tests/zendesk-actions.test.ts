@@ -6,6 +6,10 @@ const dotenv = require("dotenv")
 // USERS
 
 // const getUser = require('../zendesk/actions/users/get-user.ts');
+// const createUser = require('../zendesk/actions/users/create-user.ts');
+// const getUsers = require('../zendesk/actions/users/get-users.ts');
+// const updateUser = require('../zendesk/actions/users/update-user.ts');
+// const deleteUser = require('../zendesk/actions/users/delete-user.ts');
 
 // TICKETS
 
@@ -26,17 +30,17 @@ const dotenv = require("dotenv")
 
 // ATTACHMENTS
 
-// const createAttachment = require('../zendesk/actions/attachments/create-attachment.ts');
 // const getAttachment = require('../zendesk/actions/attachments/get-attachment.ts');
 // const deleteAttachment = require('../zendesk/actions/attachments/delete-attachment.ts');
 
 // Organizations
 
-const createOrganization = require('../zendesk/actions/organizations/create-organization.ts');
-const getOrganizations = require('../zendesk/actions/organizations/get-organizations.ts');
-const getOrganization = require('../zendesk/actions/organizations/get-organization.ts');
-const updateOrganization = require('../zendesk/actions/organizations/update-organization.ts');
-const deleteOrganization = require('../zendesk/actions/organizations/delete-organization.ts');
+// const createOrganization = require('../zendesk/actions/organizations/create-organization.ts');
+// const getOrganizations = require('../zendesk/actions/organizations/get-organizations.ts');
+// const getOrganization = require('../zendesk/actions/organizations/get-organization.ts');
+// const updateOrganization = require('../zendesk/actions/organizations/update-organization.ts');
+// const deleteOrganization = require('../zendesk/actions/organizations/delete-organization.ts');
+
 
 dotenv.config();
 if (!(process.env.ENDPOINT && process.env.TESTUSER && process.env.TESTPASS)) {
@@ -68,7 +72,7 @@ describe('tickets', () => {
 
   // it('should fetch a ticket', async () => {
   //   const fetchTicket = await getTicket.default.app_function;
-  //   console.log(await fetchTicket({ ticket_id: 146 }))
+  //   console.log(await fetchTicket({ ticket_id: 150 }))
   // });
 
   // it('should fetch a tickets', async () => {
@@ -78,7 +82,8 @@ describe('tickets', () => {
 
   // it('should update a ticket', async () => {
   //   const updateTicketAction = await updateTicket.default.app_function;
-  //   console.log(await updateTicketAction({ticket_id: 146, status: "solved"} ))
+  //   console.log(await updateTicketAction({ticket_id: 150, status: "solved"} ))
+
   // });
 
   // it('should delete a ticket', async () => {
@@ -120,80 +125,102 @@ describe('groups', () => {
 })
 
 describe('attachments', () => {
-
-  // it('should create a attachment', async () => {
-  // const createAttachmentAction = await createAttachment.default.app_function;
-  //    await createAttachmentAction({
-  //     "content_type": "image/png",
-  //     "content_url": "https://company.zendesk.com/attachments/my_funny_profile_pic.png",
-  //     "file_name": "my_funny_profile_pic.png",
-  //     "size": 166144,
-  //     "thumbnails": [
-  //       {
-  //         "content_type": "image/png",
-  //         "content_url": "https://company.zendesk.com/attachments/my_funny_profile_pic_thumb.png",
-  //         "file_name": "my_funny_profile_pic_thumb.png",
-  //         "size": 58298
-  //       }
-  //     ]
-  //   })
-  // });
-
+  // let attachment_id: any = 2;
+  // let attachment_token:any = " "
   //   it('should fetch a attachment', async () => {
   //     const getAttachmentAction = await getAttachment.default.app_function;
-  //     console.log(await getAttachmentAction({ attachment_id: newAttachment.id + '' }))
+  //     console.log(await getAttachmentAction({ id: attachment_id}))
   //   });
 
   //    it('should delete a attachment', async () => {
   //     const deleteAttachmentAction = await deleteAttachment.default.app_function;
-  //     console.log(await deleteAttachmentAction({ attachment_id: newAttachment.attachment_id }))
+  //     console.log(await deleteAttachmentAction({token: attachment_token}) )
   //   })
-
-  //   console.log('newAttachment => ', newAttachment)
 });
 
 describe('organizations', () => {
-  let newOrganization: any = null
+  // let newOrganization: any = null
 
-  it('should create a organization', async () => {
-    const createOrganizationAction = await createOrganization.default.app_function;
-    newOrganization = await createOrganizationAction({
-      "organization": {
-        "name": `My Organization ${new Date().getTime()}`
-      }
-    });
-    console.log('newOrganization => ', newOrganization)
-  })
+  // it('should create a organization', async () => {
+  //   const createOrganizationAction = await createOrganization.default.app_function;
+  //   newOrganization = await createOrganizationAction({
+  //     "organization": {
+  //       "name": `My Organization ${new Date().getTime()}`
+  //     }
+  //   });
+  //   console.log('newOrganization => ', newOrganization)
+  // })
 
-  it('should fetch a organizations', async () => {
-    const getOrganizationsAction = await getOrganizations.default.app_function;
-    console.log(await getOrganizationsAction())
-  })
+  // it('should fetch a organizations', async () => {
+  //   const getOrganizationsAction = await getOrganizations.default.app_function;
+  //   console.log(await getOrganizationsAction())
+  // })
 
-  it('should fetch a organization', async () => {
-    const fetchOrganizations = await getOrganization.default.app_function;
-    console.log(await fetchOrganizations({ id: newOrganization.organization.id }))
-  });
+  // it('should fetch a organization', async () => {
+  //   const fetchOrganizations = await getOrganization.default.app_function;
+  //   console.log(await fetchOrganizations({ id: newOrganization.organization.id }))
+  // });
 
-  it('should update a organization', async () => {
-    const updateOrganizationAction = await updateOrganization.default.app_function;
-    console.log(await updateOrganizationAction({
-      id: newOrganization.organization.id,
-      organization: { notes: "Something interesting" }
-    }))
-  })
+  // it('should update a organization', async () => {
+  //   const updateOrganizationAction = await updateOrganization.default.app_function;
+  //   console.log(await updateOrganizationAction({
+  //     id: newOrganization.organization.id,
+  //     organization: { notes: "Something interesting" }
+  //   }))
+  // })
 
-  it('should delete a organization', async () => {
-    const deleteOrganizationAction = await deleteOrganization.default.app_function;
-    console.log(await deleteOrganizationAction({ id: newOrganization.organization.id }))
-  })
+  // it('should delete a organization', async () => {
+  //   const deleteOrganizationAction = await deleteOrganization.default.app_function;
+  //   console.log(await deleteOrganizationAction({ id: newOrganization.organization.id }))
+  // })
 
-  describe('users', () => {
-    // it('should fetch user data successfully', async () => {
-    //   const userId = 15176321074716;
-    //   const fetchUser = await getUser.default.app_function;
-    //   console.log(await fetchUser({ userId }))
-    // });
-  })
+
+
+})
+
+describe('users', () => {
+  // let newUser: any = null
+
+  // it('should create a user', async () => {
+  //     const createUserAction = await createUser.default.app_function;
+  //     newUser= await createUserAction(
+  //       {
+  //       "user": {
+  //         "name": `My User${new Date().getTime()}`
+  //       }
+  //     }
+   
+   
+  //   );
+  //     console.log('newUser => ', newUser)
+  //   })
+
+  // it('should fetch a users', async () => {
+  //   const getUserAction = await getUsers.default.app_function;
+  //   console.log(await getUserAction())
+  // })
+
+  // it('should fetch a user', async () => {
+  //   const fetchUsers = await getUser.default.app_function;
+  //   console.log('newUser => ', newUser)
+    
+  //   console.log(await fetchUsers({ id: newUser.user.id}))
+  // });
+
+  // it('should update a user', async () => {
+  //   const updateUserAction = await updateUser.default.app_function;
+  //   console.log(await updateUserAction({
+  //     id: newUser.user.id,
+  //    name: "New Name" 
+  //   }))
+  //   console.log('newUser updated  => ', newUser)
+  // })
+
+  // it('should delete a user', async () => {
+  //   const deleteUserAction = await deleteUser.default.app_function;
+  //   console.log(await deleteUserAction({ id: newUser.user.id}))
+  // })
+
+
 
 })

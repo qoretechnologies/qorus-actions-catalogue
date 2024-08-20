@@ -1,6 +1,7 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { TOrganizationOptions } from 'zendesk/models/organizations';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 
 // Defining a function to delete organization
@@ -19,5 +20,6 @@ export default {
   app_function: deleteOrganization,
   options: null,
   response_type: null,
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+
 

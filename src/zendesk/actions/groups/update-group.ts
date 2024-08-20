@@ -3,16 +3,15 @@ import { IResponseGroupInterface, TGroupsOptions } from 'zendesk/models/groups';
 import { zendeskRequest } from '../../client';
 import {  ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 
 // Defining a function to update a group
 const updateGroup = async (groupUpdate : TGroupsOptions) => {
   const { id, ...group } = groupUpdate
   try {
-    const data: IResponseGroupInterface = await zendeskRequest(`/groups/${id}.json`,   'PUT',
-      {
-       group,
-      }
+    const data: IResponseGroupInterface = await zendeskRequest(`/groups/${id}.json`,   'PUT', group,
+      
     );
     return data;
   } catch (error) {
@@ -69,5 +68,5 @@ export default {
       example_value: '2021-09-01T00:00:00Z',
     }
   }
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
 
-} satisfies TQorePartialActionWithFunction;

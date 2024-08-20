@@ -3,6 +3,7 @@ import { IGroupInterface, TGroupsOptions } from 'zendesk/models/groups';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to fetch group by id
 const getGroup = async ({ id }: TGroupsOptions) => {
@@ -63,4 +64,5 @@ export default {
       example_value: '2021-09-01T00:00:00Z',
     }
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

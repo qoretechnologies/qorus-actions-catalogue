@@ -19,6 +19,44 @@ const en = {
             shortDesc: 'User ID',
             longDesc: 'User ID',
           },
+          name: {
+            displayName: 'Name',
+            shortDesc: 'Name',
+            longDesc: 'Name',
+          },
+          custom_role_id:{
+            displayName: 'Custom Role ID',
+            shortDesc: 'Custom Role ID',
+            longDesc: 'Custom Role ID',
+          },
+          email:{
+            displayName: 'Email',
+            shortDesc: 'Email',
+            longDesc: 'Email',
+          },
+          organization:{
+            displayName: 'Organization',
+            shortDesc: 'Organization',
+            longDesc: 'Organization',
+          },
+          role:{
+            displayName: 'Role',
+            shortDesc: 'Role',
+            longDesc: 'Role',
+          },
+          role_type:{
+            displayName: 'Role Type',
+            shortDesc: 'Role Type',
+            longDesc: 'Role Type',
+          },
+          organization_id:{
+            displayName: 'Organization ID',
+            shortDesc: 'Organization ID',
+            longDesc: 'Organization ID',
+          }
+          
+          
+
         },
         attachments: {
           content_type: {

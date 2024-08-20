@@ -3,6 +3,7 @@ import { ITicketInterface, TTicketsOptions } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to fetch ticket by id
 const getTicket = async ({ ticket_id }: TTicketsOptions) => {
@@ -292,4 +293,5 @@ export default {
       },
     }
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

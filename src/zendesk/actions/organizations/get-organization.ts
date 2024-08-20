@@ -3,6 +3,7 @@ import { IOrganizationInterface, TOrganizationOptions } from 'zendesk/models/org
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to fetch organization by id
 const getOrganization = async ({ id }: TOrganizationOptions) => {
@@ -167,4 +168,5 @@ export default {
         example_value: 'https://example.com/organizations/123',
       },
 },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

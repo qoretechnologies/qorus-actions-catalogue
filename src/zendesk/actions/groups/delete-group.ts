@@ -1,6 +1,7 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { TGroupsOptions } from 'zendesk/models/groups';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to delete group
 const deleteGroup = async ({ id }: TGroupsOptions) => {
@@ -18,4 +19,5 @@ export default {
   app_function: deleteGroup,
   options: null,
   response_type: null,
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

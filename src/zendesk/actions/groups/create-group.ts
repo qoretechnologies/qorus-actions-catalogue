@@ -3,6 +3,7 @@ import { zendeskRequest } from '../../client';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to create a group
 const createGroup = async (group: TGroupsOptions) => {
@@ -63,4 +64,5 @@ export default {
       example_value: '2021-09-01T00:00:00Z',
     }
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

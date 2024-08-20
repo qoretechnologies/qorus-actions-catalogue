@@ -6,6 +6,7 @@ import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 
 
@@ -167,4 +168,5 @@ export default {
         example_value: 'https://example.com/organizations/123',
       },
 },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

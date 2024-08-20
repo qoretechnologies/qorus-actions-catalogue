@@ -1,6 +1,8 @@
 import { IUsersInterface } from 'zendesk/models/users';
 import { zendeskRequest } from '../../client';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
+import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch users
 const getUsers = async () => {
@@ -18,37 +20,24 @@ export default {
   app_function: getUsers,
   options: null,
   response_type: {
-    users: {
-      display_name: 'users',
-      short_desc: 'All users',
-      desc: 'Got the all available users',
-      name: 'users',
-      example_value: [],
-      type: '*list',
-    },
-    next_page: {
+
+    id:{
       type: '*number',
-      name: 'next_page',
-      display_name: 'Next Page',
-      short_desc: 'Next page number',
-      desc: 'Next page number',
-      example_value: 2,
+      name: 'id',
+      display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
+      short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
+      desc: L.en.apps.zendesk.actions.users.user_id.longDesc(),
+      example_value: 123,
     },
-    previous_page: {
-      type: '*number',
-      name: 'previous_page',
-      display_name: 'Previous Page',
-      short_desc: 'Previous page number',
-      desc: 'Previous page number',
-      example_value: 1,
-    },
-    count: {
-      type: '*number',
-      name: 'count',
-      display_name: 'Count',
-      short_desc: 'The users count',
-      desc: 'The users count',
-      example_value: 10,
-    },
+    name:{
+      type: '*string',
+      name: 'name',
+      display_name: L.en.apps.zendesk.actions.users.name.displayName(),
+      short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
+      desc: L.en.apps.zendesk.actions.users.name.longDesc(),
+      example_value: 'John Doe',
+    }
+
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

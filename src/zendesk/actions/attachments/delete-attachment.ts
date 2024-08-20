@@ -2,6 +2,7 @@ import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { TAttachmentOptions } from 'zendesk/models/attachments';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 
 
@@ -23,4 +24,5 @@ export default {
     token: ZendeskOptions.attachments.token
   },
   response_type: null,
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

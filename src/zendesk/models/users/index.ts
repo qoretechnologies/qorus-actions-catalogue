@@ -47,10 +47,10 @@ export interface IResponseUserInterface {
 }
 
 export interface IUsersInterface {
-    users: IUserInterface[],
-    next_page: null | number,
-    previous_page: null | number,
-    count: number
+    users?: IUserInterface[],
+    next_page?: null | number,
+    previous_page?: null | number,
+    count?: number
 }
 
 export interface IUpdateCreateUserInterface extends Partial<IUserInterface> { }

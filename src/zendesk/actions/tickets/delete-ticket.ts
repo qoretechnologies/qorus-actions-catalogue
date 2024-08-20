@@ -1,6 +1,7 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { TTicketsOptions } from 'zendesk/models/tickets';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to delete ticket
 const deleteTicket = async ({ ticket_id }: TTicketsOptions) => {
@@ -18,4 +19,4 @@ export default {
   app_function: deleteTicket,
   options: null,
   response_type: null,
-} satisfies TQorePartialActionWithFunction;
+} as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;

@@ -1,6 +1,7 @@
 import { ITicketsInterface, TTicketsOptions } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 
 
@@ -60,4 +61,5 @@ export default {
       example_value: 10,
     },
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

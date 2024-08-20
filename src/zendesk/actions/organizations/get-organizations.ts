@@ -2,6 +2,7 @@ import { IOrganizationInterface } from 'zendesk/models/organizations';
 import { zendeskRequest } from '../../client';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to fetch organization
 const getOrganizations = async () => {
@@ -52,4 +53,5 @@ export default {
       example_value: "https://example.com/api/v2/groups.json?page=2",
     }
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

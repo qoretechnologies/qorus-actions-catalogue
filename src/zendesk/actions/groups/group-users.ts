@@ -1,6 +1,7 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 interface IGetGroupUsers {
   groupId: number;
@@ -57,4 +58,5 @@ export default {
       example_value: 10,
     },
   },
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+

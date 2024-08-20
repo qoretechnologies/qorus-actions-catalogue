@@ -59,6 +59,104 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * N​a​m​e
+						 */
+						shortDesc: string
+						/**
+						 * N​a​m​e
+						 */
+						longDesc: string
+					}
+					custom_role_id: {
+						/**
+						 * C​u​s​t​o​m​ ​R​o​l​e​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * C​u​s​t​o​m​ ​R​o​l​e​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * C​u​s​t​o​m​ ​R​o​l​e​ ​I​D
+						 */
+						longDesc: string
+					}
+					email: {
+						/**
+						 * E​m​a​i​l
+						 */
+						displayName: string
+						/**
+						 * E​m​a​i​l
+						 */
+						shortDesc: string
+						/**
+						 * E​m​a​i​l
+						 */
+						longDesc: string
+					}
+					organization: {
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						displayName: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						longDesc: string
+					}
+					role: {
+						/**
+						 * R​o​l​e
+						 */
+						displayName: string
+						/**
+						 * R​o​l​e
+						 */
+						shortDesc: string
+						/**
+						 * R​o​l​e
+						 */
+						longDesc: string
+					}
+					role_type: {
+						/**
+						 * R​o​l​e​ ​T​y​p​e
+						 */
+						displayName: string
+						/**
+						 * R​o​l​e​ ​T​y​p​e
+						 */
+						shortDesc: string
+						/**
+						 * R​o​l​e​ ​T​y​p​e
+						 */
+						longDesc: string
+					}
+					organization_id: {
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​I​D
+						 */
+						longDesc: string
+					}
 				}
 				attachments: {
 					content_type: {
@@ -1375,6 +1473,104 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * User ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Name
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Name
+						 */
+						longDesc: () => LocalizedString
+					}
+					custom_role_id: {
+						/**
+						 * Custom Role ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Custom Role ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Custom Role ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					email: {
+						/**
+						 * Email
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Email
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Email
+						 */
+						longDesc: () => LocalizedString
+					}
+					organization: {
+						/**
+						 * Organization
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Organization
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Organization
+						 */
+						longDesc: () => LocalizedString
+					}
+					role: {
+						/**
+						 * Role
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Role
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Role
+						 */
+						longDesc: () => LocalizedString
+					}
+					role_type: {
+						/**
+						 * Role Type
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Role Type
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Role Type
+						 */
+						longDesc: () => LocalizedString
+					}
+					organization_id: {
+						/**
+						 * Organization ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Organization ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Organization ID
 						 */
 						longDesc: () => LocalizedString
 					}

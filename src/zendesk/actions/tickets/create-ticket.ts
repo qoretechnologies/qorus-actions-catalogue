@@ -3,6 +3,7 @@ import { zendeskRequest } from '../../client';
 import { L } from '../../../i18n/i18n-node';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { ZendeskOptions } from '../options';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to create a ticket
 const createTicket = async (ticket: TTicketsOptions) => {
@@ -295,4 +296,4 @@ export default {
       },
     }
   },
-} satisfies TQorePartialActionWithFunction;
+} as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;

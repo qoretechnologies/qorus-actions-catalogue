@@ -3,17 +3,18 @@ import { IAttachmentsInterface, TAttachmentOptions } from 'zendesk/models/attach
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to fetch attachment
 const getAttachment = async ({ id }: TAttachmentOptions) => {
   try {
     const data: IAttachmentsInterface = await zendeskRequest(
       `attachments/${id}.json`,
-      'GET',
-      null,
-      {
-        attachment_id: id
-      },
+      'GET', id
+      // null,
+      // {
+      //   attachment_id: id
+      // },
     );
     return data;
   } catch (error) {
@@ -96,4 +97,5 @@ export default {
 
   }
 
-} satisfies TQorePartialActionWithFunction;
+}as TQorePartialActionWithFunction<IActionOptions, IActionResponse>;
+
