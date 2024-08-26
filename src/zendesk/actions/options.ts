@@ -1,8 +1,9 @@
 import { IQoreAppActionOption } from 'global/models/qore';
-import L from '../../i18n/i18n-node';
-import { TTicketsOptions } from 'zendesk/models/tickets';
+// import { TOrganizationOptions } from 'zendesk/models/organizations';
+import { L } from '../../i18n/i18n-node';
+import { IActionOptions } from 'global/models/actions';
 
-export const ticketCreateUpdate: TTicketsOptions = {
+export const ticketCreateUpdate: IActionOptions = {
   comment: {
     display_name: L.en.apps.zendesk.actions.tickets.comment.displayName(),
     short_desc: L.en.apps.zendesk.actions.tickets.comment.shortDesc(),
@@ -27,27 +28,216 @@ export const ticketCreateUpdate: TTicketsOptions = {
     required: true,
     example_value: 'New Ticket',
   },
+  status: {
+    display_name: L.en.apps.zendesk.actions.tickets.status.displayName(),
+    short_desc: L.en.apps.zendesk.actions.tickets.status.shortDesc(),
+    desc: L.en.apps.zendesk.actions.tickets.status.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'New',
+  },
 }
+
+export const groupCreateUpdate: IActionOptions = {
+  created_at: {
+    display_name: L.en.apps.zendesk.actions.groups.created_at.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.created_at.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.created_at.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: '2021-09-01T00:00:00Z',
+  },
+  default: {
+    display_name: L.en.apps.zendesk.actions.groups.default.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.default.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.default.longDesc(),
+    type: 'boolean',
+    required: true,
+    example_value: true,
+  },
+  description: {
+    display_name: L.en.apps.zendesk.actions.groups.description.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.description.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.description.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'Support',
+  },
+  deleted: {
+    display_name: L.en.apps.zendesk.actions.groups.deleted.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.deleted.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.deleted.longDesc(),
+    type: 'boolean',
+    required: true,
+    example_value: false,
+  },
+  id: {
+    display_name: L.en.apps.zendesk.actions.groups.id.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.id.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.id.longDesc(),
+    type: '*number',
+    required: true,
+    example_value: 123,
+  },
+  is_public: {
+    display_name: L.en.apps.zendesk.actions.groups.is_public.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.is_public.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.is_public.longDesc(),
+    type: 'boolean',
+    required: true,
+    example_value: true,
+  },
+  name: {
+    display_name: L.en.apps.zendesk.actions.groups.name.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.name.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.name.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'Support',
+  },
+  updated_at: {
+    display_name: L.en.apps.zendesk.actions.groups.updated_at.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.updated_at.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.updated_at.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: '2021-09-01T00:00:00Z',
+  },
+  url: {
+    display_name: L.en.apps.zendesk.actions.groups.url.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.url.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.url.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'https://example.com/groups/123',
+  }
+}
+
+export const organizationCreateUpdate: IActionOptions = {
+  name: {
+    display_name: L.en.apps.zendesk.actions.organizations.name.displayName(),
+    short_desc: L.en.apps.zendesk.actions.organizations.name.shortDesc(),
+    desc: L.en.apps.zendesk.actions.organizations.name.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'Acme Corporation',
+  }
+}
+
+// export const attachmentCreateUpdate: IActionOptions = {
+
+//   content_url: {
+//     display_name: L.en.apps.zendesk.actions.attachments.content_url.displayName(),
+//     short_desc: L.en.apps.zendesk.actions.attachments.content_url.shortDesc(),
+//     desc: L.en.apps.zendesk.actions.attachments.content_url.longDesc(),
+//     type: 'string',
+//     required: true,
+//     example_value: 'https://example.com/content',
+//   },
+//   file_name: {
+//     display_name: L.en.apps.zendesk.actions.attachments.file_name.displayName(),
+//     short_desc: L.en.apps.zendesk.actions.attachments.file_name.shortDesc(),
+//     desc: L.en.apps.zendesk.actions.attachments.file_name.longDesc(),
+//     type: 'string',
+//     required: true,
+//     example_value: 'file.txt',
+//   },
+//   id: {
+//     display_name: L.en.apps.zendesk.actions.attachments.id.displayName(),
+//     short_desc: L.en.apps.zendesk.actions.attachments.id.shortDesc(),
+//     desc: L.en.apps.zendesk.actions.attachments.id.longDesc(),
+//     type: '*number',
+//     required: true,
+//     example_value: 123,
+//   },
+//   size: {
+//     display_name: L.en.apps.zendesk.actions.attachments.size.displayName(),
+//     short_desc: L.en.apps.zendesk.actions.attachments.size.shortDesc(),
+//     desc: L.en.apps.zendesk.actions.attachments.size.longDesc(),
+//     type: '*number',
+//     required: true,
+//     example_value: 123,
+//   },
+// }
+
+// export const organizationCreateUpdate:TOrganizationOptions={
+//   created_at: {
+//     display_name: L.en.apps.zendesk.actions.organizations.created_at.displayName(),
+//     short_desc: L.en.apps.zendesk.actions.organizations.created_at.shortDesc(),
+//     desc: L.en.apps.zendesk.actions.organizations.created_at.longDesc(),
+//     type: 'string',
+//     required: true,
+//     example_value: '2021-09-01T00:00:00Z',
+//   },
+//   details:{
+//     display_name: L.en.apps.zendesk.actions.organizations.details.displayName(),
+//     short_desc: L.en.apps.zendesk.actions.organizations.details.shortDesc(),
+//     desc: L.en.apps.zendesk.actions.organizations.details.longDesc(),
+//     type: 'string',
+//     required: true,
+//     example_value: 'Details',
+//   },
+
+// }
+
+export const userCreateUpdate:IActionOptions = {
+  custom_role_id: {
+    display_name: L.en.apps.zendesk.actions.users.custom_role_id.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.custom_role_id.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.custom_role_id.longDesc(),
+    type: '*number',
+    required: true,
+    example_value: 123,
+  },
+  email: {
+    display_name: L.en.apps.zendesk.actions.users.email.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.email.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.email.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'john@example.com',
+  },
+  // identities:{
+  //   display_name: L.en.apps.zendesk.actions.users.identities.displayName(),
+  //   short_desc: L.en.apps.zendesk.actions.users.identities.shortDesc(),
+  //   desc: L.en.apps.zendesk.actions.users.identities.longDesc(),
+  //   type: 'string',
+  //   required: true,
+  //   example_value: '123',
+  // },
+  name: {
+    display_name: L.en.apps.zendesk.actions.users.name.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.name.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'John Doe',
+  },
+  // organization:{
+  //   display_name: L.en.apps.zendesk.actions.users.organization.displayName(),
+  //   short_desc: L.en.apps.zendesk.actions.users.organization.shortDesc(),
+  //   desc: L.en.apps.zendesk.actions.users.organization.longDesc(),
+  //   type: '*number',
+  //   required: true,
+  //   example_value: 123,
+  // },
+  role: {
+    display_name: L.en.apps.zendesk.actions.users.role.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.role.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.role.longDesc(),
+    type: 'string',
+    required: true,
+    example_value: 'end-user',
+  },
+}
+
+
+
+
 
 export const ZendeskOptions = {
   users: {
-    userCreateUpdate: {
-      display_name: 'User Create/Update',
-      short_desc: 'Payload of userCreate/userUpdate',
-      desc: 'The payload of userCreate/userUpdate',
-      type: 'data',
-      required: true,
-      example_value: {
-        name: {
-          display_name: 'Name',
-          short_desc: 'Name of user',
-          desc: 'Name of user',
-          type: 'string',
-          required: true,
-          example_value: 'John Doe',
-        }
-      },
-    },
+    userCreateUpdate,
     userId: {
       display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
       short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
@@ -81,7 +271,9 @@ export const ZendeskOptions = {
       example_value: 'followers',
     },
   },
+
   attachments: {
+    // attachmentCreateUpdate,
     token: {
       display_name: L.en.apps.zendesk.actions.attachments.token.displayName(),
       short_desc: L.en.apps.zendesk.actions.attachments.token.shortDesc(),
@@ -89,36 +281,30 @@ export const ZendeskOptions = {
       type: 'string',
       required: true,
       example_value: '44adee',
+    },
+    id: {
+      display_name: L.en.apps.zendesk.actions.attachments.id.displayName(),
+      short_desc: L.en.apps.zendesk.actions.attachments.id.shortDesc(),
+      desc: L.en.apps.zendesk.actions.attachments.id.longDesc(),
+      type: 'number',
+      required: true,
+      example_value: 123,
     }
   },
+
   groups: {
-    groupCreateUpdate: {
-      display_name: 'Group Create/Update',
-      short_desc: 'Payload of groupCreate/groupUpdate',
-      desc: 'The payload of groupCreate/groupUpdate',
-      type: 'data',
-      required: true,
-      example_value: {
-        name: {
-          display_name: 'Name',
-          short_desc: 'Name of group',
-          desc: 'Name of group',
-          type: 'string',
-          required: true,
-          example_value: 'Group #1',
-        }
-      },
-    },
-    groupId: {
-      display_name: 'Group ID',
-      short_desc: 'Id of group',
-      desc: 'Id of group',
-      type: '*number',
+    groupCreateUpdate,
+    id: {
+      display_name: L.en.apps.zendesk.actions.groups.id.displayName(),
+      short_desc: L.en.apps.zendesk.actions.groups.id.shortDesc(),
+      desc: L.en.apps.zendesk.actions.groups.id.longDesc(),
+      type: 'number',
       required: true,
       example_value: 123,
     }
   },
   organization: {
+    organizationCreateUpdate,
     organizationId: {
       display_name: 'Organization ID',
       short_desc: 'Organization ID',
@@ -127,23 +313,6 @@ export const ZendeskOptions = {
       required: true,
       example_value: 123,
     },
-    organizationCreateUpdate: {
-      display_name: 'Organization Create/Update',
-      short_desc: 'Payload of organizationCreate/organizationUpdate',
-      desc: 'The payload of organizationCreate/organizationUpdate',
-      type: 'data',
-      required: true,
-      example_value: {
-        name: {
-          display_name: 'Name',
-          short_desc: 'Name of organization',
-          desc: 'Name of organization',
-          type: 'string',
-          required: true,
-          example_value: 'Organization #1',
-        }
-      },
-    },
     count: {
       display_name: 'Count',
       short_desc: 'Count',
@@ -151,7 +320,7 @@ export const ZendeskOptions = {
       type: 'boolean',
       required: false,
       example_value: true,
-    }
+    },
   },
   tickets: {
     ticketCreateUpdate,

@@ -1,13 +1,14 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
-import { TTicketsOptions } from 'zendesk/models/tickets';
-import { ZendeskOptions } from '../options';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
 // Defining a function to delete ticket
-const deleteTicket = async ({ ticket_id }: TTicketsOptions) => {
+const options: IActionOptions = null;
+const response_type: IActionResponse = null;
+const deleteTicket = async ({ ticket_id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/tickets/${ticket_id}.json`, 'DELETE');
-    return data;
+    return data || {};
   } catch (error) {
     console.error('Error delete ticket:', error);
     throw error;
@@ -17,8 +18,6 @@ const deleteTicket = async ({ ticket_id }: TTicketsOptions) => {
 export default {
   action: 'delete_ticket',
   app_function: deleteTicket,
-  options: {
-    ticket_id: ZendeskOptions.tickets.ticket_id
-  },
-  response_type: null,
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type,
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;

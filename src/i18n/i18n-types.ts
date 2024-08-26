@@ -59,8 +59,274 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * N​a​m​e
+						 */
+						shortDesc: string
+						/**
+						 * N​a​m​e
+						 */
+						longDesc: string
+					}
+					custom_role_id: {
+						/**
+						 * C​u​s​t​o​m​ ​R​o​l​e​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * C​u​s​t​o​m​ ​R​o​l​e​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * C​u​s​t​o​m​ ​R​o​l​e​ ​I​D
+						 */
+						longDesc: string
+					}
+					email: {
+						/**
+						 * E​m​a​i​l
+						 */
+						displayName: string
+						/**
+						 * E​m​a​i​l
+						 */
+						shortDesc: string
+						/**
+						 * E​m​a​i​l
+						 */
+						longDesc: string
+					}
+					organization: {
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						displayName: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						longDesc: string
+					}
+					role: {
+						/**
+						 * R​o​l​e
+						 */
+						displayName: string
+						/**
+						 * R​o​l​e
+						 */
+						shortDesc: string
+						/**
+						 * R​o​l​e
+						 */
+						longDesc: string
+					}
+					role_type: {
+						/**
+						 * R​o​l​e​ ​T​y​p​e
+						 */
+						displayName: string
+						/**
+						 * R​o​l​e​ ​T​y​p​e
+						 */
+						shortDesc: string
+						/**
+						 * R​o​l​e​ ​T​y​p​e
+						 */
+						longDesc: string
+					}
+					organization_id: {
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​I​D
+						 */
+						longDesc: string
+					}
 				}
 				attachments: {
+					content_type: {
+						/**
+						 * C​o​n​t​e​n​t​ ​T​y​p​e
+						 */
+						displayName: string
+						/**
+						 * C​o​n​t​e​n​t​ ​T​y​p​e
+						 */
+						shortDesc: string
+						/**
+						 * C​o​n​t​e​n​t​ ​T​y​p​e
+						 */
+						longDesc: string
+					}
+					content_url: {
+						/**
+						 * C​o​n​t​e​n​t​ ​U​R​L
+						 */
+						displayName: string
+						/**
+						 * C​o​n​t​e​n​t​ ​U​R​L
+						 */
+						shortDesc: string
+						/**
+						 * C​o​n​t​e​n​t​ ​U​R​L
+						 */
+						longDesc: string
+					}
+					deleted: {
+						/**
+						 * D​e​l​e​t​e​d
+						 */
+						displayName: string
+						/**
+						 * D​e​l​e​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * D​e​l​e​t​e​d
+						 */
+						longDesc: string
+					}
+					file_name: {
+						/**
+						 * F​i​l​e​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * F​i​l​e​ ​N​a​m​e
+						 */
+						shortDesc: string
+						/**
+						 * F​i​l​e​ ​N​a​m​e
+						 */
+						longDesc: string
+					}
+					height: {
+						/**
+						 * H​e​i​g​h​t
+						 */
+						displayName: string
+						/**
+						 * H​e​i​g​h​t
+						 */
+						shortDesc: string
+						/**
+						 * H​e​i​g​h​t
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * I​D
+						 */
+						shortDesc: string
+						/**
+						 * I​D
+						 */
+						longDesc: string
+					}
+					inline: {
+						/**
+						 * I​n​l​i​n​e
+						 */
+						displayName: string
+						/**
+						 * I​n​l​i​n​e
+						 */
+						shortDesc: string
+						/**
+						 * I​n​l​i​n​e
+						 */
+						longDesc: string
+					}
+					size: {
+						/**
+						 * S​i​z​e
+						 */
+						displayName: string
+						/**
+						 * S​i​z​e
+						 */
+						shortDesc: string
+						/**
+						 * S​i​z​e
+						 */
+						longDesc: string
+					}
+					thumbnails: {
+						/**
+						 * T​h​u​m​b​n​a​i​l​s
+						 */
+						displayName: string
+						/**
+						 * T​h​u​m​b​n​a​i​l​s
+						 */
+						shortDesc: string
+						/**
+						 * T​h​u​m​b​n​a​i​l​s
+						 */
+						longDesc: string
+					}
+					url: {
+						/**
+						 * U​R​L
+						 */
+						displayName: string
+						/**
+						 * U​R​L
+						 */
+						shortDesc: string
+						/**
+						 * U​R​L
+						 */
+						longDesc: string
+					}
+					width: {
+						/**
+						 * W​i​d​t​h
+						 */
+						displayName: string
+						/**
+						 * W​i​d​t​h
+						 */
+						shortDesc: string
+						/**
+						 * W​i​d​t​h
+						 */
+						longDesc: string
+					}
+					mapped_content_url: {
+						/**
+						 * M​a​p​p​e​d​ ​C​o​n​t​e​n​t​ ​U​R​L
+						 */
+						displayName: string
+						/**
+						 * M​a​p​p​e​d​ ​C​o​n​t​e​n​t​ ​U​R​L
+						 */
+						shortDesc: string
+						/**
+						 * M​a​p​p​e​d​ ​C​o​n​t​e​n​t​ ​U​R​L
+						 */
+						longDesc: string
+					}
 					upload: {
 						/**
 						 * U​p​l​o​a​d
@@ -679,6 +945,526 @@ type RootTranslation = {
 							longDesc: string
 						}
 					}
+					count: {
+						/**
+						 * C​o​u​n​t
+						 */
+						displayName: string
+						/**
+						 * C​o​u​n​t​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * C​o​u​n​t​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
+					audit: {
+						/**
+						 * A​u​d​i​t
+						 */
+						displayName: string
+						/**
+						 * A​u​d​i​t​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * A​u​d​i​t​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
+					events: {
+						/**
+						 * E​v​e​n​t​s
+						 */
+						displayName: string
+						/**
+						 * E​v​e​n​t​s​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * E​v​e​n​t​s​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
+				}
+				groups: {
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​g​r​o​u​p​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​g​r​o​u​p​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					'default': {
+						/**
+						 * D​e​f​a​u​l​t
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​g​r​o​u​p​ ​i​s​ ​d​e​f​a​u​l​t
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​g​r​o​u​p​ ​i​s​ ​d​e​f​a​u​l​t
+						 */
+						longDesc: string
+					}
+					description: {
+						/**
+						 * D​e​s​c​r​i​p​t​i​o​n
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​d​e​s​c​r​i​p​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​d​e​s​c​r​i​p​t​i​o​n
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​I​D
+						 */
+						longDesc: string
+					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​n​a​m​e
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​n​a​m​e
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​g​r​o​u​p​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​g​r​o​u​p​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					count: {
+						/**
+						 * C​o​u​n​t
+						 */
+						displayName: string
+						/**
+						 * C​o​u​n​t​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * C​o​u​n​t​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						longDesc: string
+					}
+					deleted: {
+						/**
+						 * D​e​l​e​t​e​d
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​g​r​o​u​p​ ​i​s​ ​d​e​l​e​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​g​r​o​u​p​ ​i​s​ ​d​e​l​e​t​e​d
+						 */
+						longDesc: string
+					}
+					is_public: {
+						/**
+						 * I​s​ ​P​u​b​l​i​c
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​g​r​o​u​p​ ​i​s​ ​p​u​b​l​i​c
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​g​r​o​u​p​ ​i​s​ ​p​u​b​l​i​c
+						 */
+						longDesc: string
+					}
+					url: {
+						/**
+						 * U​R​L
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​U​R​L
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​g​r​o​u​p​’​s​ ​U​R​L
+						 */
+						longDesc: string
+					}
+					groups: {
+						/**
+						 * G​r​o​u​p​s
+						 */
+						displayName: string
+						/**
+						 * G​r​o​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * G​r​o​u​p​s
+						 */
+						longDesc: string
+					}
+					users: {
+						/**
+						 * U​s​e​r​s
+						 */
+						displayName: string
+						/**
+						 * U​s​e​r​s
+						 */
+						shortDesc: string
+						/**
+						 * U​s​e​r​s
+						 */
+						longDesc: string
+					}
+					next_page: {
+						/**
+						 * N​e​x​t​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						longDesc: string
+					}
+					previoud_page: {
+						/**
+						 * P​r​e​v​i​o​u​s​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * P​r​e​v​i​o​u​s​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * P​r​e​v​i​o​u​s​ ​p​a​g​e​ ​o​f​ ​g​r​o​u​p​s
+						 */
+						longDesc: string
+					}
+				}
+				organizations: {
+					/**
+					 * O​r​g​a​n​i​z​a​t​i​o​n​s
+					 */
+					displayName: string
+					/**
+					 * O​r​g​a​n​i​z​a​t​i​o​n​s
+					 */
+					shortDesc: string
+					/**
+					 * O​r​g​a​n​i​z​a​t​i​o​n​s
+					 */
+					longDesc: string
+					count: {
+						/**
+						 * C​o​u​n​t
+						 */
+						displayName: string
+						/**
+						 * C​o​u​n​t​ ​o​f​ ​o​r​g​a​n​i​z​a​t​i​o​n​s
+						 */
+						shortDesc: string
+						/**
+						 * C​o​u​n​t​ ​o​f​ ​o​r​g​a​n​i​z​a​t​i​o​n​s
+						 */
+						longDesc: string
+					}
+					next_page: {
+						/**
+						 * N​e​x​t​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​o​r​g​a​n​i​z​a​t​i​o​n​s
+						 */
+						shortDesc: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​o​r​g​a​n​i​z​a​t​i​o​n​s
+						 */
+						longDesc: string
+					}
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					details: {
+						/**
+						 * D​e​t​a​i​l​s
+						 */
+						displayName: string
+						/**
+						 * D​e​t​a​i​l​s​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * D​e​t​a​i​l​s​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						longDesc: string
+					}
+					domain_names: {
+						/**
+						 * D​o​m​a​i​n​ ​N​a​m​e​s
+						 */
+						displayName: string
+						/**
+						 * D​o​m​a​i​n​ ​n​a​m​e​s​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * D​o​m​a​i​n​ ​n​a​m​e​s​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						longDesc: string
+					}
+					external_id: {
+						/**
+						 * E​x​t​e​r​n​a​l​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​e​x​t​e​r​n​a​l​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​e​x​t​e​r​n​a​l​ ​I​D
+						 */
+						longDesc: string
+					}
+					group_id: {
+						/**
+						 * G​r​o​u​p​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​g​r​o​u​p
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​g​r​o​u​p
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​I​D
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​I​D
+						 */
+						longDesc: string
+					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​n​a​m​e
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​n​a​m​e
+						 */
+						longDesc: string
+					}
+					notes: {
+						/**
+						 * N​o​t​e​s
+						 */
+						displayName: string
+						/**
+						 * N​o​t​e​s​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * N​o​t​e​s​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+						 */
+						longDesc: string
+					}
+					organization_fields: {
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​F​i​e​l​d​s
+						 */
+						displayName: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​f​i​e​l​d​s
+						 */
+						shortDesc: string
+						/**
+						 * O​r​g​a​n​i​z​a​t​i​o​n​ ​f​i​e​l​d​s
+						 */
+						longDesc: string
+						datepudding: {
+							/**
+							 * D​a​t​e​P​u​d​d​i​n​g
+							 */
+							displayName: string
+							/**
+							 * D​a​t​e​P​u​d​d​i​n​g​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+							 */
+							shortDesc: string
+							/**
+							 * D​a​t​e​P​u​d​d​i​n​g​ ​o​f​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n
+							 */
+							longDesc: string
+						}
+						org_field_1: {
+							/**
+							 * O​r​g​ ​F​i​e​l​d​ ​1
+							 */
+							displayName: string
+							/**
+							 * O​r​g​a​n​i​z​a​t​i​o​n​ ​f​i​e​l​d​ ​1
+							 */
+							shortDesc: string
+							/**
+							 * O​r​g​a​n​i​z​a​t​i​o​n​ ​f​i​e​l​d​ ​1
+							 */
+							longDesc: string
+						}
+						org_field_2: {
+							/**
+							 * O​r​g​ ​F​i​e​l​d​ ​2
+							 */
+							displayName: string
+							/**
+							 * O​r​g​a​n​i​z​a​t​i​o​n​ ​f​i​e​l​d​ ​2
+							 */
+							shortDesc: string
+							/**
+							 * O​r​g​a​n​i​z​a​t​i​o​n​ ​f​i​e​l​d​ ​2
+							 */
+							longDesc: string
+						}
+					}
+					shared_comments: {
+						/**
+						 * S​h​a​r​e​d​ ​C​o​m​m​e​n​t​s
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​h​a​s​ ​s​h​a​r​e​d​ ​c​o​m​m​e​n​t​s
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​h​a​s​ ​s​h​a​r​e​d​ ​c​o​m​m​e​n​t​s
+						 */
+						longDesc: string
+					}
+					shared_tickets: {
+						/**
+						 * S​h​a​r​e​d​ ​T​i​c​k​e​t​s
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​h​a​s​ ​s​h​a​r​e​d​ ​t​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​h​a​s​ ​s​h​a​r​e​d​ ​t​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
+					tags: {
+						/**
+						 * T​a​g​s
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​t​a​g​s
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​t​a​g​s
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					url: {
+						/**
+						 * U​R​L
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​U​R​L
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​o​r​g​a​n​i​z​a​t​i​o​n​’​s​ ​U​R​L
+						 */
+						longDesc: string
+					}
 				}
 			}
 		}
@@ -732,8 +1518,274 @@ export type TranslationFunctions = {
 						 */
 						longDesc: () => LocalizedString
 					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Name
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Name
+						 */
+						longDesc: () => LocalizedString
+					}
+					custom_role_id: {
+						/**
+						 * Custom Role ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Custom Role ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Custom Role ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					email: {
+						/**
+						 * Email
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Email
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Email
+						 */
+						longDesc: () => LocalizedString
+					}
+					organization: {
+						/**
+						 * Organization
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Organization
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Organization
+						 */
+						longDesc: () => LocalizedString
+					}
+					role: {
+						/**
+						 * Role
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Role
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Role
+						 */
+						longDesc: () => LocalizedString
+					}
+					role_type: {
+						/**
+						 * Role Type
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Role Type
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Role Type
+						 */
+						longDesc: () => LocalizedString
+					}
+					organization_id: {
+						/**
+						 * Organization ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Organization ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Organization ID
+						 */
+						longDesc: () => LocalizedString
+					}
 				}
 				attachments: {
+					content_type: {
+						/**
+						 * Content Type
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Content Type
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Content Type
+						 */
+						longDesc: () => LocalizedString
+					}
+					content_url: {
+						/**
+						 * Content URL
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Content URL
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Content URL
+						 */
+						longDesc: () => LocalizedString
+					}
+					deleted: {
+						/**
+						 * Deleted
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Deleted
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Deleted
+						 */
+						longDesc: () => LocalizedString
+					}
+					file_name: {
+						/**
+						 * File Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * File Name
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * File Name
+						 */
+						longDesc: () => LocalizedString
+					}
+					height: {
+						/**
+						 * Height
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Height
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Height
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					inline: {
+						/**
+						 * Inline
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Inline
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Inline
+						 */
+						longDesc: () => LocalizedString
+					}
+					size: {
+						/**
+						 * Size
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Size
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Size
+						 */
+						longDesc: () => LocalizedString
+					}
+					thumbnails: {
+						/**
+						 * Thumbnails
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Thumbnails
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Thumbnails
+						 */
+						longDesc: () => LocalizedString
+					}
+					url: {
+						/**
+						 * URL
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * URL
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * URL
+						 */
+						longDesc: () => LocalizedString
+					}
+					width: {
+						/**
+						 * Width
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Width
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Width
+						 */
+						longDesc: () => LocalizedString
+					}
+					mapped_content_url: {
+						/**
+						 * Mapped Content URL
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Mapped Content URL
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Mapped Content URL
+						 */
+						longDesc: () => LocalizedString
+					}
 					upload: {
 						/**
 						 * Upload
@@ -1351,6 +2403,526 @@ export type TranslationFunctions = {
 							 */
 							longDesc: () => LocalizedString
 						}
+					}
+					count: {
+						/**
+						 * Count
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Count of tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Count of tickets
+						 */
+						longDesc: () => LocalizedString
+					}
+					audit: {
+						/**
+						 * Audit
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Audit of tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Audit of tickets
+						 */
+						longDesc: () => LocalizedString
+					}
+					events: {
+						/**
+						 * Events
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Events of tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Events of tickets
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+				groups: {
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the group was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the group was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					'default': {
+						/**
+						 * Default
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the group is default
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the group is default
+						 */
+						longDesc: () => LocalizedString
+					}
+					description: {
+						/**
+						 * Description
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The group’s description
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The group’s description
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The group’s ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The group’s ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The group’s name
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The group’s name
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the group was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the group was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					count: {
+						/**
+						 * Count
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Count of groups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Count of groups
+						 */
+						longDesc: () => LocalizedString
+					}
+					deleted: {
+						/**
+						 * Deleted
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the group is deleted
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the group is deleted
+						 */
+						longDesc: () => LocalizedString
+					}
+					is_public: {
+						/**
+						 * Is Public
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the group is public
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the group is public
+						 */
+						longDesc: () => LocalizedString
+					}
+					url: {
+						/**
+						 * URL
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The group’s URL
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The group’s URL
+						 */
+						longDesc: () => LocalizedString
+					}
+					groups: {
+						/**
+						 * Groups
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Groups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Groups
+						 */
+						longDesc: () => LocalizedString
+					}
+					users: {
+						/**
+						 * Users
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Users
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Users
+						 */
+						longDesc: () => LocalizedString
+					}
+					next_page: {
+						/**
+						 * Next Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Next page of groups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Next page of groups
+						 */
+						longDesc: () => LocalizedString
+					}
+					previoud_page: {
+						/**
+						 * Previous Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Previous page of groups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Previous page of groups
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+				organizations: {
+					/**
+					 * Organizations
+					 */
+					displayName: () => LocalizedString
+					/**
+					 * Organizations
+					 */
+					shortDesc: () => LocalizedString
+					/**
+					 * Organizations
+					 */
+					longDesc: () => LocalizedString
+					count: {
+						/**
+						 * Count
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Count of organizations
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Count of organizations
+						 */
+						longDesc: () => LocalizedString
+					}
+					next_page: {
+						/**
+						 * Next Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Next page of organizations
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Next page of organizations
+						 */
+						longDesc: () => LocalizedString
+					}
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the organization was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the organization was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					details: {
+						/**
+						 * Details
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Details of the organization
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Details of the organization
+						 */
+						longDesc: () => LocalizedString
+					}
+					domain_names: {
+						/**
+						 * Domain Names
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Domain names of the organization
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Domain names of the organization
+						 */
+						longDesc: () => LocalizedString
+					}
+					external_id: {
+						/**
+						 * External ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The organization’s external ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The organization’s external ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					group_id: {
+						/**
+						 * Group ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The ID of the organization’s group
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The ID of the organization’s group
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The organization’s ID
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The organization’s ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The organization’s name
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The organization’s name
+						 */
+						longDesc: () => LocalizedString
+					}
+					notes: {
+						/**
+						 * Notes
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Notes of the organization
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Notes of the organization
+						 */
+						longDesc: () => LocalizedString
+					}
+					organization_fields: {
+						/**
+						 * Organization Fields
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Organization fields
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Organization fields
+						 */
+						longDesc: () => LocalizedString
+						datepudding: {
+							/**
+							 * DatePudding
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * DatePudding of the organization
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * DatePudding of the organization
+							 */
+							longDesc: () => LocalizedString
+						}
+						org_field_1: {
+							/**
+							 * Org Field 1
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Organization field 1
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Organization field 1
+							 */
+							longDesc: () => LocalizedString
+						}
+						org_field_2: {
+							/**
+							 * Org Field 2
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Organization field 2
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Organization field 2
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+					shared_comments: {
+						/**
+						 * Shared Comments
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the organization has shared comments
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the organization has shared comments
+						 */
+						longDesc: () => LocalizedString
+					}
+					shared_tickets: {
+						/**
+						 * Shared Tickets
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the organization has shared tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the organization has shared tickets
+						 */
+						longDesc: () => LocalizedString
+					}
+					tags: {
+						/**
+						 * Tags
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The organization’s tags
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The organization’s tags
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the organization was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the organization was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					url: {
+						/**
+						 * URL
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The organization’s URL
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The organization’s URL
+						 */
+						longDesc: () => LocalizedString
 					}
 				}
 			}

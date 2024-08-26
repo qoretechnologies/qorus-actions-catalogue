@@ -1,11 +1,34 @@
-import { IUsersInterface } from 'zendesk/models/users';
 import { zendeskRequest } from '../../client';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch users
+const options: IActionOptions = null;
+const response_type: IActionResponse = {
+
+  id:{
+    type: '*number',
+    name: 'id',
+    display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.user_id.longDesc(),
+    example_value: 123,
+  },
+  name:{
+    type: '*string',
+    name: 'name',
+    display_name: L.en.apps.zendesk.actions.users.name.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.name.longDesc(),
+    example_value: 'John Doe',
+  }
+
+};
+
 const getUsers = async () => {
   try {
-    const data: IUsersInterface = await zendeskRequest('/users.json', 'GET');
+    const data: TActionData<typeof options> = await zendeskRequest('/users.json', 'GET');
     return data;
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -16,39 +39,7 @@ const getUsers = async () => {
 export default {
   action: 'get_users',
   app_function: getUsers,
-  options: null,
-  response_type: {
-    users: {
-      display_name: 'users',
-      short_desc: 'All users',
-      desc: 'Got the all available users',
-      name: 'users',
-      example_value: [],
-      type: '*list',
-    },
-    next_page: {
-      type: '*number',
-      name: 'next_page',
-      display_name: 'Next Page',
-      short_desc: 'Next page number',
-      desc: 'Next page number',
-      example_value: 2,
-    },
-    previous_page: {
-      type: '*number',
-      name: 'previous_page',
-      display_name: 'Previous Page',
-      short_desc: 'Previous page number',
-      desc: 'Previous page number',
-      example_value: 1,
-    },
-    count: {
-      type: '*number',
-      name: 'count',
-      display_name: 'Count',
-      short_desc: 'The users count',
-      desc: 'The users count',
-      example_value: 10,
-    },
-  },
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type
+}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+

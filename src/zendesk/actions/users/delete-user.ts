@@ -1,14 +1,14 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
-interface IDeleteUser {
-  userId: number;
-}
 
 // Defining a function to delete user
-const deleteUser = async ({ userId }: IDeleteUser) => {
+const options: IActionOptions = null;
+const response_type: IActionResponse = null;
+const deleteUser = async ({ id }: TActionData<typeof options>) => {
   try {
-    const data = await zendeskRequest(`/users/${userId}.json`, 'DELETE');
+    const data = await zendeskRequest(`/users/${id}.json`, 'DELETE');
     return data;
   } catch (error) {
     console.error('Error delete user:', error);
@@ -19,6 +19,6 @@ const deleteUser = async ({ userId }: IDeleteUser) => {
 export default {
   action: 'delete_user',
   app_function: deleteUser,
-  options: null,
-  response_type: null,
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type
+}as TQorePartialActionWithFunction<typeof options, typeof response_type>;

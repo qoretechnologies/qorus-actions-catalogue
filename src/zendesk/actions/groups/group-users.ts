@@ -1,13 +1,48 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
+import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
-interface IGetGroupUsers {
-  groupId: number;
-}
+
 
 // Defining a function to fetch group users by id
-const getGroupUsers = async ({ groupId }: IGetGroupUsers) => {
+const options: IActionOptions = {
+  groupId: ZendeskOptions.groups.id,
+};
+const response_type: IActionResponse = {
+  users: {
+    type: '*list',
+    name: 'users',
+    display_name: L.en.apps.zendesk.actions.groups.users.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.users.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.users.longDesc(),
+  },
+  next_page:{
+    type: '*string',
+    name: 'next_page',
+    display_name: L.en.apps.zendesk.actions.groups.next_page.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.next_page.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.next_page.longDesc(),
+  },
+  previoud_page:{
+    type: '*string',
+    name: 'previous_page',
+    display_name: L.en.apps.zendesk.actions.groups.previoud_page.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.previoud_page.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.previoud_page.longDesc(),
+  },
+  count:{
+    type: '*number',
+    name: 'count',
+    display_name: L.en.apps.zendesk.actions.groups.count.displayName(),
+    short_desc: L.en.apps.zendesk.actions.groups.count.shortDesc(),
+    desc: L.en.apps.zendesk.actions.groups.count.longDesc(),
+  }
+
+  
+};
+const getGroupUsers = async ({ groupId }:   TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/groups/${groupId}/users.json`, 'GET');
     return data;
@@ -20,41 +55,7 @@ const getGroupUsers = async ({ groupId }: IGetGroupUsers) => {
 export default {
   action: 'get_group_users',
   app_function: getGroupUsers,
-  options: {
-    groupId: ZendeskOptions.groups.groupId,
-  },
-  response_type: {
-    users: {
-      display_name: 'group_users',
-      short_desc: 'Group all users',
-      desc: 'Got the all available users of group',
-      name: 'users',
-      example_value: [],
-      type: '*list',
-    },
-    next_page: {
-      type: '*number',
-      name: 'next_page',
-      display_name: 'Next Page',
-      short_desc: 'Next page number',
-      desc: 'Next page number',
-      example_value: 2,
-    },
-    previous_page: {
-      type: '*number',
-      name: 'previous_page',
-      display_name: 'Previous Page',
-      short_desc: 'Previous page number',
-      desc: 'Previous page number',
-      example_value: 1,
-    },
-    count: {
-      type: '*number',
-      name: 'count',
-      display_name: 'Count',
-      short_desc: 'The groups count',
-      desc: 'The groups count',
-      example_value: 10,
-    },
-  },
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type,
+}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+

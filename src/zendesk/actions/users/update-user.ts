@@ -1,17 +1,37 @@
-import { IResponseUserInterface, IUpdateCreateUserInterface } from 'zendesk/models/users';
+import { IResponseUserInterface} from 'zendesk/models/users';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { L } from '../../../i18n/i18n-node';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
-interface IUpdateUser {
-  userId: number;
-  userUpdate: IUpdateCreateUserInterface;
-}
+
 
 // Defining a function to update a user
-const updateUser = async ({ userId, userUpdate }: IUpdateUser) => {
+const options: IActionOptions = ZendeskOptions.users.userCreateUpdate;
+const response_type: IActionResponse = {
+  id: {
+    type: '*number',
+    name: 'id',
+    display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.user_id.longDesc(),
+    example_value: 123,
+  },
+  name:{
+    type: '*string',
+    name: 'name',
+    display_name: L.en.apps.zendesk.actions.users.name.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.name.longDesc(),
+    example_value: 'John Doe',
+  },
+
+}
+const updateUser = async (UserUpdate: TActionData<typeof options>) => {
+  const { id, ...userUpdate } = UserUpdate
   try {
-    const data: IResponseUserInterface = await zendeskRequest(`/users/${userId}.json`, 'POST', {
+    const data: IResponseUserInterface = await zendeskRequest(`/users/${id}.json`, 'PUT', {
       user: userUpdate,
     });
     return data;
@@ -24,34 +44,6 @@ const updateUser = async ({ userId, userUpdate }: IUpdateUser) => {
 export default {
   action: 'update_user',
   app_function: updateUser,
-  options: {
-    userId: ZendeskOptions.users.userId,
-    userUpdate: ZendeskOptions.users.userCreateUpdate,
-  },
-  response_type: {
-    created_at: {
-      display_name: 'Created At',
-      short_desc: 'The date and time the user was created',
-      desc: 'The date and time the user was created',
-      name: 'created_at',
-      example_value: '2021-08-25T09:00:00Z',
-      type: '*date',
-    },
-    id: {
-      type: '*number',
-      name: 'id',
-      display_name: 'User ID',
-      short_desc: 'The unique identifier for the user',
-      desc: 'The unique identifier for the user',
-      example_value: 123,
-    },
-    name: {
-      type: '*string',
-      name: 'name',
-      display_name: 'Name',
-      short_desc: 'The user’s name',
-      desc: 'The user’s name',
-      example_value: 'User #1',
-    },
-  },
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type
+}as TQorePartialActionWithFunction<typeof options, typeof response_type>;

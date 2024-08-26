@@ -1,16 +1,37 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-import { IUserInterface } from 'zendesk/models/users';
+import { IUserInterface} from 'zendesk/models/users';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
-
-interface IGetUser {
-  userId: number;
-}
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch user by id
-const getUser = async ({ userId }: IGetUser) => {
+
+const options: IActionOptions = {
+  userId: ZendeskOptions.users.userId,
+}
+const response_type: IActionResponse = {
+  id: {
+    type: '*number',
+    name: 'id',
+    display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.user_id.longDesc(),
+    example_value: 123,
+  },
+  name: {
+    type: 'string',
+    name: 'name',
+    display_name: L.en.apps.zendesk.actions.users.name.displayName(),
+    short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
+    desc: L.en.apps.zendesk.actions.users.name.longDesc(),
+    example_value: 'John Doe',
+  },
+
+}
+const getUser = async ({ id }: TActionData<typeof options>) => {
   try {
-    const data: IUserInterface = await zendeskRequest(`/users/${userId}.json`, 'GET');
+    const data: IUserInterface = await zendeskRequest(`/users/${id}.json`, 'GET');
     return data;
   } catch (error) {
     console.error('Error fetching user:', error);
@@ -21,33 +42,8 @@ const getUser = async ({ userId }: IGetUser) => {
 export default {
   action: 'get_user',
   app_function: getUser,
-  options: {
-    userId: ZendeskOptions.users.userId,
-  },
-  response_type: {
-    created_at: {
-      display_name: 'Created At',
-      short_desc: 'The date and time the user was created',
-      desc: 'The date and time the user was created',
-      name: 'created_at',
-      example_value: '2021-08-25T09:00:00Z',
-      type: '*date',
-    },
-    id: {
-      type: '*number',
-      name: 'id',
-      display_name: 'User ID',
-      short_desc: 'The unique identifier for the user',
-      desc: 'The unique identifier for the user',
-      example_value: 123,
-    },
-    name: {
-      type: '*string',
-      name: 'name',
-      display_name: 'Name',
-      short_desc: 'The user’s name',
-      desc: 'The user’s name',
-      example_value: 'John Doe',
-    },
-  },
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type
+
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+

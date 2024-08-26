@@ -1,14 +1,14 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
-interface IDeleteOrganization {
-  organizationId: number;
-}
 
 // Defining a function to delete organization
-const deleteOrganization = async ({ organizationId }: IDeleteOrganization) => {
+const options: IActionOptions = null;
+const response_type: IActionResponse = null;
+const deleteOrganization = async ({ id }:TActionData<typeof options>) => {
   try {
-    const data = await zendeskRequest(`/organizations/${organizationId}.json`, 'DELETE');
+    const data = await zendeskRequest(`/organizations/${id}.json`, 'DELETE');
     return data;
   } catch (error) {
     console.error('Error delete organization:', error);
@@ -19,7 +19,8 @@ const deleteOrganization = async ({ organizationId }: IDeleteOrganization) => {
 export default {
   action: 'delete_organization',
   app_function: deleteOrganization,
-  options: null,
-  response_type: null,
-} satisfies TQorePartialActionWithFunction;
+  options,
+  response_type,
+}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+
 
