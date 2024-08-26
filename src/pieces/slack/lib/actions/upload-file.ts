@@ -2,6 +2,7 @@ import { WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
 import { IActionResponse } from 'global/models/actions';
 import { slackAuth } from '../../index';
+import { slackChannel } from '../common/props';
 
 const uploadFileResponseType: IActionResponse = {
   ok: {
@@ -223,15 +224,17 @@ export const uploadFile = createAction({
       displayName: 'Filename',
       required: false,
     }),
+    channel: slackChannel(true),
   },
   responseType: uploadFileResponseType,
   async run(context) {
     const token = context.auth.access_token;
-    const { file, title, filename } = context.propsValue;
+    const { file, title, filename, channel } = context.propsValue;
     const client = new WebClient(token);
 
     return await client.files.uploadV2({
       file_uploads: [{ file: file.data, filename: filename || file.filename }],
+      channel_id: channel,
       title: title,
     });
   },

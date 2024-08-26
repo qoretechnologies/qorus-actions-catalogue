@@ -33,6 +33,28 @@ describe('slackPieceTest', () => {
     expect(slackPiece.actions.length).toBeGreaterThan(0);
   });
 
+  it('should find a Slack user by email', async () => {
+    const slackApp = PiecesAppCatalogue.apps['slack'];
+    const action = slackApp.actions.find((action) => action.action === 'slack_find_user_by_email');
+    const actionFunction = action?.app_function;
+
+    const props = { email: process.env.SLACK_USER_EMAIL };
+
+    if (actionFunction) {
+      try {
+        const result = await actionFunction(props, {}, actionContext);
+        expect(result).toBeDefined();
+        expect(result.user).toBeDefined();
+        expect(result.user.profile.email).toBe(process.env.SLACK_USER_EMAIL);
+        expect(result.user.id).toBeDefined();
+      } catch (error) {
+        console.error('Error finding user:', error);
+        throw error;
+      }
+    } else {
+      throw new Error('Action function not found');
+    }
+  });
   it('should send a Slack message and receive a positive response', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'send_channel_message');
@@ -132,8 +154,8 @@ describe('slackPieceTest', () => {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
       } catch (error) {
-        console.error('Error creating channel:', error);
         if (error.message !== 'An API error occurred: name_taken') {
+          console.error('Error creating channel:', error);
           throw error;
         }
       }
@@ -303,6 +325,10 @@ describe('slackPieceTest', () => {
     const action = slackApp.actions.find((action) => action.action === 'upload_file');
     const actionFunction = action?.app_function;
 
+    const channelIds = await action.options.channel.get_allowed_values(actionContext);
+    expect(channelIds).toBeDefined();
+    expect(channelIds.length).toBeGreaterThan(0);
+
     const fileData = Buffer.from('This is a test file content', 'utf-8');
 
     const props = {
@@ -310,6 +336,7 @@ describe('slackPieceTest', () => {
         data: fileData,
         filename: 'example.txt',
       },
+      channel: channelIds[0].value,
       title: 'Example Title',
       filename: 'example.txt',
     };
@@ -321,6 +348,41 @@ describe('slackPieceTest', () => {
         expect(result.ok).toBeTruthy();
       } catch (error) {
         console.error('Error uploading file:', error);
+        throw error;
+      }
+    } else {
+      throw new Error('Action function not found');
+    }
+  });
+
+  it('should update a user profile first name', async () => {
+    const testName = 'test';
+    const slackApp = PiecesAppCatalogue.apps['slack'];
+    const findUserActionFunction = slackApp.actions.find(
+      (action) => action.action === 'slack_find_user_by_email'
+    )?.app_function;
+    const action = slackApp.actions.find((action) => action.action === 'slack_update_profile');
+
+    const actionFunction = action?.app_function;
+
+    const findUserProps = { email: process.env.SLACK_USER_EMAIL };
+
+    if (actionFunction) {
+      try {
+        const findUserResult = await findUserActionFunction(findUserProps, {}, actionContext);
+
+        expect(findUserResult).toBeDefined();
+        expect(findUserResult.user).toBeDefined();
+        expect(findUserResult.user.id).toBeDefined();
+
+        const props = { firstName: testName, lastName: testName, userId: findUserResult.user.id };
+        const result = await actionFunction(props, {}, actionContext);
+
+        expect(result).toBeDefined();
+        expect(result.profile.first_name).toBe(testName);
+        expect(result.profile.last_name).toBe(testName);
+      } catch (error) {
+        console.error('Error finding user:', error);
         throw error;
       }
     } else {
