@@ -57,13 +57,13 @@ export interface ITicketInterface {
 }
 
 export interface IAuditInterface {
-    id: number,
-    ticket_id: number,
-    created_at: string,
-    author_id: number,
-    metadata: Record<string, any>[],
-    events: any[][],
-    via: Record<string, any>[],
+    id?: number,
+    ticket_id?: number,
+    created_at?: string,
+    author_id?: number,
+    metadata?: Record<string, any>[],
+    events?: any[][],
+    via?: Record<string, any>[],
 }
 
 export interface IResponseTicketInterface {

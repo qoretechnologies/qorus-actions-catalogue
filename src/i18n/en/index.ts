@@ -19,6 +19,31 @@ const en = {
             shortDesc: 'User ID',
             longDesc: 'User ID',
           },
+          items:{
+            displayName: 'Items',
+            shortDesc: 'Items',
+            longDesc: 'Items',
+          },
+          users:{
+            displayName: 'Users',
+            shortDesc: 'Users',
+            longDesc: 'Users',
+            id:{
+              displayName: 'ID',
+              shortDesc: 'ID',
+              longDesc: 'ID',
+            },
+            name:{
+              displayName: 'Name',
+              shortDesc: 'Name',
+              longDesc: 'Name',
+            }
+          },
+          active:{
+            displayName: 'Active',
+            shortDesc: 'Active',
+            longDesc: 'Active',
+          },
           name: {
             displayName: 'Name',
             shortDesc: 'Name',

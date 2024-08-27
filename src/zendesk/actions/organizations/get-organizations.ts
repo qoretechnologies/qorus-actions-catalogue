@@ -6,7 +6,7 @@ import { IActionOptions, IActionResponse } from 'global/models/actions';
 
 // Defining a function to fetch organization
 const options: IActionOptions = null;
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   count: {
     type: 'number',
     name: 'count',

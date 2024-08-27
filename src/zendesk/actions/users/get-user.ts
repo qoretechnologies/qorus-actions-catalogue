@@ -10,7 +10,7 @@ import { L } from '../../../i18n/i18n-node';
 const options: IActionOptions = {
   userId: ZendeskOptions.users.userId,
 }
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   id: {
     type: '*number',
     name: 'id',

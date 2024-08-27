@@ -5,8 +5,19 @@ import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch users
 const options: IActionOptions = null;
-const response_type: IActionResponse = {
-
+export const response_type: IActionResponse = {
+  users:{
+        type: '*list',
+        name: 'users',
+        display_name: L.en.apps.zendesk.actions.users.users.displayName(),
+        short_desc: L.en.apps.zendesk.actions.users.users.shortDesc(),
+        desc: L.en.apps.zendesk.actions.users.users.longDesc(),
+        example_value: [
+          {
+            id: 123,
+            name: 'John Doe'
+          }
+        ]},
   id:{
     type: '*number',
     name: 'id',
@@ -42,4 +53,3 @@ export default {
   options,
   response_type
 }as TQorePartialActionWithFunction<typeof options, typeof response_type>;
-

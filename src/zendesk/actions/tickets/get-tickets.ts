@@ -7,7 +7,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 
 // Defining a function to fetch tickets
 const options: IActionOptions = null;
-const response_type: IActionResponse =  {
+export const response_type: IActionResponse =  {
   tickets: {
     display_name: 'tickets',
     short_desc: 'All tickets',

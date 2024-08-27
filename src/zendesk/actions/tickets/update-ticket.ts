@@ -1,4 +1,4 @@
-import { IResponseTicketInterface, TTicketsOptions } from 'zendesk/models/tickets';
+import { IResponseTicketInterface } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
@@ -7,7 +7,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 
 // Defining a function to update a ticket
 const options: IActionOptions = ZendeskOptions.tickets.ticketCreateUpdate;
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   ticket: {
     name: 'ticket',
     display_name: L.en.apps.zendesk.actions.tickets.name.displayName(),

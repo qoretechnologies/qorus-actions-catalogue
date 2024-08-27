@@ -7,7 +7,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 
 // Defining a function to create a ticket
 const options : IActionOptions =  ZendeskOptions.tickets.ticketCreateUpdate;
-const response_type: IActionResponse =  {
+export const response_type: IActionResponse =  {
   assignee_id: {
     type: '*number',
     name: 'assignee_id',

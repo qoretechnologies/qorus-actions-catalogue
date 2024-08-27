@@ -10,7 +10,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 const options: IActionOptions = {
   groupId: ZendeskOptions.groups.id,
 };
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   users: {
     type: '*list',
     name: 'users',

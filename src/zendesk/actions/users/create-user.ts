@@ -9,7 +9,7 @@ import { L } from '../../../i18n/i18n-node'
 // Defining a function to create a user
 
 const options: IActionOptions = ZendeskOptions.users.userCreateUpdate
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   custom_role_id: {
     type: 'number',
     name: 'custom_role_id',

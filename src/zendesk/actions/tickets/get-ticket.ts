@@ -9,7 +9,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 const options: IActionOptions = {
   ticket_id: ZendeskOptions.tickets.ticket_id,
 };
-const response_type: IActionResponse ={
+export const response_type: IActionResponse ={
   assignee_id: {
     type: '*number',
     name: 'assignee_id',

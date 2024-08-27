@@ -59,6 +59,76 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					items: {
+						/**
+						 * I​t​e​m​s
+						 */
+						displayName: string
+						/**
+						 * I​t​e​m​s
+						 */
+						shortDesc: string
+						/**
+						 * I​t​e​m​s
+						 */
+						longDesc: string
+					}
+					users: {
+						/**
+						 * U​s​e​r​s
+						 */
+						displayName: string
+						/**
+						 * U​s​e​r​s
+						 */
+						shortDesc: string
+						/**
+						 * U​s​e​r​s
+						 */
+						longDesc: string
+						id: {
+							/**
+							 * I​D
+							 */
+							displayName: string
+							/**
+							 * I​D
+							 */
+							shortDesc: string
+							/**
+							 * I​D
+							 */
+							longDesc: string
+						}
+						name: {
+							/**
+							 * N​a​m​e
+							 */
+							displayName: string
+							/**
+							 * N​a​m​e
+							 */
+							shortDesc: string
+							/**
+							 * N​a​m​e
+							 */
+							longDesc: string
+						}
+					}
+					active: {
+						/**
+						 * A​c​t​i​v​e
+						 */
+						displayName: string
+						/**
+						 * A​c​t​i​v​e
+						 */
+						shortDesc: string
+						/**
+						 * A​c​t​i​v​e
+						 */
+						longDesc: string
+					}
 					name: {
 						/**
 						 * N​a​m​e
@@ -1515,6 +1585,76 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * User ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					items: {
+						/**
+						 * Items
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Items
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Items
+						 */
+						longDesc: () => LocalizedString
+					}
+					users: {
+						/**
+						 * Users
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Users
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Users
+						 */
+						longDesc: () => LocalizedString
+						id: {
+							/**
+							 * ID
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * ID
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * ID
+							 */
+							longDesc: () => LocalizedString
+						}
+						name: {
+							/**
+							 * Name
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Name
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Name
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+					active: {
+						/**
+						 * Active
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Active
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Active
 						 */
 						longDesc: () => LocalizedString
 					}

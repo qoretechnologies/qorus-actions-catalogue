@@ -9,7 +9,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 const options: IActionOptions = {
   group_id: ZendeskOptions.groups.id,
 };
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   created_at: {
     type: '*string',
     name: 'created_at',

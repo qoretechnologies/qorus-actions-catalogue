@@ -9,7 +9,7 @@ import { IActionOptions, IActionResponse, TActionData } from 'global/models/acti
 
 // Defining a function to update a user
 const options: IActionOptions = ZendeskOptions.users.userCreateUpdate;
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   id: {
     type: '*number',
     name: 'id',
