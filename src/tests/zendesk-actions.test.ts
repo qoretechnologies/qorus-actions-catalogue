@@ -227,13 +227,10 @@ describe('attachments', () => {
   // it('should create a attachment', async () => {
   //   const createAttachmentAction = await createAttachment.default.api_function;
   //   const newAttachment = await createAttachmentAction({
-  //     // filename: 'test.jpg',
-  //     // data: 'base64encodeddata',
   //     attachment_id: 2,
   //     attachment_token: ' ',
   //     file_name: 'test.jpg',
   //     content_type: 'image/jpeg',
-  //     // size: 14
   //   });
   //   const { response_type } = createAttachment;
   //   if (response_type) {
@@ -243,7 +240,6 @@ describe('attachments', () => {
   //       expect(newAttachment.attachment).toBeDefined();
   //       expect(newAttachment.attachment).toHaveProperty(key);
   //     });
-  //   console.log(newAttachment,"newatttachmentttt");
     
   //   } else {
   //     console.error('response_type is undefined or null');

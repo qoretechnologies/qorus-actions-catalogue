@@ -20,14 +20,9 @@ export interface IQoreApi {
 class ActionsCatalogue {
   @Log('Initializing the Actions Catalogue', DebugLevels.Info)
   registerAppActions(qoreApi: IQoreApi) {
-    // console.log('MockApps => ', MockApps)
     Object.keys(MockApps).forEach((appName) => {
       const { actions, ...app } = MockApps[appName];
-
-      // Register the app
-      // console.log('actionsss => ',actions)
       qoreApi.registerApp(app);
-
       actions.forEach((action: any) => {
         qoreApi.registerAction(action);
       });

@@ -4,7 +4,6 @@ import { IActionOptions, TActionData } from 'global/models/actions';
 
 // Defining a function to delete ticket
 const options: IActionOptions = null;
-// const response_type: IActionResponse = null;
 const deleteTicket = async ({ ticket_id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/tickets/${ticket_id}.json`, 'DELETE');
@@ -19,5 +18,4 @@ export default {
   action: 'delete_ticket',
   api_function: deleteTicket,
   options,
-  // response_type,
 } as TQorePartialActionWithFunction<typeof options>;

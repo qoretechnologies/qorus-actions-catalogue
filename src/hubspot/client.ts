@@ -11,8 +11,6 @@ export const hubspotRequest = async (
   const uri = `https://api.hubspot.com/crm/v3${endpoint}`;
   let response: Record<string, any> | undefined;
 
-  console.log(endpoint, method, body);
-
   try {
     switch (method) {
       case 'GET':

@@ -9,7 +9,6 @@ export const zendeskRequest = async (
 ) => {
   const uri = `/api/v2${endpoint}`;
   let response: Record<string, any> | undefined;
-  console.log(endpoint, method, body);
   try {
     switch (method) {
       case 'GET':

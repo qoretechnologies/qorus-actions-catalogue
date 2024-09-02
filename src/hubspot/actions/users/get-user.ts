@@ -1,7 +1,5 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-// import { IUserInterface } from 'hubspot/models/users';
 import { hubspotRequest } from '../../client';
-// import { hubspotOptions } from '../options';
 import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 import { L } from '../../../i18n/i18n-node';
 

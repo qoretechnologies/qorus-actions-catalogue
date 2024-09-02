@@ -80,10 +80,6 @@ const getAttachment = async ({ id }: TActionData<typeof options>) => {
       `attachments/${id}.json`,
       'GET',
       { id }
-      // null,
-      // {
-      //   attachment_id: id
-      // },
     );
     return data;
   } catch (error) {

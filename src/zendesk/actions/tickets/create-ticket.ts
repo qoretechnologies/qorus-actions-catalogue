@@ -31,7 +31,7 @@ export const response_type: IActionResponse = {
     short_desc: L.en.apps.zendesk.actions.tickets.created_at.shortDesc(),
     desc: L.en.apps.zendesk.actions.tickets.created_at.longDesc(),
     example_value: '2021-08-25T09:00:00Z',
-  }, // is not (get ticket)
+  }, 
   custom_fields: {
     type: 'list',
     name: 'custom_fields',

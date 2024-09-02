@@ -7,7 +7,6 @@ import { IActionOptions, TActionData } from 'global/models/actions';
 const options: IActionOptions = {
   token: ZendeskOptions.attachments.token,
 };
-// const response_type: IActionResponse = null;
 const deleteAttachment = async ({ token }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/uploads/${token}`, 'DELETE');
@@ -22,5 +21,4 @@ export default {
   action: 'delete_attachment',
   api_function: deleteAttachment,
   options,
-  // response_type,
 } as TQorePartialActionWithFunction<typeof options>;

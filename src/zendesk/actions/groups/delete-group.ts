@@ -4,7 +4,6 @@ import { IActionOptions, TActionData } from 'global/models/actions';
 
 // Defining a function to delete group
 const options: IActionOptions = null;
-// const response_type: IActionResponse = null;
 const deleteGroup = async ({ id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/groups/${id}.json`, 'DELETE');
@@ -19,5 +18,4 @@ export default {
   action: 'delete_group',
   api_function: deleteGroup,
   options,
-  // response_type,
 } as TQorePartialActionWithFunction<typeof options>;
