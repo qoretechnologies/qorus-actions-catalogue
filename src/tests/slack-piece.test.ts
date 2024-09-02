@@ -1,6 +1,7 @@
 import { config } from 'dotenv';
 import { TQoreAppActionFunctionContext } from '../global/models/qore';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
+import { validateResponseProperties } from './helpers/validate-response-properties.helper';
 
 config({ path: '.env.test' });
 PiecesAppCatalogue.registerApps();
@@ -47,6 +48,10 @@ describe('slackPieceTest', () => {
         expect(result.user).toBeDefined();
         expect(result.user.profile.email).toBe(process.env.SLACK_USER_EMAIL);
         expect(result.user.id).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error finding user:', error);
         throw error;
@@ -72,7 +77,10 @@ describe('slackPieceTest', () => {
 
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
-
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
         newMessageTimestamp = result.ts;
       } catch (error) {
         console.error('Error sending message:', error);
@@ -99,6 +107,10 @@ describe('slackPieceTest', () => {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.messages).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error getting channel history:', error);
         throw error;
@@ -130,6 +142,10 @@ describe('slackPieceTest', () => {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error adding reaction:', error);
         throw error;
@@ -153,6 +169,10 @@ describe('slackPieceTest', () => {
       try {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         if (error.message !== 'An API error occurred: name_taken') {
           console.error('Error creating channel:', error);
@@ -182,6 +202,10 @@ describe('slackPieceTest', () => {
         const result = await action.app_function(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error sending message:', error);
         throw error;
@@ -209,6 +233,10 @@ describe('slackPieceTest', () => {
       try {
         const result = await action.app_function(props, {}, actionContext);
         expect(result).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error sending message:', error);
         throw error;
@@ -235,6 +263,10 @@ describe('slackPieceTest', () => {
       try {
         const result = await action.app_function(props, {}, actionContext);
         expect(result).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error asking approval:', error);
         throw error;
@@ -261,6 +293,10 @@ describe('slackPieceTest', () => {
       try {
         const result = await action.app_function(props, {}, actionContext);
         expect(result).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error asking approval:', error);
         throw error;
@@ -282,6 +318,10 @@ describe('slackPieceTest', () => {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.matches).toBeDefined();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error searching messages:', error);
         throw error;
@@ -311,6 +351,10 @@ describe('slackPieceTest', () => {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error updating message:', error);
         throw error;
@@ -346,6 +390,10 @@ describe('slackPieceTest', () => {
         const result = await actionFunction(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error uploading file:', error);
         throw error;
@@ -381,6 +429,10 @@ describe('slackPieceTest', () => {
         expect(result).toBeDefined();
         expect(result.profile.first_name).toBe(testName);
         expect(result.profile.last_name).toBe(testName);
+        const expectedResponseType = action.response_type;
+        if (expectedResponseType) {
+          validateResponseProperties(expectedResponseType, result);
+        }
       } catch (error) {
         console.error('Error finding user:', error);
         throw error;
