@@ -1,7 +1,6 @@
 
 
 const getUserhub = require('../hubspot/actions/users/get-user.ts');
-
 const getUsershub = require('../hubspot/actions/users/get-users.ts');
 
 
@@ -17,11 +16,6 @@ describe('users', () => {
       expect(showusers.results).toBeDefined();
       expect(Array.isArray(showusers.results)).toBe(true);
 
-
-      //тест example
-      // expect(client.hasOwnProperty('rolesApi')).toBeTruthy()
-      // expect(client.hasOwnProperty('teamsApi')).toBeTruthy()
-      // expect(client.hasOwnProperty('usersApi')).toBeTruthy()
     });
   
     it('should fetch a user', async () => {
