@@ -283,7 +283,7 @@ export interface IQoreAppActionWithFunction<
   Response = Record<string, IQoreTypeObject>,
 > extends IQoreAppAction {
   action_code: 2;
-  app_function: TQoreAppActionFunction;
+  api_function: TQoreAppActionFunction;
   options: StrictRecord<keyof Options, Options[keyof Options]>;
   response_type: StrictRecord<keyof Response, Response[keyof Response]>;
 }
@@ -293,7 +293,7 @@ export type TQorePartialActionWithFunction<
   Response = Record<string, IQoreTypeObject>,
 > = Pick<
   IQoreAppActionWithFunction<Options, Response>,
-  'app_function' | 'response_type' | 'options' | 'action'
+  'api_function' | 'response_type' | 'options' | 'action'
 >;
 
 export interface IActionInitializationProps {

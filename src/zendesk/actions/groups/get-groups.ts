@@ -8,28 +8,28 @@ import { IActionOptions, IActionResponse } from 'global/models/actions';
 const options: IActionOptions = null;
 export const response_type: IActionResponse = {
   groups: {
-    type: '*list',
+    type: 'list',
     name: 'groups',
     display_name: L.en.apps.zendesk.actions.groups.groups.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.groups.shortDesc(),
     desc: L.en.apps.zendesk.actions.groups.groups.longDesc(),
     example_value: [
       {
-        created_at: "2009-05-13T00:07:08Z",
+        created_at: '2009-05-13T00:07:08Z',
         id: 211,
         is_public: true,
-        name: "DJs",
-        updated_at: "2011-07-22T00:11:12Z"
+        name: 'DJs',
+        updated_at: '2011-07-22T00:11:12Z',
       },
       {
-        created_at: "2009-08-26T00:07:08Z",
+        created_at: '2009-08-26T00:07:08Z',
         id: 122,
         is_public: true,
-        name: "MCs",
-        updated_at: "2010-05-13T00:07:08Z"
-      }
+        name: 'MCs',
+        updated_at: '2010-05-13T00:07:08Z',
+      },
     ],
-  }
+  },
 };
 
 const getGroups = async () => {
@@ -44,7 +44,7 @@ const getGroups = async () => {
 
 export default {
   action: 'get_groups',
-  app_function: getGroups,
+  api_function: getGroups,
   options,
   response_type,
-}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;

@@ -11,7 +11,7 @@ const options: IActionOptions = {
 };
 export const response_type: IActionResponse = {
   created_at: {
-    type: '*string',
+    type: 'string',
     name: 'created_at',
     display_name: L.en.apps.zendesk.actions.groups.created_at.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.created_at.shortDesc(),
@@ -19,7 +19,7 @@ export const response_type: IActionResponse = {
     example_value: '2023-05-01T10:30:00Z',
   },
   id: {
-    type: '*number',
+    type: 'number',
     name: 'id',
     display_name: L.en.apps.zendesk.actions.groups.id.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.id.shortDesc(),
@@ -27,7 +27,7 @@ export const response_type: IActionResponse = {
     example_value: 123,
   },
   is_public: {
-    type: '*boolean',
+    type: 'boolean',
     name: 'is_public',
     display_name: L.en.apps.zendesk.actions.groups.is_public.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.is_public.shortDesc(),
@@ -35,7 +35,7 @@ export const response_type: IActionResponse = {
     example_value: true,
   },
   name: {
-    type: '*string',
+    type: 'string',
     name: 'name',
     display_name: L.en.apps.zendesk.actions.groups.name.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.name.shortDesc(),
@@ -43,15 +43,15 @@ export const response_type: IActionResponse = {
     example_value: 'Support',
   },
   updated_at: {
-    type: '*string',
+    type: 'string',
     name: 'updated_at',
     display_name: L.en.apps.zendesk.actions.groups.updated_at.displayName(),
     short_desc: L.en.apps.zendesk.actions.groups.updated_at.shortDesc(),
     desc: L.en.apps.zendesk.actions.groups.updated_at.longDesc(),
     example_value: '2021-09-01T00:00:00Z',
-  }
+  },
 };
-const getGroup = async ({ id }:  TActionData<typeof options>) => {
+const getGroup = async ({ id }: TActionData<typeof options>) => {
   try {
     const data: IGroupInterface = await zendeskRequest(`/groups/${id}.json`, 'GET');
     return data;
@@ -63,8 +63,7 @@ const getGroup = async ({ id }:  TActionData<typeof options>) => {
 
 export default {
   action: 'get_group',
-  app_function: getGroup,
+  api_function: getGroup,
   options,
   response_type,
-}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
-
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;

@@ -1,17 +1,17 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-import { IAttachmentsInterface} from 'zendesk/models/attachments';
+import { IAttachmentsInterface } from 'zendesk/models/attachments';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { L } from '../../../i18n/i18n-node';
 import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
 // Defining a function to fetch attachment
-const options: IActionOptions =  {
+const options: IActionOptions = {
   attachment_id: ZendeskOptions.attachments.id,
 };
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   content_type: {
-    type: '*string',
+    type: 'string',
     name: 'content_type',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
@@ -19,7 +19,7 @@ const response_type: IActionResponse = {
     example_value: 'image/png',
   },
   content_url: {
-    type: '*string',
+    type: 'string',
     name: 'content_url',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
@@ -27,7 +27,7 @@ const response_type: IActionResponse = {
     example_value: 'https://example.com/image.png',
   },
   file_name: {
-    type: '*string',
+    type: 'string',
     name: 'file_name',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
@@ -35,7 +35,7 @@ const response_type: IActionResponse = {
     example_value: 'image.png',
   },
   id: {
-    type: '*number',
+    type: 'number',
     name: 'id',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
@@ -43,7 +43,7 @@ const response_type: IActionResponse = {
     example_value: 123,
   },
   size: {
-    type: '*number',
+    type: 'number',
     name: 'size',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
@@ -51,7 +51,7 @@ const response_type: IActionResponse = {
     example_value: 1024,
   },
   thumbnails: {
-    type: '*list',
+    type: 'list',
     name: 'thumbnails',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
@@ -64,23 +64,22 @@ const response_type: IActionResponse = {
         size: 1024,
       },
     ],
-
   },
   url: {
-    type: '*string',
+    type: 'string',
     name: 'url',
     display_name: L.en.apps.zendesk.actions.attachments.upload.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.upload.shortDesc(),
     desc: L.en.apps.zendesk.actions.attachments.upload.longDesc(),
     example_value: 'https://example.com/image.png',
   },
-
 };
-const getAttachment = async ({ id }:  TActionData<typeof options>) => {
+const getAttachment = async ({ id }: TActionData<typeof options>) => {
   try {
     const data: IAttachmentsInterface = await zendeskRequest(
       `attachments/${id}.json`,
-      'GET',{id} 
+      'GET',
+      { id }
       // null,
       // {
       //   attachment_id: id
@@ -95,9 +94,7 @@ const getAttachment = async ({ id }:  TActionData<typeof options>) => {
 
 export default {
   action: 'get_attachment',
-  app_function: getAttachment,
+  api_function: getAttachment,
   options,
-  response_type
-
- }as TQorePartialActionWithFunction<typeof options, typeof response_type>;
-
+  response_type,
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;

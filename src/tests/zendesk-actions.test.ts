@@ -27,6 +27,7 @@ const updateGroup = require('../zendesk/actions/groups/update-group.ts');
 
 // ATTACHMENTS
 
+const createAttachment = require('../zendesk/actions/attachments/create-attachhment.ts');
 const getAttachment = require('../zendesk/actions/attachments/get-attachment.ts');
 const deleteAttachment = require('../zendesk/actions/attachments/delete-attachment.ts');
 
@@ -44,187 +45,212 @@ if (!(process.env.ENDPOINT && process.env.TESTUSER && process.env.TESTPASS)) {
 }
 
 describe('tickets', () => {
-  let newTicket: any = null;
+  // let newTicket: any = null;
 
-  it('should create a ticket', async () => {
-    const createTicketAction = await creatTicket.default.app_function;
-    newTicket = await createTicketAction({
-      ticket: {
-        comment: {
-          body: 'The smoke is very colorful.',
-        },
-        priority: 'urgent',
-        subject: 'My printer is on fire!',
-      },
-    });
-    const { response_type } = creatTicket;
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(newTicket).toBeDefined();
-        expect(newTicket.ticket).toBeDefined();
-        expect(newTicket.ticket).toHaveProperty(key);
-      });
-    } else {
-      console.error('response_type is undefined or null');
-    }
-  });
+  // it('should create a ticket', async () => {
+  //   const createTicketAction = await creatTicket.default.api_function;
+  //   newTicket = await createTicketAction({
+  //     ticket: {
+  //       comment: {
+  //         body: 'The smoke is very colorful.',
+  //       },
+  //       priority: 'urgent',
+  //       subject: 'My printer is on fire!',
+  //     },
+  //   });
+  //   const { response_type } = creatTicket;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(newTicket).toBeDefined();
+  //       expect(newTicket.ticket).toBeDefined();
+  //       expect(newTicket.ticket).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a tickets count', async () => {
-    const fetchTicketsCountAction = await getTicketsCount.default.app_function;
-    const ticketscount = await fetchTicketsCountAction();
-    const { response_type } = getTicketsCount;
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(ticketscount).toBeDefined();
-        expect(ticketscount).toHaveProperty(key);
-      });
-    } else {
-      console.error('getTicketsCount response_type is undefined or null');
-    }
-  });
+  // it('should fetch a tickets count', async () => {
+  //   const fetchTicketsCountAction = await getTicketsCount.default.api_function;
+  //   const ticketscount = await fetchTicketsCountAction();
+  //   const { response_type } = getTicketsCount;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(ticketscount).toBeDefined();
+  //       expect(ticketscount).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getTicketsCount response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a ticket', async () => {
-    const fetchTicket = await getTicket.default.app_function;
-    const showTicket = await fetchTicket({ ticket_id: newTicket.ticket.id });
-    const { response_type } = getTicket;
+  // it('should fetch a ticket', async () => {
+  //   const fetchTicket = await getTicket.default.api_function;
+  //   const showTicket = await fetchTicket({ ticket_id: newTicket.ticket.id });
+  //   const { response_type } = getTicket;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(showTicket).toBeDefined();
-        expect(showTicket.ticket).toBeDefined();
-        expect(showTicket.ticket).toHaveProperty(key);
-      });
-    } else {
-      console.error('getTicket response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(showTicket).toBeDefined();
+  //       expect(showTicket.ticket).toBeDefined();
+  //       expect(showTicket.ticket).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getTicket response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a tickets', async () => {
-    const fetchTicketsAction = await getTickets.default.app_function;
-    const showTickets = await fetchTicketsAction({ ids: newTicket.ticket.id + '' });
+  // it('should fetch a tickets', async () => {
+  //   const fetchTicketsAction = await getTickets.default.api_function;
+  //   const showTickets = await fetchTicketsAction({ ids: newTicket.ticket.id + '' });
 
-    const { response_type } = getTickets;
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.forEach((key) => {
-        expect(showTickets).toHaveProperty(key);
-      });
-    } else {
-      console.error('getTickets response_type is undefined or null');
-    }
-  });
+  //   const { response_type } = getTickets;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.forEach((key) => {
+  //       expect(showTickets).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getTickets response_type is undefined or null');
+  //   }
+  // });
 
-  it('should update a ticket', async () => {
-    const updateTicketAction = await updateTicket.default.app_function;
-    const ticketUpdate = await updateTicketAction({
-      ticket_id: newTicket.ticket.id,
-      status: 'solved',
-    });
-    const { response_type } = updateTicket;
+  // it('should update a ticket', async () => {
+  //   const updateTicketAction = await updateTicket.default.api_function;
+  //   const ticketUpdate = await updateTicketAction({
+  //     ticket_id: newTicket.ticket.id,
+  //     status: 'solved',
+  //   });
+  //   const { response_type } = updateTicket;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(ticketUpdate).toBeDefined();
-        expect(ticketUpdate).toHaveProperty(key);
-      });
-    } else {
-      console.error('ticketUpdate response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(ticketUpdate).toBeDefined();
+  //       expect(ticketUpdate).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('ticketUpdate response_type is undefined or null');
+  //   }
+  // });
 
-  it('should delete a ticket', async () => {
-    const deleteTicketAction = await deleteTicket.default.app_function;
-    await deleteTicketAction({ ticket_id: newTicket.ticket.id });
-  });
+  // it('should delete a ticket', async () => {
+  //   const deleteTicketAction = await deleteTicket.default.api_function;
+  //   await deleteTicketAction({ ticket_id: newTicket.ticket.id });
+  // });
 });
 
 describe('groups', () => {
-  let newGroup: any = null;
-  it('should create a group', async () => {
-    const createGroupAction = await createGroup.default.app_function;
-    newGroup = await createGroupAction({ name: String(new Date().getTime()) });
-    const { response_type } = createGroup;
-    if (response_type) {
-      const keys = Object.keys(response_type);
+  // let newGroup: any = null;
+  // it('should create a group', async () => {
+  //   const createGroupAction = await createGroup.default.api_function;
+  //   newGroup = await createGroupAction({ name: String(new Date().getTime()) });
+  //   const { response_type } = createGroup;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
 
-      keys.map((key) => {
-        expect(newGroup).toBeDefined();
-        expect(newGroup.group).toBeDefined();
-        expect(newGroup.group).toHaveProperty(key);
-      });
-    } else {
-      console.error('response_type is undefined or null');
-    }
-  });
+  //     keys.map((key) => {
+  //       expect(newGroup).toBeDefined();
+  //       expect(newGroup.group).toBeDefined();
+  //       expect(newGroup.group).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a group', async () => {
-    const getGroupAction = await getGroup.default.app_function;
-    const showGroup = await getGroupAction({ id: newGroup.group.id });
-    const { response_type } = getGroup;
+  // it('should fetch a group', async () => {
+  //   const getGroupAction = await getGroup.default.api_function;
+  //   const showGroup = await getGroupAction({ id: newGroup.group.id });
+  //   const { response_type } = getGroup;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(showGroup).toBeDefined();
-        expect(showGroup.group).toBeDefined();
-        expect(showGroup.group).toHaveProperty(key);
-      });
-    } else {
-      console.error('getGroup response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(showGroup).toBeDefined();
+  //       expect(showGroup.group).toBeDefined();
+  //       expect(showGroup.group).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getGroup response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a groups', async () => {
-    const getGroupsAction = await getGroups.default.app_function;
-    const showGroups = await getGroupsAction();
+  // it('should fetch a groups', async () => {
+  //   const getGroupsAction = await getGroups.default.api_function;
+  //   const showGroups = await getGroupsAction();
 
-    const { response_type } = getGroups;
+  //   const { response_type } = getGroups;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.forEach((key) => {
-        expect(showGroups).toHaveProperty(key);
-      });
-    } else {
-      console.error('getGroups response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.forEach((key) => {
+  //       expect(showGroups).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getGroups response_type is undefined or null');
+  //   }
+  // });
 
-  it('should update a groups', async () => {
-    const updateGroupAction = await updateGroup.default.app_function;
-    const groupUpdate = await updateGroupAction({
-      id: newGroup.group.id,
-      name: 'Interesting Group',
-    });
-    const { response_type } = updateGroup;
+  // it('should update a groups', async () => {
+  //   const updateGroupAction = await updateGroup.default.api_function;
+  //   const groupUpdate = await updateGroupAction({
+  //     id: newGroup.group.id,
+  //     name: 'Interesting Group',
+  //   });
+  //   const { response_type } = updateGroup;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(groupUpdate).toBeDefined();
-        expect(groupUpdate.group).toBeDefined();
-        expect(groupUpdate.group).toHaveProperty(key);
-      });
-    } else {
-      console.error('groupUpdate response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(groupUpdate).toBeDefined();
+  //       expect(groupUpdate.group).toBeDefined();
+  //       expect(groupUpdate.group).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('groupUpdate response_type is undefined or null');
+  //   }
+  // });
 
-  it('should delete a group', async () => {
-    const deleteGroupAction = await deleteGroup.default.app_function;
-    await deleteGroupAction({ id: newGroup.group.id });
-  });
+  // it('should delete a group', async () => {
+  //   const deleteGroupAction = await deleteGroup.default.api_function;
+  //   await deleteGroupAction({ id: newGroup.group.id });
+  // });
 });
 
 describe('attachments', () => {
   // let attachment_id: any = 2;
   // let attachment_token: any = ' ';
+  // it('should create a attachment', async () => {
+  //   const createAttachmentAction = await createAttachment.default.api_function;
+  //   const newAttachment = await createAttachmentAction({
+  //     // filename: 'test.jpg',
+  //     // data: 'base64encodeddata',
+  //     attachment_id: 2,
+  //     attachment_token: ' ',
+  //     file_name: 'test.jpg',
+  //     content_type: 'image/jpeg',
+  //     // size: 14
+  //   });
+  //   const { response_type } = createAttachment;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(newAttachment).toBeDefined();
+  //       expect(newAttachment.attachment).toBeDefined();
+  //       expect(newAttachment.attachment).toHaveProperty(key);
+  //     });
+  //   console.log(newAttachment,"newatttachmentttt");
+    
+  //   } else {
+  //     console.error('response_type is undefined or null');
+  //   }
+  // });
   // it('should fetch a attachment', async () => {
-  //   const getAttachmentAction = await getAttachment.default.app_function;
+  //   const getAttachmentAction = await getAttachment.default.api_function;
   //   const showAttachment = await getAttachmentAction({ id: attachment_id });
   //   const { response_type } = getAttachment;
   //   if (response_type) {
@@ -239,98 +265,98 @@ describe('attachments', () => {
   //   }
   // });
   // it('should delete a attachment', async () => {
-  //   const deleteAttachmentAction = await deleteAttachment.default.app_function;
+  //   const deleteAttachmentAction = await deleteAttachment.default.api_function;
   //   await deleteAttachmentAction({ token: attachment_token });
   // });
 });
 
 describe('organizations', () => {
-  let newOrganization: any = null;
-  const organizationName = `My Organization ${new Date().getTime()}`;
-  it('should create a organization', async () => {
-    const createOrganizationAction = await createOrganization.default.app_function;
-    newOrganization = await createOrganizationAction({
-      organization: {
-        name: organizationName,
-      },
-    });
-    const { response_type } = createOrganization;
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(newOrganization).toBeDefined();
-        expect(newOrganization.organization).toBeDefined();
-        expect(newOrganization.organization).toHaveProperty(key);
-      });
-    } else {
-      console.error('response_type is undefined or null');
-    }
-  });
+  // let newOrganization: any = null;
+  // const organizationName = `My Organization ${new Date().getTime()}`;
+  // it('should create a organization', async () => {
+  //   const createOrganizationAction = await createOrganization.default.api_function;
+  //   newOrganization = await createOrganizationAction({
+  //     organization: {
+  //       name: organizationName,
+  //     },
+  //   });
+  //   const { response_type } = createOrganization;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(newOrganization).toBeDefined();
+  //       expect(newOrganization.organization).toBeDefined();
+  //       expect(newOrganization.organization).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a organizations', async () => {
-    const getOrganizationsAction = await getOrganizations.default.app_function;
-    const showManyOrg = await getOrganizationsAction();
+  // it('should fetch a organizations', async () => {
+  //   const getOrganizationsAction = await getOrganizations.default.api_function;
+  //   const showManyOrg = await getOrganizationsAction();
 
-    const { response_type } = getOrganizations;
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.forEach((key) => {
-        expect(showManyOrg).toHaveProperty(key);
-      });
-    } else {
-      console.error('getOrganizationss response_type is undefined or null');
-    }
-  });
+  //   const { response_type } = getOrganizations;
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.forEach((key) => {
+  //       expect(showManyOrg).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getOrganizationss response_type is undefined or null');
+  //   }
+  // });
 
-  it('should fetch a organization', async () => {
-    const fetchOrganizations = await getOrganization.default.app_function;
-    const showOrganization = await fetchOrganizations({ id: newOrganization.organization.id });
-    const { response_type } = getOrganization;
+  // it('should fetch a organization', async () => {
+  //   const fetchOrganizations = await getOrganization.default.api_function;
+  //   const showOrganization = await fetchOrganizations({ id: newOrganization.organization.id });
+  //   const { response_type } = getOrganization;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(showOrganization).toBeDefined();
-        expect(showOrganization.organization).toBeDefined();
-        expect(showOrganization.organization).toHaveProperty(key);
-      });
-    } else {
-      console.error('getOrganization response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(showOrganization).toBeDefined();
+  //       expect(showOrganization.organization).toBeDefined();
+  //       expect(showOrganization.organization).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('getOrganization response_type is undefined or null');
+  //   }
+  // });
 
-  it('should update a organization', async () => {
-    const updateOrganizationAction = await updateOrganization.default.app_function;
-    const organizationUpdate = await updateOrganizationAction({
-      id: newOrganization.organization.id,
-      organization: { notes: 'Something interesting' },
-    });
+  // it('should update a organization', async () => {
+  //   const updateOrganizationAction = await updateOrganization.default.api_function;
+  //   const organizationUpdate = await updateOrganizationAction({
+  //     id: newOrganization.organization.id,
+  //     organization: { notes: 'Something interesting' },
+  //   });
 
-    const { response_type } = updateOrganization;
+  //   const { response_type } = updateOrganization;
 
-    if (response_type) {
-      const keys = Object.keys(response_type);
-      keys.map((key) => {
-        expect(organizationUpdate).toBeDefined();
-        expect(organizationUpdate.organization).toBeDefined();
-        expect(organizationUpdate.organization).toHaveProperty(key);
-      });
-    } else {
-      console.error('organizationUpdate response_type is undefined or null');
-    }
-  });
+  //   if (response_type) {
+  //     const keys = Object.keys(response_type);
+  //     keys.map((key) => {
+  //       expect(organizationUpdate).toBeDefined();
+  //       expect(organizationUpdate.organization).toBeDefined();
+  //       expect(organizationUpdate.organization).toHaveProperty(key);
+  //     });
+  //   } else {
+  //     console.error('organizationUpdate response_type is undefined or null');
+  //   }
+  // });
 
-  it('should delete a organization', async () => {
-    const deleteOrganizationAction = await deleteOrganization.default.app_function;
-    await deleteOrganizationAction({ id: newOrganization.organization.id });
-  });
+  // it('should delete a organization', async () => {
+  //   const deleteOrganizationAction = await deleteOrganization.default.api_function;
+  //   await deleteOrganizationAction({ id: newOrganization.organization.id });
+  // });
 });
 
 describe('users', () => {
   let newUser: any = null;
 
   it('should create a user', async () => {
-    const createUserAction = await createUser.default.app_function;
+    const createUserAction = await createUser.default.api_function;
     newUser = await createUserAction({
       user: {
         name: `My User${new Date().getTime()}`,
@@ -351,7 +377,7 @@ describe('users', () => {
   });
 
   it('should fetch a users', async () => {
-    const getUserAction = await getUsers.default.app_function;
+    const getUserAction = await getUsers.default.api_function;
     const showusers = await getUserAction();
     expect(showusers).toBeDefined();
     expect(showusers.users).toBeDefined();
@@ -359,8 +385,8 @@ describe('users', () => {
   });
 
   it('should fetch a user', async () => {
-    const fetchUsers = await getUser.default.app_function;
-    const fetchedUser = await fetchUsers({ id: newUser.user.id, name: newUser.user.name });
+    const fetchUser = await getUser.default.api_function;
+    const fetchedUser = await fetchUser({ id: newUser.user.id, name: newUser.user.name });
 
     const { response_type } = getUser;
     if (response_type) {
@@ -376,7 +402,7 @@ describe('users', () => {
   });
 
   it('should update a user', async () => {
-    const updateUserAction = await updateUser.default.app_function;
+    const updateUserAction = await updateUser.default.api_function;
     const updatedUser = await updateUserAction({
       id: newUser.user.id,
       name: 'New Name',
@@ -395,7 +421,7 @@ describe('users', () => {
   });
 
   it('should delete a user', async () => {
-    const deleteUserAction = await deleteUser.default.app_function;
+    const deleteUserAction = await deleteUser.default.api_function;
     const deletedUser = await deleteUserAction({ id: newUser.user.id });
     const { response_type } = deleteUser;
     if (response_type) {

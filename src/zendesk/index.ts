@@ -1,6 +1,6 @@
 import { mapActionsToApp } from '../global/helpers';
 import { IQoreAppWithActions } from '../global/models/qore';
-import L from '../i18n/i18n-node';
+import { L } from '../i18n/i18n-node';
 import { Locales } from '../i18n/i18n-types';
 import * as zendeskActions from './actions';
 

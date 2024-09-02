@@ -1,10 +1,15 @@
 import { QorusRequest } from '@qoretechnologies/ts-toolkit';
 import { ZENDESK_AUTH } from './configs';
 
-export const zendeskRequest = async (endpoint: string, method: string, body?: object, params?: Record<string, any>,) => {
+export const zendeskRequest = async (
+  endpoint: string,
+  method: string,
+  body?: object,
+  params?: Record<string, any>
+) => {
   const uri = `/api/v2${endpoint}`;
   let response: Record<string, any> | undefined;
-  console.log(endpoint, method, body)
+  console.log(endpoint, method, body);
   try {
     switch (method) {
       case 'GET':

@@ -1,11 +1,11 @@
 import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from '../../client';
-import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import { IActionOptions, TActionData } from 'global/models/actions';
 
 // Defining a function to delete group
 const options: IActionOptions = null;
-const response_type: IActionResponse = null;
-const deleteGroup = async ({ id }:  TActionData<typeof options>) => {
+// const response_type: IActionResponse = null;
+const deleteGroup = async ({ id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/groups/${id}.json`, 'DELETE');
     return data;
@@ -17,8 +17,7 @@ const deleteGroup = async ({ id }:  TActionData<typeof options>) => {
 
 export default {
   action: 'delete_group',
-  app_function: deleteGroup,
+  api_function: deleteGroup,
   options,
-  response_type,
-}as TQorePartialActionWithFunction<typeof options, typeof response_type>;
-
+  // response_type,
+} as TQorePartialActionWithFunction<typeof options>;
