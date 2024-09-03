@@ -8,7 +8,7 @@ import { processMessageTimestamp } from '../common/utils';
 
 const addReactionToMessageResponseType: IActionResponse = {
   ok: {
-    type: '*boolean',
+    type: 'boolean',
     name: 'ok',
     display_name: 'Success',
     short_desc: 'Indicates if the reaction was successfully added',

@@ -5,7 +5,7 @@ import { IActionResponse } from 'global/models/actions';
 
 const createChannelResponseType: IActionResponse = {
   ok: {
-    type: '*boolean',
+    type: 'boolean',
     name: 'ok',
     display_name: 'Success',
     short_desc: 'Indicates if the channel was successfully created',
@@ -18,7 +18,7 @@ const createChannelResponseType: IActionResponse = {
     desc: 'The newly created channel',
     type: {
       id: {
-        type: '*string',
+        type: 'string',
         name: 'id',
         display_name: 'Channel ID',
         short_desc: 'The unique identifier for the channel',
@@ -26,7 +26,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: 'C1234567890',
       },
       name: {
-        type: '*string',
+        type: 'string',
         name: 'name',
         display_name: 'Channel Name',
         short_desc: 'The name of the channel',
@@ -34,7 +34,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: 'general',
       },
       is_channel: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_channel',
         display_name: 'Is Channel?',
         short_desc: 'Indicates if the channel is a channel',
@@ -42,7 +42,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: true,
       },
       is_group: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_group',
         display_name: 'Is Group?',
         short_desc: 'Indicates if the channel is a group',
@@ -50,7 +50,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       is_im: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_im',
         display_name: 'Is IM?',
         short_desc: 'Indicates if the channel is an IM',
@@ -58,7 +58,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       is_mpim: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_mpim',
         display_name: 'Is MPIM?',
         short_desc: 'Indicates if the channel is an MPIM',
@@ -66,7 +66,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       is_private: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_private',
         display_name: 'Is Private?',
         short_desc: 'Indicates if the channel is private',
@@ -74,7 +74,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       created: {
-        type: '*number',
+        type: 'number',
         name: 'created',
         display_name: 'Created',
         short_desc: 'The date the channel was created',
@@ -82,7 +82,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: 1629983662,
       },
       is_archived: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_archived',
         display_name: 'Is Archived?',
         short_desc: 'Indicates if the channel is archived',
@@ -90,7 +90,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       is_general: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_general',
         display_name: 'Is General?',
         short_desc: 'Indicates if the channel is general',
@@ -98,7 +98,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: true,
       },
       unlinked: {
-        type: '*number',
+        type: 'number',
         name: 'unlinked',
         display_name: 'Unlinked',
         short_desc: 'The date the channel was unlinked',
@@ -106,7 +106,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: 0,
       },
       name_normalized: {
-        type: '*string',
+        type: 'string',
         name: 'name_normalized',
         display_name: 'Normalized Channel Name',
         short_desc: 'The normalized name of the channel',
@@ -114,7 +114,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: 'general',
       },
       is_shared: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_shared',
         display_name: 'Is Shared?',
         short_desc: 'Indicates if the channel is shared',
@@ -122,7 +122,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       is_org_shared: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_org_shared',
         display_name: 'Is Org Shared?',
         short_desc: 'Indicates if the channel is org shared',
@@ -130,7 +130,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       is_pending_ext_shared: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_pending_ext_shared',
         display_name: 'Is Pending External Shared?',
         short_desc: 'Indicates if the channel is pending external shared',
@@ -138,7 +138,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: false,
       },
       pending_shared: {
-        type: '*list',
+        type: 'list',
         name: 'pending_shared',
         display_name: 'Pending Shared',
         short_desc: 'The pending shared channels',
@@ -151,7 +151,7 @@ const createChannelResponseType: IActionResponse = {
         ],
       },
       context_team_id: {
-        type: '*string',
+        type: 'string',
         name: 'context_team_id',
         display_name: 'Context Team ID',
         short_desc: 'The context team ID',
@@ -159,7 +159,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: 'T1234567890',
       },
       pending_connected_team_ids: {
-        type: '*list',
+        type: 'list',
         name: 'pending_connected_team_ids',
         display_name: 'Pending Connected Team IDs',
         short_desc: 'The pending connected team IDs',
@@ -167,7 +167,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: ['T1234567890', 'T2345678901'],
       },
       is_member: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_member',
         display_name: 'Is Member?',
         short_desc: 'Indicates if the user is a member of the channel',
@@ -175,7 +175,7 @@ const createChannelResponseType: IActionResponse = {
         example_value: true,
       },
       last_read: {
-        type: '*string',
+        type: 'string',
         name: 'last_read',
         display_name: 'Last Read',
         short_desc: 'The timestamp of the last read',

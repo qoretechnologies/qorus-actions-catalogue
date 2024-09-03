@@ -37,7 +37,7 @@ describe('slackPieceTest', () => {
   it('should find a Slack user by email', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'slack_find_user_by_email');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const props = { email: process.env.SLACK_USER_EMAIL };
 
@@ -63,7 +63,7 @@ describe('slackPieceTest', () => {
   it('should send a Slack message and receive a positive response', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'send_channel_message');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -94,7 +94,7 @@ describe('slackPieceTest', () => {
   it('should get channel history', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'get_channel_history');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -125,7 +125,7 @@ describe('slackPieceTest', () => {
     const action = slackApp.actions.find(
       (action) => action.action === 'slack_add_reaction_to_message'
     );
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -158,7 +158,7 @@ describe('slackPieceTest', () => {
   it('should create a channel', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'slack_create_channel');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const props = {
       channelName: 'test-channel',
@@ -197,9 +197,9 @@ describe('slackPieceTest', () => {
 
     const props = { userId: userIds[1].value, text: 'test message from Jest', actions: ['test'] };
 
-    if (action.app_function) {
+    if (action.api_function) {
       try {
-        const result = await action.app_function(props, {}, actionContext);
+        const result = await action.api_function(props, {}, actionContext);
         expect(result).toBeDefined();
         expect(result.ok).toBeTruthy();
         const expectedResponseType = action.response_type;
@@ -229,9 +229,9 @@ describe('slackPieceTest', () => {
       actions: ['test'],
     };
 
-    if (action.app_function) {
+    if (action.api_function) {
       try {
-        const result = await action.app_function(props, {}, actionContext);
+        const result = await action.api_function(props, {}, actionContext);
         expect(result).toBeDefined();
         const expectedResponseType = action.response_type;
         if (expectedResponseType) {
@@ -259,9 +259,9 @@ describe('slackPieceTest', () => {
 
     const props = { userId: userIds[1].value, text: 'test message from Jest' };
 
-    if (action.app_function) {
+    if (action.api_function) {
       try {
-        const result = await action.app_function(props, {}, actionContext);
+        const result = await action.api_function(props, {}, actionContext);
         expect(result).toBeDefined();
         const expectedResponseType = action.response_type;
         if (expectedResponseType) {
@@ -289,9 +289,9 @@ describe('slackPieceTest', () => {
       text: 'test message from Jest',
     };
 
-    if (action.app_function) {
+    if (action.api_function) {
       try {
-        const result = await action.app_function(props, {}, actionContext);
+        const result = await action.api_function(props, {}, actionContext);
         expect(result).toBeDefined();
         const expectedResponseType = action.response_type;
         if (expectedResponseType) {
@@ -309,7 +309,7 @@ describe('slackPieceTest', () => {
   it('should search for messages', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'search_messages');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const props = { query: 'test' };
 
@@ -334,7 +334,7 @@ describe('slackPieceTest', () => {
   it('should update a message', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'update_message');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -367,7 +367,7 @@ describe('slackPieceTest', () => {
   it('should upload a file', async () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'upload_file');
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -408,10 +408,10 @@ describe('slackPieceTest', () => {
     const slackApp = PiecesAppCatalogue.apps['slack'];
     const findUserActionFunction = slackApp.actions.find(
       (action) => action.action === 'slack_find_user_by_email'
-    )?.app_function;
+    )?.api_function;
     const action = slackApp.actions.find((action) => action.action === 'slack_update_profile');
 
-    const actionFunction = action?.app_function;
+    const actionFunction = action?.api_function;
 
     const findUserProps = { email: process.env.SLACK_USER_EMAIL };
 

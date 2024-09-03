@@ -7,7 +7,7 @@ import { IActionResponse } from 'global/models/actions';
 
 const updateMessageResponseType: IActionResponse = {
   ok: {
-    type: '*boolean',
+    type: 'boolean',
     name: 'ok',
     display_name: 'Success',
     short_desc: 'Indicates if the message was updated successfully',
@@ -15,7 +15,7 @@ const updateMessageResponseType: IActionResponse = {
     example_value: true,
   },
   channel: {
-    type: '*string',
+    type: 'string',
     name: 'channel',
     display_name: 'Channel',
     short_desc: 'The channel where the message was updated',
@@ -23,7 +23,7 @@ const updateMessageResponseType: IActionResponse = {
     example_value: 'C1234567890',
   },
   ts: {
-    type: '*string',
+    type: 'string',
     name: 'ts',
     display_name: 'Timestamp',
     short_desc: 'The timestamp of the message',
@@ -31,7 +31,7 @@ const updateMessageResponseType: IActionResponse = {
     example_value: '1234567890.123456',
   },
   text: {
-    type: '*string',
+    type: 'string',
     name: 'text',
     display_name: 'Text',
     short_desc: 'The updated text of the message',

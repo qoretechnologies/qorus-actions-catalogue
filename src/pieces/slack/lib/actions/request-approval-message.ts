@@ -7,7 +7,7 @@ import { slackSendMessage } from '../common/utils';
 
 const requestApprovalChannelMessageResponseType: IActionResponse = {
   approved: {
-    type: '*boolean',
+    type: 'boolean',
     name: 'approved',
     display_name: 'Approved',
     short_desc: 'Indicates if the message was approved',

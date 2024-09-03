@@ -5,7 +5,7 @@ import { slackAuth } from '../../';
 
 const findUserByEmailResponseType: IActionResponse = {
   ok: {
-    type: '*boolean',
+    type: 'boolean',
     name: 'ok',
     display_name: 'Success',
     short_desc: 'Indicates if the channel was successfully created',
@@ -18,7 +18,7 @@ const findUserByEmailResponseType: IActionResponse = {
     desc: 'The user found by email',
     type: {
       id: {
-        type: '*string',
+        type: 'string',
         name: 'id',
         display_name: 'User ID',
         short_desc: 'The unique identifier for the user',
@@ -26,7 +26,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: 'U1234567890',
       },
       name: {
-        type: '*string',
+        type: 'string',
         name: 'name',
         display_name: 'User Name',
         short_desc: 'The name of the user',
@@ -40,7 +40,7 @@ const findUserByEmailResponseType: IActionResponse = {
         desc: 'The profile of the user',
         type: {
           title: {
-            type: '*string',
+            type: 'string',
             name: 'title',
             display_name: 'Title',
             short_desc: 'The title of the user',
@@ -48,7 +48,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'Software Engineer',
           },
           phone: {
-            type: '*string',
+            type: 'string',
             name: 'phone',
             display_name: 'Phone',
             short_desc: 'The phone number of the user',
@@ -56,7 +56,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: '+1 123-456-7890',
           },
           skype: {
-            type: '*string',
+            type: 'string',
             name: 'skype',
             display_name: 'Skype',
             short_desc: 'The Skype ID of the user',
@@ -64,7 +64,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'my.skype.id',
           },
           real_name: {
-            type: '*string',
+            type: 'string',
             name: 'real_name',
             display_name: 'Real Name',
             short_desc: 'The real name of the user',
@@ -72,7 +72,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'John Doe',
           },
           real_name_normalized: {
-            type: '*string',
+            type: 'string',
             name: 'real_name_normalized',
             display_name: 'Normalized Real Name',
             short_desc: 'The normalized real name of the user',
@@ -80,7 +80,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'John Doe',
           },
           display_name: {
-            type: '*string',
+            type: 'string',
             name: 'display_name',
             display_name: 'Display Name',
             short_desc: 'The display name of the user',
@@ -88,7 +88,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'John Doe',
           },
           display_name_normalized: {
-            type: '*string',
+            type: 'string',
             name: 'display_name_normalized',
             display_name: 'Normalized Display Name',
             short_desc: 'The normalized display name of the user',
@@ -96,7 +96,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'John Doe',
           },
           status_text: {
-            type: '*string',
+            type: 'string',
             name: 'status_text',
             display_name: 'Status Text',
             short_desc: 'The status text of the user',
@@ -104,7 +104,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'Working from home',
           },
           status_emoji: {
-            type: '*string',
+            type: 'string',
             name: 'status_emoji',
             display_name: 'Status Emoji',
             short_desc: 'The status emoji of the user',
@@ -112,7 +112,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: ':house_with_garden:',
           },
           status_expiration: {
-            type: '*number',
+            type: 'number',
             name: 'status_expiration',
             display_name: 'Status Expiration',
             short_desc: 'The status expiration of the user',
@@ -120,7 +120,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 0,
           },
           avatar_hash: {
-            type: '*string',
+            type: 'string',
             name: 'avatar_hash',
             display_name: 'Avatar Hash',
             short_desc: 'The avatar hash of the user',
@@ -128,7 +128,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'g216345234',
           },
           email: {
-            type: '*string',
+            type: 'string',
             name: 'email',
             display_name: 'Email',
             short_desc: 'The email address of the user',
@@ -136,7 +136,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'example@email.com',
           },
           first_name: {
-            type: '*string',
+            type: 'string',
             name: 'first_name',
             display_name: 'First Name',
             short_desc: 'The first name of the user',
@@ -144,7 +144,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'John',
           },
           last_name: {
-            type: '*string',
+            type: 'string',
             name: 'last_name',
             display_name: 'Last Name',
             short_desc: 'The last name of the user',
@@ -152,7 +152,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'Doe',
           },
           image_24: {
-            type: '*string',
+            type: 'string',
             name: 'image_24',
             display_name: 'Image 24',
             short_desc: 'The 24x24 image of the user',
@@ -160,7 +160,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'https://example.com/image_24.jpg',
           },
           image_32: {
-            type: '*string',
+            type: 'string',
             name: 'image_32',
             display_name: 'Image 32',
             short_desc: 'The 32x32 image of the user',
@@ -168,7 +168,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'https://example.com/image_32.jpg',
           },
           image_48: {
-            type: '*string',
+            type: 'string',
             name: 'image_48',
             display_name: 'Image 48',
             short_desc: 'The 48x48 image of the user',
@@ -176,7 +176,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'https://example.com/image_48.jpg',
           },
           image_72: {
-            type: '*string',
+            type: 'string',
             name: 'image_72',
             display_name: 'Image 72',
             short_desc: 'The 72x72 image of the user',
@@ -184,7 +184,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'https://example.com/image_72.jpg',
           },
           image_192: {
-            type: '*string',
+            type: 'string',
             name: 'image_192',
             display_name: 'Image 192',
             short_desc: 'The 192x192 image of the user',
@@ -192,7 +192,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'https://example.com/image_192.jpg',
           },
           image_512: {
-            type: '*string',
+            type: 'string',
             name: 'image_512',
             display_name: 'Image 512',
             short_desc: 'The 512x512 image of the user',
@@ -200,7 +200,7 @@ const findUserByEmailResponseType: IActionResponse = {
             example_value: 'https://example.com/image_512.jpg',
           },
           team: {
-            type: '*string',
+            type: 'string',
             name: 'team',
             display_name: 'Team',
             short_desc: 'The team of the user',
@@ -210,7 +210,7 @@ const findUserByEmailResponseType: IActionResponse = {
         },
       },
       team_id: {
-        type: '*string',
+        type: 'string',
         name: 'team_id',
         display_name: 'Team ID',
         short_desc: 'The unique identifier for the team',
@@ -218,7 +218,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: 'T1234567890',
       },
       deleted: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'deleted',
         display_name: 'Deleted?',
         short_desc: 'Indicates if the user has been deleted',
@@ -226,7 +226,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       color: {
-        type: '*string',
+        type: 'string',
         name: 'color',
         display_name: 'Color',
         short_desc: 'The color of the user',
@@ -234,7 +234,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: '9f69e7',
       },
       real_name: {
-        type: '*string',
+        type: 'string',
         name: 'real_name',
         display_name: 'Real Name',
         short_desc: 'The real name of the user',
@@ -242,7 +242,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: 'John Doe',
       },
       tz: {
-        type: '*string',
+        type: 'string',
         name: 'tz',
         display_name: 'Timezone',
         short_desc: 'The timezone of the user',
@@ -250,7 +250,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: 'America/Los_Angeles',
       },
       tz_label: {
-        type: '*string',
+        type: 'string',
         name: 'tz_label',
         display_name: 'Timezone Label',
         short_desc: 'The timezone label of the user',
@@ -258,7 +258,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: 'Pacific Daylight Time',
       },
       tz_offset: {
-        type: '*number',
+        type: 'number',
         name: 'tz_offset',
         display_name: 'Timezone Offset',
         short_desc: 'The timezone offset of the user',
@@ -266,7 +266,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: -25200,
       },
       is_admin: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_admin',
         display_name: 'Is Admin?',
         short_desc: 'Indicates if the user is an admin',
@@ -274,7 +274,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       is_owner: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_owner',
         display_name: 'Is Owner?',
         short_desc: 'Indicates if the user is an owner',
@@ -282,7 +282,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       is_primary_owner: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_primary_owner',
         display_name: 'Is Primary Owner?',
         short_desc: 'Indicates if the user is a primary owner',
@@ -290,7 +290,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       is_restricted: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_restricted',
         display_name: 'Is Restricted?',
         short_desc: 'Indicates if the user is restricted',
@@ -298,7 +298,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       is_ultra_restricted: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_ultra_restricted',
         display_name: 'Is Ultra Restricted?',
         short_desc: 'Indicates if the user is ultra restricted',
@@ -306,7 +306,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       is_bot: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_bot',
         display_name: 'Is Bot?',
         short_desc: 'Indicates if the user is a bot',
@@ -314,7 +314,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       updated: {
-        type: '*number',
+        type: 'number',
         name: 'updated',
         display_name: 'Updated',
         short_desc: 'The date the user was last updated',
@@ -322,7 +322,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: 1629983662,
       },
       is_app_user: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_app_user',
         display_name: 'Is App User?',
         short_desc: 'Indicates if the user is an app user',
@@ -330,7 +330,7 @@ const findUserByEmailResponseType: IActionResponse = {
         example_value: false,
       },
       is_email_confirmed: {
-        type: '*boolean',
+        type: 'boolean',
         name: 'is_email_confirmed',
         display_name: 'Is Email Confirmed?',
         short_desc: 'Indicates if the user has confirmed their email',

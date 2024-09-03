@@ -9,10 +9,25 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "core/*": ["src/core/*"],
+      "shared/*": ["src/shared/*"],
+      "global/*": ["src/global/*"],
+      "common/*": ["src/common/*"],
+      "zendesk/*": ["src/zendesk/*"],
+      "i18n/*": ["src/i18n/*"]
     },
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ],
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,

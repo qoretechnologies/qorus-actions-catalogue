@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
-    "build": "npx tsc",
+    "build": "npx tsc && tsc-alias",
     "build:test": "npx tsc --noEmit --p tsconfig.build.json",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "storybook": "storybook dev -p 6006",
@@ -18,6 +18,7 @@
     "typesafe-i18n": "typesafe-i18n",
     "test-zendesk": "clear && jest ./src/tests/zendesk-actions.test.ts",
     "test-hubspot": "clear && jest ./src/tests/hubspot-actions.test.ts",
+    "test-slack": "clear && jest ./src/tests/slack-piece.test.ts",
     "test": "jest --config jest.config.ts"
   },
   "keywords": [
@@ -61,7 +62,11 @@
     "storybook": "^8.2.7",
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
+    "ts-patch": "^3.2.1",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.4",
+    "typescript-transform-paths": "^3.5.0",
     "vite": "^5.3.5"
   },
   "dependencies": {

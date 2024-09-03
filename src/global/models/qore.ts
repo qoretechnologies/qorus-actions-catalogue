@@ -298,7 +298,7 @@ export interface IQoreAppActionWithFunction<
   action_code: 2;
   api_function: TQoreAppActionFunction;
   options: StrictRecord<keyof Options, Options[keyof Options]>;
-  response_type: StrictRecord<keyof Response, Response[keyof Response]>;
+  response_type?: StrictRecord<keyof Response, Response[keyof Response]>;
 }
 
 export type TQorePartialActionWithFunction<
