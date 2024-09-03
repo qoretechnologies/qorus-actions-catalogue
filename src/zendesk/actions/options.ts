@@ -1,5 +1,4 @@
 import { IQoreAppActionOption } from 'global/models/qore';
-// import { TOrganizationOptions } from 'zendesk/models/organizations';
 import { L } from '../../i18n/i18n-node';
 import { IActionOptions } from 'global/models/actions';
 
@@ -10,7 +9,7 @@ export const ticketCreateUpdate: IActionOptions = {
     desc: L.en.apps.zendesk.actions.tickets.comment.longDesc(),
     type: 'string',
     required: true,
-    example_value: 'Comment'
+    example_value: 'Comment',
   },
   priority: {
     display_name: L.en.apps.zendesk.actions.tickets.priority.displayName(),
@@ -18,7 +17,7 @@ export const ticketCreateUpdate: IActionOptions = {
     desc: L.en.apps.zendesk.actions.tickets.priority.longDesc(),
     type: 'string',
     required: true,
-    example_value: 'High'
+    example_value: 'High',
   },
   subject: {
     display_name: L.en.apps.zendesk.actions.tickets.subject.displayName(),
@@ -36,7 +35,7 @@ export const ticketCreateUpdate: IActionOptions = {
     required: true,
     example_value: 'New',
   },
-}
+};
 
 export const groupCreateUpdate: IActionOptions = {
   created_at: {
@@ -110,8 +109,8 @@ export const groupCreateUpdate: IActionOptions = {
     type: 'string',
     required: true,
     example_value: 'https://example.com/groups/123',
-  }
-}
+  },
+};
 
 export const organizationCreateUpdate: IActionOptions = {
   name: {
@@ -121,66 +120,10 @@ export const organizationCreateUpdate: IActionOptions = {
     type: 'string',
     required: true,
     example_value: 'Acme Corporation',
-  }
-}
+  },
+};
 
-// export const attachmentCreateUpdate: IActionOptions = {
-
-//   content_url: {
-//     display_name: L.en.apps.zendesk.actions.attachments.content_url.displayName(),
-//     short_desc: L.en.apps.zendesk.actions.attachments.content_url.shortDesc(),
-//     desc: L.en.apps.zendesk.actions.attachments.content_url.longDesc(),
-//     type: 'string',
-//     required: true,
-//     example_value: 'https://example.com/content',
-//   },
-//   file_name: {
-//     display_name: L.en.apps.zendesk.actions.attachments.file_name.displayName(),
-//     short_desc: L.en.apps.zendesk.actions.attachments.file_name.shortDesc(),
-//     desc: L.en.apps.zendesk.actions.attachments.file_name.longDesc(),
-//     type: 'string',
-//     required: true,
-//     example_value: 'file.txt',
-//   },
-//   id: {
-//     display_name: L.en.apps.zendesk.actions.attachments.id.displayName(),
-//     short_desc: L.en.apps.zendesk.actions.attachments.id.shortDesc(),
-//     desc: L.en.apps.zendesk.actions.attachments.id.longDesc(),
-//     type: '*number',
-//     required: true,
-//     example_value: 123,
-//   },
-//   size: {
-//     display_name: L.en.apps.zendesk.actions.attachments.size.displayName(),
-//     short_desc: L.en.apps.zendesk.actions.attachments.size.shortDesc(),
-//     desc: L.en.apps.zendesk.actions.attachments.size.longDesc(),
-//     type: '*number',
-//     required: true,
-//     example_value: 123,
-//   },
-// }
-
-// export const organizationCreateUpdate:TOrganizationOptions={
-//   created_at: {
-//     display_name: L.en.apps.zendesk.actions.organizations.created_at.displayName(),
-//     short_desc: L.en.apps.zendesk.actions.organizations.created_at.shortDesc(),
-//     desc: L.en.apps.zendesk.actions.organizations.created_at.longDesc(),
-//     type: 'string',
-//     required: true,
-//     example_value: '2021-09-01T00:00:00Z',
-//   },
-//   details:{
-//     display_name: L.en.apps.zendesk.actions.organizations.details.displayName(),
-//     short_desc: L.en.apps.zendesk.actions.organizations.details.shortDesc(),
-//     desc: L.en.apps.zendesk.actions.organizations.details.longDesc(),
-//     type: 'string',
-//     required: true,
-//     example_value: 'Details',
-//   },
-
-// }
-
-export const userCreateUpdate:IActionOptions = {
+export const userCreateUpdate: IActionOptions = {
   custom_role_id: {
     display_name: L.en.apps.zendesk.actions.users.custom_role_id.displayName(),
     short_desc: L.en.apps.zendesk.actions.users.custom_role_id.shortDesc(),
@@ -197,14 +140,6 @@ export const userCreateUpdate:IActionOptions = {
     required: true,
     example_value: 'john@example.com',
   },
-  // identities:{
-  //   display_name: L.en.apps.zendesk.actions.users.identities.displayName(),
-  //   short_desc: L.en.apps.zendesk.actions.users.identities.shortDesc(),
-  //   desc: L.en.apps.zendesk.actions.users.identities.longDesc(),
-  //   type: 'string',
-  //   required: true,
-  //   example_value: '123',
-  // },
   name: {
     display_name: L.en.apps.zendesk.actions.users.name.displayName(),
     short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
@@ -213,14 +148,6 @@ export const userCreateUpdate:IActionOptions = {
     required: true,
     example_value: 'John Doe',
   },
-  // organization:{
-  //   display_name: L.en.apps.zendesk.actions.users.organization.displayName(),
-  //   short_desc: L.en.apps.zendesk.actions.users.organization.shortDesc(),
-  //   desc: L.en.apps.zendesk.actions.users.organization.longDesc(),
-  //   type: '*number',
-  //   required: true,
-  //   example_value: 123,
-  // },
   role: {
     display_name: L.en.apps.zendesk.actions.users.role.displayName(),
     short_desc: L.en.apps.zendesk.actions.users.role.shortDesc(),
@@ -229,11 +156,7 @@ export const userCreateUpdate:IActionOptions = {
     required: true,
     example_value: 'end-user',
   },
-}
-
-
-
-
+};
 
 export const ZendeskOptions = {
   users: {
@@ -273,7 +196,6 @@ export const ZendeskOptions = {
   },
 
   attachments: {
-    // attachmentCreateUpdate,
     token: {
       display_name: L.en.apps.zendesk.actions.attachments.token.displayName(),
       short_desc: L.en.apps.zendesk.actions.attachments.token.shortDesc(),
@@ -289,7 +211,7 @@ export const ZendeskOptions = {
       type: 'number',
       required: true,
       example_value: 123,
-    }
+    },
   },
 
   groups: {
@@ -301,7 +223,7 @@ export const ZendeskOptions = {
       type: 'number',
       required: true,
       example_value: 123,
-    }
+    },
   },
   organization: {
     organizationCreateUpdate,
@@ -371,7 +293,9 @@ export const ZendeskOptions = {
       type: 'boolean',
       required: false,
       example_value: true,
-    }
+    },
   },
-} satisfies Record<string, Record<string, IQoreAppActionOption | Record<string, IQoreAppActionOption>>>;
-
+} satisfies Record<
+  string,
+  Record<string, IQoreAppActionOption | Record<string, IQoreAppActionOption>>
+>;

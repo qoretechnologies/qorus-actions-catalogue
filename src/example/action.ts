@@ -1,6 +1,6 @@
 import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-import L from 'i18n/i18n-node';
+import { L } from '../i18n/i18n-node';
 import { zendeskRequest } from 'zendesk/client';
 
 const options: IActionOptions = {
@@ -51,7 +51,7 @@ const deleteAttachment = async ({ token }: TActionData<typeof options>) => {
 
 export default {
   action: 'delete-attachment',
-  app_function: deleteAttachment,
+  api_function: deleteAttachment,
   options,
   response_type,
 } as TQorePartialActionWithFunction<typeof options, typeof response_type>;

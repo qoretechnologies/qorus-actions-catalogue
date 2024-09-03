@@ -1,5 +1,5 @@
 import { IQoreAppActionWithFunction, TQorePartialActionWithFunction } from 'global/models/qore';
-import L from 'i18n/i18n-node';
+import { L } from '../../i18n/i18n-node';
 import { Locales, Translation } from 'i18n/i18n-types';
 
 /*
@@ -21,7 +21,7 @@ export const mapActionsToApp = (
     // @ts-expect-error no idea whats going on here, will fix later
     short_desc: L[locale].apps[app].actions[actionName as unknown].shortDesc(),
     // @ts-expect-error no idea whats going on here, will fix later
-    long_desc: L[locale].apps[app].actions[actionName as unknown].longDesc(),
+    desc: L[locale].apps[app].actions[actionName as unknown].longDesc(),
     app,
     action_code: 2,
   }));

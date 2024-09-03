@@ -10,12 +10,14 @@
   },
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
+    "build": "npx tsc",
     "build:test": "npx tsc --noEmit --p tsconfig.build.json",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "typesafe-i18n": "typesafe-i18n",
     "test-zendesk": "clear && jest ./src/tests/zendesk-actions.test.ts",
+    "test-hubspot": "clear && jest ./src/tests/hubspot-actions.test.ts",
     "test": "jest --config jest.config.ts"
   },
   "keywords": [

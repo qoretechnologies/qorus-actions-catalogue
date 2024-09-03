@@ -19,44 +19,66 @@ const en = {
             shortDesc: 'User ID',
             longDesc: 'User ID',
           },
+          items: {
+            displayName: 'Items',
+            shortDesc: 'Items',
+            longDesc: 'Items',
+          },
+          users: {
+            displayName: 'Users',
+            shortDesc: 'Users',
+            longDesc: 'Users',
+            id: {
+              displayName: 'ID',
+              shortDesc: 'ID',
+              longDesc: 'ID',
+            },
+            name: {
+              displayName: 'Name',
+              shortDesc: 'Name',
+              longDesc: 'Name',
+            },
+          },
+          active: {
+            displayName: 'Active',
+            shortDesc: 'Active',
+            longDesc: 'Active',
+          },
           name: {
             displayName: 'Name',
             shortDesc: 'Name',
             longDesc: 'Name',
           },
-          custom_role_id:{
+          custom_role_id: {
             displayName: 'Custom Role ID',
             shortDesc: 'Custom Role ID',
             longDesc: 'Custom Role ID',
           },
-          email:{
+          email: {
             displayName: 'Email',
             shortDesc: 'Email',
             longDesc: 'Email',
           },
-          organization:{
+          organization: {
             displayName: 'Organization',
             shortDesc: 'Organization',
             longDesc: 'Organization',
           },
-          role:{
+          role: {
             displayName: 'Role',
             shortDesc: 'Role',
             longDesc: 'Role',
           },
-          role_type:{
+          role_type: {
             displayName: 'Role Type',
             shortDesc: 'Role Type',
             longDesc: 'Role Type',
           },
-          organization_id:{
+          organization_id: {
             displayName: 'Organization ID',
             shortDesc: 'Organization ID',
             longDesc: 'Organization ID',
-          }
-          
-          
-
+          },
         },
         attachments: {
           content_type: {
@@ -329,7 +351,7 @@ const en = {
               displayName: 'Updated At',
               shortDesc: 'The date and time the satisfaction rating was last updated',
               longDesc: 'The date and time the satisfaction rating was last updated',
-            }
+            },
           },
           via: {
             displayName: 'Via',
@@ -355,7 +377,22 @@ const en = {
             displayName: 'Events',
             shortDesc: 'Events of tickets',
             longDesc: 'Events of tickets',
-          }
+          },
+          tickets: {
+            displayName: 'Tickets',
+            shortDesc: 'Tickets',
+            longDesc: 'Tickets',
+          },
+          next_page: {
+            displayName: 'Next Page',
+            shortDesc: 'Next page of tickets',
+            longDesc: 'Next page of tickets',
+          },
+          previous_page: {
+            displayName: 'Previous Page',
+            shortDesc: 'Previous page of tickets',
+            longDesc: 'Previous page of tickets',
+          },
         },
         groups: {
           created_at: {
@@ -413,21 +450,21 @@ const en = {
             shortDesc: 'Groups',
             longDesc: 'Groups',
           },
-          users:{
+          users: {
             displayName: 'Users',
             shortDesc: 'Users',
             longDesc: 'Users',
           },
-          next_page:{
+          next_page: {
             displayName: 'Next Page',
             shortDesc: 'Next page of groups',
             longDesc: 'Next page of groups',
           },
-          previoud_page:{
+          previoud_page: {
             displayName: 'Previous Page',
             shortDesc: 'Previous page of groups',
             longDesc: 'Previous page of groups',
-          }
+          },
         },
         organizations: {
           displayName: 'Organizations',
@@ -501,7 +538,7 @@ const en = {
               displayName: 'Org Field 2',
               shortDesc: 'Organization field 2',
               longDesc: 'Organization field 2',
-            }
+            },
           },
           shared_comments: {
             displayName: 'Shared Comments',
@@ -528,10 +565,56 @@ const en = {
             shortDesc: 'The organization’s URL',
             longDesc: 'The organization’s URL',
           },
-        }
+        },
       },
     },
-  }
+    hubspot: {
+      displayName: 'hubspot',
+      shortDesc: 'Collection of actions to interact with hubspot API',
+      longDesc: 'Collection of actions to interact with hubspot API',
+      actions: {
+        users: {
+          results: {
+            displayName: 'Results',
+            shortDesc: 'Results of the action',
+            longDesc: 'Results of the action',
+          },
+          name:{
+            displayName: 'Name',
+            shortDesc: 'Name of the user',
+            longDesc: 'Name of the user',
+          },
+          id:{
+            displayName: 'ID',
+            shortDesc: 'ID of the user',
+            longDesc: 'ID of the user',
+          },
+          email:{
+            displayName: 'Email',
+            shortDesc: 'Email of the user',
+            longDesc: 'Email of the user',
+          },
+          created_at:{
+            displayName: 'Created At',
+            shortDesc: 'The date and time the user was created',
+            longDesc: 'The date and time the user was created',
+          },
+          updated_at:{
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the user was last updated',
+            longDesc: 'The date and time the user was last updated',
+          },
+          archived:{
+            displayName: 'Archived',
+            shortDesc: 'Whether the user is archived',
+            longDesc: 'Whether the user is archived',
+          },
+          
+          
+        },
+      },
+    },
+  },
 } satisfies BaseTranslation;
 
 export default en;

@@ -2,12 +2,12 @@ import { IResponseTicketInterface } from 'zendesk/models/tickets';
 import { zendeskRequest } from '../../client';
 import { ZendeskOptions } from '../options';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-import L from '../../../i18n/i18n-node';
+import { L } from '../../../i18n/i18n-node';
 import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 
 // Defining a function to update a ticket
 const options: IActionOptions = ZendeskOptions.tickets.ticketCreateUpdate;
-const response_type: IActionResponse = {
+export const response_type: IActionResponse = {
   ticket: {
     name: 'ticket',
     display_name: L.en.apps.zendesk.actions.tickets.name.displayName(),
@@ -16,7 +16,6 @@ const response_type: IActionResponse = {
     example_value: {
       custom_status_id: 123,
       id: 35436,
-      requester_id: 123453,
       status: 'open',
       subject: 'My printer is on fire!',
     },
@@ -62,7 +61,7 @@ const response_type: IActionResponse = {
         display_name: L.en.apps.zendesk.actions.tickets.events.displayName(),
         short_desc: L.en.apps.zendesk.actions.tickets.events.shortDesc(),
         desc: L.en.apps.zendesk.actions.tickets.events.longDesc(),
-        type: '*list',
+        type: 'list',
         example_value: [
           {
             field_name: 'subject',
@@ -75,7 +74,6 @@ const response_type: IActionResponse = {
     },
   },
 } as IActionResponse;
-
 const updateTicket = async (ticketUpdate: TActionData<typeof options>) => {
   const { ticket_id, ...ticket } = ticketUpdate;
   try {
@@ -95,7 +93,7 @@ const updateTicket = async (ticketUpdate: TActionData<typeof options>) => {
 
 export default {
   action: 'update_ticket',
-  app_function: updateTicket,
+  api_function: updateTicket,
   options,
   response_type,
 } as TQorePartialActionWithFunction<typeof options, typeof response_type>;

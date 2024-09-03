@@ -59,6 +59,76 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					items: {
+						/**
+						 * I​t​e​m​s
+						 */
+						displayName: string
+						/**
+						 * I​t​e​m​s
+						 */
+						shortDesc: string
+						/**
+						 * I​t​e​m​s
+						 */
+						longDesc: string
+					}
+					users: {
+						/**
+						 * U​s​e​r​s
+						 */
+						displayName: string
+						/**
+						 * U​s​e​r​s
+						 */
+						shortDesc: string
+						/**
+						 * U​s​e​r​s
+						 */
+						longDesc: string
+						id: {
+							/**
+							 * I​D
+							 */
+							displayName: string
+							/**
+							 * I​D
+							 */
+							shortDesc: string
+							/**
+							 * I​D
+							 */
+							longDesc: string
+						}
+						name: {
+							/**
+							 * N​a​m​e
+							 */
+							displayName: string
+							/**
+							 * N​a​m​e
+							 */
+							shortDesc: string
+							/**
+							 * N​a​m​e
+							 */
+							longDesc: string
+						}
+					}
+					active: {
+						/**
+						 * A​c​t​i​v​e
+						 */
+						displayName: string
+						/**
+						 * A​c​t​i​v​e
+						 */
+						shortDesc: string
+						/**
+						 * A​c​t​i​v​e
+						 */
+						longDesc: string
+					}
 					name: {
 						/**
 						 * N​a​m​e
@@ -987,6 +1057,48 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					tickets: {
+						/**
+						 * T​i​c​k​e​t​s
+						 */
+						displayName: string
+						/**
+						 * T​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * T​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
+					next_page: {
+						/**
+						 * N​e​x​t​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * N​e​x​t​ ​p​a​g​e​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
+					previous_page: {
+						/**
+						 * P​r​e​v​i​o​u​s​ ​P​a​g​e
+						 */
+						displayName: string
+						/**
+						 * P​r​e​v​i​o​u​s​ ​p​a​g​e​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						shortDesc: string
+						/**
+						 * P​r​e​v​i​o​u​s​ ​p​a​g​e​ ​o​f​ ​t​i​c​k​e​t​s
+						 */
+						longDesc: string
+					}
 				}
 				groups: {
 					created_at: {
@@ -1468,6 +1580,122 @@ type RootTranslation = {
 				}
 			}
 		}
+		hubspot: {
+			/**
+			 * h​u​b​s​p​o​t
+			 */
+			displayName: string
+			/**
+			 * C​o​l​l​e​c​t​i​o​n​ ​o​f​ ​a​c​t​i​o​n​s​ ​t​o​ ​i​n​t​e​r​a​c​t​ ​w​i​t​h​ ​h​u​b​s​p​o​t​ ​A​P​I
+			 */
+			shortDesc: string
+			/**
+			 * C​o​l​l​e​c​t​i​o​n​ ​o​f​ ​a​c​t​i​o​n​s​ ​t​o​ ​i​n​t​e​r​a​c​t​ ​w​i​t​h​ ​h​u​b​s​p​o​t​ ​A​P​I
+			 */
+			longDesc: string
+			actions: {
+				users: {
+					results: {
+						/**
+						 * R​e​s​u​l​t​s
+						 */
+						displayName: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						longDesc: string
+					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * N​a​m​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						shortDesc: string
+						/**
+						 * N​a​m​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						shortDesc: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						longDesc: string
+					}
+					email: {
+						/**
+						 * E​m​a​i​l
+						 */
+						displayName: string
+						/**
+						 * E​m​a​i​l​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						shortDesc: string
+						/**
+						 * E​m​a​i​l​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						longDesc: string
+					}
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					archived: {
+						/**
+						 * A​r​c​h​i​v​e​d
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						longDesc: string
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -1515,6 +1743,76 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * User ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					items: {
+						/**
+						 * Items
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Items
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Items
+						 */
+						longDesc: () => LocalizedString
+					}
+					users: {
+						/**
+						 * Users
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Users
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Users
+						 */
+						longDesc: () => LocalizedString
+						id: {
+							/**
+							 * ID
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * ID
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * ID
+							 */
+							longDesc: () => LocalizedString
+						}
+						name: {
+							/**
+							 * Name
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Name
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Name
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+					active: {
+						/**
+						 * Active
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Active
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Active
 						 */
 						longDesc: () => LocalizedString
 					}
@@ -2446,6 +2744,48 @@ export type TranslationFunctions = {
 						 */
 						longDesc: () => LocalizedString
 					}
+					tickets: {
+						/**
+						 * Tickets
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Tickets
+						 */
+						longDesc: () => LocalizedString
+					}
+					next_page: {
+						/**
+						 * Next Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Next page of tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Next page of tickets
+						 */
+						longDesc: () => LocalizedString
+					}
+					previous_page: {
+						/**
+						 * Previous Page
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Previous page of tickets
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Previous page of tickets
+						 */
+						longDesc: () => LocalizedString
+					}
 				}
 				groups: {
 					created_at: {
@@ -2921,6 +3261,122 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * The organization’s URL
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+			}
+		}
+		hubspot: {
+			/**
+			 * hubspot
+			 */
+			displayName: () => LocalizedString
+			/**
+			 * Collection of actions to interact with hubspot API
+			 */
+			shortDesc: () => LocalizedString
+			/**
+			 * Collection of actions to interact with hubspot API
+			 */
+			longDesc: () => LocalizedString
+			actions: {
+				users: {
+					results: {
+						/**
+						 * Results
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						longDesc: () => LocalizedString
+					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Name of the user
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Name of the user
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * ID of the user
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * ID of the user
+						 */
+						longDesc: () => LocalizedString
+					}
+					email: {
+						/**
+						 * Email
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Email of the user
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Email of the user
+						 */
+						longDesc: () => LocalizedString
+					}
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					archived: {
+						/**
+						 * Archived
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the user is archived
 						 */
 						longDesc: () => LocalizedString
 					}
