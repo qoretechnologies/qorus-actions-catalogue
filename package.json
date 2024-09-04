@@ -15,7 +15,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "typesafe-i18n": "typesafe-i18n",
-    "test": "clear && ./node_modules/.bin/dotenv -e .env jest",
+    "test:ci": "./node_modules/.bin/dotenv -e .env jest",
+    "test": "clear && yarn test:ci",
     "precheck": "yarn build:test && yarn test"
   },
   "keywords": [

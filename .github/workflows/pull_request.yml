@@ -54,7 +54,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          yarn test
+          yarn test:ci
 
       # - name: Serve Storybook and run tests
       #   run: |
