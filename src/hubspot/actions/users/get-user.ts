@@ -6,15 +6,15 @@ import { L } from '../../../i18n/i18n-node';
 // Defining a function to fetch user by id
 
 const options: IActionOptions = {
-  id:{
+  id: {
     type: 'number',
     name: 'id',
     display_name: L.en.apps.hubspot.actions.users.id.displayName(),
     short_desc: L.en.apps.hubspot.actions.users.id.shortDesc(),
     desc: L.en.apps.hubspot.actions.users.id.longDesc(),
     example_value: 123,
-  }
-}as IActionOptions;
+  },
+} as IActionOptions;
 export const response_type: IActionResponse = {
   id: {
     type: 'number',
@@ -40,19 +40,20 @@ export const response_type: IActionResponse = {
     desc: L.en.apps.hubspot.actions.users.updated_at.longDesc(),
     example_value: '2021-08-25T09:00:00Z',
   },
-  archived:{
+  archived: {
     type: 'boolean',
     name: 'archived',
     display_name: L.en.apps.hubspot.actions.users.archived.displayName(),
     short_desc: L.en.apps.hubspot.actions.users.archived.shortDesc(),
     desc: L.en.apps.hubspot.actions.users.archived.longDesc(),
     example_value: true,
-  }
+  },
 };
 
 const getUser = async ({ id }: TActionData<typeof options>) => {
   try {
-    const data: any= await hubspotRequest(`/objects/users/${id}.json`, 'GET');
+    const data: any = await hubspotRequest(`/objects/users/${id}.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching user:', error);

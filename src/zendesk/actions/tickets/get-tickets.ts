@@ -45,6 +45,7 @@ const getTickets = async ({ ids }: TActionData<typeof options>) => {
     const data: ITicketsInterface = await zendeskRequest(`/tickets/show_many.json`, 'GET', null, {
       ids,
     });
+
     return data;
   } catch (error) {
     console.error('Error fetching tickets:', error);

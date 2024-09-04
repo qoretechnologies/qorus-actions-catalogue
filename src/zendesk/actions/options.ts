@@ -1,41 +1,6 @@
+import { IActionOptions } from 'global/models/actions';
 import { IQoreAppActionOption } from 'global/models/qore';
 import { L } from '../../i18n/i18n-node';
-import { IActionOptions } from 'global/models/actions';
-
-export const ticketCreateUpdate: IActionOptions = {
-  comment: {
-    display_name: L.en.apps.zendesk.actions.tickets.comment.displayName(),
-    short_desc: L.en.apps.zendesk.actions.tickets.comment.shortDesc(),
-    desc: L.en.apps.zendesk.actions.tickets.comment.longDesc(),
-    type: 'string',
-    required: true,
-    example_value: 'Comment',
-  },
-  priority: {
-    display_name: L.en.apps.zendesk.actions.tickets.priority.displayName(),
-    short_desc: L.en.apps.zendesk.actions.tickets.priority.shortDesc(),
-    desc: L.en.apps.zendesk.actions.tickets.priority.longDesc(),
-    type: 'string',
-    required: true,
-    example_value: 'High',
-  },
-  subject: {
-    display_name: L.en.apps.zendesk.actions.tickets.subject.displayName(),
-    short_desc: L.en.apps.zendesk.actions.tickets.subject.shortDesc(),
-    desc: L.en.apps.zendesk.actions.tickets.subject.longDesc(),
-    type: 'string',
-    required: true,
-    example_value: 'New Ticket',
-  },
-  status: {
-    display_name: L.en.apps.zendesk.actions.tickets.status.displayName(),
-    short_desc: L.en.apps.zendesk.actions.tickets.status.shortDesc(),
-    desc: L.en.apps.zendesk.actions.tickets.status.longDesc(),
-    type: 'string',
-    required: true,
-    example_value: 'New',
-  },
-};
 
 export const groupCreateUpdate: IActionOptions = {
   created_at: {
@@ -245,7 +210,6 @@ export const ZendeskOptions = {
     },
   },
   tickets: {
-    ticketCreateUpdate,
     ticket_id: {
       display_name: L.en.apps.zendesk.actions.tickets.ticket_id.displayName(),
       short_desc: L.en.apps.zendesk.actions.tickets.ticket_id.shortDesc(),

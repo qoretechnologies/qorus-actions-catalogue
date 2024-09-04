@@ -1,1 +1,1 @@
-export { actionsCatalogue } from './ActionsCatalogue';
+export { QorusAppsCatalogue } from './ActionsCatalogue';

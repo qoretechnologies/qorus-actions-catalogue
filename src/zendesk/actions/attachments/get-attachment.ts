@@ -76,11 +76,10 @@ export const response_type: IActionResponse = {
 };
 const getAttachment = async ({ id }: TActionData<typeof options>) => {
   try {
-    const data: IAttachmentsInterface = await zendeskRequest(
-      `attachments/${id}.json`,
-      'GET',
-      { id }
-    );
+    const data: IAttachmentsInterface = await zendeskRequest(`attachments/${id}.json`, 'GET', {
+      id,
+    });
+
     return data;
   } catch (error) {
     console.error('Error fetching attachment:', error);

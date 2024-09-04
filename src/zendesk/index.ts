@@ -1,8 +1,25 @@
 import { mapActionsToApp } from '../global/helpers';
-import { IQoreAppWithActions } from '../global/models/qore';
+import {
+  GetConnectionOptionDefinitionFromQoreType,
+  IQoreAppWithActions,
+  TQoreType,
+} from '../global/models/qore';
 import { L } from '../i18n/i18n-node';
 import { Locales } from '../i18n/i18n-types';
 import * as zendeskActions from './actions';
+
+export interface IQoreConnectionOptions {
+  [key: string]: GetConnectionOptionDefinitionFromQoreType<TQoreType>;
+}
+
+const options = {
+  subdomain: {
+    display_name: 'Subdomain',
+    short_desc: 'The subdomain for the URL',
+    desc: 'The subdomain for the URL',
+    type: 'string',
+  },
+} satisfies IQoreConnectionOptions;
 
 /*
  * Returns the app object with all the actions ready to use, using translations
@@ -14,7 +31,20 @@ export default (locale: Locales) =>
     display_name: L[locale].apps.zendesk.displayName(),
     short_desc: L[locale].apps.zendesk.shortDesc(),
     name: 'zendesk',
-    // @ts-expect-error typescript will complain about "zendeskAction" because most of the actions are still missing `options` and `action` fields
     actions: mapActionsToApp('zendesk', zendeskActions, locale),
     desc: L[locale].apps.zendesk.longDesc(),
-  }) as IQoreAppWithActions;
+    rest: {
+      url: `tsrest-zendesk://{{subdomain}}.zendesk.com`,
+      data: 'json',
+      oauth2_client_secret: process.env.ZENDESK_CLIENT_SECRET,
+      oauth2_grant_type: 'authorization_code',
+      oauth2_client_id: 'qorus_integration',
+      oauth2_auth_url: 'https://{{subdomain}}.zendesk.com/oauth/authorizations/new',
+      oauth2_token_url: 'https://{{subdomain}}.zendesk.com/oauth/tokens',
+    },
+    rest_modifiders: {
+      options,
+      required_options: 'subdomain',
+      url_template_options: ['subdomain'],
+    },
+  }) satisfies IQoreAppWithActions<typeof options>;

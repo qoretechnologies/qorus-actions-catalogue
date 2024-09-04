@@ -54,6 +54,7 @@ export const response_type: IActionResponse = {
 const getGroup = async ({ id }: TActionData<typeof options>) => {
   try {
     const data: IGroupInterface = await zendeskRequest(`/groups/${id}.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching group:', error);

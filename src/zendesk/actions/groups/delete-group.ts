@@ -7,6 +7,7 @@ const options: IActionOptions = null;
 const deleteGroup = async ({ id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/groups/${id}.json`, 'DELETE');
+
     return data;
   } catch (error) {
     console.error('Error delete group:', error);

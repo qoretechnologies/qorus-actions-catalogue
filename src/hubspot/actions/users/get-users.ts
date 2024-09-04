@@ -25,6 +25,7 @@ export const response_type: IActionResponse = {
 const getUsers = async () => {
   try {
     const data: TActionData<typeof options> = await hubspotRequest('/objects/users', 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching users:', error);

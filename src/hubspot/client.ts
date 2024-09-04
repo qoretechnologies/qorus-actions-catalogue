@@ -1,5 +1,3 @@
-
-
 import { HUBSPOT_AUTH } from './configs';
 import axios from 'axios';
 export const hubspotRequest = async (
@@ -49,6 +47,7 @@ export const hubspotRequest = async (
         });
         break;
     }
+
     return response?.data || {};
   } catch (error) {
     console.error('Error with hubspot request:', error);

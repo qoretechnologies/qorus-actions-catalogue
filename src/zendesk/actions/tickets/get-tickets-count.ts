@@ -19,6 +19,7 @@ export const response_type: IActionResponse = {
 const getTicketsCount = async () => {
   try {
     const data: ITicketsCountInterface = await zendeskRequest(`/tickets/count.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching tickets:', error);

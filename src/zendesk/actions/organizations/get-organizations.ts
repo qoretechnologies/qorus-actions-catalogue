@@ -43,6 +43,7 @@ export const response_type: IActionResponse = {
 const getOrganizations = async () => {
   try {
     const data: IOrganizationInterface = await zendeskRequest(`/organizations.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching organization:', error);

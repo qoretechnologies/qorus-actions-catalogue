@@ -134,7 +134,7 @@ export const pollingHelper = {
     }
   },
   async onDisable<AuthValue, PropsValue>(
-    polling: Polling<AuthValue, PropsValue>,
+    polling: Polling<AuthValue, PropsValue>
     // TODO: Remove eslint-disable-next-line once the params are used
     // params: { store: Store; auth: AuthValue; propsValue: PropsValue }
   ): Promise<void> {

@@ -165,6 +165,7 @@ const updateOrganization = async (organizationUpdate: TActionData<typeof options
       'PUT',
       organization
     );
+
     return data;
   } catch (error) {
     console.error('Error updating organization:', error);
