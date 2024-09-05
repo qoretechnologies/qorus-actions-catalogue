@@ -1,6 +1,6 @@
-import { TQoreApps } from 'global/models/qore';
 import { Locales } from 'i18n/i18n-types';
-import zendesk from 'zendesk';
+import { TQoreApps } from '../global/models/qore';
+import zendesk from '../zendesk';
 
 class _QorusAppsCatalogue {
   public readonly apps: TQoreApps = {};
