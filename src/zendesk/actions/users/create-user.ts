@@ -69,6 +69,7 @@ export const response_type: IActionResponse = {
 const createUser = async (user: TActionData<typeof options>) => {
   try {
     const data: IResponseUserInterface = await zendeskRequest('/users', 'POST', user);
+
     return data;
   } catch (error) {
     console.error('Error creating user:', error);

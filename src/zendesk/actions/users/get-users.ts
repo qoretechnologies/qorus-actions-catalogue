@@ -40,6 +40,7 @@ export const response_type: IActionResponse = {
 const getUsers = async () => {
   try {
     const data: TActionData<typeof options> = await zendeskRequest('/users.json', 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching users:', error);

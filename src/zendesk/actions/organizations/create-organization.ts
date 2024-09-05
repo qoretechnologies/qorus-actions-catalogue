@@ -163,6 +163,7 @@ const createOrganization = async (organization: TActionData<typeof options>) => 
       'POST',
       organization
     );
+
     return data;
   } catch (error) {
     console.error('Error creating organization:', error);

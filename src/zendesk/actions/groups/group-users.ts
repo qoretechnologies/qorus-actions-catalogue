@@ -41,6 +41,7 @@ export const response_type: IActionResponse = {
 const getGroupUsers = async ({ groupId }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/groups/${groupId}/users.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching group users:', error);

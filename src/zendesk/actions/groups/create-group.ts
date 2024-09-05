@@ -54,6 +54,7 @@ const createGroup = async (group: TActionData<typeof options>) => {
     const data: IResponseGroupInterface = await zendeskRequest('/groups', 'POST', {
       group,
     });
+
     return data;
   } catch (error) {
     console.error('Error creating group:', error);

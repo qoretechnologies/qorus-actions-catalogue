@@ -10,6 +10,7 @@ const options: IActionOptions = {
 const deleteAttachment = async ({ token }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/uploads/${token}`, 'DELETE');
+
     return data;
   } catch (error) {
     console.error('Error delete attachment:', error);

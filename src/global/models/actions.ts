@@ -13,7 +13,6 @@ export interface IActionResponse {
   [key: string]: GetResponseDefinitionFromQoreType<TQoreType>;
 }
 
-export type TActionData<Options extends IActionOptions> = StrictRecord<
-  keyof Options,
-  Options[keyof Options]['default_value']
->;
+export type TActionData<Options extends IActionOptions> = StrictRecord<keyof Options, any>;
+
+export type TActionResponse<Response extends IActionResponse> = StrictRecord<keyof Response, any>;

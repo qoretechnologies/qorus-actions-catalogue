@@ -34,6 +34,7 @@ export const response_type: IActionResponse = {
 const deleteUser = async ({ id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/users/${id}.json`, 'DELETE');
+
     return data;
   } catch (error) {
     console.error('Error delete user:', error);

@@ -31,6 +31,7 @@ const updateUser = async (UserUpdate: TActionData<typeof options>) => {
     const data: IResponseUserInterface = await zendeskRequest(`/users/${id}.json`, 'PUT', {
       user: userUpdate,
     });
+
     return data;
   } catch (error) {
     console.error('Error updating user:', error);

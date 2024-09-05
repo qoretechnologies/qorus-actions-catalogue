@@ -16,6 +16,44 @@ type RootTranslation = {
 	common: {
 	}
 	apps: {
+		_testing: {
+			actions: {
+				test: {
+					option1: {
+						/**
+						 * O​p​t​i​o​n​ ​1
+						 */
+						displayName: string
+						/**
+						 * O​p​t​i​o​n​ ​1​ ​S​h​o​r​t​ ​D​e​s​c​r​i​p​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * O​p​t​i​o​n​ ​1​ ​L​o​n​g​ ​D​e​s​c​r​i​p​t​i​o​n
+						 */
+						longDesc: string
+					}
+					option2: {
+						/**
+						 * S​e​c​o​n​d​ ​O​p​t​i​o​n
+						 */
+						displayName: string
+					}
+					sub_option1: {
+						/**
+						 * S​u​b​ ​O​p​t​i​o​n​ ​1​ ​o​f​ ​O​p​t​i​o​n​ ​2
+						 */
+						displayName: string
+					}
+					sub_sub_option1: {
+						/**
+						 * G​e​n​e​r​a​t​e​d​ ​d​e​s​c​r​i​p​t​i​o​n
+						 */
+						longDesc: string
+					}
+				}
+			}
+		}
 		zendesk: {
 			/**
 			 * Z​e​n​d​e​s​k
@@ -441,6 +479,20 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					body: {
+						/**
+						 * T​i​c​k​e​t​ ​B​o​d​y
+						 */
+						displayName: string
+						/**
+						 * B​o​d​y​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t
+						 */
+						shortDesc: string
+						/**
+						 * B​o​d​y​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t
+						 */
+						longDesc: string
+					}
 					subject: {
 						/**
 						 * S​u​b​j​e​c​t
@@ -595,6 +647,20 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					fields: {
+						/**
+						 * F​i​e​l​d​s
+						 */
+						displayName: string
+						/**
+						 * F​i​e​l​d​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t
+						 */
+						shortDesc: string
+						/**
+						 * F​i​e​l​d​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t
+						 */
+						longDesc: string
+					}
 					custom_status_id: {
 						/**
 						 * C​u​s​t​o​m​ ​S​t​a​t​u​s​ ​I​D
@@ -651,6 +717,90 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					email_cc_ids: {
+						/**
+						 * E​m​a​i​l​ ​C​C​ ​I​D​s
+						 */
+						displayName: string
+						/**
+						 * I​D​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​e​m​a​i​l​ ​C​C​s
+						 */
+						shortDesc: string
+						/**
+						 * I​D​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​e​m​a​i​l​ ​C​C​s
+						 */
+						longDesc: string
+					}
+					forum_topic_id: {
+						/**
+						 * F​o​r​u​m​ ​T​o​p​i​c​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​r​u​m​ ​t​o​p​i​c
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​r​u​m​ ​t​o​p​i​c
+						 */
+						longDesc: string
+					}
+					ticket_form_id: {
+						/**
+						 * T​i​c​k​e​t​ ​F​o​r​m​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​r​m
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​r​m
+						 */
+						longDesc: string
+					}
+					brand_id: {
+						/**
+						 * B​r​a​n​d​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​b​r​a​n​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​I​D​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​b​r​a​n​d
+						 */
+						longDesc: string
+					}
+					allow_channelback: {
+						/**
+						 * A​l​l​o​w​ ​C​h​a​n​n​e​l​b​a​c​k
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​t​i​c​k​e​t​ ​a​l​l​o​w​s​ ​c​h​a​n​n​e​l​b​a​c​k
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​t​i​c​k​e​t​ ​a​l​l​o​w​s​ ​c​h​a​n​n​e​l​b​a​c​k
+						 */
+						longDesc: string
+					}
+					allow_attachments: {
+						/**
+						 * A​l​l​o​w​ ​A​t​t​a​c​h​m​e​n​t​s
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​t​i​c​k​e​t​ ​a​l​l​o​w​s​ ​a​t​t​a​c​h​m​e​n​t​s
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​t​i​c​k​e​t​ ​a​l​l​o​w​s​ ​a​t​t​a​c​h​m​e​n​t​s
+						 */
+						longDesc: string
+					}
 					external_id: {
 						/**
 						 * E​x​t​e​r​n​a​l​ ​I​D
@@ -676,6 +826,20 @@ type RootTranslation = {
 						shortDesc: string
 						/**
 						 * I​D​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​l​l​o​w​e​r​s
+						 */
+						longDesc: string
+					}
+					followup_ids: {
+						/**
+						 * F​o​l​l​o​w​u​p​ ​I​D​s
+						 */
+						displayName: string
+						/**
+						 * I​D​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​l​l​o​w​u​p​s
+						 */
+						shortDesc: string
+						/**
+						 * I​D​s​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​’​s​ ​f​o​l​l​o​w​u​p​s
 						 */
 						longDesc: string
 					}
@@ -707,6 +871,20 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					generated_timestamp: {
+						/**
+						 * G​e​n​e​r​a​t​e​d​ ​T​i​m​e​s​t​a​m​p
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​t​i​m​e​s​t​a​m​p​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​ ​g​e​n​e​r​a​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​t​i​m​e​s​t​a​m​p​ ​o​f​ ​t​h​e​ ​t​i​c​k​e​t​ ​g​e​n​e​r​a​t​i​o​n
+						 */
+						longDesc: string
+					}
 					has_incidents: {
 						/**
 						 * G​r​o​u​p​ ​I​D
@@ -732,6 +910,20 @@ type RootTranslation = {
 						shortDesc: string
 						/**
 						 * T​h​e​ ​t​i​c​k​e​t​’​s​ ​I​D
+						 */
+						longDesc: string
+					}
+					is_public: {
+						/**
+						 * I​s​ ​P​u​b​l​i​c
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​t​i​c​k​e​t​ ​i​s​ ​p​u​b​l​i​c
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​t​i​c​k​e​t​ ​i​s​ ​p​u​b​l​i​c
 						 */
 						longDesc: string
 					}
@@ -1703,6 +1895,44 @@ export type TranslationFunctions = {
 	common: {
 	}
 	apps: {
+		_testing: {
+			actions: {
+				test: {
+					option1: {
+						/**
+						 * Option 1
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Option 1 Short Description
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Option 1 Long Description
+						 */
+						longDesc: () => LocalizedString
+					}
+					option2: {
+						/**
+						 * Second Option
+						 */
+						displayName: () => LocalizedString
+					}
+					sub_option1: {
+						/**
+						 * Sub Option 1 of Option 2
+						 */
+						displayName: () => LocalizedString
+					}
+					sub_sub_option1: {
+						/**
+						 * Generated description
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+			}
+		}
 		zendesk: {
 			/**
 			 * Zendesk
@@ -2128,6 +2358,20 @@ export type TranslationFunctions = {
 						 */
 						longDesc: () => LocalizedString
 					}
+					body: {
+						/**
+						 * Ticket Body
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Body of the ticket
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Body of the ticket
+						 */
+						longDesc: () => LocalizedString
+					}
 					subject: {
 						/**
 						 * Subject
@@ -2282,6 +2526,20 @@ export type TranslationFunctions = {
 						 */
 						longDesc: () => LocalizedString
 					}
+					fields: {
+						/**
+						 * Fields
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Fields of the ticket
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Fields of the ticket
+						 */
+						longDesc: () => LocalizedString
+					}
 					custom_status_id: {
 						/**
 						 * Custom Status ID
@@ -2338,6 +2596,90 @@ export type TranslationFunctions = {
 						 */
 						longDesc: () => LocalizedString
 					}
+					email_cc_ids: {
+						/**
+						 * Email CC IDs
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * IDs of the ticket’s email CCs
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * IDs of the ticket’s email CCs
+						 */
+						longDesc: () => LocalizedString
+					}
+					forum_topic_id: {
+						/**
+						 * Forum Topic ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The ID of the ticket’s forum topic
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The ID of the ticket’s forum topic
+						 */
+						longDesc: () => LocalizedString
+					}
+					ticket_form_id: {
+						/**
+						 * Ticket Form ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The ID of the ticket’s form
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The ID of the ticket’s form
+						 */
+						longDesc: () => LocalizedString
+					}
+					brand_id: {
+						/**
+						 * Brand ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The ID of the ticket’s brand
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The ID of the ticket’s brand
+						 */
+						longDesc: () => LocalizedString
+					}
+					allow_channelback: {
+						/**
+						 * Allow Channelback
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the ticket allows channelback
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the ticket allows channelback
+						 */
+						longDesc: () => LocalizedString
+					}
+					allow_attachments: {
+						/**
+						 * Allow Attachments
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the ticket allows attachments
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the ticket allows attachments
+						 */
+						longDesc: () => LocalizedString
+					}
 					external_id: {
 						/**
 						 * External ID
@@ -2363,6 +2705,20 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * IDs of the ticket’s followers
+						 */
+						longDesc: () => LocalizedString
+					}
+					followup_ids: {
+						/**
+						 * Followup IDs
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * IDs of the ticket’s followups
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * IDs of the ticket’s followups
 						 */
 						longDesc: () => LocalizedString
 					}
@@ -2394,6 +2750,20 @@ export type TranslationFunctions = {
 						 */
 						longDesc: () => LocalizedString
 					}
+					generated_timestamp: {
+						/**
+						 * Generated Timestamp
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The timestamp of the ticket generation
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The timestamp of the ticket generation
+						 */
+						longDesc: () => LocalizedString
+					}
 					has_incidents: {
 						/**
 						 * Group ID
@@ -2419,6 +2789,20 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * The ticket’s ID
+						 */
+						longDesc: () => LocalizedString
+					}
+					is_public: {
+						/**
+						 * Is Public
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the ticket is public
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the ticket is public
 						 */
 						longDesc: () => LocalizedString
 					}

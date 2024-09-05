@@ -3,6 +3,26 @@ import type { BaseTranslation } from '../i18n-types';
 const en = {
   common: {},
   apps: {
+    _testing: {
+      actions: {
+        test: {
+          option1: {
+            displayName: 'Option 1',
+            shortDesc: 'Option 1 Short Description',
+            longDesc: 'Option 1 Long Description',
+          },
+          option2: {
+            displayName: 'Second Option',
+          },
+          sub_option1: {
+            displayName: 'Sub Option 1 of Option 2',
+          },
+          sub_sub_option1: {
+            longDesc: 'Generated description',
+          },
+        },
+      },
+    },
     zendesk: {
       displayName: 'Zendesk',
       shortDesc: 'Collection of actions to interact with Zendesk API',
@@ -158,6 +178,11 @@ const en = {
             shortDesc: 'Comment on a ticket',
             longDesc: 'Comment on a ticket',
           },
+          body: {
+            displayName: 'Ticket Body',
+            shortDesc: 'Body of the ticket',
+            longDesc: 'Body of the ticket',
+          },
           subject: {
             displayName: 'Subject',
             shortDesc: 'Subject of a ticket',
@@ -213,6 +238,11 @@ const en = {
             shortDesc: 'Custom fields of the ticket',
             longDesc: 'Custom fields of the ticket',
           },
+          fields: {
+            displayName: 'Fields',
+            shortDesc: 'Fields of the ticket',
+            longDesc: 'Fields of the ticket',
+          },
           custom_status_id: {
             displayName: 'Custom Status ID',
             shortDesc: 'The ID of the ticket’s custom status',
@@ -233,6 +263,36 @@ const en = {
             shortDesc: 'The date and time the ticket is due',
             longDesc: 'The date and time the ticket is due',
           },
+          email_cc_ids: {
+            displayName: 'Email CC IDs',
+            shortDesc: 'IDs of the ticket’s email CCs',
+            longDesc: 'IDs of the ticket’s email CCs',
+          },
+          forum_topic_id: {
+            displayName: 'Forum Topic ID',
+            shortDesc: 'The ID of the ticket’s forum topic',
+            longDesc: 'The ID of the ticket’s forum topic',
+          },
+          ticket_form_id: {
+            displayName: 'Ticket Form ID',
+            shortDesc: 'The ID of the ticket’s form',
+            longDesc: 'The ID of the ticket’s form',
+          },
+          brand_id: {
+            displayName: 'Brand ID',
+            shortDesc: 'The ID of the ticket’s brand',
+            longDesc: 'The ID of the ticket’s brand',
+          },
+          allow_channelback: {
+            displayName: 'Allow Channelback',
+            shortDesc: 'Whether the ticket allows channelback',
+            longDesc: 'Whether the ticket allows channelback',
+          },
+          allow_attachments: {
+            displayName: 'Allow Attachments',
+            shortDesc: 'Whether the ticket allows attachments',
+            longDesc: 'Whether the ticket allows attachments',
+          },
           external_id: {
             displayName: 'External ID',
             shortDesc: 'The ticket’s external ID',
@@ -242,6 +302,11 @@ const en = {
             displayName: 'Follower IDs',
             shortDesc: 'IDs of the ticket’s followers',
             longDesc: 'IDs of the ticket’s followers',
+          },
+          followup_ids: {
+            displayName: 'Followup IDs',
+            shortDesc: 'IDs of the ticket’s followups',
+            longDesc: 'IDs of the ticket’s followups',
           },
           from_messaging_channel: {
             displayName: 'From Messaging Channel',
@@ -253,6 +318,11 @@ const en = {
             shortDesc: 'The ID of the ticket’s group',
             longDesc: 'The ID of the ticket’s group',
           },
+          generated_timestamp: {
+            displayName: 'Generated Timestamp',
+            shortDesc: 'The timestamp of the ticket generation',
+            longDesc: 'The timestamp of the ticket generation',
+          },
           has_incidents: {
             displayName: 'Group ID',
             shortDesc: 'The ID of the ticket’s group',
@@ -262,6 +332,11 @@ const en = {
             displayName: 'ID',
             shortDesc: 'The ticket’s ID',
             longDesc: 'The ticket’s ID',
+          },
+          is_public: {
+            displayName: 'Is Public',
+            shortDesc: 'Whether the ticket is public',
+            longDesc: 'Whether the ticket is public',
           },
           organization_id: {
             displayName: 'Organization ID',
@@ -579,38 +654,36 @@ const en = {
             shortDesc: 'Results of the action',
             longDesc: 'Results of the action',
           },
-          name:{
+          name: {
             displayName: 'Name',
             shortDesc: 'Name of the user',
             longDesc: 'Name of the user',
           },
-          id:{
+          id: {
             displayName: 'ID',
             shortDesc: 'ID of the user',
             longDesc: 'ID of the user',
           },
-          email:{
+          email: {
             displayName: 'Email',
             shortDesc: 'Email of the user',
             longDesc: 'Email of the user',
           },
-          created_at:{
+          created_at: {
             displayName: 'Created At',
             shortDesc: 'The date and time the user was created',
             longDesc: 'The date and time the user was created',
           },
-          updated_at:{
+          updated_at: {
             displayName: 'Updated At',
             shortDesc: 'The date and time the user was last updated',
             longDesc: 'The date and time the user was last updated',
           },
-          archived:{
+          archived: {
             displayName: 'Archived',
             shortDesc: 'Whether the user is archived',
             longDesc: 'Whether the user is archived',
           },
-          
-          
         },
       },
     },

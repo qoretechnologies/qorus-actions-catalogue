@@ -7,6 +7,7 @@ const options: IActionOptions = null;
 const deleteTicket = async ({ ticket_id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/tickets/${ticket_id}.json`, 'DELETE');
+
     return data || {};
   } catch (error) {
     console.error('Error delete ticket:', error);

@@ -1,9 +1,14 @@
-import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import {
+  IActionOptions,
+  IActionResponse,
+  TActionData,
+  TActionResponse,
+} from 'global/models/actions';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-import { L } from '../i18n/i18n-node';
 import { zendeskRequest } from 'zendesk/client';
+import { L } from '../i18n/i18n-node';
 
-const options: IActionOptions = {
+const options = {
   token: {
     display_name: L.en.apps.zendesk.actions.attachments.token.displayName(),
     short_desc: L.en.apps.zendesk.actions.attachments.token.shortDesc(),
@@ -19,9 +24,9 @@ const options: IActionOptions = {
     desc: L.en.apps.zendesk.actions.attachments.token.longDesc(),
     type: 'int',
   },
-};
+} satisfies IActionOptions;
 
-const response_type: IActionResponse = {
+const response_type = {
   channel: {
     type: {
       id: {
@@ -35,13 +40,17 @@ const response_type: IActionResponse = {
     display_name: 'dname',
     short_desc: 'sdesc',
     desc: 'desc',
+    name: 'channel',
   },
-};
+} satisfies IActionResponse;
 
 // Defining a function to delete attachment
-const deleteAttachment = async ({ token }: TActionData<typeof options>) => {
+const deleteAttachment = async ({
+  token,
+}: TActionData<typeof options>): Promise<TActionResponse<typeof response_type>> => {
   try {
     const data = await zendeskRequest(`/uploads/${token}`, 'DELETE');
+
     return data;
   } catch (error) {
     console.error('Error delete attachment:', error);
@@ -54,4 +63,4 @@ export default {
   api_function: deleteAttachment,
   options,
   response_type,
-} as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+} satisfies TQorePartialActionWithFunction<typeof options, typeof response_type>;

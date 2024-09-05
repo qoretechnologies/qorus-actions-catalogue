@@ -53,6 +53,7 @@ const updateGroup = async (groupUpdate: TActionData<typeof options>) => {
   const { id, ...group } = groupUpdate;
   try {
     const data: IResponseGroupInterface = await zendeskRequest(`/groups/${id}.json`, 'PUT', group);
+
     return data;
   } catch (error) {
     console.error('Error updating group:', error);

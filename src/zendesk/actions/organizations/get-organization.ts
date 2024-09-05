@@ -161,6 +161,7 @@ export const response_type: IActionResponse = {
 const getOrganization = async ({ id }: TActionData<typeof options>) => {
   try {
     const data: IOrganizationInterface = await zendeskRequest(`/organizations/${id}.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching organization:', error);

@@ -7,6 +7,7 @@ const options: IActionOptions = null;
 const deleteOrganization = async ({ id }: TActionData<typeof options>) => {
   try {
     const data = await zendeskRequest(`/organizations/${id}.json`, 'DELETE');
+
     return data;
   } catch (error) {
     console.error('Error delete organization:', error);

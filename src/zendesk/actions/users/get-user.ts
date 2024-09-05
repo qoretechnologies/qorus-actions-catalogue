@@ -31,6 +31,7 @@ export const response_type: IActionResponse = {
 const getUser = async ({ id }: TActionData<typeof options>) => {
   try {
     const data: IUserInterface = await zendeskRequest(`/users/${id}.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching user:', error);

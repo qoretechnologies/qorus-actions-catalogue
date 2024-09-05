@@ -6,7 +6,11 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'plugin:storybook/recommended'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
+  ],
   root: true,
   env: {
     node: true,
@@ -19,10 +23,12 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'max-len': ['error', { code: 120, ignorePattern: '^import .*' }],
-    'max-params': ['warn', 3],
     'no-console': 'warn',
     'require-await': 'error',
-    'padding-line-between-statements': ['error', { blankLine: 'always', prev: '*', next: 'return' }],
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: '*', next: 'return' },
+    ],
     useTabs: 0,
     eqeqeq: ['error', 'always'],
     'prettier/prettier': ['error', { endOfLine: 'auto' }],

@@ -1,6 +1,18 @@
-import { IQoreAppActionWithFunction, TQorePartialActionWithFunction } from 'global/models/qore';
-import { L } from '../../i18n/i18n-node';
 import { Locales, Translation } from 'i18n/i18n-types';
+import { omit, reduce } from 'lodash';
+import {
+  IQoreAppActionOption,
+  IQoreAppActionWithFunction,
+  IQoreTypeObject,
+  TQoreOptions,
+  TQorePartialActionWithFunction,
+  TQoreResponseType,
+} from '../../global/models/qore';
+import { L } from '../../i18n/i18n-node';
+
+// !IMPORTANT
+// These fields need to be ommited from  each action, they are used for internal purposes
+export const OMMITTED_FIELDS = ['_localizationGroup'] as const;
 
 /*
  * This function maps the actions to the app and adds missing metadata using translations
@@ -15,7 +27,7 @@ export const mapActionsToApp = (
   locale: Locales
 ): IQoreAppActionWithFunction[] => {
   return Object.entries(actions).map(([actionName, action]) => ({
-    ...action,
+    ...omit(action, OMMITTED_FIELDS),
     // @ts-expect-error no idea whats going on here, will fix later
     display_name: L[locale].apps[app].actions[actionName as unknown].displayName(),
     // @ts-expect-error no idea whats going on here, will fix later
@@ -24,7 +36,74 @@ export const mapActionsToApp = (
     desc: L[locale].apps[app].actions[actionName as unknown].longDesc(),
     app,
     action_code: 2,
+
+    options: fixActionOptions(action.options, app, locale, action._localizationGroup),
+    response_type: fixActionType(action.response_type, app, locale, action._localizationGroup),
   }));
+};
+
+export const fixActionType = (
+  collection: TQoreResponseType,
+  appName: string,
+  locale: Locales,
+  localeGroup: string
+): TQoreResponseType => {
+  return reduce(
+    collection,
+    (newCollection: TQoreResponseType, type: IQoreTypeObject, key: string): TQoreResponseType => {
+      return {
+        ...newCollection,
+        [key]: {
+          ...type,
+          type:
+            typeof type.type === 'object'
+              ? fixActionType(type.type, appName, locale, localeGroup)
+              : type.type,
+          display_name:
+            // @ts-expect-error no idea whats going on here, will fix later
+            type.display_name || L[locale].apps[appName].actions[localeGroup][key].displayName(),
+          short_desc:
+            // @ts-expect-error no idea whats going on here, will fix later
+            type.short_desc || L[locale].apps[appName].actions[localeGroup][key].shortDesc(),
+          // @ts-expect-error no idea whats going on here, will fix later
+          desc: type.desc || L[locale].apps[appName].actions[localeGroup][key].longDesc(),
+        },
+      };
+    },
+    {}
+  );
+};
+
+export const fixActionOptions = (
+  collection: TQoreOptions,
+  appName: string,
+  locale: Locales,
+  localeGroup: string
+): TQoreOptions => {
+  return reduce(
+    collection,
+    (newCollection: TQoreOptions, option: IQoreAppActionOption, key: string): TQoreOptions => {
+      return {
+        ...newCollection,
+        [key]: {
+          ...option,
+          type:
+            typeof option.type === 'object'
+              ? fixActionType(option.type, appName, locale, localeGroup)
+              : option.type,
+          display_name:
+            // @ts-expect-error no idea whats going on here, will fix later
+            option.display_name || L[locale].apps[appName].actions[localeGroup][key].displayName(),
+          short_desc:
+            // @ts-expect-error no idea whats going on here, will fix later
+            option.short_desc || L[locale].apps[appName].actions[localeGroup][key].shortDesc(),
+          // @ts-expect-error no idea whats going on here, will fix later
+          desc: option.desc || L[locale].apps[appName].actions[localeGroup][key].longDesc(),
+        },
+      };
+    },
+    {}
+  );
 };
 
 /*

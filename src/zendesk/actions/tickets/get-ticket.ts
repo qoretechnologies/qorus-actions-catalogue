@@ -281,6 +281,7 @@ export const response_type: IActionResponse = {
 const getTicket = async ({ ticket_id }: TActionData<typeof options>) => {
   try {
     const data: ITicketInterface = await zendeskRequest(`/tickets/${ticket_id}.json`, 'GET');
+
     return data;
   } catch (error) {
     console.error('Error fetching ticket:', error);

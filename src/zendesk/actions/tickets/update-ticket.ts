@@ -1,13 +1,11 @@
-import { IResponseTicketInterface } from 'zendesk/models/tickets';
-import { zendeskRequest } from '../../client';
-import { ZendeskOptions } from '../options';
+import { IActionResponse, TActionData } from 'global/models/actions';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { IResponseTicketInterface } from 'zendesk/models/tickets';
 import { L } from '../../../i18n/i18n-node';
-import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import { zendeskRequest } from '../../client';
+import { options } from './create-ticket';
 
-// Defining a function to update a ticket
-const options: IActionOptions = ZendeskOptions.tickets.ticketCreateUpdate;
-export const response_type: IActionResponse = {
+export const response_type = {
   ticket: {
     name: 'ticket',
     display_name: L.en.apps.zendesk.actions.tickets.name.displayName(),
@@ -73,9 +71,11 @@ export const response_type: IActionResponse = {
       },
     },
   },
-} as IActionResponse;
+} satisfies IActionResponse;
+
 const updateTicket = async (ticketUpdate: TActionData<typeof options>) => {
-  const { ticket_id, ...ticket } = ticketUpdate;
+  const { ticket_id, ...ticket } = ticketUpdate.ticket;
+
   try {
     const data: IResponseTicketInterface = await zendeskRequest(
       `/tickets/${ticket_id}.json`,
@@ -84,6 +84,7 @@ const updateTicket = async (ticketUpdate: TActionData<typeof options>) => {
         ticket,
       }
     );
+
     return data;
   } catch (error) {
     console.error('Error updating ticket:', error);
@@ -96,4 +97,5 @@ export default {
   api_function: updateTicket,
   options,
   response_type,
-} as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+  _localizationGroup: 'tickets',
+} satisfies TQorePartialActionWithFunction<typeof options, typeof response_type>;

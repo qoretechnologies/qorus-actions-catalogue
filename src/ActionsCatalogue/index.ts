@@ -1,33 +1,16 @@
-/* HERE WE WILL IMPORT THE ACTIONS CATALOGUE FROM @qoretechnologies/qorus-actions-catalogue
- * FOR NOW WE NEED TO FAKE IT
- * import { ActionsCatalogue } from '@qoretechnologies/qorus-actions-catalogue';
- */
+import { TQoreApps } from 'global/models/qore';
+import { Locales } from 'i18n/i18n-types';
+import zendesk from 'zendesk';
 
-// This will be replaced by the real implementation
-import { Log } from '../decorators/Logger';
-import { DebugLevels } from '../utils/Debugger';
-import { MockApps } from './mock';
+class _QorusAppsCatalogue {
+  public readonly apps: TQoreApps = {};
 
-// Types are now ANY because they will come from '@qoretechnologies/qorus-actions-catalogue' when it's ready
-export type TApp = Record<string, any>;
-export type TAction = Record<string, any>;
+  constructor(public locale: Locales = 'en') {}
 
-export interface IQoreApi {
-  registerApp: (app: TApp) => void;
-  registerAction: (action: TAction) => void;
-}
-
-class ActionsCatalogue {
-  @Log('Initializing the Actions Catalogue', DebugLevels.Info)
-  registerAppActions(qoreApi: IQoreApi) {
-    Object.keys(MockApps).forEach((appName) => {
-      const { actions, ...app } = MockApps[appName];
-      qoreApi.registerApp(app);
-      actions.forEach((action: any) => {
-        qoreApi.registerAction(action);
-      });
-    });
+  // Register all the apps here
+  public registerApps() {
+    this.apps['zendesk'] = zendesk(this.locale);
   }
 }
 
-export const actionsCatalogue = new ActionsCatalogue();
+export const QorusAppsCatalogue = new _QorusAppsCatalogue();
