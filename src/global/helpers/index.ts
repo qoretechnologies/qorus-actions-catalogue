@@ -26,14 +26,14 @@ export const mapActionsToApp = (
   actions: Record<string, TQorePartialActionWithFunction>,
   locale: Locales
 ): IQoreAppActionWithFunction[] => {
-  return Object.entries(actions).map(([actionName, action]) => ({
+  return Object.entries(actions).map(([_a, action]) => ({
     ...omit(action, OMMITTED_FIELDS),
     // @ts-expect-error no idea whats going on here, will fix later
-    display_name: L[locale].apps[app].actions[actionName as unknown].displayName(),
+    display_name: L[locale].apps[app].actions[action.action as unknown].displayName(),
     // @ts-expect-error no idea whats going on here, will fix later
-    short_desc: L[locale].apps[app].actions[actionName as unknown].shortDesc(),
+    short_desc: L[locale].apps[app].actions[action.action as unknown].shortDesc(),
     // @ts-expect-error no idea whats going on here, will fix later
-    desc: L[locale].apps[app].actions[actionName as unknown].longDesc(),
+    desc: L[locale].apps[app].actions[action.action as unknown].longDesc(),
     app,
     action_code: 2,
 

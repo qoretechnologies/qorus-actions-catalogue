@@ -68,6 +68,20 @@ type RootTranslation = {
 			 */
 			longDesc: string
 			actions: {
+				create_ticket: {
+					/**
+					 * C​r​e​a​t​e​ ​T​i​c​k​e​t
+					 */
+					displayName: string
+					/**
+					 * C​r​e​a​t​e​ ​a​ ​n​e​w​ ​t​i​c​k​e​t
+					 */
+					shortDesc: string
+					/**
+					 * C​r​e​a​t​e​ ​a​ ​n​e​w​ ​t​i​c​k​e​t
+					 */
+					longDesc: string
+				}
 				users: {
 					get_user: {
 						/**
@@ -465,6 +479,20 @@ type RootTranslation = {
 					}
 				}
 				tickets: {
+					ticket: {
+						/**
+						 * T​i​c​k​e​t​ ​O​b​j​e​c​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​i​n​f​o​r​m​a​t​i​o​n​ ​o​f​ ​a​ ​t​i​c​k​e​t
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​i​n​f​o​r​m​a​t​i​o​n​ ​o​f​ ​a​ ​t​i​c​k​e​t
+						 */
+						longDesc: string
+					}
 					comment: {
 						/**
 						 * C​o​m​m​e​n​t
@@ -1947,6 +1975,20 @@ export type TranslationFunctions = {
 			 */
 			longDesc: () => LocalizedString
 			actions: {
+				create_ticket: {
+					/**
+					 * Create Ticket
+					 */
+					displayName: () => LocalizedString
+					/**
+					 * Create a new ticket
+					 */
+					shortDesc: () => LocalizedString
+					/**
+					 * Create a new ticket
+					 */
+					longDesc: () => LocalizedString
+				}
 				users: {
 					get_user: {
 						/**
@@ -2344,6 +2386,20 @@ export type TranslationFunctions = {
 					}
 				}
 				tickets: {
+					ticket: {
+						/**
+						 * Ticket Object
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The information of a ticket
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The information of a ticket
+						 */
+						longDesc: () => LocalizedString
+					}
 					comment: {
 						/**
 						 * Comment
