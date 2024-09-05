@@ -1,5 +1,5 @@
 import { Locales, Translation } from 'i18n/i18n-types';
-import { omit, reduce } from 'lodash';
+import { capitalize, omit, reduce } from 'lodash';
 import {
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
@@ -28,12 +28,21 @@ export const mapActionsToApp = (
 ): IQoreAppActionWithFunction[] => {
   return Object.entries(actions).map(([_a, action]) => ({
     ...omit(action, OMMITTED_FIELDS),
-    // @ts-expect-error no idea whats going on here, will fix later
-    display_name: L[locale].apps[app].actions[action.action as unknown].displayName(),
-    // @ts-expect-error no idea whats going on here, will fix later
-    short_desc: L[locale].apps[app].actions[action.action as unknown].shortDesc(),
-    // @ts-expect-error no idea whats going on here, will fix later
-    desc: L[locale].apps[app].actions[action.action as unknown].longDesc(),
+
+    display_name:
+      // @ts-expect-error no idea whats going on here, will fix later
+      L[locale].apps[app].actions[action.action as unknown].displayName() ||
+      capitalize(action.action.replace(/_/g, ' ')),
+
+    short_desc:
+      // @ts-expect-error no idea whats going on here, will fix later
+      L[locale].apps[app].actions[action.action as unknown].shortDesc() ||
+      capitalize(action.action.replace(/_/g, ' ')),
+
+    desc:
+      // @ts-expect-error no idea whats going on here, will fix later
+      L[locale].apps[app].actions[action.action as unknown].longDesc() ||
+      capitalize(action.action.replace(/_/g, ' ')),
     app,
     action_code: 2,
 
