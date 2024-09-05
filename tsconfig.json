@@ -37,6 +37,6 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "jsx": "react-jsx",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }
