@@ -334,9 +334,9 @@ export type TQoreResponseType = Record<string, IQoreTypeObject>;
 export interface IQoreAppActionWithFunction<Options = TQoreOptions, Response = TQoreResponseType>
   extends IQoreAppAction {
   action_code: 2;
-  api_function: TQoreAppActionFunction;
-  options: StrictRecord<keyof Options, Options[keyof Options]>;
-  response_type: StrictRecord<keyof Response, Response[keyof Response]>;
+  api_function?: TQoreAppActionFunction;
+  options?: StrictRecord<keyof Options, Options[keyof Options]>;
+  response_type?: StrictRecord<keyof Response, Response[keyof Response]>;
 }
 
 export type TQorePartialActionWithFunction<
