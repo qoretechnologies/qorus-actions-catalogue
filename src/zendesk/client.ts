@@ -18,10 +18,10 @@ export const zendeskRequest = async (
 ) => {
   const uri = `/api/v2${endpoint}`;
   const authorization =
-    process.env.NODE_ENV === 'test' ? `Basic ${BasicAuth}` : `Bearer ${options.conn_opts.token}`;
+    process.env.NODE_ENV === 'test' ? `Basic ${BasicAuth}` : `Bearer ${options?.conn_opts?.token}`;
   const requestMethod =
     method === 'DELETE' ? 'deleteReq' : (method.toLowerCase() as 'get' | 'post' | 'put');
-  const url = options.conn_opts.subdomain
+  const url = options?.conn_opts?.subdomain
     ? `https://${options.conn_opts.subdomain}.zendesk.com`
     : process.env.ZENDESK_TEST_DOMAIN;
 
