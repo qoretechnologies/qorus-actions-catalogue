@@ -158,14 +158,13 @@ export interface IQoreAppAction extends IQoreAppShared {
   action_code: 1 | 2; // What are other possible values?
 }
 
-export type TQoreAppActionFunctionContext = {
+export type TQoreAppActionFunctionContext<CustomConnOptions extends Record<string, any> = {}> = {
   conn_name: string;
   conn_opts?: {
     token?: string;
     oauth2_refresh_token?: string;
     token_type?: 'Bearer' | string;
-    // TODO: Add variable domain
-  };
+  } & CustomConnOptions;
   opts?: Record<string, any>;
 };
 
