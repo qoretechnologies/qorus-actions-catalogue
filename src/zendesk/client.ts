@@ -21,9 +21,7 @@ export const zendeskRequest = async (
     process.env.NODE_ENV === 'test' ? `Basic ${BasicAuth}` : `Bearer ${options?.conn_opts?.token}`;
   const requestMethod =
     method === 'DELETE' ? 'deleteReq' : (method.toLowerCase() as 'get' | 'post' | 'put');
-  const url = options?.conn_opts?.subdomain
-    ? `https://${options.conn_opts.subdomain}.zendesk.com`
-    : process.env.ZENDESK_TEST_DOMAIN;
+  const url = `https://${options?.conn_opts?.subdomain || process.env.ZENDESK_TEST_DOMAIN}.zendesk.com`;
 
   try {
     const response: Record<string, any> = await QorusRequest[requestMethod](
