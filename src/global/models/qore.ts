@@ -134,11 +134,11 @@ export interface IQoreApp<
   >,
 > extends IQoreAppShared {
   name: string;
-  logo?: string;
-  logo_file_name?: string;
-  logo_mime_type?: string;
+  logo: string;
+  logo_file_name: string;
+  logo_mime_type: string;
   rest?: IQoreRestConnectionConfig;
-  rest_modifiders?: IQoreRestConnectionModifiers<RestModifierOptions>;
+  rest_modifiers?: IQoreRestConnectionModifiers<RestModifierOptions>;
 }
 
 export interface IQoreAppWithActions<
