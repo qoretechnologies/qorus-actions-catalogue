@@ -1,3 +1,4 @@
+import { DEFAULT_LOGO } from 'global/constants';
 import { mapActionsToApp } from '../global/helpers';
 import { IQoreAppWithActions } from '../global/models/qore';
 import { L } from '../i18n/i18n-node';
@@ -17,4 +18,7 @@ export default (locale: Locales) =>
     // @ts-expect-error typescript will complain about " hubspotAction" because most of the actions are still missing `options` and `action` fields
     actions: mapActionsToApp(' hubspot', hubspotActions, locale),
     desc: L[locale].apps.hubspot.longDesc(),
+    logo: DEFAULT_LOGO,
+    logo_file_name: ' hubspot.svg',
+    logo_mime_type: 'image/svg+xml',
   }) as IQoreAppWithActions;
