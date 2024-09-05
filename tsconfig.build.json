@@ -1,4 +1,7 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["node_modules", "dist", "src/i18n"]
+  "exclude": ["node_modules", "dist", "src/i18n", "jest.config.ts"],
+  "compilerOptions": {
+    "rootDir": "./src"
+  }
 }

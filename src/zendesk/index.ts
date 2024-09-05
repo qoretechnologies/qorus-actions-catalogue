@@ -1,3 +1,4 @@
+import { DEFAULT_LOGO } from 'global/constants';
 import { mapActionsToApp } from '../global/helpers';
 import {
   GetConnectionOptionDefinitionFromQoreType,
@@ -33,6 +34,9 @@ export default (locale: Locales) =>
     name: 'zendesk',
     actions: mapActionsToApp('zendesk', zendeskActions, locale),
     desc: L[locale].apps.zendesk.longDesc(),
+    logo: DEFAULT_LOGO,
+    logo_file_name: 'zendesk.svg',
+    logo_mime_type: 'image/svg+xml',
     rest: {
       url: `tsrest-zendesk://{{subdomain}}.zendesk.com`,
       data: 'json',
@@ -42,7 +46,7 @@ export default (locale: Locales) =>
       oauth2_auth_url: 'https://{{subdomain}}.zendesk.com/oauth/authorizations/new',
       oauth2_token_url: 'https://{{subdomain}}.zendesk.com/oauth/tokens',
     },
-    rest_modifiders: {
+    rest_modifiers: {
       options,
       required_options: 'subdomain',
       url_template_options: ['subdomain'],

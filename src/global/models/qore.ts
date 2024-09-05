@@ -134,9 +134,9 @@ export interface IQoreApp<
   >,
 > extends IQoreAppShared {
   name: string;
-  logo?: string;
-  logo_file_name?: string;
-  logo_mime_type?: string;
+  logo: string;
+  logo_file_name: string;
+  logo_mime_type: string;
   rest?: IQoreRestConnectionConfig;
   rest_modifiers?: IQoreRestConnectionModifiers<RestModifierOptions>;
 }
@@ -158,14 +158,13 @@ export interface IQoreAppAction extends IQoreAppShared {
   action_code: 1 | 2; // What are other possible values?
 }
 
-export type TQoreAppActionFunctionContext = {
+export type TQoreAppActionFunctionContext<CustomConnOptions extends Record<string, any> = {}> = {
   conn_name: string;
   conn_opts?: {
     token?: string;
     oauth2_refresh_token?: string;
     token_type?: 'Bearer' | string;
-    // TODO: Add variable domain
-  };
+  } & CustomConnOptions;
   opts?: Record<string, any>;
 };
 
@@ -335,8 +334,8 @@ export type TQoreResponseType = Record<string, IQoreTypeObject>;
 export interface IQoreAppActionWithFunction<Options = TQoreOptions, Response = TQoreResponseType>
   extends IQoreAppAction {
   action_code: 2;
-  api_function: TQoreAppActionFunction;
-  options: StrictRecord<keyof Options, Options[keyof Options]>;
+  api_function?: TQoreAppActionFunction;
+  options?: StrictRecord<keyof Options, Options[keyof Options]>;
   response_type?: StrictRecord<keyof Response, Response[keyof Response]>;
 }
 
