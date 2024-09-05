@@ -56,13 +56,17 @@ jobs:
           rm -rf node_modules
           yarn install
 
-      - name: Build
-        id: build
+      - name: Test Build
+        id: test_build
         run: yarn build:test
 
       - name: Running tests
         id: tests
         run: yarn test:ci
+
+      - name: Build
+        id: build
+        run: yarn build
 
       - name: Publish to NPM
         id: npm_publish
