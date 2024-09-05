@@ -12,6 +12,7 @@ jest.config.js
 tests.json
 tsconfig.json
 tsconfig.prod.json
+tsconfig.build.json
 yarn-error.log
 yarn.lock
 __tests__
@@ -21,3 +22,5 @@ __tests__
 mock
 public
 src/stories
+jest.config.ts
+.typesafe-i18n.json
