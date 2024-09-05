@@ -11,8 +11,23 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "core/*": ["core/*"],
+      "shared/*": ["shared/*"],
+      "global/*": ["global/*"],
+      "common/*": ["common/*"],
+      "zendesk/*": ["zendesk/*"],
+      "i18n/*": ["i18n/*"]
     },
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ],
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": true,
@@ -22,6 +37,6 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": false
+    "types": ["jest", "node"]
   }
 }
