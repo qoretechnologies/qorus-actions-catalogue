@@ -19,7 +19,7 @@ import {
   TQoreAppActionFunctionContext,
   TQoreApps,
   TQoreGetAllowedValuesFunction,
-  TQoreRestConnectionConfig,
+  IQoreRestConnectionConfig,
 } from 'global/models/qore';
 import { DynamicDropdownOptions } from 'core/framework/property/input/dropdown/dropdown-prop';
 import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './common/constants';
@@ -56,9 +56,11 @@ class _PiecesAppCatalogue {
     };
   }
 
-  private mapPieceAuthToAppRest(auth: PieceAuthProperty): TQoreRestConnectionConfig {
+  private mapPieceAuthToAppRest(auth: PieceAuthProperty): IQoreRestConnectionConfig {
     if (auth.type === PropertyType.OAUTH2) {
       return {
+        data: 'auto',
+        oauth2_grant_type: 'authorization_code',
         url: auth.authUrl,
         oauth2_auth_url: auth.authUrl,
         oauth2_token_url: auth.tokenUrl,
@@ -97,7 +99,7 @@ class _PiecesAppCatalogue {
     ): Promise<any> => {
       const actionContext = {
         propsValue: obj satisfies StaticPropsValue<InputPropertyMap>,
-        auth: { access_token: context.conn_options.token, ...context.opts },
+        auth: { access_token: context.conn_opts.token, ...context.opts },
         ...commonActionContext,
       } satisfies ActionContext;
 
@@ -166,7 +168,7 @@ class _PiecesAppCatalogue {
     getOptions: DynamicDropdownOptions<any>
   ): TQoreGetAllowedValuesFunction {
     return async (context: TQoreAppActionFunctionContext): Promise<IQoreAllowedValue[]> => {
-      const auth = { access_token: context.conn_options.token };
+      const auth = { access_token: context.conn_opts.token };
       const options = await getOptions({ auth });
 
       return options.options.map((option) => ({

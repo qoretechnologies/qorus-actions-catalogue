@@ -1,17 +1,13 @@
-import { config } from 'dotenv';
 import { TQoreAppActionFunctionContext } from '../global/models/qore';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
 import { validateResponseProperties } from './helpers/validate-response-properties.helper';
-
-config({ path: '.env.test' });
-PiecesAppCatalogue.registerApps();
 
 describe('slackPieceTest', () => {
   let newMessageTimestamp: string = '';
 
   const actionContext = {
     conn_name: 'slack',
-    conn_options: {
+    conn_opts: {
       token: process.env.SLACK_ACCESS_TOKEN,
     },
     opts: {

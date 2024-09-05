@@ -138,7 +138,7 @@ export interface IQoreApp<
   logo_file_name?: string;
   logo_mime_type?: string;
   rest?: IQoreRestConnectionConfig;
-  rest_modifiders?: IQoreRestConnectionModifiers<RestModifierOptions>;
+  rest_modifiers?: IQoreRestConnectionModifiers<RestModifierOptions>;
 }
 
 export interface IQoreAppWithActions<

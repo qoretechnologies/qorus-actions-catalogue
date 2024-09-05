@@ -13,6 +13,7 @@ const findUserByEmailResponseType: IActionResponse = {
     example_value: true,
   },
   user: {
+    name: 'user',
     display_name: 'User',
     short_desc: 'The user found by email',
     desc: 'The user found by email',

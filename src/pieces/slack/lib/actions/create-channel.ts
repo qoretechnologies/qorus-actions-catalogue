@@ -13,6 +13,7 @@ const createChannelResponseType: IActionResponse = {
     example_value: true,
   },
   channel: {
+    name: 'channel',
     display_name: 'Channel',
     short_desc: 'The newly created channel',
     desc: 'The newly created channel',

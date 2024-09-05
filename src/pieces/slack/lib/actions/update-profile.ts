@@ -12,12 +12,14 @@ const updateProfileResponseType: IActionResponse = {
     example_value: true,
   },
   username: {
+    name: 'username',
     type: 'string',
     display_name: 'Username',
     short_desc: 'The user’s username',
     example_value: 'spengler',
   },
   profile: {
+    name: 'profile',
     display_name: 'Profile',
     short_desc: "The user's profile",
     type: {

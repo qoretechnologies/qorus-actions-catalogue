@@ -14,6 +14,7 @@ const uploadFileResponseType: IActionResponse = {
     example_value: true,
   },
   files: {
+    name: 'files',
     display_name: 'files',
     short_desc: 'The uploaded files',
     desc: 'The uploaded files',

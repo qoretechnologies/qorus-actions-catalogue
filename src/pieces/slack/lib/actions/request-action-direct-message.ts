@@ -31,6 +31,7 @@ const requestActionDirectMessageResponseType: IActionResponse = {
     example_value: '1234567890.123456',
   },
   message: {
+    name: 'message',
     display_name: 'Message',
     short_desc: 'The message that was sent',
     desc: 'The message that was sent',

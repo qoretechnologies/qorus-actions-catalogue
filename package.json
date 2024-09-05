@@ -9,7 +9,7 @@
     "url": "git+https://github.com/qoretechnologies/qorus-actions-catalogue.git"
   },
   "scripts": {
-    "build": "npx tsc && tsc-alias",
+    "build": "npx tsc --p tsconfig.build.json && tsc-alias",
     "build:test": "npx tsc --noEmit --p tsconfig.build.json",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "storybook": "storybook dev -p 6006",
