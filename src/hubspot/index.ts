@@ -14,7 +14,7 @@ export default (locale: Locales) =>
   ({
     display_name: L[locale].apps.hubspot.displayName(),
     short_desc: L[locale].apps.hubspot.shortDesc(),
-    name: 'hubspot',
+    name: 'Hubspot',
     // @ts-expect-error typescript will complain about " hubspotAction" because most of the actions are still missing `options` and `action` fields
     actions: mapActionsToApp(' hubspot', hubspotActions, locale),
     desc: L[locale].apps.hubspot.longDesc(),
