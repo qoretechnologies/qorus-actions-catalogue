@@ -28,6 +28,11 @@ const en = {
       shortDesc: 'Collection of actions to interact with Zendesk API',
       longDesc: 'Collection of actions to interact with Zendesk API',
       actions: {
+        create_ticket: {
+          displayName: 'Create Ticket',
+          shortDesc: 'Create a new ticket',
+          longDesc: 'Create a new ticket',
+        },
         users: {
           get_user: {
             displayName: 'Get User',
@@ -173,6 +178,11 @@ const en = {
           },
         },
         tickets: {
+          ticket: {
+            displayName: 'Ticket Object',
+            shortDesc: 'The information of a ticket',
+            longDesc: 'The information of a ticket',
+          },
           comment: {
             displayName: 'Comment',
             shortDesc: 'Comment on a ticket',
