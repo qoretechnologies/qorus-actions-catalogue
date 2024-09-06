@@ -30,7 +30,7 @@ export default (locale: Locales) =>
   ({
     display_name: L[locale].apps.zendesk.displayName(),
     short_desc: L[locale].apps.zendesk.shortDesc(),
-    name: 'zendesk',
+    name: 'Zendesk',
     actions: mapActionsToApp('zendesk', zendeskActions, locale),
     desc: L[locale].apps.zendesk.longDesc(),
     // This is a white Zendesk styled "Z" logo used in accordance with Zendesk's Brand / Logo Guidelines
