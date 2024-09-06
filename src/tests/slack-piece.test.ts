@@ -186,7 +186,7 @@ describe('slackPieceTest', () => {
     expect(userIds).toBeDefined();
     expect(userIds.length).toBeGreaterThan(0);
 
-    const props = { userId: userIds[1].value, text: 'test message from Jest', actions: ['test'] };
+    const props = { userId: userIds[0].value, text: 'test message from Jest', actions: ['test'] };
 
     if (action.api_function) {
       try {
@@ -246,7 +246,7 @@ describe('slackPieceTest', () => {
     expect(userIds).toBeDefined();
     expect(userIds.length).toBeGreaterThan(0);
 
-    const props = { userId: userIds[1].value, text: 'test message from Jest' };
+    const props = { userId: userIds[0].value, text: 'test message from Jest' };
 
     if (action.api_function) {
       try {
