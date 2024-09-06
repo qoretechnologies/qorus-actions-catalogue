@@ -10,9 +10,9 @@ export const response_type: IActionResponse = {
   count: {
     type: 'number',
     name: 'count',
-    display_name: L.en.apps.zendesk.actions.tickets.count.displayName(),
-    short_desc: L.en.apps.zendesk.actions.tickets.count.shortDesc(),
-    desc: L.en.apps.zendesk.actions.tickets.count.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.tickets.count.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.tickets.count.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.tickets.count.longDesc(),
     example_value: 123,
   },
 };

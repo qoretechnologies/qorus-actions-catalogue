@@ -54,7 +54,7 @@ type RootTranslation = {
 				}
 			}
 		}
-		zendesk: {
+		Zendesk: {
 			/**
 			 * Z​e​n​d​e​s​k
 			 */
@@ -1961,7 +1961,7 @@ export type TranslationFunctions = {
 				}
 			}
 		}
-		zendesk: {
+		Zendesk: {
 			/**
 			 * Zendesk
 			 */

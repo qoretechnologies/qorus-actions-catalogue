@@ -9,9 +9,9 @@ export const response_type: IActionResponse = {
   users: {
     type: 'list',
     name: 'users',
-    display_name: L.en.apps.zendesk.actions.users.users.displayName(),
-    short_desc: L.en.apps.zendesk.actions.users.users.shortDesc(),
-    desc: L.en.apps.zendesk.actions.users.users.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.users.users.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.users.users.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.users.users.longDesc(),
     example_value: [
       {
         id: 123,
@@ -22,17 +22,17 @@ export const response_type: IActionResponse = {
   id: {
     type: 'number',
     name: 'id',
-    display_name: L.en.apps.zendesk.actions.users.user_id.displayName(),
-    short_desc: L.en.apps.zendesk.actions.users.user_id.shortDesc(),
-    desc: L.en.apps.zendesk.actions.users.user_id.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.users.user_id.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.users.user_id.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.users.user_id.longDesc(),
     example_value: 123,
   },
   name: {
     type: 'string',
     name: 'name',
-    display_name: L.en.apps.zendesk.actions.users.name.displayName(),
-    short_desc: L.en.apps.zendesk.actions.users.name.shortDesc(),
-    desc: L.en.apps.zendesk.actions.users.name.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.users.name.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.users.name.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.users.name.longDesc(),
     example_value: 'John Doe',
   },
 };
