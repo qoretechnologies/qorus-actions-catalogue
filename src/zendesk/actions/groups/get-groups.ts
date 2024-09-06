@@ -10,9 +10,9 @@ export const response_type: IActionResponse = {
   groups: {
     type: 'list',
     name: 'groups',
-    display_name: L.en.apps.zendesk.actions.groups.groups.displayName(),
-    short_desc: L.en.apps.zendesk.actions.groups.groups.shortDesc(),
-    desc: L.en.apps.zendesk.actions.groups.groups.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.groups.groups.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.groups.groups.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.groups.groups.longDesc(),
     example_value: [
       {
         created_at: '2009-05-13T00:07:08Z',

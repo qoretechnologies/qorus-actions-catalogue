@@ -5,7 +5,7 @@ import * as zendeskActions from '../zendesk/actions';
 
 describe('Helpers tests', () => {
   it('Properly maps actions to a given app', () => {
-    const actions = mapActionsToApp('zendesk', zendeskActions, 'en');
+    const actions = mapActionsToApp('Zendesk', zendeskActions, 'en');
     const createTicket = actions.find((action) => action.action === 'create_ticket');
 
     expect(actions).toHaveLength(23);
