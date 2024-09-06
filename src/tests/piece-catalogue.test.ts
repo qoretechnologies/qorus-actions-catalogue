@@ -1,7 +1,5 @@
+import { forEach } from 'lodash';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
-import { config } from 'dotenv';
-
-config({ path: '.env.test' });
 
 describe('PiecesAppCatalogue', () => {
   beforeAll(() => {
@@ -9,9 +7,9 @@ describe('PiecesAppCatalogue', () => {
   });
 
   it('should register apps', () => {
-    Object.entries(PiecesAppCatalogue.apps).forEach(([_key, value]) => {
-      expect(value).toBeDefined();
-      expect(value.actions.length).toBeGreaterThan(0);
+    forEach(PiecesAppCatalogue.apps, (app) => {
+      expect(app).toBeDefined();
+      expect(app.actions.length).toBeGreaterThan(0);
     });
   });
 });

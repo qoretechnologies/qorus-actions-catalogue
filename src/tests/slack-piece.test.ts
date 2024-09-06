@@ -1,6 +1,6 @@
 import { TQoreAppActionFunctionContext } from '../global/models/qore';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
-import { validateResponseProperties } from './helpers/validate-response-properties.helper';
+import { validateResponseProperties } from './utils';
 
 describe('slackPieceTest', () => {
   let newMessageTimestamp: string = '';
