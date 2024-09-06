@@ -7,8 +7,6 @@ export interface IQoreAppShared {
   desc?: string;
 }
 
-export type CapitalizedString = string & { __brand: 'CapitalizedString' };
-
 type TQoreRestContentEncoding = 'gzip' | 'bzip2' | 'deflate' | 'identity';
 
 type TQoreRestData = 'auto' | 'json' | 'yaml' | 'rawxml' | 'xml' | 'url' | 'text' | 'bin';
@@ -167,13 +165,15 @@ export type TFirstAppCharacter =
   | 8
   | 9;
 
+export type TStringWithFirstUpperCaseCharacter = `${TFirstAppCharacter}${string}`;
+
 export interface IQoreApp<
   RestModifierOptions extends Record<string, IQoreConnectionOption> = Record<
     string,
     IQoreConnectionOption
   >,
 > extends IQoreAppShared {
-  name: `${TFirstAppCharacter}${string}` | CapitalizedString;
+  name: TStringWithFirstUpperCaseCharacter;
   logo: string;
   logo_file_name: string;
   logo_mime_type: string;

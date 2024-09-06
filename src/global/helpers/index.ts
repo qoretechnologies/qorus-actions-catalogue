@@ -1,13 +1,13 @@
 import { Locales, Translation } from 'i18n/i18n-types';
 import { capitalize, omit, reduce } from 'lodash';
 import {
-  CapitalizedString,
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
   IQoreTypeObject,
   TQoreOptions,
   TQorePartialActionWithFunction,
   TQoreResponseType,
+  TStringWithFirstUpperCaseCharacter,
 } from '../../global/models/qore';
 import { L } from '../../i18n/i18n-node';
 
@@ -133,6 +133,6 @@ export const normalizeName = (appName: string): string => {
     .replace(/[^a-z0-9_]/g, '');
 };
 
-export const normalizeAppName = (appName: string): CapitalizedString => {
-  return capitalize(normalizeName(appName)) as CapitalizedString;
+export const normalizeAppName = (appName: string): TStringWithFirstUpperCaseCharacter => {
+  return capitalize(normalizeName(appName)) as TStringWithFirstUpperCaseCharacter;
 };
