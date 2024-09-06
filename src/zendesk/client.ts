@@ -1,5 +1,5 @@
 import { QorusRequest } from '@qoretechnologies/ts-toolkit';
-import { ZENDESK_AUTH } from './configs';
+import { ZENDESK_AUTH, ZENDESK_DOMAIN } from './configs';
 
 export const zendeskRequest = async (
   endpoint: string,
@@ -22,7 +22,7 @@ export const zendeskRequest = async (
             },
           },
           {
-            url: 'https://qorehelp.zendesk.com',
+            url: `https://${ZENDESK_DOMAIN}`,
             endpointId: '5',
           }
         );
@@ -37,7 +37,7 @@ export const zendeskRequest = async (
             },
           },
           {
-            url: 'https://qorehelp.zendesk.com',
+            url: `https://${ZENDESK_DOMAIN}`,
             endpointId: '5',
           }
         );
@@ -52,7 +52,7 @@ export const zendeskRequest = async (
             },
           },
           {
-            url: 'https://qorehelp.zendesk.com',
+            url: `https://${ZENDESK_DOMAIN}`,
             endpointId: '5',
           }
         );
@@ -68,7 +68,7 @@ export const zendeskRequest = async (
             },
           },
           {
-            url: 'https://qorehelp.zendesk.com',
+            url: `https://${ZENDESK_DOMAIN}`,
             endpointId: '5',
           }
         );

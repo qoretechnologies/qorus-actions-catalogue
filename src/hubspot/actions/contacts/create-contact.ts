@@ -1,0 +1,154 @@
+import { TQorePartialActionWithFunction } from 'global/models/qore';
+import { hubspotRequest } from '../../client';
+import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import { L } from '../../../i18n/i18n-node';
+import { IResponseContactInterface } from 'hubspot/models/contacts';
+
+// Defining a function to create a contact
+const options: IActionOptions = {
+  properties: {
+    name: 'properties',
+    display_name: L.en.apps.hubspot.actions.contacts.properties.displayName(),
+    short_desc: L.en.apps.hubspot.actions.contacts.properties.shortDesc(),
+    desc: L.en.apps.hubspot.actions.contacts.properties.longDesc(),
+    type: {
+      email: {
+        type: 'string',
+        name: 'email',
+        display_name: L.en.apps.hubspot.actions.contacts.email.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.email.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.email.longDesc(),
+        example_value: 'john@example.com',
+      },
+      firstname: {
+        type: 'string',
+        name: 'firstname',
+        display_name: L.en.apps.hubspot.actions.contacts.firstname.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.firstname.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.firstname.longDesc(),
+        example_value: 'John',
+      },
+      lastname: {
+        type: 'string',
+        name: 'lastname',
+        display_name: L.en.apps.hubspot.actions.contacts.lastname.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.lastname.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.lastname.longDesc(),
+        example_value: 'Doe',
+      },
+      phone: {
+        type: 'string',
+        name: 'phone',
+        display_name: L.en.apps.hubspot.actions.contacts.phone.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.phone.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.phone.longDesc(),
+        example_value: '+1234567890',
+      },
+      website: {
+        type: 'string',
+        name: 'website',
+        display_name: L.en.apps.hubspot.actions.contacts.website.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.website.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.website.longDesc(),
+        example_value: 'https://example.com',
+      },
+      company: {
+        type: 'string',
+        name: 'company',
+        display_name: L.en.apps.hubspot.actions.contacts.company.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.company.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.company.longDesc(),
+        example_value: 'Acme Inc.',
+      },
+      lifecyclestage: {
+        type: 'string',
+        name: 'lifecyclestage',
+        display_name: L.en.apps.hubspot.actions.contacts.lifecyclestage.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.lifecyclestage.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.lifecyclestage.longDesc(),
+        example_value: 'Lead',
+      },
+    },
+  },
+} as IActionOptions;
+export const response_type: IActionResponse = {
+  id: {
+    type: 'number',
+    name: 'id',
+    display_name: L.en.apps.hubspot.actions.contacts.id.displayName(),
+    short_desc: L.en.apps.hubspot.actions.contacts.id.shortDesc(),
+    desc: L.en.apps.hubspot.actions.contacts.id.longDesc(),
+    example_value: 123,
+  },
+  properties: {
+    name: 'properties',
+    display_name: L.en.apps.hubspot.actions.contacts.properties.displayName(),
+    short_desc: L.en.apps.hubspot.actions.contacts.properties.shortDesc(),
+    desc: L.en.apps.hubspot.actions.contacts.properties.longDesc(),
+    example_value: {
+      hs_createdate: '2024-08-30T07:46:55.158Z',
+      hs_lastmodifieddate: '2024-08-30T07:47:05.869Z',
+      hs_object_id: '360210657899',
+    },
+    type: {
+      createdate: {
+        type: 'string',
+        name: 'createdate',
+        display_name: L.en.apps.hubspot.actions.contacts.createdate.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.createdate.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.createdate.longDesc(),
+        example_value: '2021-08-25',
+      },
+      hs_object_id: {
+        type: 'number',
+        name: 'hs_object_id',
+        display_name: L.en.apps.hubspot.actions.contacts.hs_object_id.displayName(),
+        short_desc: L.en.apps.hubspot.actions.contacts.hs_object_id.shortDesc(),
+        desc: L.en.apps.hubspot.actions.contacts.hs_object_id.longDesc(),
+        example_value: 123,
+      },
+    },
+  },
+  createdAt: {
+    type: 'string',
+    name: 'created_at',
+    display_name: L.en.apps.hubspot.actions.contacts.created_at.displayName(),
+    short_desc: L.en.apps.hubspot.actions.contacts.created_at.shortDesc(),
+    desc: L.en.apps.hubspot.actions.contacts.created_at.longDesc(),
+    example_value: '2021-08-25T09:00:00Z',
+  },
+  updatedAt: {
+    type: 'string',
+    name: 'updated_at',
+    display_name: L.en.apps.hubspot.actions.contacts.updated_at.displayName(),
+    short_desc: L.en.apps.hubspot.actions.contacts.updated_at.shortDesc(),
+    desc: L.en.apps.hubspot.actions.contacts.updated_at.longDesc(),
+    example_value: '2021-08-25T09:00:00Z',
+  },
+  archived: {
+    type: 'boolean',
+    name: 'archived',
+    display_name: L.en.apps.hubspot.actions.contacts.archived.displayName(),
+    short_desc: L.en.apps.hubspot.actions.contacts.archived.shortDesc(),
+    desc: L.en.apps.hubspot.actions.contacts.archived.longDesc(),
+    example_value: true,
+  },
+} as IActionResponse;
+const createContact = async (contact: TActionData<typeof options>) => {
+  try {
+    const data: IResponseContactInterface = await hubspotRequest('/objects/contacts', 'POST', {
+      contact,
+    });
+    return data;
+  } catch (error) {
+    console.error('Error creating contact:', error);
+    throw error;
+  }
+};
+
+export default {
+  action: 'create_contact',
+  api_function: createContact,
+  options,
+  response_type,
+} as TQorePartialActionWithFunction<typeof options, typeof response_type>;

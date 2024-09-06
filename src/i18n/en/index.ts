@@ -579,39 +579,502 @@ const en = {
             shortDesc: 'Results of the action',
             longDesc: 'Results of the action',
           },
-          name:{
+          name: {
             displayName: 'Name',
             shortDesc: 'Name of the user',
             longDesc: 'Name of the user',
           },
-          id:{
+          id: {
             displayName: 'ID',
             shortDesc: 'ID of the user',
             longDesc: 'ID of the user',
           },
-          email:{
+          email: {
             displayName: 'Email',
             shortDesc: 'Email of the user',
             longDesc: 'Email of the user',
           },
-          created_at:{
+          created_at: {
             displayName: 'Created At',
             shortDesc: 'The date and time the user was created',
             longDesc: 'The date and time the user was created',
           },
-          updated_at:{
+          updated_at: {
             displayName: 'Updated At',
             shortDesc: 'The date and time the user was last updated',
             longDesc: 'The date and time the user was last updated',
           },
-          archived:{
+          archived: {
             displayName: 'Archived',
             shortDesc: 'Whether the user is archived',
             longDesc: 'Whether the user is archived',
           },
+          properties: {
+            displayName: 'Properties',
+            shortDesc: 'Properties of the user',
+            longDesc: 'Properties of the user',
+            hs_standard_time_zone: {
+              displayName: 'Standard Time Zone',
+              shortDesc: 'Standard Time Zone of the user',
+              longDesc: 'Standard Time Zone of the user',
+            },
+            hs_working_hours: {
+              displayName: 'Working Hours',
+              shortDesc: 'Working Hours of the user',
+              longDesc: 'Working Hours of the user',
+            },
+            hs_createdate: {
+              displayName: 'Create Date',
+              shortDesc: 'Create Date of the user',
+              longDesc: 'Create Date of the user',
+            },
+            hs_lastmodifieddate: {
+              displayName: 'Last Modified Date',
+              shortDesc: 'Last Modified Date of the user',
+              longDesc: 'Last Modified Date of the user',
+            },
+            hs_object_id: {
+              displayName: 'Object ID',
+              shortDesc: 'Object ID of the user',
+              longDesc: 'Object ID of the user',
+            },
+          },
+        },
+        deals: {
+          results: {
+            displayName: 'Results',
+            shortDesc: 'Results of the action',
+            longDesc: 'Results of the action',
+            id: {
+              displayName: 'ID',
+              shortDesc: 'ID of the deal',
+              longDesc: 'ID of the deal',
+            },
+          },
+          properties: {
+            displayName: 'Properties',
+            shortDesc: 'Properties of the deal',
+            longDesc: 'Properties of the deal',
+          },
+          amount: {
+            displayName: 'Amount',
+            shortDesc: 'Amount of the deal',
+            longDesc: 'Amount of the deal',
+          },
+          closedate: {
+            displayName: 'Close Date',
+            shortDesc: 'Close Date of the deal',
+            longDesc: 'Close Date of the deal',
+          },
+          createdate: {
+            displayName: 'Create Date',
+            shortDesc: 'Create Date of the deal',
+            longDesc: 'Create Date of the deal',
+          },
+          hs_lastmodifieddate: {
+            displayName: 'Last Modified Date',
+            shortDesc: 'Last Modified Date of the deal',
+            longDesc: 'Last Modified Date of the deal',
+          },
+          hs_object_id: {
+            displayName: 'Object ID',
+            shortDesc: 'Object ID of the deal',
+            longDesc: 'Object ID of the deal',
+          },
+          pipeline: {
+            displayName: 'Pipeline',
+            shortDesc: 'Pipeline of the deal',
+            longDesc: 'Pipeline of the deal',
+          },
+          hs_standard_time_zone: {
+            displayName: 'Standard Time Zone',
+            shortDesc: 'Standard Time Zone of the deal',
+            longDesc: 'Standard Time Zone of the deal',
+          },
+          dealstage: {
+            displayName: 'Deal Stage',
+            shortDesc: 'Deal Stage of the deal',
+            longDesc: 'Deal Stage of the deal',
+          },
+          dealname: {
+            displayName: 'Deal Name',
+            shortDesc: 'Deal Name of the deal',
+            longDesc: 'Deal Name of the deal',
+          },
+          id: {
+            displayName: 'ID',
+            shortDesc: 'ID of the user',
+            longDesc: 'ID of the user',
+          },
+
+          created_at: {
+            displayName: 'Created At',
+            shortDesc: 'The date and time the user was created',
+            longDesc: 'The date and time the user was created',
+          },
+          updated_at: {
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the user was last updated',
+            longDesc: 'The date and time the user was last updated',
+          },
+          archived: {
+            displayName: 'Archived',
+            shortDesc: 'Whether the user is archived',
+            longDesc: 'Whether the user is archived',
+          },
+        },
+        contacts: {
+          results: {
+            displayName: 'Results',
+            shortDesc: 'Results of the action',
+            longDesc: 'Results of the action',
+            id: {
+              displayName: 'ID',
+              shortDesc: 'ID of the deal',
+              longDesc: 'ID of the deal',
+            },
+          },
+          properties: {
+            displayName: 'Properties',
+            shortDesc: 'Properties of the deal',
+            longDesc: 'Properties of the deal',
+          },
+          amount: {
+            displayName: 'Amount',
+            shortDesc: 'Amount of the deal',
+            longDesc: 'Amount of the deal',
+          },
+          closedate: {
+            displayName: 'Close Date',
+            shortDesc: 'Close Date of the deal',
+            longDesc: 'Close Date of the deal',
+          },
+          createdate: {
+            displayName: 'Create Date',
+            shortDesc: 'Create Date of the deal',
+            longDesc: 'Create Date of the deal',
+          },
+          hs_lastmodifieddate: {
+            displayName: 'Last Modified Date',
+            shortDesc: 'Last Modified Date of the deal',
+            longDesc: 'Last Modified Date of the deal',
+          },
+          hs_object_id: {
+            displayName: 'Object ID',
+            shortDesc: 'Object ID of the deal',
+            longDesc: 'Object ID of the deal',
+          },
+          pipeline: {
+            displayName: 'Pipeline',
+            shortDesc: 'Pipeline of the deal',
+            longDesc: 'Pipeline of the deal',
+          },
+          hs_standard_time_zone: {
+            displayName: 'Standard Time Zone',
+            shortDesc: 'Standard Time Zone of the deal',
+            longDesc: 'Standard Time Zone of the deal',
+          },
+          dealstage: {
+            displayName: 'Deal Stage',
+            shortDesc: 'Deal Stage of the deal',
+            longDesc: 'Deal Stage of the deal',
+          },
+          dealname: {
+            displayName: 'Deal Name',
+            shortDesc: 'Deal Name of the deal',
+            longDesc: 'Deal Name of the deal',
+          },
+          id: {
+            displayName: 'ID',
+            shortDesc: 'ID of the user',
+            longDesc: 'ID of the user',
+          },
+
+          created_at: {
+            displayName: 'Created At',
+            shortDesc: 'The date and time the user was created',
+            longDesc: 'The date and time the user was created',
+          },
+          updated_at: {
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the user was last updated',
+            longDesc: 'The date and time the user was last updated',
+          },
+          archived: {
+            displayName: 'Archived',
+            shortDesc: 'Whether the user is archived',
+            longDesc: 'Whether the user is archived',
+          },
+          contactstage: {
+            displayName: 'Contact Stage',
+            shortDesc: 'Contact Stage of the deal',
+            longDesc: 'Contact Stage of the deal',
+          },
+          email: {
+            displayName: 'Email',
+            shortDesc: 'Email of the deal',
+            longDesc: 'Email of the deal',
+          },
+          firstname: {
+            displayName: 'First Name',
+            shortDesc: 'First Name of the deal',
+            longDesc: 'First Name of the deal',
+          },
+          lastname: {
+            displayName: 'Last Name',
+            shortDesc: 'Last Name of the deal',
+            longDesc: 'Last Name of the deal',
+          },
+          phone: {
+            displayName: 'Phone',
+            shortDesc: 'Phone of the deal',
+            longDesc: 'Phone of the deal',
+          },
+          website: {
+            displayName: 'Website',
+            shortDesc: 'Website of the deal',
+            longDesc: 'Website of the deal',
+          },
+          company: {
+            displayName: 'Company',
+            shortDesc: 'Company of the deal',
+            longDesc: 'Company of the deal',
+          },
+          lifecyclestage: {
+            displayName: 'Lifecycle Stage',
+            shortDesc: 'Lifecycle Stage of the deal',
+            longDesc: 'Lifecycle Stage of the deal',
+          },
+          lastmodifieddate: {
+            displayName: 'Last Modified Date',
+            shortDesc: 'Last Modified Date of the deal',
+            longDesc: 'Last Modified Date of the deal',
+          },
+          jobtitle: {
+            displayName: 'Job Title',
+            shortDesc: 'Job Title of the deal',
+            longDesc: 'Job Title of the deal',
+          },
+          favorite_food: {
+            displayName: 'Favorite Food',
+            shortDesc: 'Favorite Food of the deal',
+            longDesc: 'Favorite Food of the deal',
+          },
+        },
+        companies: {
+          results: {
+            displayName: 'Results',
+            shortDesc: 'Results of the action',
+            longDesc: 'Results of the action',
+          },
+          properties: {
+            displayName: 'Properties',
+            shortDesc: 'Properties of the deal',
+            longDesc: 'Properties of the deal',
+            createdate: {
+              displayName: 'Create Date',
+              shortDesc: 'Create Date of the deal',
+              longDesc: 'Create Date of the deal',
+            },
+            domain: {
+              displayName: 'Domain',
+              shortDesc: 'Domain of the deal',
+              longDesc: 'Domain of the deal',
+            },
+            hs_lastmodifieddate: {
+              displayName: 'Last Modified Date',
+              shortDesc: 'Last Modified Date of the deal',
+              longDesc: 'Last Modified Date of the deal',
+            },
+            hs_object_id: {
+              displayName: 'Object ID',
+              shortDesc: 'Object ID of the deal',
+              longDesc: 'Object ID of the deal',
+            },
+            name: {
+              displayName: 'Name',
+              shortDesc: 'Name of the deal',
+              longDesc: 'Name of the deal',
+            },
+          },
+
+          id: {
+            displayName: 'ID',
+            shortDesc: 'ID of the deal',
+            longDesc: 'ID of the deal',
+          },
+
+          created_at: {
+            displayName: 'Created At',
+            shortDesc: 'The date and time the user was created',
+            longDesc: 'The date and time the user was created',
+          },
+          updated_at: {
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the user was last updated',
+            longDesc: 'The date and time the user was last updated',
+          },
+          archived: {
+            displayName: 'Archived',
+            shortDesc: 'Whether the user is archived',
+            longDesc: 'Whether the user is archived',
+          },
+          createdate: {
+            displayName: 'Create Date',
+            shortDesc: 'Create Date of the deal',
+            longDesc: 'Create Date of the deal',
+          },
+          hs_object_id: {
+            displayName: 'Object ID',
+            shortDesc: 'Object ID of the deal',
+            longDesc: 'Object ID of the deal',
+          },
+          lastmodifieddate: {
+            displayName: 'Last Modified Date',
+            shortDesc: 'Last Modified Date of the deal',
+            longDesc: 'Last Modified Date of the deal',
+          },
+          hs_pinned_engagement_id: {
+            displayName: 'Pinned Engagement ID',
+            shortDesc: 'Pinned Engagement ID of the deal',
+            longDesc: 'Pinned Engagement ID of the deal',
+          },
+          name: {
+            displayName: 'Name',
+            shortDesc: 'Name of the deal',
+            longDesc: 'Name of the deal',
+          },
+          domain: {
+            displayName: 'Domain',
+            shortDesc: 'Domain of the deal',
+            longDesc: 'Domain of the deal',
+          },
+          city: {
+            displayName: 'City',
+            shortDesc: 'City of the deal',
+            longDesc: 'City of the deal',
+          },
+          industry: {
+            displayName: 'Industry',
+            shortDesc: 'Industry of the deal',
+            longDesc: 'Industry of the deal',
+          },
+          phone: {
+            displayName: 'Phone',
+            shortDesc: 'Phone of the deal',
+            longDesc: 'Phone of the deal',
+          },
+          state: {
+            displayName: 'State',
+            shortDesc: 'State of the deal',
+            longDesc: 'State of the deal',
+          },
+          lifecyclestage: {
+            displayName: 'Lifecycle Stage',
+            shortDesc: 'Lifecycle Stage of the deal',
+            longDesc: 'Lifecycle Stage of the deal',
+          },
+          hs_lastmodifieddate: {
+            displayName: 'Last Modified Date',
+            shortDesc: 'Last Modified Date of the deal',
+            longDesc: 'Last Modified Date of the deal',
+          },
+          hs_object_source: {
+            displayName: 'Object Source',
+            shortDesc: 'Object Source of the deal',
+            longDesc: 'Object Source of the deal',
+          },
+          hs_object_source_id: {
+            displayName: 'Object Source ID',
+            shortDesc: 'Object Source ID of the deal',
+            longDesc: 'Object Source ID of the deal',
+          },
+          hs_object_source_label: {
+            displayName: 'Object Source Label',
+            shortDesc: 'Object Source Label of the deal',
+            longDesc: 'Object Source Label of the deal',
+          },
+          hs_pipeline: {
+            displayName: 'Pipeline',
+            shortDesc: 'Pipeline of the deal',
+            longDesc: 'Pipeline of the deal',
+          },
+        },
+        owners:{
+          results: {
+            displayName: 'Results',
+            shortDesc: 'Results of the action',
+            longDesc: 'Results of the action',
+          },
+          id: {
+            displayName: 'ID',
+            shortDesc: 'ID of the deal',
+            longDesc: 'ID of the deal',
+          },
+          created_at: {
+            displayName: 'Created At',
+            shortDesc: 'The date and time the user was created',
+            longDesc: 'The date and time the user was created',
+          },
+          updated_at: {
+            displayName: 'Updated At',
+            shortDesc: 'The date and time the user was last updated',
+            longDesc: 'The date and time the user was last updated',
+          },
+          archived: {
+            displayName: 'Archived',
+            shortDesc: 'Whether the user is archived',
+            longDesc: 'Whether the user is archived',
+          },
+          first_name: {
+            displayName: 'First Name',
+            shortDesc: 'First Name of the deal',
+            longDesc: 'First Name of the deal',
+          },
+          last_name: {
+            displayName: 'Last Name',
+            shortDesc: 'Last Name of the deal',
+            longDesc: 'Last Name of the deal',
+          },
+          email: {
+            displayName: 'Email',
+            shortDesc: 'Email of the deal',
+            longDesc: 'Email of the deal',
+          },
+         type:{
+            displayName: 'Type',
+            shortDesc: 'Type of the deal',
+            longDesc: 'Type of the deal',
+          },
+          userId:{
+            displayName: 'User ID',
+            shortDesc: 'User ID of the deal',
+            longDesc: 'User ID of the deal',
+          },
+          userIdIncludingInactive:{
+            displayName: 'User ID Including Inactive',
+            shortDesc: 'User ID Including Inactive of the deal',
+            longDesc: 'User ID Including Inactive of the deal',
+          },
+          teams:{
+            displayName: 'Teams',
+            shortDesc: 'Teams of the deal',
+            longDesc: 'Teams of the deal',
+          },
+          name:{
+            displayName: 'Name',
+            shortDesc: 'Name of the deal',
+            longDesc: 'Name of the deal',
+          },
+          primary:{
+            displayName: 'Primary',
+            shortDesc: 'Primary of the deal',
+            longDesc: 'Primary of the deal',
+          },
           
           
         },
+        
       },
     },
   },

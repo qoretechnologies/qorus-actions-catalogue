@@ -1693,6 +1693,1274 @@ type RootTranslation = {
 						 */
 						longDesc: string
 					}
+					properties: {
+						/**
+						 * P​r​o​p​e​r​t​i​e​s
+						 */
+						displayName: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						shortDesc: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						longDesc: string
+						hs_standard_time_zone: {
+							/**
+							 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e
+							 */
+							displayName: string
+							/**
+							 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							shortDesc: string
+							/**
+							 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							longDesc: string
+						}
+						hs_working_hours: {
+							/**
+							 * W​o​r​k​i​n​g​ ​H​o​u​r​s
+							 */
+							displayName: string
+							/**
+							 * W​o​r​k​i​n​g​ ​H​o​u​r​s​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							shortDesc: string
+							/**
+							 * W​o​r​k​i​n​g​ ​H​o​u​r​s​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							longDesc: string
+						}
+						hs_createdate: {
+							/**
+							 * C​r​e​a​t​e​ ​D​a​t​e
+							 */
+							displayName: string
+							/**
+							 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							shortDesc: string
+							/**
+							 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							longDesc: string
+						}
+						hs_lastmodifieddate: {
+							/**
+							 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+							 */
+							displayName: string
+							/**
+							 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							shortDesc: string
+							/**
+							 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							longDesc: string
+						}
+						hs_object_id: {
+							/**
+							 * O​b​j​e​c​t​ ​I​D
+							 */
+							displayName: string
+							/**
+							 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							shortDesc: string
+							/**
+							 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+							 */
+							longDesc: string
+						}
+					}
+				}
+				deals: {
+					results: {
+						/**
+						 * R​e​s​u​l​t​s
+						 */
+						displayName: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						longDesc: string
+						id: {
+							/**
+							 * I​D
+							 */
+							displayName: string
+							/**
+							 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+					}
+					properties: {
+						/**
+						 * P​r​o​p​e​r​t​i​e​s
+						 */
+						displayName: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					amount: {
+						/**
+						 * A​m​o​u​n​t
+						 */
+						displayName: string
+						/**
+						 * A​m​o​u​n​t​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * A​m​o​u​n​t​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					closedate: {
+						/**
+						 * C​l​o​s​e​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * C​l​o​s​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​l​o​s​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					createdate: {
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_lastmodifieddate: {
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_object_id: {
+						/**
+						 * O​b​j​e​c​t​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					pipeline: {
+						/**
+						 * P​i​p​e​l​i​n​e
+						 */
+						displayName: string
+						/**
+						 * P​i​p​e​l​i​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​i​p​e​l​i​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_standard_time_zone: {
+						/**
+						 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e
+						 */
+						displayName: string
+						/**
+						 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					dealstage: {
+						/**
+						 * D​e​a​l​ ​S​t​a​g​e
+						 */
+						displayName: string
+						/**
+						 * D​e​a​l​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * D​e​a​l​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					dealname: {
+						/**
+						 * D​e​a​l​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * D​e​a​l​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * D​e​a​l​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						shortDesc: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						longDesc: string
+					}
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					archived: {
+						/**
+						 * A​r​c​h​i​v​e​d
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						longDesc: string
+					}
+				}
+				contacts: {
+					results: {
+						/**
+						 * R​e​s​u​l​t​s
+						 */
+						displayName: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						longDesc: string
+						id: {
+							/**
+							 * I​D
+							 */
+							displayName: string
+							/**
+							 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+					}
+					properties: {
+						/**
+						 * P​r​o​p​e​r​t​i​e​s
+						 */
+						displayName: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					amount: {
+						/**
+						 * A​m​o​u​n​t
+						 */
+						displayName: string
+						/**
+						 * A​m​o​u​n​t​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * A​m​o​u​n​t​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					closedate: {
+						/**
+						 * C​l​o​s​e​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * C​l​o​s​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​l​o​s​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					createdate: {
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_lastmodifieddate: {
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_object_id: {
+						/**
+						 * O​b​j​e​c​t​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					pipeline: {
+						/**
+						 * P​i​p​e​l​i​n​e
+						 */
+						displayName: string
+						/**
+						 * P​i​p​e​l​i​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​i​p​e​l​i​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_standard_time_zone: {
+						/**
+						 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e
+						 */
+						displayName: string
+						/**
+						 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * S​t​a​n​d​a​r​d​ ​T​i​m​e​ ​Z​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					dealstage: {
+						/**
+						 * D​e​a​l​ ​S​t​a​g​e
+						 */
+						displayName: string
+						/**
+						 * D​e​a​l​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * D​e​a​l​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					dealname: {
+						/**
+						 * D​e​a​l​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * D​e​a​l​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * D​e​a​l​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						shortDesc: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​u​s​e​r
+						 */
+						longDesc: string
+					}
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					archived: {
+						/**
+						 * A​r​c​h​i​v​e​d
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						longDesc: string
+					}
+					contactstage: {
+						/**
+						 * C​o​n​t​a​c​t​ ​S​t​a​g​e
+						 */
+						displayName: string
+						/**
+						 * C​o​n​t​a​c​t​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​o​n​t​a​c​t​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					email: {
+						/**
+						 * E​m​a​i​l
+						 */
+						displayName: string
+						/**
+						 * E​m​a​i​l​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * E​m​a​i​l​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					firstname: {
+						/**
+						 * F​i​r​s​t​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * F​i​r​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * F​i​r​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					lastname: {
+						/**
+						 * L​a​s​t​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					phone: {
+						/**
+						 * P​h​o​n​e
+						 */
+						displayName: string
+						/**
+						 * P​h​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​h​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					website: {
+						/**
+						 * W​e​b​s​i​t​e
+						 */
+						displayName: string
+						/**
+						 * W​e​b​s​i​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * W​e​b​s​i​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					company: {
+						/**
+						 * C​o​m​p​a​n​y
+						 */
+						displayName: string
+						/**
+						 * C​o​m​p​a​n​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​o​m​p​a​n​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					lifecyclestage: {
+						/**
+						 * L​i​f​e​c​y​c​l​e​ ​S​t​a​g​e
+						 */
+						displayName: string
+						/**
+						 * L​i​f​e​c​y​c​l​e​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​i​f​e​c​y​c​l​e​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					lastmodifieddate: {
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					jobtitle: {
+						/**
+						 * J​o​b​ ​T​i​t​l​e
+						 */
+						displayName: string
+						/**
+						 * J​o​b​ ​T​i​t​l​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * J​o​b​ ​T​i​t​l​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					favorite_food: {
+						/**
+						 * F​a​v​o​r​i​t​e​ ​F​o​o​d
+						 */
+						displayName: string
+						/**
+						 * F​a​v​o​r​i​t​e​ ​F​o​o​d​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * F​a​v​o​r​i​t​e​ ​F​o​o​d​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+				}
+				companies: {
+					results: {
+						/**
+						 * R​e​s​u​l​t​s
+						 */
+						displayName: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						longDesc: string
+					}
+					properties: {
+						/**
+						 * P​r​o​p​e​r​t​i​e​s
+						 */
+						displayName: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​r​o​p​e​r​t​i​e​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+						createdate: {
+							/**
+							 * C​r​e​a​t​e​ ​D​a​t​e
+							 */
+							displayName: string
+							/**
+							 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+						domain: {
+							/**
+							 * D​o​m​a​i​n
+							 */
+							displayName: string
+							/**
+							 * D​o​m​a​i​n​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * D​o​m​a​i​n​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+						hs_lastmodifieddate: {
+							/**
+							 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+							 */
+							displayName: string
+							/**
+							 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+						hs_object_id: {
+							/**
+							 * O​b​j​e​c​t​ ​I​D
+							 */
+							displayName: string
+							/**
+							 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+						name: {
+							/**
+							 * N​a​m​e
+							 */
+							displayName: string
+							/**
+							 * N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							shortDesc: string
+							/**
+							 * N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+							 */
+							longDesc: string
+						}
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					archived: {
+						/**
+						 * A​r​c​h​i​v​e​d
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						longDesc: string
+					}
+					createdate: {
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​r​e​a​t​e​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_object_id: {
+						/**
+						 * O​b​j​e​c​t​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * O​b​j​e​c​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					lastmodifieddate: {
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_pinned_engagement_id: {
+						/**
+						 * P​i​n​n​e​d​ ​E​n​g​a​g​e​m​e​n​t​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * P​i​n​n​e​d​ ​E​n​g​a​g​e​m​e​n​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​i​n​n​e​d​ ​E​n​g​a​g​e​m​e​n​t​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					domain: {
+						/**
+						 * D​o​m​a​i​n
+						 */
+						displayName: string
+						/**
+						 * D​o​m​a​i​n​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * D​o​m​a​i​n​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					city: {
+						/**
+						 * C​i​t​y
+						 */
+						displayName: string
+						/**
+						 * C​i​t​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * C​i​t​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					industry: {
+						/**
+						 * I​n​d​u​s​t​r​y
+						 */
+						displayName: string
+						/**
+						 * I​n​d​u​s​t​r​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * I​n​d​u​s​t​r​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					phone: {
+						/**
+						 * P​h​o​n​e
+						 */
+						displayName: string
+						/**
+						 * P​h​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​h​o​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					state: {
+						/**
+						 * S​t​a​t​e
+						 */
+						displayName: string
+						/**
+						 * S​t​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * S​t​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					lifecyclestage: {
+						/**
+						 * L​i​f​e​c​y​c​l​e​ ​S​t​a​g​e
+						 */
+						displayName: string
+						/**
+						 * L​i​f​e​c​y​c​l​e​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​i​f​e​c​y​c​l​e​ ​S​t​a​g​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_lastmodifieddate: {
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​M​o​d​i​f​i​e​d​ ​D​a​t​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_object_source: {
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e
+						 */
+						displayName: string
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_object_source_id: {
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_object_source_label: {
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​L​a​b​e​l
+						 */
+						displayName: string
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​L​a​b​e​l​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * O​b​j​e​c​t​ ​S​o​u​r​c​e​ ​L​a​b​e​l​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					hs_pipeline: {
+						/**
+						 * P​i​p​e​l​i​n​e
+						 */
+						displayName: string
+						/**
+						 * P​i​p​e​l​i​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​i​p​e​l​i​n​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+				}
+				owners: {
+					results: {
+						/**
+						 * R​e​s​u​l​t​s
+						 */
+						displayName: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						shortDesc: string
+						/**
+						 * R​e​s​u​l​t​s​ ​o​f​ ​t​h​e​ ​a​c​t​i​o​n
+						 */
+						longDesc: string
+					}
+					id: {
+						/**
+						 * I​D
+						 */
+						displayName: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					created_at: {
+						/**
+						 * C​r​e​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​c​r​e​a​t​e​d
+						 */
+						longDesc: string
+					}
+					updated_at: {
+						/**
+						 * U​p​d​a​t​e​d​ ​A​t
+						 */
+						displayName: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						shortDesc: string
+						/**
+						 * T​h​e​ ​d​a​t​e​ ​a​n​d​ ​t​i​m​e​ ​t​h​e​ ​u​s​e​r​ ​w​a​s​ ​l​a​s​t​ ​u​p​d​a​t​e​d
+						 */
+						longDesc: string
+					}
+					archived: {
+						/**
+						 * A​r​c​h​i​v​e​d
+						 */
+						displayName: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						shortDesc: string
+						/**
+						 * W​h​e​t​h​e​r​ ​t​h​e​ ​u​s​e​r​ ​i​s​ ​a​r​c​h​i​v​e​d
+						 */
+						longDesc: string
+					}
+					first_name: {
+						/**
+						 * F​i​r​s​t​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * F​i​r​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * F​i​r​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					last_name: {
+						/**
+						 * L​a​s​t​ ​N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * L​a​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * L​a​s​t​ ​N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					email: {
+						/**
+						 * E​m​a​i​l
+						 */
+						displayName: string
+						/**
+						 * E​m​a​i​l​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * E​m​a​i​l​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					type: {
+						/**
+						 * T​y​p​e
+						 */
+						displayName: string
+						/**
+						 * T​y​p​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * T​y​p​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					userId: {
+						/**
+						 * U​s​e​r​ ​I​D
+						 */
+						displayName: string
+						/**
+						 * U​s​e​r​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * U​s​e​r​ ​I​D​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					userIdIncludingInactive: {
+						/**
+						 * U​s​e​r​ ​I​D​ ​I​n​c​l​u​d​i​n​g​ ​I​n​a​c​t​i​v​e
+						 */
+						displayName: string
+						/**
+						 * U​s​e​r​ ​I​D​ ​I​n​c​l​u​d​i​n​g​ ​I​n​a​c​t​i​v​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * U​s​e​r​ ​I​D​ ​I​n​c​l​u​d​i​n​g​ ​I​n​a​c​t​i​v​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					teams: {
+						/**
+						 * T​e​a​m​s
+						 */
+						displayName: string
+						/**
+						 * T​e​a​m​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * T​e​a​m​s​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					name: {
+						/**
+						 * N​a​m​e
+						 */
+						displayName: string
+						/**
+						 * N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * N​a​m​e​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
+					primary: {
+						/**
+						 * P​r​i​m​a​r​y
+						 */
+						displayName: string
+						/**
+						 * P​r​i​m​a​r​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						shortDesc: string
+						/**
+						 * P​r​i​m​a​r​y​ ​o​f​ ​t​h​e​ ​d​e​a​l
+						 */
+						longDesc: string
+					}
 				}
 			}
 		}
@@ -3377,6 +4645,1274 @@ export type TranslationFunctions = {
 						shortDesc: () => LocalizedString
 						/**
 						 * Whether the user is archived
+						 */
+						longDesc: () => LocalizedString
+					}
+					properties: {
+						/**
+						 * Properties
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Properties of the user
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Properties of the user
+						 */
+						longDesc: () => LocalizedString
+						hs_standard_time_zone: {
+							/**
+							 * Standard Time Zone
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Standard Time Zone of the user
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Standard Time Zone of the user
+							 */
+							longDesc: () => LocalizedString
+						}
+						hs_working_hours: {
+							/**
+							 * Working Hours
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Working Hours of the user
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Working Hours of the user
+							 */
+							longDesc: () => LocalizedString
+						}
+						hs_createdate: {
+							/**
+							 * Create Date
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Create Date of the user
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Create Date of the user
+							 */
+							longDesc: () => LocalizedString
+						}
+						hs_lastmodifieddate: {
+							/**
+							 * Last Modified Date
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Last Modified Date of the user
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Last Modified Date of the user
+							 */
+							longDesc: () => LocalizedString
+						}
+						hs_object_id: {
+							/**
+							 * Object ID
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Object ID of the user
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Object ID of the user
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+				}
+				deals: {
+					results: {
+						/**
+						 * Results
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						longDesc: () => LocalizedString
+						id: {
+							/**
+							 * ID
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * ID of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * ID of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+					properties: {
+						/**
+						 * Properties
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Properties of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Properties of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					amount: {
+						/**
+						 * Amount
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Amount of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Amount of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					closedate: {
+						/**
+						 * Close Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Close Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Close Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					createdate: {
+						/**
+						 * Create Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Create Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Create Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_lastmodifieddate: {
+						/**
+						 * Last Modified Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_object_id: {
+						/**
+						 * Object ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Object ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Object ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					pipeline: {
+						/**
+						 * Pipeline
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Pipeline of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Pipeline of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_standard_time_zone: {
+						/**
+						 * Standard Time Zone
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Standard Time Zone of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Standard Time Zone of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					dealstage: {
+						/**
+						 * Deal Stage
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Deal Stage of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Deal Stage of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					dealname: {
+						/**
+						 * Deal Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Deal Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Deal Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * ID of the user
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * ID of the user
+						 */
+						longDesc: () => LocalizedString
+					}
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					archived: {
+						/**
+						 * Archived
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+				contacts: {
+					results: {
+						/**
+						 * Results
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						longDesc: () => LocalizedString
+						id: {
+							/**
+							 * ID
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * ID of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * ID of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+					properties: {
+						/**
+						 * Properties
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Properties of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Properties of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					amount: {
+						/**
+						 * Amount
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Amount of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Amount of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					closedate: {
+						/**
+						 * Close Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Close Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Close Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					createdate: {
+						/**
+						 * Create Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Create Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Create Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_lastmodifieddate: {
+						/**
+						 * Last Modified Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_object_id: {
+						/**
+						 * Object ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Object ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Object ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					pipeline: {
+						/**
+						 * Pipeline
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Pipeline of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Pipeline of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_standard_time_zone: {
+						/**
+						 * Standard Time Zone
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Standard Time Zone of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Standard Time Zone of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					dealstage: {
+						/**
+						 * Deal Stage
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Deal Stage of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Deal Stage of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					dealname: {
+						/**
+						 * Deal Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Deal Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Deal Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * ID of the user
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * ID of the user
+						 */
+						longDesc: () => LocalizedString
+					}
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					archived: {
+						/**
+						 * Archived
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						longDesc: () => LocalizedString
+					}
+					contactstage: {
+						/**
+						 * Contact Stage
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Contact Stage of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Contact Stage of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					email: {
+						/**
+						 * Email
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Email of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Email of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					firstname: {
+						/**
+						 * First Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * First Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * First Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					lastname: {
+						/**
+						 * Last Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					phone: {
+						/**
+						 * Phone
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Phone of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Phone of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					website: {
+						/**
+						 * Website
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Website of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Website of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					company: {
+						/**
+						 * Company
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Company of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Company of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					lifecyclestage: {
+						/**
+						 * Lifecycle Stage
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Lifecycle Stage of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Lifecycle Stage of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					lastmodifieddate: {
+						/**
+						 * Last Modified Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					jobtitle: {
+						/**
+						 * Job Title
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Job Title of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Job Title of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					favorite_food: {
+						/**
+						 * Favorite Food
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Favorite Food of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Favorite Food of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+				companies: {
+					results: {
+						/**
+						 * Results
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						longDesc: () => LocalizedString
+					}
+					properties: {
+						/**
+						 * Properties
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Properties of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Properties of the deal
+						 */
+						longDesc: () => LocalizedString
+						createdate: {
+							/**
+							 * Create Date
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Create Date of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Create Date of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+						domain: {
+							/**
+							 * Domain
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Domain of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Domain of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+						hs_lastmodifieddate: {
+							/**
+							 * Last Modified Date
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Last Modified Date of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Last Modified Date of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+						hs_object_id: {
+							/**
+							 * Object ID
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Object ID of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Object ID of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+						name: {
+							/**
+							 * Name
+							 */
+							displayName: () => LocalizedString
+							/**
+							 * Name of the deal
+							 */
+							shortDesc: () => LocalizedString
+							/**
+							 * Name of the deal
+							 */
+							longDesc: () => LocalizedString
+						}
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					archived: {
+						/**
+						 * Archived
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						longDesc: () => LocalizedString
+					}
+					createdate: {
+						/**
+						 * Create Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Create Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Create Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_object_id: {
+						/**
+						 * Object ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Object ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Object ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					lastmodifieddate: {
+						/**
+						 * Last Modified Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_pinned_engagement_id: {
+						/**
+						 * Pinned Engagement ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Pinned Engagement ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Pinned Engagement ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					domain: {
+						/**
+						 * Domain
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Domain of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Domain of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					city: {
+						/**
+						 * City
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * City of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * City of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					industry: {
+						/**
+						 * Industry
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Industry of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Industry of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					phone: {
+						/**
+						 * Phone
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Phone of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Phone of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					state: {
+						/**
+						 * State
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * State of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * State of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					lifecyclestage: {
+						/**
+						 * Lifecycle Stage
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Lifecycle Stage of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Lifecycle Stage of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_lastmodifieddate: {
+						/**
+						 * Last Modified Date
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Modified Date of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_object_source: {
+						/**
+						 * Object Source
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Object Source of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Object Source of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_object_source_id: {
+						/**
+						 * Object Source ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Object Source ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Object Source ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_object_source_label: {
+						/**
+						 * Object Source Label
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Object Source Label of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Object Source Label of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					hs_pipeline: {
+						/**
+						 * Pipeline
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Pipeline of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Pipeline of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+				}
+				owners: {
+					results: {
+						/**
+						 * Results
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Results of the action
+						 */
+						longDesc: () => LocalizedString
+					}
+					id: {
+						/**
+						 * ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					created_at: {
+						/**
+						 * Created At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was created
+						 */
+						longDesc: () => LocalizedString
+					}
+					updated_at: {
+						/**
+						 * Updated At
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * The date and time the user was last updated
+						 */
+						longDesc: () => LocalizedString
+					}
+					archived: {
+						/**
+						 * Archived
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Whether the user is archived
+						 */
+						longDesc: () => LocalizedString
+					}
+					first_name: {
+						/**
+						 * First Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * First Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * First Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					last_name: {
+						/**
+						 * Last Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Last Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Last Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					email: {
+						/**
+						 * Email
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Email of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Email of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					type: {
+						/**
+						 * Type
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Type of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Type of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					userId: {
+						/**
+						 * User ID
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * User ID of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * User ID of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					userIdIncludingInactive: {
+						/**
+						 * User ID Including Inactive
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * User ID Including Inactive of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * User ID Including Inactive of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					teams: {
+						/**
+						 * Teams
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Teams of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Teams of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					name: {
+						/**
+						 * Name
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Name of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Name of the deal
+						 */
+						longDesc: () => LocalizedString
+					}
+					primary: {
+						/**
+						 * Primary
+						 */
+						displayName: () => LocalizedString
+						/**
+						 * Primary of the deal
+						 */
+						shortDesc: () => LocalizedString
+						/**
+						 * Primary of the deal
 						 */
 						longDesc: () => LocalizedString
 					}

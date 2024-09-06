@@ -1,3 +1,4 @@
+
 const dotenv = require('dotenv');
 
 // USERS
@@ -27,7 +28,7 @@ const updateGroup = require('../zendesk/actions/groups/update-group.ts');
 
 // ATTACHMENTS
 
-const createAttachment = require('../zendesk/actions/attachments/create-attachhment.ts');
+
 const getAttachment = require('../zendesk/actions/attachments/get-attachment.ts');
 const deleteAttachment = require('../zendesk/actions/attachments/delete-attachment.ts');
 
@@ -43,7 +44,6 @@ dotenv.config();
 if (!(process.env.ENDPOINT && process.env.TESTUSER && process.env.TESTPASS)) {
   throw new Error('Missing required environment variables');
 }
-
 describe('tickets', () => {
   let newTicket: any = null;
 
@@ -105,7 +105,7 @@ describe('tickets', () => {
 
   it('should fetch a tickets', async () => {
     const fetchTicketsAction = await getTickets.default.api_function;
-    const showTickets = await fetchTicketsAction({ ids: newTicket.ticket.id + '' });
+    const showTickets = await fetchTicketsAction({ ids: newTicket?.ticket.id + '' });
 
     const { response_type } = getTickets;
     if (response_type) {
