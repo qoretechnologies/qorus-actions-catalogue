@@ -16,6 +16,7 @@ const config: Config = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
+  testMatch: ['<rootDir>/src/tests/**/*.(spec|test).ts'],
 };
 
 export default config;
