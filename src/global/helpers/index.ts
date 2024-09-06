@@ -1,6 +1,7 @@
 import { Locales, Translation } from 'i18n/i18n-types';
 import { capitalize, omit, reduce } from 'lodash';
 import {
+  CapitalizedString,
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
   IQoreTypeObject,
@@ -130,4 +131,8 @@ export const normalizeName = (appName: string): string => {
     .toLowerCase()
     .replace(/[-\s]+/g, '_')
     .replace(/[^a-z0-9_]/g, '');
+};
+
+export const normalizeAppName = (appName: string): CapitalizedString => {
+  return capitalize(normalizeName(appName)) as CapitalizedString;
 };

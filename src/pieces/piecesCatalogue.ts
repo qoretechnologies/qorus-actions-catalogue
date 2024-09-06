@@ -9,7 +9,7 @@ import {
   StaticPropsValue,
 } from 'core/framework';
 import { DynamicDropdownOptions } from 'core/framework/property/input/dropdown/dropdown-prop';
-import { fixActionType, normalizeName } from 'global/helpers';
+import { fixActionType, normalizeAppName, normalizeName } from 'global/helpers';
 import {
   IQoreAllowedValue,
   IQoreAppActionOption,
@@ -28,7 +28,6 @@ import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './commo
 import { TMapPieceActionToAppActionOptions } from './common/models/pieces-catalogue';
 import * as pieces from './index';
 import { Locales } from '../i18n/i18n-types';
-import { capitalize } from 'lodash';
 pieces satisfies Record<string, Piece>;
 
 class _PiecesAppCatalogue {
@@ -44,7 +43,7 @@ class _PiecesAppCatalogue {
   }
 
   private mapPieceToApp(pieceName: string, piece: Piece): IQoreAppWithActions {
-    const appName = capitalize(normalizeName(pieceName));
+    const appName = normalizeAppName(pieceName);
     const actions = Object.entries(piece.actions()).map(([actionName, action]) =>
       this.mapPieceActionToAppAction({ appName, actionName, action })
     );

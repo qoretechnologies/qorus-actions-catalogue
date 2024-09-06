@@ -7,6 +7,8 @@ export interface IQoreAppShared {
   desc?: string;
 }
 
+export type CapitalizedString = string & { __brand: 'CapitalizedString' };
+
 type TQoreRestContentEncoding = 'gzip' | 'bzip2' | 'deflate' | 'identity';
 
 type TQoreRestData = 'auto' | 'json' | 'yaml' | 'rawxml' | 'xml' | 'url' | 'text' | 'bin';
@@ -171,7 +173,7 @@ export interface IQoreApp<
     IQoreConnectionOption
   >,
 > extends IQoreAppShared {
-  name: `${TFirstAppCharacter}${string}`;
+  name: `${TFirstAppCharacter}${string}` | CapitalizedString;
   logo: string;
   logo_file_name: string;
   logo_mime_type: string;
