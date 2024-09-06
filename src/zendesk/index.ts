@@ -1,4 +1,3 @@
-import { DEFAULT_LOGO } from '../global/constants';
 import { mapActionsToApp } from '../global/helpers';
 import {
   GetConnectionOptionDefinitionFromQoreType,
