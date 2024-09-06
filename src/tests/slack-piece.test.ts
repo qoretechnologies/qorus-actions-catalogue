@@ -1,9 +1,10 @@
-import { TQoreAppActionFunctionContext } from '../global/models/qore';
+import { IQoreAppWithActions, TQoreAppActionFunctionContext } from '../global/models/qore';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
 import { validateResponseProperties } from './utils';
 
 describe('slackPieceTest', () => {
   let newMessageTimestamp: string = '';
+  let slackApp: IQoreAppWithActions | null = null;
 
   const actionContext = {
     conn_name: 'slack',
@@ -21,17 +22,16 @@ describe('slackPieceTest', () => {
 
   beforeAll(() => {
     PiecesAppCatalogue.registerApps();
+    slackApp = PiecesAppCatalogue.apps['Slack'];
   });
 
   it('should register slack', () => {
-    const slackPiece = PiecesAppCatalogue.apps['slack'];
-    expect(slackPiece).toBeDefined();
-    expect(slackPiece.actions).toBeDefined();
-    expect(slackPiece.actions.length).toBeGreaterThan(0);
+    expect(slackApp).toBeDefined();
+    expect(slackApp.actions).toBeDefined();
+    expect(slackApp.actions.length).toBeGreaterThan(0);
   });
 
   it('should find a Slack user by email', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'slack_find_user_by_email');
     const actionFunction = action?.api_function;
 
@@ -57,7 +57,6 @@ describe('slackPieceTest', () => {
     }
   });
   it('should send a Slack message and receive a positive response', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'send_channel_message');
     const actionFunction = action?.api_function;
 
@@ -88,7 +87,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should get channel history', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'get_channel_history');
     const actionFunction = action?.api_function;
 
@@ -117,7 +115,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should add reaction to message', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find(
       (action) => action.action === 'slack_add_reaction_to_message'
     );
@@ -152,7 +149,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should create a channel', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'slack_create_channel');
     const actionFunction = action?.api_function;
 
@@ -181,7 +177,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should request action direct message', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find(
       (action) => action.action === 'request_action_direct_message'
     );
@@ -212,7 +207,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should request action in channel', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'request_approval_message');
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -243,7 +237,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should request approval direct message', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find(
       (action) => action.action === 'request_approval_direct_message'
     );
@@ -273,7 +266,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should request approval in channel', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'request_approval_message');
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -303,7 +295,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should search for messages', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'search_messages');
     const actionFunction = action?.api_function;
 
@@ -328,7 +319,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should update a message', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'update_message');
     const actionFunction = action?.api_function;
 
@@ -361,7 +351,6 @@ describe('slackPieceTest', () => {
   });
 
   it('should upload a file', async () => {
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const action = slackApp.actions.find((action) => action.action === 'upload_file');
     const actionFunction = action?.api_function;
 
@@ -401,7 +390,6 @@ describe('slackPieceTest', () => {
 
   it('should update a user profile first name', async () => {
     const testName = 'test';
-    const slackApp = PiecesAppCatalogue.apps['slack'];
     const findUserActionFunction = slackApp.actions.find(
       (action) => action.action === 'slack_find_user_by_email'
     )?.api_function;

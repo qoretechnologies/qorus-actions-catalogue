@@ -8,28 +8,33 @@ import {
   PropertyType,
   StaticPropsValue,
 } from 'core/framework';
-import { InputProperty } from '../core/framework/property/input';
-import { normalizeName } from 'global/helpers';
+import { DynamicDropdownOptions } from 'core/framework/property/input/dropdown/dropdown-prop';
+import { fixActionType, normalizeName } from 'global/helpers';
 import {
   IQoreAllowedValue,
   IQoreAppActionOption,
   IQoreAppActionWithFunction,
   IQoreAppWithActions,
+  IQoreRestConnectionConfig,
   TQoreAppActionFunction,
   TQoreAppActionFunctionContext,
   TQoreApps,
   TQoreGetAllowedValuesFunction,
-  IQoreRestConnectionConfig,
 } from 'global/models/qore';
-import { DynamicDropdownOptions } from 'core/framework/property/input/dropdown/dropdown-prop';
+import { InputProperty } from '../core/framework/property/input';
+import { DEFAULT_LOGO } from '../global/constants';
+import { fixActionOptions } from '../global/helpers/index';
 import { commonActionContext, piecePropTypeToQoreOptionTypeIndex } from './common/constants';
 import { TMapPieceActionToAppActionOptions } from './common/models/pieces-catalogue';
 import * as pieces from './index';
-import { DEFAULT_LOGO } from '../global/constants';
+import { Locales } from '../i18n/i18n-types';
+import { capitalize } from 'lodash';
 pieces satisfies Record<string, Piece>;
 
 class _PiecesAppCatalogue {
   public readonly apps: TQoreApps = {};
+
+  constructor(public locale: Locales = 'en') {}
 
   public registerApps(): void {
     const qoreApps = Object.entries(pieces).map(([pieceName, piece]) =>
@@ -39,13 +44,14 @@ class _PiecesAppCatalogue {
   }
 
   private mapPieceToApp(pieceName: string, piece: Piece): IQoreAppWithActions {
-    const appName = normalizeName(pieceName);
+    const appName = capitalize(normalizeName(pieceName));
+    const actions = Object.entries(piece.actions()).map(([actionName, action]) =>
+      this.mapPieceActionToAppAction({ appName, actionName, action })
+    );
 
     return {
       name: appName,
-      actions: Object.entries(piece.actions()).map(([actionName, action]) =>
-        this.mapPieceActionToAppAction({ appName, actionName, action })
-      ),
+      actions: actions,
       rest: this.mapPieceAuthToAppRest(piece.auth),
       display_name: piece.displayName,
       short_desc: piece.description,
@@ -75,6 +81,7 @@ class _PiecesAppCatalogue {
     action,
   }: TMapPieceActionToAppActionOptions): IQoreAppActionWithFunction {
     const formattedActionName = normalizeName(actionName);
+    const options = this.mapActionPropsToAppActionOptions(action.props);
 
     return {
       app: appName,
@@ -84,8 +91,8 @@ class _PiecesAppCatalogue {
       desc: action.description,
       action: formattedActionName,
       api_function: this.mapPieceActionToAppActionFunction(action.run),
-      options: this.mapActionPropsToAppActionOptions(action.props),
-      ...(action.responseType && { response_type: action.responseType }),
+      options: fixActionOptions(options, appName, this.locale, appName),
+      response_type: fixActionType(action.responseType, appName, this.locale, appName),
     };
   }
 
@@ -129,7 +136,7 @@ class _PiecesAppCatalogue {
   private mapActionPropToAppActionOption(prop: InputProperty): IQoreAppActionOption {
     let allowed_values: IQoreAllowedValue[] | undefined = undefined;
     let get_allowed_values: TQoreGetAllowedValuesFunction | undefined = undefined;
-    const description = prop.description || 'No description';
+    const description = prop.description || prop.displayName;
     if ('options' in prop) {
       allowed_values = this.mapPieceAllowedValuesToQoreAllowedValues(
         prop.options as DropdownState<any>
