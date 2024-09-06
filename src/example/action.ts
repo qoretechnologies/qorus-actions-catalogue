@@ -10,18 +10,18 @@ import { L } from '../i18n/i18n-node';
 
 const options = {
   token: {
-    display_name: L.en.apps.zendesk.actions.attachments.token.displayName(),
-    short_desc: L.en.apps.zendesk.actions.attachments.token.shortDesc(),
-    desc: L.en.apps.zendesk.actions.attachments.token.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.attachments.token.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.attachments.token.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.attachments.token.longDesc(),
     type: 'string',
     required: true,
     example_value: '123',
   },
   userId: {
     example_value: 123,
-    display_name: L.en.apps.zendesk.actions.attachments.token.displayName(),
-    short_desc: L.en.apps.zendesk.actions.attachments.token.shortDesc(),
-    desc: L.en.apps.zendesk.actions.attachments.token.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.attachments.token.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.attachments.token.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.attachments.token.longDesc(),
     type: 'int',
   },
 } satisfies IActionOptions;

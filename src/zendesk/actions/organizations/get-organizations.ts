@@ -10,17 +10,17 @@ export const response_type: IActionResponse = {
   count: {
     type: 'number',
     name: 'count',
-    display_name: L.en.apps.zendesk.actions.organizations.count.displayName(),
-    short_desc: L.en.apps.zendesk.actions.organizations.count.shortDesc(),
-    desc: L.en.apps.zendesk.actions.organizations.count.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.organizations.count.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.organizations.count.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.organizations.count.longDesc(),
     example_value: 123,
   },
   organizations: {
     type: 'list',
     name: 'groups',
-    display_name: L.en.apps.zendesk.actions.organizations.displayName(),
-    short_desc: L.en.apps.zendesk.actions.organizations.shortDesc(),
-    desc: L.en.apps.zendesk.actions.organizations.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.organizations.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.organizations.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.organizations.longDesc(),
     example_value: [
       {
         created_at: '2009-05-13T00:07:08Z',
@@ -34,9 +34,9 @@ export const response_type: IActionResponse = {
   next_page: {
     type: 'string',
     name: 'next_page',
-    display_name: L.en.apps.zendesk.actions.organizations.next_page.displayName(),
-    short_desc: L.en.apps.zendesk.actions.organizations.next_page.shortDesc(),
-    desc: L.en.apps.zendesk.actions.organizations.next_page.longDesc(),
+    display_name: L.en.apps.Zendesk.actions.organizations.next_page.displayName(),
+    short_desc: L.en.apps.Zendesk.actions.organizations.next_page.shortDesc(),
+    desc: L.en.apps.Zendesk.actions.organizations.next_page.longDesc(),
     example_value: 'https://example.com/api/v2/groups.json?page=2',
   },
 };

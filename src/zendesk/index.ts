@@ -28,11 +28,11 @@ const options = {
  */
 export default (locale: Locales) =>
   ({
-    display_name: L[locale].apps.zendesk.displayName(),
-    short_desc: L[locale].apps.zendesk.shortDesc(),
+    display_name: L[locale].apps.Zendesk.displayName(),
+    short_desc: L[locale].apps.Zendesk.shortDesc(),
     name: 'Zendesk',
     actions: mapActionsToApp('Zendesk', zendeskActions, locale),
-    desc: L[locale].apps.zendesk.longDesc(),
+    desc: L[locale].apps.Zendesk.longDesc(),
     // This is a white Zendesk styled "Z" logo used in accordance with Zendesk's Brand / Logo Guidelines
     // https://web-assets.zendesk.com/pdf/Zendesk-logo-guidelines-legal-04-22-22.pdf
     logo: 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICIt' +

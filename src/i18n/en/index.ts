@@ -23,7 +23,7 @@ const en = {
         },
       },
     },
-    zendesk: {
+    Zendesk: {
       displayName: 'Zendesk',
       shortDesc: 'Collection of actions to interact with Zendesk API',
       longDesc: 'Collection of actions to interact with Zendesk API',
