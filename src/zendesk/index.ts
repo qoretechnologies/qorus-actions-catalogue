@@ -53,11 +53,14 @@ export default (locale: Locales) =>
     rest: {
       url: `https://{{subdomain}}.zendesk.com`,
       data: 'json',
-      oauth2_client_secret: process.env.ZENDESK_CLIENT_SECRET,
+      oauth2_client_secret: process.env.ZENDESK_CLIENT_SECRET ?? 'auto',
       oauth2_grant_type: 'authorization_code',
-      oauth2_client_id: 'qorus_integration',
+      oauth2_client_id: 'zdg-qorus-integration-engine',
       oauth2_auth_url: 'https://{{subdomain}}.zendesk.com/oauth/authorizations/new',
       oauth2_token_url: 'https://{{subdomain}}.zendesk.com/oauth/tokens',
+      oauth2_scopes: ['read', 'write'],
+      ping_method: 'GET',
+      ping_path: '/api/v2/users/me',
     },
     rest_modifiers: {
       options,
