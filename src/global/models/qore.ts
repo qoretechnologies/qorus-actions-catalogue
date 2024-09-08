@@ -48,7 +48,7 @@ export interface IQoreRestConnectionConfig {
   oauth2_client_id?: string;
 
   // The OAuth2 client secret, required alongside the client ID for certain OAuth2 flows.
-  oauth2_client_secret?: string;
+  oauth2_client_secret?: string | 'auto';
 
   // The OAuth2 grant type being used. Possible values are "authorization_code", "client_credentials", "password".
   oauth2_grant_type: TQoreRestOauth2GrantType;
@@ -73,6 +73,9 @@ export interface IQoreRestConnectionConfig {
 
   // The HTTP method to use for pings (e.g., "GET", "POST").
   ping_method?: string;
+
+  // The HTTP URI path to use for pings
+  ping_path?: string;
 
   // Headers to be sent with ping requests. Keys represent header names, and values represent the corresponding
   // header values.
