@@ -1,4 +1,4 @@
-import { QorusAppsCatalogue } from 'ActionsCatalogue';
+import { QorusAppsCatalogue } from '../ActionsCatalogue';
 import { mapActionsToApp } from '../global/helpers';
 import {
   GetConnectionOptionDefinitionFromQoreType,
