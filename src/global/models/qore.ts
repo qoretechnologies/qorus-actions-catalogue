@@ -48,7 +48,7 @@ export interface IQoreRestConnectionConfig {
   oauth2_client_id?: string;
 
   // The OAuth2 client secret, required alongside the client ID for certain OAuth2 flows.
-  oauth2_client_secret?: string;
+  oauth2_client_secret?: string | 'auto';
 
   // The OAuth2 grant type being used. Possible values are "authorization_code", "client_credentials", "password".
   oauth2_grant_type: TQoreRestOauth2GrantType;

@@ -11,6 +11,10 @@ class _QorusAppsCatalogue {
   public registerApps() {
     this.apps['zendesk'] = zendesk(this.locale);
   }
+
+  public getOauth2ClientSecret(appName: string): string {
+    return process.env[`${appName.toUpperCase()}_CLIENT_SECRET`] ?? 'auto';
+  }
 }
 
 export const QorusAppsCatalogue = new _QorusAppsCatalogue();
