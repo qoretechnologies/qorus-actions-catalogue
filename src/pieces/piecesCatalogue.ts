@@ -55,7 +55,7 @@ class _PiecesAppCatalogue {
       display_name: piece.displayName,
       short_desc: piece.description,
       desc: piece.description,
-      logo: DEFAULT_LOGO,
+      logo: piece.logo || DEFAULT_LOGO,
       logo_file_name: `${appName}.svg`,
       logo_mime_type: 'image/svg+xml',
     };
@@ -66,7 +66,9 @@ class _PiecesAppCatalogue {
       return {
         data: 'auto',
         oauth2_grant_type: 'authorization_code',
-        url: auth.authUrl,
+        url: auth.url,
+        ping_method: auth.pingMethod,
+        ping_path: auth.pingPath,
         oauth2_auth_url: auth.authUrl,
         oauth2_token_url: auth.tokenUrl,
         oauth2_scopes: auth.scope,

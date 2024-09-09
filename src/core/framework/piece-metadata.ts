@@ -16,6 +16,7 @@ export const PieceBase = Type.Object({
   name: Type.String(),
   displayName: Type.String(),
   logoUrl: Type.String(),
+  logo: Type.Optional(Type.String()),
   description: Type.String(),
   projectId: Type.Optional(Type.String()),
   authors: Type.Array(Type.String()),
@@ -33,6 +34,7 @@ export type PieceBase = {
   name: string;
   displayName: string;
   logoUrl: string;
+  logo?: string;
   description: string;
   projectId?: ProjectId;
   platformId?: string;

@@ -74,6 +74,9 @@ export interface IQoreRestConnectionConfig {
   // The HTTP method to use for pings (e.g., "GET", "POST").
   ping_method?: string;
 
+  // The HTTP URI path to use for pings
+  ping_path?: string;
+
   // Headers to be sent with ping requests. Keys represent header names, and values represent the corresponding
   // header values.
   ping_headers?: Record<string, string>;
