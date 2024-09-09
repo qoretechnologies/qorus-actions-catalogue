@@ -1,3 +1,4 @@
+import { QorusAppsCatalogue } from '../ActionsCatalogue';
 import { mapActionsToApp } from '../global/helpers';
 import {
   GetConnectionOptionDefinitionFromQoreType,
@@ -11,6 +12,8 @@ import * as zendeskActions from './actions';
 export interface IQoreConnectionOptions {
   [key: string]: GetConnectionOptionDefinitionFromQoreType<TQoreType>;
 }
+
+export const ZENDESK_APP_NAME = 'Zendesk';
 
 const options = {
   subdomain: {
@@ -30,8 +33,8 @@ export default (locale: Locales) =>
   ({
     display_name: L[locale].apps.Zendesk.displayName(),
     short_desc: L[locale].apps.Zendesk.shortDesc(),
-    name: 'Zendesk',
-    actions: mapActionsToApp('Zendesk', zendeskActions, locale),
+    name: ZENDESK_APP_NAME,
+    actions: mapActionsToApp(ZENDESK_APP_NAME, zendeskActions, locale),
     desc: L[locale].apps.Zendesk.longDesc(),
     // This is a white Zendesk styled "Z" logo used in accordance with Zendesk's Brand / Logo Guidelines
     // https://web-assets.zendesk.com/pdf/Zendesk-logo-guidelines-legal-04-22-22.pdf
@@ -53,11 +56,14 @@ export default (locale: Locales) =>
     rest: {
       url: `https://{{subdomain}}.zendesk.com`,
       data: 'json',
-      oauth2_client_secret: process.env.ZENDESK_CLIENT_SECRET,
+      oauth2_client_secret: QorusAppsCatalogue.getOauth2ClientSecret(ZENDESK_APP_NAME),
       oauth2_grant_type: 'authorization_code',
-      oauth2_client_id: 'qorus_integration',
+      oauth2_client_id: 'zdg-qorus-integration-engine',
       oauth2_auth_url: 'https://{{subdomain}}.zendesk.com/oauth/authorizations/new',
       oauth2_token_url: 'https://{{subdomain}}.zendesk.com/oauth/tokens',
+      oauth2_scopes: ['read', 'write'],
+      ping_method: 'GET',
+      ping_path: '/api/v2/users/me',
     },
     rest_modifiers: {
       options,
