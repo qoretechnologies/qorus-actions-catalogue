@@ -5,6 +5,7 @@ import {
   TActionResponse,
 } from 'global/models/actions';
 import { TQoreAppActionFunctionContext, TQorePartialActionWithFunction } from 'global/models/qore';
+import { Debugger, DebugLevels } from 'utils/Debugger';
 import { IZendeskContext, zendeskRequest } from '../../client';
 
 export const options = {
@@ -290,12 +291,16 @@ export const response_type = {
 
 async function createTicket(
   ticket: TActionData<typeof options>,
-  _options?: any,
+  options?: any,
   context?: TQoreAppActionFunctionContext<IZendeskContext>
 ): Promise<TActionResponse<typeof response_type>> {
   try {
+    Debugger.level = DebugLevels.Info;
+    Debugger.info(`Creating ticket: ${JSON.stringify(ticket)}`);
+
     const data = await zendeskRequest('/tickets', 'POST', ticket, undefined, context);
 
+    Debugger.info(`Ticket Created: ${JSON.stringify(data)}`);
     return data;
   } catch (error) {
     console.error('Error creating ticket:', error);
