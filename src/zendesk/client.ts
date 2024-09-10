@@ -17,7 +17,7 @@ export const zendeskRequest = async (
   options?: TQoreAppActionFunctionContext<IZendeskContext>
 ) => {
   const uri = `/api/v2${endpoint}`;
-  const authorization = !options.conn_opts.token
+  const authorization = !options?.conn_opts?.token
     ? `Basic ${BasicAuth}`
     : `Bearer ${options?.conn_opts?.token}`;
   const requestMethod =
