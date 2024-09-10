@@ -17,8 +17,9 @@ export const zendeskRequest = async (
   options?: TQoreAppActionFunctionContext<IZendeskContext>
 ) => {
   const uri = `/api/v2${endpoint}`;
-  const authorization =
-    process.env.NODE_ENV === 'test' ? `Basic ${BasicAuth}` : `Bearer ${options?.conn_opts?.token}`;
+  const authorization = !options.conn_opts.token
+    ? `Basic ${BasicAuth}`
+    : `Bearer ${options?.conn_opts?.token}`;
   const requestMethod =
     method === 'DELETE' ? 'deleteReq' : (method.toLowerCase() as 'get' | 'post' | 'put');
   const url = `https://${options?.conn_opts?.subdomain || process.env.ZENDESK_TEST_DOMAIN}.zendesk.com`;

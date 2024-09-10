@@ -200,7 +200,7 @@ export interface IQoreAppAction extends IQoreAppShared {
 }
 
 export type TQoreAppActionFunctionContext<CustomConnOptions extends Record<string, any> = {}> = {
-  conn_name: string;
+  conn_name?: string;
   conn_opts?: {
     token?: string;
     oauth2_refresh_token?: string;
