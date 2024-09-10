@@ -1,6 +1,6 @@
 import { QorusRequest } from '@qoretechnologies/ts-toolkit';
 import { TQoreAppActionFunctionContext } from 'global/models/qore';
-import { Debugger, DebugLevels } from 'utils/Debugger';
+import { Debugger, DebugLevels } from '../utils/Debugger';
 
 const BasicAuth = Buffer.from(
   `${process.env.ZENDESK_EMAIL}/token:${process.env.ZENDESK_API_TOKEN}`
