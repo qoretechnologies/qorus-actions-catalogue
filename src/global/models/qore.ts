@@ -180,6 +180,7 @@ export interface IQoreApp<
   logo_mime_type: string;
   rest?: IQoreRestConnectionConfig;
   rest_modifiers?: IQoreRestConnectionModifiers<RestModifierOptions>;
+  swagger?: string;
 }
 
 export interface IQoreAppWithActions<
@@ -367,6 +368,7 @@ export interface IQoreAppActionOption<TypeName extends TQoreType = TQoreType, Ty
 
 export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
   action_code: 1;
+  swagger_path?: string;
 }
 
 export type TQoreOptions = Record<string, IQoreAppActionOption>;
@@ -378,6 +380,7 @@ export interface IQoreAppActionWithFunction<Options = TQoreOptions, Response = T
   api_function?: TQoreAppActionFunction;
   options?: StrictRecord<keyof Options, Options[keyof Options]>;
   response_type?: StrictRecord<keyof Response, Response[keyof Response]>;
+  swagger_path?: string;
 }
 
 export type TQorePartialActionWithFunction<
