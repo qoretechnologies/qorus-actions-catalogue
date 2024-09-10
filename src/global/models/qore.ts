@@ -368,7 +368,6 @@ export interface IQoreAppActionOption<TypeName extends TQoreType = TQoreType, Ty
 
 export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
   action_code: 1;
-  swagger_path?: string;
 }
 
 export type TQoreOptions = Record<string, IQoreAppActionOption>;
