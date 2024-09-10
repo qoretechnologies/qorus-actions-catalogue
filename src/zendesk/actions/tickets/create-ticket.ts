@@ -5,7 +5,7 @@ import {
   TActionResponse,
 } from 'global/models/actions';
 import { TQoreAppActionFunctionContext, TQorePartialActionWithFunction } from 'global/models/qore';
-import { Debugger, DebugLevels } from 'utils/Debugger';
+import { Debugger, DebugLevels } from '../../../utils/Debugger';
 import { IZendeskContext, zendeskRequest } from '../../client';
 
 export const options = {
