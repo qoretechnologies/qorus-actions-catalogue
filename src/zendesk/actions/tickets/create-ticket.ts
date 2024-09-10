@@ -4,8 +4,8 @@ import {
   TActionData,
   TActionResponse,
 } from 'global/models/actions';
-import { TQorePartialActionWithFunction } from 'global/models/qore';
-import { zendeskRequest } from '../../client';
+import { TQoreAppActionFunctionContext, TQorePartialActionWithFunction } from 'global/models/qore';
+import { IZendeskContext, zendeskRequest } from '../../client';
 
 export const options = {
   ticket: {
@@ -291,10 +291,10 @@ export const response_type = {
 async function createTicket(
   ticket: TActionData<typeof options>,
   _options?: any,
-  context?: any
+  context?: TQoreAppActionFunctionContext<IZendeskContext>
 ): Promise<TActionResponse<typeof response_type>> {
   try {
-    const data = await zendeskRequest('/tickets', 'POST', ticket, context);
+    const data = await zendeskRequest('/tickets', 'POST', ticket, undefined, context);
 
     return data;
   } catch (error) {
