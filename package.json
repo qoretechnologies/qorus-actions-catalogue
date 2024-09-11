@@ -1,6 +1,6 @@
 {
   "name": "@qoretechnologies/qorus-actions-catalogue",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Catalogue of actions for Qore & Qorus",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
