@@ -11631,15 +11631,35 @@ definitions:
       events:
         items:
           properties:
+            attachments:
+              readOnly: true
+              items:
+                type: "object"
+              type: "array"
+            audit_id:
+              readOnly: true
+              type: "integer"
+            author_id:
+              readOnly: true
+              type: "integer"
             body:
               readOnly: true
               type: "string"
             field_name:
               readOnly: true
               type: "string"
+            html_body:
+              readOnly: true
+              type: "string"
             id:
               readOnly: true
               type: "integer"
+            plain_body:
+              readOnly: true
+              type: "string"
+            public:
+              readOnly: true
+              type: "boolean"
             type:
               readOnly: true
               type: "string"
@@ -18159,6 +18179,18 @@ definitions:
       external_id:
         description: "An id you can use to link Zendesk Support tickets to local records"
         type: "string"
+      fields:
+        description: "Fields for the ticket"
+        items:
+          properties:
+            id:
+              description: "The id of the custom field"
+              type: "integer"
+            value:
+              description: "The value of the custom field"
+              type: "string"
+          type: "object"
+        type: "array"
       follower_ids:
         description: "The ids of agents currently following the ticket. See [CCs and followers resources](https://support.zendesk.com/hc/en-us/articles/360020585233)"
         items:
@@ -18181,6 +18213,10 @@ definitions:
         description: "If true, the ticket's [via type](/documentation/ticketing/reference-guides/via-object-reference/) is a messaging channel."
         readOnly: true
         type: "boolean"
+      generated_timestamp:
+        description: "Generated timestamp"
+        readOnly: true
+        type: "integer"
       group_id:
         description: "The group this ticket is assigned to"
         type: "integer"
@@ -18334,6 +18370,8 @@ definitions:
     properties:
       ticket:
         $ref: "#/definitions/TicketObject"
+      audit:
+        $ref: "#/definitions/AuditObject"
     type: "object"
   TicketSkipCreation:
     properties:

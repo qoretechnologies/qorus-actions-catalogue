@@ -182,6 +182,7 @@ export interface IQoreApp<
   logo_mime_type: string;
   rest?: IQoreRestConnectionConfig;
   rest_modifiers?: IQoreRestConnectionModifiers<RestModifierOptions>;
+  swagger?: string;
 }
 
 export interface IQoreAppWithActions<
@@ -202,7 +203,7 @@ export interface IQoreAppAction extends IQoreAppShared {
 }
 
 export type TQoreAppActionFunctionContext<CustomConnOptions extends Record<string, any> = {}> = {
-  conn_name: string;
+  conn_name?: string;
   conn_opts?: {
     token?: string;
     oauth2_refresh_token?: string;
@@ -380,6 +381,7 @@ export interface IQoreAppActionWithFunction<Options = TQoreOptions, Response = T
   api_function?: TQoreAppActionFunction;
   options?: StrictRecord<keyof Options, Options[keyof Options]>;
   response_type?: StrictRecord<keyof Response, Response[keyof Response]>;
+  swagger_path?: string;
 }
 
 export type TQorePartialActionWithFunction<

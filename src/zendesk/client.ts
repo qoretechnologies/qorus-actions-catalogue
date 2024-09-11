@@ -1,5 +1,6 @@
 import { QorusRequest } from '@qoretechnologies/ts-toolkit';
 import { TQoreAppActionFunctionContext } from 'global/models/qore';
+import { Debugger, DebugLevels } from '../utils/Debugger';
 
 const BasicAuth = Buffer.from(
   `${process.env.ZENDESK_EMAIL}/token:${process.env.ZENDESK_API_TOKEN}`
@@ -17,13 +18,17 @@ export const zendeskRequest = async (
   options?: TQoreAppActionFunctionContext<IZendeskContext>
 ) => {
   const uri = `/api/v2${endpoint}`;
-  const authorization =
-    process.env.NODE_ENV === 'test' ? `Basic ${BasicAuth}` : `Bearer ${options?.conn_opts?.token}`;
+  const authorization = !options?.conn_opts?.token
+    ? `Basic ${BasicAuth}`
+    : `Bearer ${options?.conn_opts?.token}`;
   const requestMethod =
     method === 'DELETE' ? 'deleteReq' : (method.toLowerCase() as 'get' | 'post' | 'put');
   const url = `https://${options?.conn_opts?.subdomain || process.env.ZENDESK_TEST_DOMAIN}.zendesk.com`;
 
   try {
+    Debugger.level = DebugLevels.Info;
+    Debugger.info(`Zendesk request: ${authorization} ${requestMethod} ${uri}`);
+
     const response: Record<string, any> = await QorusRequest[requestMethod](
       {
         path: uri,
@@ -38,6 +43,8 @@ export const zendeskRequest = async (
         endpointId: 'zendesk',
       }
     );
+
+    Debugger.info(`Request complete: ${response}`);
 
     return response?.data || {};
   } catch (error) {

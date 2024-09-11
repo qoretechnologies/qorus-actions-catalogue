@@ -15,7 +15,7 @@ export interface IQoreConnectionOptions {
 
 export const ZENDESK_APP_NAME = 'Zendesk';
 
-const options = {
+export const ZENDESK_CONN_OPTIONS = {
   subdomain: {
     display_name: 'Subdomain',
     short_desc: 'The subdomain for the URL',
@@ -66,8 +66,8 @@ export default (locale: Locales) =>
       ping_path: '/api/v2/users/me',
     },
     rest_modifiers: {
-      options,
+      options: ZENDESK_CONN_OPTIONS,
       required_options: 'subdomain',
       url_template_options: ['subdomain'],
     },
-  }) satisfies IQoreAppWithActions<typeof options>;
+  }) satisfies IQoreAppWithActions<typeof ZENDESK_CONN_OPTIONS>;
