@@ -1,8 +1,20 @@
 import { createAction } from 'core/framework';
-import { slackSendMessage } from '../common/utils';
-import { slackAuth } from '../..';
 import { assertNotNullOrUndefined, ExecutionType, PauseType } from 'core/shared';
+import { IActionResponse } from 'global/models/actions';
+import { slackAuth } from '../..';
 import { profilePicture, text, userId, username } from '../common/props';
+import { slackSendMessage } from '../common/utils';
+
+const requestApprovalDirectMessageResponseType: IActionResponse = {
+  approved: {
+    type: 'boolean',
+    name: 'approved',
+    display_name: 'Approved',
+    short_desc: 'Indicates if the message was approved',
+    desc: 'Indicates if the message was approved',
+    example_value: true,
+  },
+};
 
 export const requestApprovalDirectMessageAction = createAction({
   auth: slackAuth,
@@ -16,6 +28,7 @@ export const requestApprovalDirectMessageAction = createAction({
     username,
     profilePicture,
   },
+  responseType: requestApprovalDirectMessageResponseType,
   async run(context) {
     if (context.executionType === ExecutionType.BEGIN) {
       context.run.pause({

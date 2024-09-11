@@ -22,7 +22,8 @@ export class Piece<PieceAuth extends PieceAuthProperty = PieceAuthProperty>
     public readonly auth?: PieceAuth,
     public readonly minimumSupportedRelease?: string,
     public readonly maximumSupportedRelease?: string,
-    public readonly description = ''
+    public readonly description = '',
+    public readonly logo: string = ''
   ) {
     actions.forEach((action) => (this._actions[action.name] = action));
     triggers.forEach((trigger) => (this._triggers[trigger.name] = trigger));
@@ -40,6 +41,7 @@ export class Piece<PieceAuth extends PieceAuthProperty = PieceAuthProperty>
       auth: this.auth,
       minimumSupportedRelease: this.minimumSupportedRelease,
       maximumSupportedRelease: this.maximumSupportedRelease,
+      logo: this.logo,
     };
   }
 
@@ -74,7 +76,8 @@ export const createPiece = <PieceAuth extends PieceAuthProperty>(
     params.auth ?? undefined,
     params.minimumSupportedRelease,
     params.maximumSupportedRelease,
-    params.description
+    params.description,
+    params.logo
   );
 };
 
@@ -83,6 +86,7 @@ type CreatePieceParams<PieceAuth extends PieceAuthProperty = PieceAuthProperty> 
   logoUrl: string;
   authors: string[];
   description?: string;
+  logo?: string;
   auth: PieceAuth | undefined;
   events?: PieceEventProcessors;
   minimumSupportedRelease?: string;

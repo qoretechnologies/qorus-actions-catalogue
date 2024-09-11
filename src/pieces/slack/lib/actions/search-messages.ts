@@ -1,6 +1,25 @@
-import { createAction, Property } from 'core/framework';
-import { slackAuth } from '../..';
 import { WebClient } from '@slack/web-api';
+import { createAction, Property } from 'core/framework';
+import { IActionResponse } from 'global/models/actions';
+import { slackAuth } from '../..';
+
+const searchMessagesResponseType: IActionResponse = {
+  matches: {
+    type: 'list',
+    name: 'matches',
+    display_name: 'Matches',
+    short_desc: 'The messages that matched the query',
+    desc: 'The messages that matched the query',
+    example_value: [
+      {
+        type: 'message',
+        ts: '1234567890.123456',
+        user: 'U1234567890',
+        text: 'Hello, world!',
+      },
+    ],
+  },
+};
 
 export const searchMessages = createAction({
   name: 'searchMessages',
@@ -13,6 +32,7 @@ export const searchMessages = createAction({
       required: true,
     }),
   },
+  responseType: searchMessagesResponseType,
   async run({ auth, propsValue }) {
     const userToken = auth.data['authed_user']?.access_token;
     if (userToken === undefined) {
@@ -44,6 +64,6 @@ export const searchMessages = createAction({
       cursor = page.messages?.pagination?.next_cursor;
     } while (cursor);
 
-    return matches;
+    return { matches };
   },
 });

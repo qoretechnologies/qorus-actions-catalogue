@@ -7,6 +7,7 @@ import {
   TQoreOptions,
   TQorePartialActionWithFunction,
   TQoreResponseType,
+  TStringWithFirstUpperCaseCharacter,
 } from '../../global/models/qore';
 import { L } from '../../i18n/i18n-node';
 
@@ -124,9 +125,14 @@ export const fixActionOptions = (
  * @param appName - The app name to be normalized.
  * @returns The normalized app name.
  */
-export const normalizeAppName = (appName: string): string => {
+export const normalizeName = (appName: string): string => {
   return appName
+    .replace(/([a-z])([A-Z])/g, '$1_$2')
     .toLowerCase()
-    .replace(/\s+/g, '_')
+    .replace(/[-\s]+/g, '_')
     .replace(/[^a-z0-9_]/g, '');
+};
+
+export const normalizeAppName = (appName: string): TStringWithFirstUpperCaseCharacter => {
+  return capitalize(normalizeName(appName)) as TStringWithFirstUpperCaseCharacter;
 };

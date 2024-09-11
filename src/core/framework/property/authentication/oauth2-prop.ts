@@ -33,6 +33,9 @@ const OAuth2ExtraProps = Type.Object({
   props: Type.Optional(Type.Record(Type.String(), OAuthProp)),
   authUrl: Type.String(),
   tokenUrl: Type.String(),
+  url: Type.Optional(Type.String()),
+  pingPath: Type.Optional(Type.String()),
+  pingMethod: Type.Optional(Type.String()),
   scope: Type.Array(Type.String()),
   pkce: Type.Optional(Type.Boolean()),
   authorizationMethod: Type.Optional(Type.Enum(OAuth2AuthorizationMethod)),
@@ -42,6 +45,9 @@ const OAuth2ExtraProps = Type.Object({
 
 type OAuth2ExtraProps = {
   props?: OAuth2Props;
+  url?: string;
+  pingPath?: string;
+  pingMethod?: string;
   authUrl: string;
   tokenUrl: string;
   scope: string[];

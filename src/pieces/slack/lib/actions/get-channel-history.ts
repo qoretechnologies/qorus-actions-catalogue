@@ -1,7 +1,26 @@
 import { ConversationsHistoryResponse, WebClient } from '@slack/web-api';
 import { createAction, Property } from 'core/framework';
+import { IActionResponse } from 'global/models/actions';
 import { slackAuth } from '../..';
 import { slackChannel, slackInfo } from '../common/props';
+
+const getChannelHistoryResponseType: IActionResponse = {
+  messages: {
+    type: 'list',
+    name: 'messages',
+    display_name: 'Messages',
+    short_desc: 'The messages in the channel',
+    desc: 'The messages in the channel',
+    example_value: [
+      {
+        type: 'message',
+        ts: '1234567890.123456',
+        user: 'U1234567890',
+        text: 'Hello, world!',
+      },
+    ],
+  },
+};
 
 export const getChannelHistory = createAction({
   // auth: check https://www.activepieces.com/docs/developers/piece-reference/authentication,
@@ -38,6 +57,7 @@ export const getChannelHistory = createAction({
       required: true,
     }),
   },
+  responseType: getChannelHistoryResponseType,
   async run({ auth, propsValue }) {
     const client = new WebClient(auth.access_token);
     const messages = [];
@@ -56,6 +76,6 @@ export const getChannelHistory = createAction({
       }
     }
 
-    return messages;
+    return { messages };
   },
 });

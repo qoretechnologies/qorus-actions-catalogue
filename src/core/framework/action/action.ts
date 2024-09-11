@@ -1,4 +1,5 @@
 import { Static, Type } from '@sinclair/typebox';
+import { IActionResponse } from '../../../global/models/actions';
 import { ActionContext } from '../context';
 import { ActionBase } from '../piece-metadata';
 import { InputPropertyMap } from '../property';
@@ -37,6 +38,7 @@ type CreateActionParams<
   test?: ActionRunner<PieceAuth, ActionProps>;
   requireAuth?: boolean;
   errorHandlingOptions?: ErrorHandlingOptionsParam;
+  responseType?: IActionResponse;
 };
 
 export class IAction<PieceAuth extends PieceAuthProperty, ActionProps extends InputPropertyMap>
@@ -50,7 +52,8 @@ export class IAction<PieceAuth extends PieceAuthProperty, ActionProps extends In
     public readonly run: ActionRunner<PieceAuth, ActionProps>,
     public readonly test: ActionRunner<PieceAuth, ActionProps>,
     public readonly requireAuth: boolean,
-    public readonly errorHandlingOptions: ErrorHandlingOptionsParam
+    public readonly errorHandlingOptions: ErrorHandlingOptionsParam,
+    public readonly responseType: IActionResponse
   ) {}
 }
 
@@ -80,6 +83,7 @@ export const createAction = <
       retryOnFailure: {
         defaultValue: false,
       },
-    }
+    },
+    params.responseType
   );
 };

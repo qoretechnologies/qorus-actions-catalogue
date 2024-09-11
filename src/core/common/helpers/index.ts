@@ -36,7 +36,7 @@ export function createCustomApiCallAction({
     requireAuth: auth ? true : false,
     props: {
       url: Property.DynamicProperties({
-        displayName: '',
+        displayName: 'URL',
         required: true,
         refreshers: [],
         props: async ({ auth }) => {

@@ -2,15 +2,27 @@ import { slackAuth } from '../../';
 import { slackChannel, slackInfo } from '../common/props';
 
 import { WebClient } from '@slack/web-api';
-import { processMessageTimestamp } from '../common/utils';
 import { createAction, Property } from 'core/framework';
+import { IActionResponse } from 'global/models/actions';
+import { processMessageTimestamp } from '../common/utils';
 
-export const addRectionToMessageAction = createAction({
+const addReactionToMessageResponseType: IActionResponse = {
+  ok: {
+    type: 'boolean',
+    name: 'ok',
+    display_name: 'Success',
+    short_desc: 'Indicates if the reaction was successfully added',
+    desc: 'Indicates if the reaction was successfully added',
+    example_value: true,
+  },
+};
+
+export const addReactionToMessageAction = createAction({
   auth: slackAuth,
   name: 'slack-add-reaction-to-message',
   displayName: 'Add Reaction to Message',
   description: 'Add an emoji reaction to a message.',
-
+  responseType: addReactionToMessageResponseType,
   props: {
     info: slackInfo,
     channel: slackChannel(true),

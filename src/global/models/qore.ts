@@ -168,13 +168,15 @@ export type TFirstAppCharacter =
   | 8
   | 9;
 
+export type TStringWithFirstUpperCaseCharacter = `${TFirstAppCharacter}${string}`;
+
 export interface IQoreApp<
   RestModifierOptions extends Record<string, IQoreConnectionOption> = Record<
     string,
     IQoreConnectionOption
   >,
 > extends IQoreAppShared {
-  name: `${TFirstAppCharacter}${string}`;
+  name: TStringWithFirstUpperCaseCharacter;
   logo: string;
   logo_file_name: string;
   logo_mime_type: string;
@@ -218,7 +220,7 @@ export type TQoreAppActionFunction = (
 
 export type TQoreGetAllowedValuesFunction<TypeValue = unknown> = (
   context?: TQoreAppActionFunctionContext
-) => IQoreAllowedValue<TypeValue>[];
+) => IQoreAllowedValue<TypeValue>[] | Promise<IQoreAllowedValue<TypeValue>[]>;
 
 export type TQoreStringCompatibleType =
   | 'string'
