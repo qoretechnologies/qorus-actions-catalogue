@@ -53,6 +53,7 @@ export default (locale: Locales) =>
       'dWxlOm5vbnplcm87Ii8+Cjwvc3ZnPgo=',
     logo_file_name: 'zendesk.svg',
     logo_mime_type: 'image/svg+xml',
+    swagger: 'schemas/zendesk.swagger.yaml',
     rest: {
       url: `https://{{subdomain}}.zendesk.com`,
       data: 'json',

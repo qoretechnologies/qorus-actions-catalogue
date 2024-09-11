@@ -389,7 +389,7 @@ export type TQorePartialActionWithFunction<
   Response = Record<string, IQoreTypeObject>,
 > = Pick<
   IQoreAppActionWithFunction<Options, Response>,
-  'api_function' | 'response_type' | 'options' | 'action'
+  'api_function' | 'response_type' | 'options' | 'action' | 'swagger_path'
 > & { _localizationGroup?: string };
 
 export interface IActionInitializationProps {

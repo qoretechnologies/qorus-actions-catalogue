@@ -1,7 +1,5 @@
-import { ITicketsInterface } from 'zendesk/models/tickets';
-import { zendeskRequest } from '../../client';
+import { IActionOptions, IActionResponse } from 'global/models/actions';
 import { TQorePartialActionWithFunction } from 'global/models/qore';
-import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
 import { L } from '../../../i18n/i18n-node';
 
 // Defining a function to fetch tickets
@@ -40,22 +38,23 @@ export const response_type: IActionResponse = {
     example_value: 10,
   },
 };
-const getTickets = async ({ ids }: TActionData<typeof options>) => {
-  try {
-    const data: ITicketsInterface = await zendeskRequest(`/tickets/show_many.json`, 'GET', null, {
-      ids,
-    });
 
-    return data;
-  } catch (error) {
-    console.error('Error fetching tickets:', error);
-    throw error;
-  }
-};
+// const getTickets = async ({ ids }: TActionData<typeof options>) => {
+//   try {
+//     const data: ITicketsInterface = await zendeskRequest(`/tickets/show_many.json`, 'GET', null, {
+//       ids,
+//     });
+
+//     return data;
+//   } catch (error) {
+//     console.error('Error fetching tickets:', error);
+//     throw error;
+//   }
+// };
 
 export default {
   action: 'get_tickets',
-  api_function: getTickets,
   options,
   response_type,
+  swagger_path: '/api/v2/tickets/GET',
 } as TQorePartialActionWithFunction<typeof options, typeof response_type>;
