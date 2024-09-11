@@ -1,6 +1,6 @@
 {
   "name": "@qoretechnologies/qorus-actions-catalogue",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Catalogue of actions for Qore & Qorus",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,8 @@
     "url": "git+https://github.com/qoretechnologies/qorus-actions-catalogue.git"
   },
   "scripts": {
-    "build": "rm -rf dist/ && npx tsc --p tsconfig.build.json && tsc-alias",
+    "build": "rm -rf dist/ && npx tsc --p tsconfig.build.json && tsc-alias && yarn copy-schemas",
+    "copy-schemas": "copyfiles -u 2 src/schemas/* dist/schemas",
     "build:test": "npx tsc --noEmit --p tsconfig.build.json && tsc-alias",
     "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "storybook": "storybook dev -p 6006",
@@ -44,6 +45,7 @@
     "@types/whatwg-url": "^11.0.5",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
+    "copyfiles": "^2.4.1",
     "dotenv-cli": "^7.4.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
