@@ -1,4 +1,8 @@
-import { IQoreAppWithActions, TQoreAppActionFunctionContext } from '../global/models/qore';
+import {
+  IQoreAppActionWithFunction,
+  IQoreAppWithActions,
+  TQoreAppActionFunctionContext,
+} from '../global/models/qore';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
 import { validateResponseProperties } from './utils';
 
@@ -32,7 +36,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should find a Slack user by email', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'slack_find_user_by_email');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'slack_find_user_by_email'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const props = { email: process.env.SLACK_USER_EMAIL };
@@ -57,7 +63,9 @@ describe('slackPieceTest', () => {
     }
   });
   it('should send a Slack message and receive a positive response', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'send_channel_message');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'send_channel_message'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -87,7 +95,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should get channel history', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'get_channel_history');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'get_channel_history'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -117,7 +127,7 @@ describe('slackPieceTest', () => {
   it('should add reaction to message', async () => {
     const action = slackApp.actions.find(
       (action) => action.action === 'slack_add_reaction_to_message'
-    );
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -149,7 +159,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should create a channel', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'slack_create_channel');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'slack_create_channel'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const props = {
@@ -179,7 +191,7 @@ describe('slackPieceTest', () => {
   it('should request action direct message', async () => {
     const action = slackApp.actions.find(
       (action) => action.action === 'request_action_direct_message'
-    );
+    ) as IQoreAppActionWithFunction;
 
     const userIds = await action.options.userId.get_allowed_values(actionContext);
 
@@ -207,7 +219,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should request action in channel', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'request_approval_message');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'request_approval_message'
+    ) as IQoreAppActionWithFunction;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -239,7 +253,7 @@ describe('slackPieceTest', () => {
   it('should request approval direct message', async () => {
     const action = slackApp.actions.find(
       (action) => action.action === 'request_approval_direct_message'
-    );
+    ) as IQoreAppActionWithFunction;
 
     const userIds = await action.options.userId.get_allowed_values(actionContext);
 
@@ -266,7 +280,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should request approval in channel', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'request_approval_message');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'request_approval_message'
+    ) as IQoreAppActionWithFunction;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
     expect(channelIds).toBeDefined();
@@ -295,7 +311,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should search for messages', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'search_messages');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'search_messages'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const props = { query: 'test' };
@@ -319,7 +337,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should update a message', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'update_message');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'update_message'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -351,7 +371,9 @@ describe('slackPieceTest', () => {
   });
 
   it('should upload a file', async () => {
-    const action = slackApp.actions.find((action) => action.action === 'upload_file');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'upload_file'
+    ) as IQoreAppActionWithFunction;
     const actionFunction = action?.api_function;
 
     const channelIds = await action.options.channel.get_allowed_values(actionContext);
@@ -390,10 +412,14 @@ describe('slackPieceTest', () => {
 
   it('should update a user profile first name', async () => {
     const testName = 'test';
-    const findUserActionFunction = slackApp.actions.find(
-      (action) => action.action === 'slack_find_user_by_email'
+    const findUserActionFunction = (
+      slackApp.actions.find(
+        (action) => action.action === 'slack_find_user_by_email'
+      ) as IQoreAppActionWithFunction
     )?.api_function;
-    const action = slackApp.actions.find((action) => action.action === 'slack_update_profile');
+    const action = slackApp.actions.find(
+      (action) => action.action === 'slack_update_profile'
+    ) as IQoreAppActionWithFunction;
 
     const actionFunction = action?.api_function;
 

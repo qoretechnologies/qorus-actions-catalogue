@@ -2,10 +2,10 @@ import { Locales, Translation } from 'i18n/i18n-types';
 import { capitalize, omit, reduce } from 'lodash';
 import {
   IQoreAppActionOption,
-  IQoreAppActionWithFunction,
   IQoreTypeObject,
+  TQoreAppAction,
   TQoreOptions,
-  TQorePartialActionWithFunction,
+  TQorePartialAction,
   TQoreResponseType,
   TStringWithFirstUpperCaseCharacter,
 } from '../../global/models/qore';
@@ -24,9 +24,9 @@ export const OMMITTED_FIELDS = ['_localizationGroup'] as const;
  */
 export const mapActionsToApp = (
   app: keyof Translation['apps'],
-  actions: Record<string, TQorePartialActionWithFunction>,
+  actions: Record<string, TQorePartialAction>,
   locale: Locales
-): IQoreAppActionWithFunction[] => {
+): TQoreAppAction[] => {
   return Object.entries(actions).map(([_a, action]) => ({
     ...omit(action, OMMITTED_FIELDS),
 
@@ -47,8 +47,14 @@ export const mapActionsToApp = (
     app,
     action_code: 2,
 
-    options: fixActionOptions(action.options, app, locale, action._localizationGroup),
-    response_type: fixActionType(action.response_type, app, locale, action._localizationGroup),
+    options:
+      'options' in action
+        ? fixActionOptions(action.options, app, locale, action._localizationGroup)
+        : undefined,
+    response_type:
+      'response_type' in action
+        ? fixActionType(action.response_type, app, locale, action._localizationGroup)
+        : undefined,
   }));
 };
 

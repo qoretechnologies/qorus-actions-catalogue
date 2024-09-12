@@ -1,7 +1,7 @@
-import { hubspotRequest } from '../../client';
-import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { IActionOptions, IActionResponse, TActionData } from 'global/models/actions';
+import { TQorePartialAction } from '../../../global/models/qore';
 import { L } from '../../../i18n/i18n-node';
+import { hubspotRequest } from '../../client';
 
 // Defining a function to fetch users
 const options: IActionOptions = null;
@@ -38,4 +38,5 @@ export default {
   api_function: getUsers,
   options,
   response_type,
-} as TQorePartialActionWithFunction<typeof options, typeof response_type>;
+  _localizationGroup: 'users',
+} satisfies TQorePartialAction<typeof options, typeof response_type>;

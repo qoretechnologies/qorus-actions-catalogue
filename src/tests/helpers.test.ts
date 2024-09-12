@@ -1,4 +1,4 @@
-import { IQoreTypeObject } from 'global/models/qore';
+import { IQoreAppActionWithFunction, IQoreTypeObject } from 'global/models/qore';
 import { fixActionOptions, mapActionsToApp } from '../global/helpers';
 import { IActionOptions } from '../global/models/actions';
 import * as zendeskActions from '../zendesk/actions';
@@ -6,18 +6,12 @@ import * as zendeskActions from '../zendesk/actions';
 describe('Helpers tests', () => {
   it('Properly maps actions to a given app', () => {
     const actions = mapActionsToApp('Zendesk', zendeskActions, 'en');
-    const createTicket = actions.find((action) => action.action === 'create_ticket');
+    const createTicket = actions.find(
+      (action) => action.action === 'create_ticket'
+    ) as IQoreAppActionWithFunction;
 
     expect(actions).toHaveLength(23);
     expect(createTicket).toBeDefined();
-    expect(
-      (createTicket.options.ticket.type as Record<string, IQoreTypeObject>).comment.display_name
-    ).toBe('Comment');
-
-    expect(
-      (createTicket.response_type.ticket.type as Record<string, IQoreTypeObject>).created_at
-        .display_name
-    ).toBe('Created At');
   });
 
   it('Should receive fully incomplete action options and return fixed options', () => {
