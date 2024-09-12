@@ -14,7 +14,7 @@ export interface IQoreConnectionOptions {
 }
 
 export const ZENDESK_APP_NAME = 'Zendesk';
-
+export const ZENDESK_SWAGGER_API_PATH = '/api/v2/';
 export const ZENDESK_CONN_OPTIONS = {
   subdomain: {
     display_name: 'Subdomain',

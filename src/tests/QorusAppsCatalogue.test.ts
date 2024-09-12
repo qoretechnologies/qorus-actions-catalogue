@@ -26,7 +26,7 @@ describe('Qorus Apps Catalogue tests', () => {
         expect(action.short_desc).not.toBeFalsy();
         expect(action.desc).not.toBeFalsy();
 
-        if (action.options) {
+        if ('options' in action) {
           forEach(action.options, (option) => {
             expect(option.display_name).not.toBeFalsy();
             expect(option.short_desc).not.toBeFalsy();
@@ -35,7 +35,7 @@ describe('Qorus Apps Catalogue tests', () => {
           });
         }
 
-        if (action.response_type) {
+        if ('response_type' in action) {
           forEach(action.response_type, (responseType) => {
             expect(responseType.display_name).not.toBeFalsy();
             expect(responseType.short_desc).not.toBeFalsy();

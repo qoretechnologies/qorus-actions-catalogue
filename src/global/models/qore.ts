@@ -191,12 +191,12 @@ export interface IQoreAppWithActions<
     IQoreConnectionOption
   >,
 > extends IQoreApp<RestModifierOptions> {
-  actions: IQoreAppActionWithFunction[];
+  actions: TQoreAppAction[];
 }
 
 export type TQoreApps = Record<string, IQoreAppWithActions>;
 
-export interface IQoreAppAction extends IQoreAppShared {
+export interface IQoreBaseAppAction extends IQoreAppShared {
   app: string;
   action: string;
   action_code: 1 | 2; // What are other possible values?
@@ -353,6 +353,7 @@ export interface IQoreSharedObject<TypeName extends TQoreType = TQoreType, TypeV
   default_value?: TypeValue; // (values must use the field's type) the default value if none is provided by the user
   allowed_values?: IQoreAllowedValue<TypeValue>[]; // an array of objects providing the only values allowed for the field
   get_allowed_values?: TQoreGetAllowedValuesFunction<TypeValue>; // a function that returns the allowed values for the field
+  io_timeout_secs?: number; // the number of seconds to wait for the action to complete before timing out
 }
 
 export interface IQoreTypeObject<TypeName extends TQoreType = TQoreType, TypeValue = unknown>
@@ -368,7 +369,7 @@ export interface IQoreAppActionOption<TypeName extends TQoreType = TQoreType, Ty
   sensitive?: boolean;
 }
 
-export interface IQoreAppActionWithoutFunction extends IQoreAppAction {
+export interface IQoreAppActionWithoutFunction extends IQoreBaseAppAction {
   action_code: 1;
 }
 
@@ -376,21 +377,35 @@ export type TQoreOptions = Record<string, IQoreAppActionOption>;
 export type TQoreResponseType = Record<string, IQoreTypeObject>;
 
 export interface IQoreAppActionWithFunction<Options = TQoreOptions, Response = TQoreResponseType>
-  extends IQoreAppAction {
+  extends IQoreBaseAppAction {
   action_code: 2;
   api_function?: TQoreAppActionFunction;
   options?: StrictRecord<keyof Options, Options[keyof Options]>;
   response_type?: StrictRecord<keyof Response, Response[keyof Response]>;
-  swagger_path?: string;
+  io_timeout_secs?: number;
 }
 
-export type TQorePartialActionWithFunction<
+export interface IQoreAppActionWithSwaggerPath extends IQoreBaseAppAction {
+  action_code: 2;
+  api_function?: never;
+  swagger_path: string;
+}
+
+export type TQoreAppAction<Options = TQoreOptions, Response = TQoreResponseType> =
+  | IQoreAppActionWithFunction<Options, Response>
+  | IQoreAppActionWithoutFunction
+  | IQoreAppActionWithSwaggerPath;
+
+export type TQorePartialAction<
   Options = Record<string, IQoreAppActionOption>,
   Response = Record<string, IQoreTypeObject>,
-> = Pick<
-  IQoreAppActionWithFunction<Options, Response>,
-  'api_function' | 'response_type' | 'options' | 'action' | 'swagger_path'
-> & { _localizationGroup?: string };
+> = (
+  | Omit<IQoreAppActionWithFunction<Options, Response>, 'action_code' | 'app'>
+  | Omit<IQoreAppActionWithoutFunction, 'action_code' | 'app'>
+  | Omit<IQoreAppActionWithSwaggerPath, 'action_code' | 'app'>
+) & {
+  _localizationGroup: string;
+};
 
 export interface IActionInitializationProps {
   locale: Locales;

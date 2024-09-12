@@ -4,8 +4,8 @@ import {
   TActionData,
   TActionResponse,
 } from 'global/models/actions';
-import { TQorePartialActionWithFunction } from 'global/models/qore';
 import { zendeskRequest } from 'zendesk/client';
+import { TQorePartialAction } from '../global/models/qore';
 import { L } from '../i18n/i18n-node';
 
 const options = {
@@ -63,4 +63,5 @@ export default {
   api_function: deleteAttachment,
   options,
   response_type,
-} satisfies TQorePartialActionWithFunction<typeof options, typeof response_type>;
+  _localizationGroup: 'attachments',
+} satisfies TQorePartialAction<typeof options, typeof response_type>;
