@@ -1,1 +1,0 @@
-export { actionsCatalogue } from './catalogue';
