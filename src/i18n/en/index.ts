@@ -23,6 +23,11 @@ const en = {
         },
       },
     },
+    Notion: {
+      displayName: 'Notion',
+      shortDesc: 'Collection of actions to interact with Notion API',
+      longDesc: 'Collection of actions to interact with Notion API',
+    },
     Zendesk: {
       displayName: 'Zendesk',
       shortDesc: 'Collection of actions to interact with Zendesk API',
