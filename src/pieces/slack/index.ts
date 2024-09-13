@@ -27,7 +27,7 @@ export const slackAuth = PieceAuth.OAuth2({
   tokenUrl: 'https://slack.com/api/oauth.v2.access',
   required: true,
   url: 'https://slack.com/api',
-  pingMethod: 'POST',
+  pingMethod: 'GET',
   pingPath: '/auth.test',
   scope: [
     'channels:read',
