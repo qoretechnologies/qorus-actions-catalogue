@@ -43,6 +43,10 @@ describe('Qorus Apps Catalogue tests', () => {
             expect(responseType.type).not.toBeFalsy();
           });
         }
+
+        if ('swagger_path' in action) {
+          expect(action.swagger_path.includes('undefined')).not.toBeTruthy();
+        }
       });
     });
   });

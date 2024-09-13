@@ -1,5 +1,5 @@
 import { TQorePartialAction } from 'global/models/qore';
-import { ZENDESK_SWAGGER_API_PATH } from '../..';
+import { ZENDESK_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'update_ticket',
