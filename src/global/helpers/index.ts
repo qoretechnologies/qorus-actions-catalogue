@@ -51,9 +51,10 @@ export const mapActionsToApp = (
       'options' in action
         ? fixActionOptions(action.options, app, locale, action._localizationGroup)
         : undefined,
-    ...('response_type' in action && {
-      response_type: fixActionType(action.response_type, app, locale, action._localizationGroup),
-    }),
+    response_type:
+      'response_type' in action
+        ? fixActionType(action.response_type, app, locale, action._localizationGroup)
+        : undefined,
   }));
 };
 
