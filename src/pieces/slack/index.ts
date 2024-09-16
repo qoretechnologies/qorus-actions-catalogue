@@ -33,7 +33,7 @@ export const slackAuth = PieceAuth.OAuth2({
     'channels:read',
     'channels:manage',
     'channels:history',
-    'chat:write',
+    'chat:write.public',
     'groups:read',
     'groups:write',
     'reactions:read',
