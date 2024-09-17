@@ -1,7 +1,9 @@
 import { Locales, Translation } from 'i18n/i18n-types';
 import { capitalize, omit, reduce } from 'lodash';
+import { OpenAPIV2 } from 'openapi-types';
 import {
   IQoreAppActionOption,
+  IQorePartialAppActionWithSwaggerPath,
   IQoreTypeObject,
   TQoreAppAction,
   TQoreOptions,
@@ -16,6 +18,72 @@ import { L } from '../../i18n/i18n-node';
 export const OMMITTED_FIELDS = ['_localizationGroup'] as const;
 
 /*
+ * This function builds actions from a swagger schema automatically
+ * @param schema - the swagger schema
+ * @param allowedPaths - the paths that are allowed
+ * @returns IQorePartialAppActionWithSwaggerPath[]
+ */
+export const buildActionsFromSwaggerSchema = (
+  schema: OpenAPIV2.Document,
+  allowedPaths: string[]
+): IQorePartialAppActionWithSwaggerPath[] => {
+  // Check if the schema was provided, return empty actions if not
+  // If the allowedPaths are empty, return empty actions
+  if (!schema || (allowedPaths && !allowedPaths.length)) {
+    return [];
+  }
+
+  // We filter the paths to only include the ones that are allowed
+  const filteredPaths = Object.entries(schema.paths).filter(([path]) =>
+    allowedPaths.includes(path)
+  );
+
+  const actions: IQorePartialAppActionWithSwaggerPath[] = [];
+
+  filteredPaths.forEach(([path, methods]) => {
+    Object.entries(methods).forEach(([method, data]) => {
+      // Do not iterate if the method is "parameters"
+      if (method === 'parameters' || typeof data !== 'object') {
+        return;
+      }
+
+      // We need to cast the data to an OperationObject to access the properties
+      // Because typescript is not smart enough to know that the data is an OperationObject after the check of `parameters`
+      const dataWithoutParameters = data as OpenAPIV2.OperationObject;
+
+      // Create the action object, we get the properties from the schema or use a fallback
+      const action: IQorePartialAppActionWithSwaggerPath = {
+        action: getPropertyOfSchemaData(
+          dataWithoutParameters,
+          'operationId',
+          `${path}/${method}`.replace(/\//g, '_')
+        ),
+        swagger_path: `${path}/${method.toUpperCase()}`,
+        display_name: getPropertyOfSchemaData(dataWithoutParameters, 'summary', ''),
+        short_desc: getPropertyOfSchemaData(dataWithoutParameters, 'summary', ''),
+        desc: getPropertyOfSchemaData(dataWithoutParameters, 'description', ''),
+      };
+
+      actions.push(action);
+    });
+  });
+
+  return actions satisfies IQorePartialAppActionWithSwaggerPath[];
+};
+
+export const getPropertyOfSchemaData = (
+  data: OpenAPIV2.OperationObject,
+  key: keyof OpenAPIV2.OperationObject,
+  fallback?: string
+) => {
+  if (typeof data === 'object' && key in data) {
+    return data[key] as string;
+  }
+
+  return fallback || '';
+};
+
+/*
  * This function maps the actions to the app and adds missing metadata using translations
  * @param app - the name of the app
  * @param actions - the actions to map
@@ -24,7 +92,7 @@ export const OMMITTED_FIELDS = ['_localizationGroup'] as const;
  */
 export const mapActionsToApp = (
   app: keyof Translation['apps'],
-  actions: Record<string, TQorePartialAction>,
+  actions: Record<string, TQorePartialAction> | TQorePartialAction[],
   locale: Locales
 ): TQoreAppAction[] => {
   return Object.entries(actions).map(([_a, action]) => ({

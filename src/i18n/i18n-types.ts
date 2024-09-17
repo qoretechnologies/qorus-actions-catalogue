@@ -82,6 +82,20 @@ type RootTranslation = {
 			 */
 			longDesc: string
 		}
+		Esignature: {
+			/**
+			 * E​s​i​g​n​a​t​u​r​e
+			 */
+			displayName: string
+			/**
+			 * C​o​l​l​e​c​t​i​o​n​ ​o​f​ ​a​c​t​i​o​n​s​ ​t​o​ ​i​n​t​e​r​a​c​t​ ​w​i​t​h​ ​E​s​i​g​n​a​t​u​r​e​ ​A​P​I
+			 */
+			shortDesc: string
+			/**
+			 * C​o​l​l​e​c​t​i​o​n​ ​o​f​ ​a​c​t​i​o​n​s​ ​t​o​ ​i​n​t​e​r​a​c​t​ ​w​i​t​h​ ​E​s​i​g​n​a​t​u​r​e​ ​A​P​I
+			 */
+			longDesc: string
+		}
 		Zendesk: {
 			/**
 			 * Z​e​n​d​e​s​k
@@ -2014,6 +2028,20 @@ export type TranslationFunctions = {
 			shortDesc: () => LocalizedString
 			/**
 			 * Collection of actions to interact with Asana API
+			 */
+			longDesc: () => LocalizedString
+		}
+		Esignature: {
+			/**
+			 * Esignature
+			 */
+			displayName: () => LocalizedString
+			/**
+			 * Collection of actions to interact with Esignature API
+			 */
+			shortDesc: () => LocalizedString
+			/**
+			 * Collection of actions to interact with Esignature API
 			 */
 			longDesc: () => LocalizedString
 		}
