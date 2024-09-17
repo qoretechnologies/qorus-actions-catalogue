@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'update_workspace',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/workspaces/{workspace_gid}/PUT`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/workspaces/{workspace_id}/PUT`,
   _localizationGroup: 'workspaces',
 } satisfies TQorePartialAction;

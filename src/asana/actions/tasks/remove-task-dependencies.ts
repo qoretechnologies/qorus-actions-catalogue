@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'remove_task_dependencies',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/tasks/{task_gid}/removeDependencies/POST`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/tasks/{task_id}/removeDependencies/POST`,
   _localizationGroup: 'tasks',
 } satisfies TQorePartialAction;

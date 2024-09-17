@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'get_user_favorites',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/users/{user_gid}/favorites/GET`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/users/{user_id}/favorites/GET`,
   _localizationGroup: 'users',
 } satisfies TQorePartialAction;

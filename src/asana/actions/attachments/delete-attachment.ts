@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'delete_attachment',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/attachments/{attachment_gid}/DELETE`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/attachments/{attachment_id}/DELETE`,
   _localizationGroup: 'attachments',
 } satisfies TQorePartialAction;

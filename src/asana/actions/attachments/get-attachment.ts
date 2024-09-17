@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'get_attachment',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/attachments/{attachment_gid}/GET`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/attachments/{attachment_id}/GET`,
   _localizationGroup: 'attachments',
 } satisfies TQorePartialAction;

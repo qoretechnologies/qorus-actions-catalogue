@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'get_goal',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/goals/{goal_gid}/GET`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/goals/{goal_id}/GET`,
   _localizationGroup: 'goals',
 } satisfies TQorePartialAction;

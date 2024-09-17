@@ -3,6 +3,6 @@ import { ASANA_SWAGGER_API_PATH } from '../../constants';
 
 export default {
   action: 'add_task_followers',
-  swagger_path: `${ASANA_SWAGGER_API_PATH}/tasks/{task_gid}/addFollowers/POST`,
+  swagger_path: `${ASANA_SWAGGER_API_PATH}/tasks/{task_id}/addFollowers/POST`,
   _localizationGroup: 'tasks',
 } satisfies TQorePartialAction;
