@@ -17,7 +17,7 @@ import { dropboxUploadFile } from './lib/actions/upload-file';
 export const dropboxAuth = PieceAuth.OAuth2({
   description: '',
   pingMethod: 'POST',
-  pingPath: '/check/user',
+  pingPath: 'check/user',
   url: 'https://api.dropboxapi.com/2',
   authUrl: 'https://www.dropbox.com/oauth2/authorize',
   tokenUrl: 'https://api.dropboxapi.com/oauth2/token',
