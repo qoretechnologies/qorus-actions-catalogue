@@ -68,6 +68,20 @@ type RootTranslation = {
 			 */
 			longDesc: string
 		}
+		Asana: {
+			/**
+			 * A​s​a​n​a
+			 */
+			displayName: string
+			/**
+			 * C​o​l​l​e​c​t​i​o​n​ ​o​f​ ​a​c​t​i​o​n​s​ ​t​o​ ​i​n​t​e​r​a​c​t​ ​w​i​t​h​ ​A​s​a​n​a​ ​A​P​I
+			 */
+			shortDesc: string
+			/**
+			 * C​o​l​l​e​c​t​i​o​n​ ​o​f​ ​a​c​t​i​o​n​s​ ​t​o​ ​i​n​t​e​r​a​c​t​ ​w​i​t​h​ ​A​s​a​n​a​ ​A​P​I
+			 */
+			longDesc: string
+		}
 		Zendesk: {
 			/**
 			 * Z​e​n​d​e​s​k
@@ -1986,6 +2000,20 @@ export type TranslationFunctions = {
 			shortDesc: () => LocalizedString
 			/**
 			 * Collection of actions to interact with Notion API
+			 */
+			longDesc: () => LocalizedString
+		}
+		Asana: {
+			/**
+			 * Asana
+			 */
+			displayName: () => LocalizedString
+			/**
+			 * Collection of actions to interact with Asana API
+			 */
+			shortDesc: () => LocalizedString
+			/**
+			 * Collection of actions to interact with Asana API
 			 */
 			longDesc: () => LocalizedString
 		}
