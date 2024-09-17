@@ -27,6 +27,7 @@ export const dropboxAuth = PieceAuth.OAuth2({
     'files.metadata.read',
     'files.content.write',
     'files.content.read',
+    'account_info.read',
   ],
 });
 
