@@ -15,7 +15,7 @@ export default (locale: Locales) =>
     short_desc: L[locale].apps.Asana.shortDesc(),
     name: ASANA_APP_NAME,
     actions: mapActionsToApp(ASANA_APP_NAME, asanaActions, locale),
-    desc: L[locale].apps.Notion.longDesc(),
+    desc: L[locale].apps.Asana.longDesc(),
     logo:
       'PHN2ZyBpZD0ibG9nb3NhbmR0eXBlc19jb20iIGRhdGEtbmFtZT0ibG9nb3NhbmR0eXBlcyBjb20iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy' +
       '8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxMjciIGhlaWdodD0iMTI3IiB2aWV3' +
