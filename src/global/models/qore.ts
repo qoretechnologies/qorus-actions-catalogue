@@ -108,6 +108,8 @@ export interface IQoreRestConnectionConfig {
 
   // The username for authentication. Not used in conjunction with OAuth2 configurations.
   username?: string;
+
+  oauth2_token_use_basic_auth?: boolean;
 }
 
 export interface IQoreConnectionOption<
