@@ -1,6 +1,6 @@
 import { Locales } from 'i18n/i18n-types';
 import asana from '../asana';
-import eSignature from '../eSignature';
+import eSignature from '../esignature';
 import { TQoreApps } from '../global/models/qore';
 import notion from '../notion';
 import { PiecesAppCatalogue } from '../pieces/piecesCatalogue';
