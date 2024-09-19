@@ -391,6 +391,12 @@ export interface IQoreAppActionWithSwaggerPath extends IQoreBaseAppAction {
   swagger_path: string;
 }
 
+export interface IQorePartialAppActionWithSwaggerPath
+  extends Omit<IQoreBaseAppAction, 'action_code' | 'app'> {
+  api_function?: never;
+  swagger_path: string;
+}
+
 export type TQoreAppAction<Options = TQoreOptions, Response = TQoreResponseType> =
   | IQoreAppActionWithFunction<Options, Response>
   | IQoreAppActionWithoutFunction
@@ -402,9 +408,9 @@ export type TQorePartialAction<
 > = (
   | Omit<IQoreAppActionWithFunction<Options, Response>, 'action_code' | 'app'>
   | Omit<IQoreAppActionWithoutFunction, 'action_code' | 'app'>
-  | Omit<IQoreAppActionWithSwaggerPath, 'action_code' | 'app'>
+  | IQorePartialAppActionWithSwaggerPath
 ) & {
-  _localizationGroup: string;
+  _localizationGroup?: string;
 };
 
 export interface IActionInitializationProps {

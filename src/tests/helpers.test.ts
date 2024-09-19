@@ -1,9 +1,32 @@
-import { IQoreAppActionWithFunction, IQoreTypeObject } from 'global/models/qore';
-import { fixActionOptions, mapActionsToApp } from '../global/helpers';
+import {
+  IQoreAppActionWithFunction,
+  IQorePartialAppActionWithSwaggerPath,
+  IQoreTypeObject,
+} from 'global/models/qore';
+import { OpenAPIV2 } from 'openapi-types';
+import {
+  buildActionsFromSwaggerSchema,
+  fixActionOptions,
+  mapActionsToApp,
+} from '../global/helpers';
 import { IActionOptions } from '../global/models/actions';
+import eSignature from '../schemas/esignature.swagger.json';
 import * as zendeskActions from '../zendesk/actions';
 
 describe('Helpers tests', () => {
+  it.only('Properly parses a swagger schema and creates actions', () => {
+    const actions: IQorePartialAppActionWithSwaggerPath[] = buildActionsFromSwaggerSchema(
+      eSignature as OpenAPIV2.Document,
+      ['/v2.1/accounts', '/v2.1/accounts/{accountId}/connect/oauth']
+    );
+
+    expect(actions).toHaveLength(5);
+    expect(actions[0].action).toBe('Accounts_PostAccounts');
+    expect(actions[0].swagger_path).toBe('/v2.1/accounts/POST');
+    expect(actions[0].display_name).toBe('Creates new accounts.');
+    expect(actions[0].short_desc).toBe('Creates new accounts.');
+  });
+
   it('Properly maps actions to a given app', () => {
     const actions = mapActionsToApp('Zendesk', zendeskActions, 'en');
     const createTicket = actions.find(
