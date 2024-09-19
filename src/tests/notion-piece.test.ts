@@ -123,7 +123,6 @@ describe('notionPieceTest', () => {
           {},
           actionContext
         );
-        console.log('page', result);
         page = result;
         expect(result).toBeDefined();
         const expectedResponseType = action.response_type;

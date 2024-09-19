@@ -35,6 +35,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": false,
     "strictBindCallApply": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false,
     "jsx": "react-jsx",
     "types": ["jest", "node"]
